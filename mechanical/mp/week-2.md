@@ -13,7 +13,7 @@ Additive Manufacturing (AM), also known as 3D printing, is a process of creating
 3. DLP – Similar to SLA, but uses a projector.
 4. SLS – Fuses powdered material with a laser.
 5. EBM – Uses electron beam in vacuum for metals.
-6.Binder Jetting – Glues powder particles layer by layer.
+6. Binder Jetting – Glues powder particles layer by layer.
 
 ### Fused Deposition Modeling (FDM)
 FDM is one of the most widely used additive manufacturing technologies, especially for prototyping and low-volume production.
