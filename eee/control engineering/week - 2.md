@@ -265,3 +265,31 @@ Let us consider the same signal flow graph for finding transfer function.
 ![image](https://github.com/user-attachments/assets/981899da-4c68-4544-8ee0-a2fa2c88df1a)
 
 ![image](https://github.com/user-attachments/assets/afa0c35c-141b-464c-bc96-8e0bcdc32d3e)
+###Calculating steady-state errors
+Before talking about the relationships between steady-state error and system type, we will show how to calculate error regardless of system type or input. Then, we will start deriving formulas we can apply when the system has a specific structure and the input is one of our standard functions. Steady state error can be calculated from the open- or closed-loop transfer function for unity feedback systems. For example, let's say that we have the system given below. 
+![image](https://github.com/user-attachments/assets/fb5836f8-f42f-4954-b357-e929fb37abfc)
+This is equivalent to the following system, where T(s) is the closed-loop transfer function.
+![image](https://github.com/user-attachments/assets/9287cf18-e974-4c84-ba4c-c7d81dccf2d5)
+We can calculate the steady-state error for this system from either the open- or closed-loop transfer 
+function using the Final Value Theorem. Recall that this theorem can only be applied if the 
+subject of the limit (sE(s) in this case) has poles with negative real part.
+![image](https://github.com/user-attachments/assets/aab4be95-1552-4ab1-b2b9-7668386e173d)
+###Types of controllers:
+- Proportional Control 
+With proportional control, the actuator applies a corrective force that is proportional o the amount  of error: 
+Outputp = Kp × E
+Outputp = system output due to proportional control
+ Kp = proportional constant for the system called gain.
+
+
+
+
+
+
+
+
+
+
+
+
+
