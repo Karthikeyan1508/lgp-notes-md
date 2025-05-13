@@ -24,41 +24,26 @@ FDM is one of the most widely used additive manufacturing technologies, especial
 A thermoplastic filament (like PLA, ABS, PETG) is fed into a heated extrusion head, where it is melted and then deposited layer by layer onto a build platform following the digital model.
 
 ### Materials Used:
-
 - PLA (Polylactic Acid)
-
-ABS (Acrylonitrile Butadiene Styrene)
-
-PETG (Polyethylene Terephthalate Glycol)
-
-TPU (Thermoplastic Polyurethane)
-
-Nylon
+-ABS (Acrylonitrile Butadiene Styrene)
+-PETG (Polyethylene Terephthalate Glycol)
+-TPU (Thermoplastic Polyurethane)
+-Nylon
 
 ### Applications:
-
-Rapid prototyping
-
-Concept models
-
-Functional parts (limited use due to lower strength and surface finish)
+-Rapid prototyping
+-Concept models
+-Functional parts (limited use due to lower strength and surface finish)
 
 ### Advantages:
-
-Low cost
-
-Simple to operate
-
-Widely available materials
+-Low cost
+-Simple to operate
+-Widely available materials
 
 ### Limitations:
-
-Lower resolution and surface finish compared to other methods
-
-Limited material strength and heat resistance
-
-Visible layer lines
-
+-Lower resolution and surface finish compared to other methods
+-Limited material strength and heat resistance
+-Visible layer lines
 
 ### Stereolithography (SLA)
 
@@ -70,37 +55,25 @@ SLA is one of the earliest and most precise additive manufacturing technologies,
 A UV laser selectively cures (solidifies) a liquid photopolymer resin in a vat layer by layer. The build platform either moves up or down to allow the next layer to be cured.
 
 ### Materials Used:
-
-Photopolymer resins (standard, tough, flexible, castable, dental, etc.)
+-Photopolymer resins (standard, tough, flexible, castable, dental, etc.)
 
 ### Applications:
-
-Highly detailed prototypes
-
-Dental and medical models
-
-Jewelry casting patterns
-
-Mold masters for silicone molding
+-Highly detailed prototypes
+-Dental and medical models
+-Jewelry casting patterns
+-Mold masters for silicone molding
 
 ### Advantages:
-
-High dimensional accuracy
-
-Very fine detail and smooth surface finish
-
-Suitable for intricate designs
+-High dimensional accuracy
+-Very fine detail and smooth surface finish
+-Suitable for intricate designs
 
 ### Limitations:
-
-Resin can be brittle
-
-Parts may degrade under UV light over time
-
-Post-processing (cleaning and UV curing) is required
+-Resin can be brittle
+-Parts may degrade under UV light over time
+-Post-processing (cleaning and UV curing) is required
 
 ### Digital Light Processing (DLP)
-
 DLP is similar to SLA but uses a digital light projector screen instead of a laser to cure photopolymer resin.
 ![image](https://github.com/user-attachments/assets/f045c378-d2d2-4b29-82b5-1682740a97f5)
 
@@ -108,34 +81,23 @@ DLP is similar to SLA but uses a digital light projector screen instead of a las
 A digital projector flashes entire layers of light onto the resin surface at once, curing each layer in one shot (instead of tracing with a laser like SLA). This makes DLP faster than SLA for many prints.
 
 ### Materials Used:
-
-UV-sensitive liquid resins (similar to SLA resins)
+-UV-sensitive liquid resins (similar to SLA resins)
 
 ### Applications:
-
-Dental models
-
-Jewelry
-
-Miniatures and figurines
-
-High-detail prototypes
+-Dental models
+-Jewelry
+-Miniatures and figurines
+-High-detail prototypes
 
 ### Advantages:
-
-Faster print speeds (entire layer cured at once)
-
-High resolution and surface quality
-
-Good for small, detailed parts
+-Faster print speeds (entire layer cured at once)
+-High resolution and surface quality
+-Good for small, detailed parts
 
 ### Limitations:
-
-Limited build size
-
-Resin can be brittle
-
-Post-processing required (cleaning and final curing)
+-Limited build size
+-Resin can be brittle
+-Post-processing required (cleaning and final curing)
 
 ### Selective Laser Sintering (SLS)
 SLS uses a high-powered laser to fuse powdered material layer by layer into a solid structure.
@@ -145,40 +107,25 @@ SLS uses a high-powered laser to fuse powdered material layer by layer into a so
 A laser scans and sinters (heats without melting) powder particles on a bed. After each layer is sintered, a new layer of powder is spread, and the process repeats. The unsintered powder acts as a natural support structure.
 
 ### Materials Used:
-
-Nylon (PA12, PA11)
-
-Thermoplastics
-
-Some metal and composite powders (in advanced systems)
+-Nylon (PA12, PA11)
+-Thermoplastics
 
 ### Applications:
-
-Functional prototypes
-
-Low-volume production parts
-
-Aerospace and automotive components
-
-Medical devices (like braces and implants)
+-Functional prototypes
+-Low-volume production parts
+-Aerospace and automotive components
+-Medical devices
 
 ### Advantages:
-
-No support structures needed
-
-Strong, functional parts
-
-Complex geometries easily achievable
-
-Good mechanical properties
+-No support structures needed
+-Strong, functional parts
+-Complex geometries easily achievable
+-Good mechanical properties
 
 ### Limitations:
-
-Surface finish is grainy
-
-Post-processing needed (cleaning, smoothing)
-
-Equipment and materials can be costly
+-Surface finish is grainy
+-Post-processing needed (cleaning, smoothing)
+-Equipment and materials can be costly
 
 ### Electron Beam Melting (EBM)
 EBM is a metal additive manufacturing process that uses a high-energy electron beam to fully melt metal powder inside a vacuum chamber.
@@ -189,40 +136,26 @@ EBM is a metal additive manufacturing process that uses a high-energy electron b
 A focused electron beam scans over a layer of metal powder, completely melting it to form each solid layer. The process occurs in a vacuum to prevent oxidation and ensure high-quality parts.
 
 ### Materials Used:
-
-Titanium and its alloys (e.g., Ti-6Al-4V)
-
-Cobalt-chrome alloys
-
-Nickel-based superalloys
+-Titanium and its alloys (e.g., Ti-6Al-4V)
+-Cobalt-chrome alloys
+-Nickel-based superalloys
 
 ### Applications:
-
-Aerospace components
-
-Medical implants (especially orthopedic and dental)
-
-High-performance engineering parts
+-Aerospace components
+-Medical implants (especially orthopedic and dental)
+-High-performance engineering parts
 
 ### Advantages:
-
-Fully dense, strong metal parts
-
-Good for complex geometries
-
-Vacuum environment reduces contamination
-
-Excellent material properties
+-Fully dense, strong metal parts
+-Good for complex geometries
+-Vacuum environment reduces contamination
+-Excellent material properties
 
 ### Limitations:
-
-Expensive equipment
-
-Limited material selection (mostly titanium alloys)
-
-Rough surface finish (post-processing usually required)
-
-Slower than some other metal AM methods
+-Expensive equipment
+-Limited material selection (mostly titanium alloys)
+-Rough surface finish (post-processing usually required)
+-Slower than some other metal AM methods
 
 ### Binder Jetting – Glues powder particles layer by layer.
 
@@ -232,40 +165,29 @@ Binder Jetting is an additive manufacturing (3D printing) process in which a liq
 
 
 ### Key Characteristics:
-Materials Used: Typically includes metal powders, ceramics, and sand.
-
-Binder: Usually a liquid glue or polymer sprayed through inkjet nozzles.
-
-No melting: Unlike processes like SLS or DMLS, Binder Jetting does not involve melting the material.
+-Materials Used: Typically includes metal powders, ceramics, and sand.
+-Binder: Usually a liquid glue or polymer sprayed through inkjet nozzles.
+-No melting: Unlike processes like SLS or DMLS, Binder Jetting does not involve melting the material.
 
 ### Process Steps:
-Powder spreading: A thin layer of powder is spread over the build platform.
-
-Binder deposition: Inkjet printheads deposit binder selectively to form a layer of the part.
-
-Layering: The platform lowers, a new layer of powder is spread, and the process repeats.
-
-Curing (optional): Some systems use heat or other methods to solidify the binder.
+-Powder spreading: A thin layer of powder is spread over the build platform.
+-Binder deposition: Inkjet printheads deposit binder selectively to form a layer of the part.
+-Layering: The platform lowers, a new layer of powder is spread, and the process repeats.
+-Curing (optional): Some systems use heat or other methods to solidify the binder.
 
 ### Post-processing:
-
-For metal parts, the green part is often sintered or infiltrated to improve strength.
-
-For sand molds, the part may be used directly in casting processes.
+-For metal parts, the green part is often sintered or infiltrated to improve strength.
+-For sand molds, the part may be used directly in casting processes.
 
 ### Advantages:
-No support structures needed (the powder bed supports the part).
-
-Can produce complex geometries and large parts.
-
-Suitable for multi-material and full-color printing.
+-No support structures needed (the powder bed supports the part).
+-Can produce complex geometries and large parts.
+-Suitable for multi-material and full-color printing.
 
 ### Limitations:
-Parts are initially weak (green parts) and require post-processing.
-
-Lower mechanical strength compared to fully dense parts made by other methods.
-
-Surface finish and resolution can be rough compared to other 3D printing methods.
+-Parts are initially weak (green parts) and require post-processing.
+-Lower mechanical strength compared to fully dense parts made by other methods.
+-Surface finish and resolution can be rough compared to other 3D printing methods.
 
 
 | **#** | **Category**                         | **Key Principle**                                                 | **Examples**                         |
@@ -279,43 +201,43 @@ Surface finish and resolution can be rough compared to other 3D printing methods
 | 7     | **Vat Photopolymerization (VP)**     | A vat of photopolymer resin is cured by light                     | Stereolithography (SLA), DLP         |
 
 ### Future of Additive Manufacturing
-1. Industrial-Scale Production
-Moving from prototyping to mass production.
+1. Industrial-Scale Production 
+-Moving from prototyping to mass production.
 
-AM will increasingly be integrated into supply chains and factory floors.
+-AM will increasingly be integrated into supply chains and factory floors.
 
-Hybrid manufacturing (AM + subtractive processes) will become more common.
+-Hybrid manufacturing (AM + subtractive processes) will become more common.
 
-2. Advanced Materials
-Development of multi-material printing, functionally graded materials, and high-performance polymers, ceramics, and composites.
+3. Advanced Materials
+-Development of multi-material printing, functionally graded materials, and high-performance polymers, ceramics, and composites.
 
-More biocompatible materials for medical implants and tissue engineering.
+-More biocompatible materials for medical implants and tissue engineering.
 
-3. Speed and Efficiency Improvements
-Faster printing through parallelization, multi-laser systems, and real-time monitoring.
+4. Speed and Efficiency Improvements
+-Faster printing through parallelization, multi-laser systems, and real-time monitoring.
 
-Reduced need for post-processing.
+-Reduced need for post-processing.
 
-4. Customization and Personalization
-On-demand and custom-made products (e.g., dental implants, prosthetics, shoes, eyewear).
+5. Customization and Personalization
+-On-demand and custom-made products (e.g., dental implants, prosthetics, shoes, eyewear).
 
-Ideal for low-volume, high-value parts.
+-Ideal for low-volume, high-value parts.
 
-5. Sustainability
-Lower material waste compared to traditional methods.
+6. Sustainability
+-Lower material waste compared to traditional methods.
 
-Recyclable and bio-based materials will become more common.
+-Recyclable and bio-based materials will become more common.
 
-Localized production reduces shipping and carbon footprint.
+-Localized production reduces shipping and carbon footprint.
 
-6. Integration with AI and IoT
-AI-driven design (generative design, topology optimization).
+7. Integration with AI and IoT
+-AI-driven design (generative design, topology optimization).
 
-Smart 3D printers with predictive maintenance and self-calibration.
+-Smart 3D printers with predictive maintenance and self-calibration.
 
-AM systems connected to Industry 4.0 environments.
+-AM systems connected to Industry 4.0 environments.
 
-7. Application Expansion
+8.  Application Expansion
 Aerospace & defense: Lightweight, complex, certified parts.
 
 Healthcare: Bioprinting, surgical guides, implants.
