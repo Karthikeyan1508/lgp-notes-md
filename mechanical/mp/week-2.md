@@ -10,10 +10,10 @@ Additive Manufacturing (AM), also known as 3D printing, is a process of creating
 
 1. FDM – Melts and extrudes plastic filament.
 2. SLA – Uses laser to cure liquid resin.
-DLP – Similar to SLA, but uses a projector.
-SLS – Fuses powdered material with a laser.
-EBM – Uses electron beam in vacuum for metals.
-Binder Jetting – Glues powder particles layer by layer.
+3. DLP – Similar to SLA, but uses a projector.
+4. SLS – Fuses powdered material with a laser.
+5. EBM – Uses electron beam in vacuum for metals.
+6.Binder Jetting – Glues powder particles layer by layer.
 
 ### Fused Deposition Modeling (FDM)
 FDM is one of the most widely used additive manufacturing technologies, especially for prototyping and low-volume production.
@@ -165,15 +165,15 @@ Binder Jetting is an additive manufacturing (3D printing) process in which a liq
 
 
 ### Key Characteristics:
--Materials Used: Typically includes metal powders, ceramics, and sand.
--Binder: Usually a liquid glue or polymer sprayed through inkjet nozzles.
--No melting: Unlike processes like SLS or DMLS, Binder Jetting does not involve melting the material.
+  -Materials Used: Typically includes metal powders, ceramics, and sand.
+  -Binder: Usually a liquid glue or polymer sprayed through inkjet nozzles.
+  -No melting: Unlike processes like SLS or DMLS, Binder Jetting does not involve melting the material.
 
 ### Process Steps:
--Powder spreading: A thin layer of powder is spread over the build platform.
--Binder deposition: Inkjet printheads deposit binder selectively to form a layer of the part.
--Layering: The platform lowers, a new layer of powder is spread, and the process repeats.
--Curing (optional): Some systems use heat or other methods to solidify the binder.
+  -Powder spreading: A thin layer of powder is spread over the build platform.
+  -Binder deposition: Inkjet printheads deposit binder selectively to form a layer of the part.
+  -Layering: The platform lowers, a new layer of powder is spread, and the process repeats.
+  -Curing (optional): Some systems use heat or other methods to solidify the binder.
 
 ### Post-processing:
 -For metal parts, the green part is often sintered or infiltrated to improve strength.
@@ -202,47 +202,47 @@ Binder Jetting is an additive manufacturing (3D printing) process in which a liq
 
 ### Future of Additive Manufacturing
 1. Industrial-Scale Production 
--Moving from prototyping to mass production.
+  -Moving from prototyping to mass production.
 
--AM will increasingly be integrated into supply chains and factory floors.
+  -AM will increasingly be integrated into supply chains and factory floors.
 
--Hybrid manufacturing (AM + subtractive processes) will become more common.
+  -Hybrid manufacturing (AM + subtractive processes) will become more common.
 
 3. Advanced Materials
--Development of multi-material printing, functionally graded materials, and high-performance polymers, ceramics, and composites.
+  -Development of multi-material printing, functionally graded materials, and high-performance polymers, ceramics, and composites.
 
--More biocompatible materials for medical implants and tissue engineering.
+  -More biocompatible materials for medical implants and tissue engineering.
 
 4. Speed and Efficiency Improvements
--Faster printing through parallelization, multi-laser systems, and real-time monitoring.
+  -Faster printing through parallelization, multi-laser systems, and real-time monitoring.
 
--Reduced need for post-processing.
+  -Reduced need for post-processing.
 
 5. Customization and Personalization
--On-demand and custom-made products (e.g., dental implants, prosthetics, shoes, eyewear).
+  -On-demand and custom-made products (e.g., dental implants, prosthetics, shoes, eyewear).
 
--Ideal for low-volume, high-value parts.
+  -Ideal for low-volume, high-value parts.
 
 6. Sustainability
--Lower material waste compared to traditional methods.
+  -Lower material waste compared to traditional methods.
 
--Recyclable and bio-based materials will become more common.
+  -Recyclable and bio-based materials will become more common.
 
--Localized production reduces shipping and carbon footprint.
+  -Localized production reduces shipping and carbon footprint.
 
 7. Integration with AI and IoT
--AI-driven design (generative design, topology optimization).
+  -AI-driven design (generative design, topology optimization).
 
--Smart 3D printers with predictive maintenance and self-calibration.
+  -Smart 3D printers with predictive maintenance and self-calibration.
 
--AM systems connected to Industry 4.0 environments.
+  -AM systems connected to Industry 4.0 environments.
 
 8.  Application Expansion
 Aerospace & defense: Lightweight, complex, certified parts.
 
-Healthcare: Bioprinting, surgical guides, implants.
+  Healthcare: Bioprinting, surgical guides, implants.
 
-Construction: 3D printed houses, bridges.
+  Construction: 3D printed houses, bridges.
 
-Food industry: Custom food printing (personalized nutrition).
+  Food industry: Custom food printing (personalized nutrition).
 
