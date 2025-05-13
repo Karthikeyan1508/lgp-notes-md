@@ -189,5 +189,79 @@ Step 3 − Get the overall transfer function by adding all those transfer functi
 The block diagram reduction process takes more time for complicated systems because; we 
 have to draw the (partially simplified) block diagram after each step. So, to overcome this 
 drawback, use signal flow graphs (representation).
+###Signal Flow Graph
+Signal flow graph is a graphical representation of algebraic equations. In this chapter, let us 
+discuss the basic concepts related signal flow graph and also learn how to draw signal flow 
+graphs.
+###Basic Elements of Signal Flow Grap
+Nodes and branches are the basic elements of signal flow graph. 
+Node
+ Node is a point which represents either a variable or a signal. There are three types of
+ nodes — input node, output node and mixed node.
+- Input Node − It is a node, which has only outgoing branches. 
+- Output Node − It is a node, which has only incoming branches. 
+- Mixed Node − It is a node, which has both incoming and outgoing branches.
+Example 
+Let us consider the following signal flow graph to identify these nodes.
 
- 
+![image](https://github.com/user-attachments/assets/3be556da-49f7-4fb2-a7f7-9b24d1d47bc8)
+Branch 
+Branch is a line segment which joins two nodes. It has both gain and direction. For example, 
+there are four branches in the above signal flow graph. These branches have gains of a, b, 
+c and -d.
+##Construction of Signal Flow Graph 
+Let us construct a signal flow graph by considering the following algebraic equations −
+
+![image](https://github.com/user-attachments/assets/af23e3ea-96fc-4fe5-bcf5-919fe06cbb04)
+
+![image](https://github.com/user-attachments/assets/52d87824-5892-48ae-9fbd-63ef207b7b91)
+
+
+ ![image](https://github.com/user-attachments/assets/c35d8395-18c4-4994-9e5f-a0ab172f6daf)
+###Conversion of Block Diagrams into Signal Flow Graphs 
+Follow these steps for converting a block diagram into its equivalent signal flow graph. 
+- Represent all the signals, variables, summing points and take-off points of block 
+diagram as nodes in signal flow graph.
+- Represent the blocks of block diagram as branches in signal flow graph.
+- Represent the transfer functions inside the blocks of block diagram as gains of the 
+branches in signal flow graph. 
+- Connect the nodes as per the block diagram. If there is connection between two 
+nodes (but there is no block in between), then represent the gain of the branch as 
+one. For example, between summing points, between summing point and takeoff 
+point, between input and summing point, between take-off point and output. 
+Example 
+Let us convert the following block diagram into its equivalent signal flow graph. 
+
+![image](https://github.com/user-attachments/assets/036c9b3b-34a4-4251-b710-59135842b5a4)
+Represent the input signal R(s) and output signal C(s) of block diagram as input 
+node R(s) and output node C(s) of signal flow graph. 
+Just for reference, the remaining nodes (y1 to y9) are labeled in the block diagram. There are 
+nine nodes other than input and output nodes. That is four nodes for four summing points, 
+four nodes for four take-off points and one node for the variable between blocks G1and G2. 
+
+The following figure shows the equivalent signal flow graph. 
+
+![image](https://github.com/user-attachments/assets/90f9e464-9f9a-44ab-bf70-48d3d0041509)
+Let us now discuss the Mason’s Gain Formula. Suppose there are ‘N’ forward paths in a signal 
+flow graph. The gain between the input and the output nodes of a signal flow graph is nothing but the transfer function of the system. It can be calculated by using Mason’s gain 
+formula. 
+###Mason’s gain formula:
+
+![image](https://github.com/user-attachments/assets/142dcc2a-922b-4792-94a4-f01424c2025e)
+Where, 
+- C(s) is the output node 
+- R(s) is the input node 
+- T is the transfer function or gain between R(s) and C(s) 
+- Pi is the ith forward path gain 
+Δ=1−(sum of all individual loop gains) +(sum of gain products of all possible two 
+nontouching loops)−(sum of gain products of all possible three nontouching loops) 
++…. 
+Δi is obtained from Δ by removing the loops which are touching the ith forward path.
+###Calculation of Transfer Function using Mason’s Gain Formula
+Let us consider the same signal flow graph for finding transfer function. 
+
+![image](https://github.com/user-attachments/assets/bc7d6cfa-8442-4463-8feb-49c623542a6d)
+
+![image](https://github.com/user-attachments/assets/981899da-4c68-4544-8ee0-a2fa2c88df1a)
+
+![image](https://github.com/user-attachments/assets/afa0c35c-141b-464c-bc96-8e0bcdc32d3e)
