@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8b033aeb-cdab-46e8-bb8e-3e607687a107)#Control Systems
+#Control Systems
 A control system manages commands, directs or regulates the behavior of other devices or 
 systems using control loops. It can range from a single home heating controller using 
 a thermostat controlling a domestic boiler to large Industrial control systems which are used 
