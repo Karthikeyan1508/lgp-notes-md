@@ -162,7 +162,7 @@ The kernel is the core program on which all the other operating system component
 | Access                  | Only essential functionality is permitted to operate in this mode.           | User programs can access and execute in this mode for a given system.      |
 | Functionality           | The kernel mode can refer to any memory block in the system and can also direct the CPU for the execution of an instruction, making it a very potent and significant mode. | The user mode is a standard and typical viewing mode, which implies that information cannot be executed on its own or reference any memory block; it needs an Application Protocol Interface (API) to achieve these things. |
 
-## Role of a Shell and Interpreter in user interaction
+### Role of a Shell and Interpreter in user interaction
 In user interaction, a shell acts as a command-line interpreter, enabling users to interact with the operating system by typing commands and having them executed. An interpreter, on the other hand, is a computer language interface that executes code line by line on user demand. The shell provides the interactive environment, while the interpreter handles the actual execution of the user's instructions. 
 *Shell:*
 The shell is the interface between the user and the operating system's kernel. It takes user input in the form of commands, interprets them, and translates them into instructions the OS can understand and execute. Essentially, it acts as a command-line interpreter, allowing users to navigate the file system, run programs, and interact with the system. 
@@ -236,15 +236,15 @@ Need for Context Switching
 - Saves the state of the current process and loads the state of the next scheduled process.
 - Enables multitasking on a single CPU system.
 
-### 1.CPU Sharing
+### 1. CPU Sharing
 -Allows multiple processes to share a single CPU.
 -Enables fair execution and progress of all processes.
 
-### 2.Process Continuity
+### 2. Process Continuity
 -Stores the current execution state (context) of a process.
 -When resumed, the process continues from where it left off.
 
-### 3.Resource Management
+### 3. Resource Management
 -Helps OS to efficiently use CPU time by switching to ready processes while others are waiting (e.g., for I/O).
 
 ### 4.No Direct Process Switching
