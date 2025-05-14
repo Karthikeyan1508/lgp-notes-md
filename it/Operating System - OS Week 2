@@ -118,12 +118,11 @@ Examples: CCleaner, WinZip, Norton Antivirus, Disk Management
 
 https://www.geeksforgeeks.org/system-software/
 
-# Difference Between User Mode and Kernel Mode
-
+## User Mode and Kernel Mode
 
 User mode and kernel mode are two working states inside a laptop’s working system that determine the level of access and control, a technique can have over machine resources. Understanding the differences among these modes is critical to knowing how modern working systems manage safety and resource allocation.
 
-## What is User Mode?
+### User Mode?
 When a Program is booted up on an Operating system let’s say Windows, then it launches the program in user mode. When a user-mode program requests to run, a process and virtual address space (address space for that process) are created for it by Windows. User-mode programs are less privileged than kernel-mode applications and are not allowed to access the system resources directly. For instance, if an application under user mode wants to access system resources, it will have to first go through the Operating system kernel by using syscalls.  
 
 In user mode, applications run with limited privileges to prevent direct access to hardware, ensuring system stability. In kernel mode, the operating system has unrestricted access to all hardware resources, enabling it to perform critical tasks such as memory management and process control.
@@ -136,7 +135,7 @@ In user mode, applications run with limited privileges to prevent direct access 
 - Performance Overhead
 - Limited Access
 
-## What is Kernel Mode?
+## Kernel Mode?
 The kernel is the core program on which all the other operating system components rely, it is used to access the hardware components and schedule which processes should run on a computer system and when, and it also manages the application software and hardware interaction. Hence it is the most privileged program, unlike other programs, it can directly interact with the hardware. When programs running under user mode need hardware access for example webcam, then first it has to go through the kernel by using a syscall, and to carry out these requests the CPU switches from user mode to kernel mode at the time of execution. After finally completing the execution of the process the CPU again switches back to the user mode.
 
 **Advantages**
@@ -148,8 +147,6 @@ The kernel is the core program on which all the other operating system component
 - Complex Debugging
 
 ## User vs Kernel Mode
-
-### Difference Between Kernel Mode and User mode
 
 | Criteria                | Kernel Mode                                                                 | User Mode                                                                 |
 |-------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -164,3 +161,37 @@ The kernel is the core program on which all the other operating system component
 | System Crash            | A system crash in kernel mode is severe and makes things more complicated.   | In user mode, a system crash can be recovered by simply resuming the session. |
 | Access                  | Only essential functionality is permitted to operate in this mode.           | User programs can access and execute in this mode for a given system.      |
 | Functionality           | The kernel mode can refer to any memory block in the system and can also direct the CPU for the execution of an instruction, making it a very potent and significant mode. | The user mode is a standard and typical viewing mode, which implies that information cannot be executed on its own or reference any memory block; it needs an Application Protocol Interface (API) to achieve these things. |
+
+## Role of a Shell and Interpreter in user interaction
+In user interaction, a shell acts as a command-line interpreter, enabling users to interact with the operating system by typing commands and having them executed. An interpreter, on the other hand, is a computer language interface that executes code line by line on user demand. The shell provides the interactive environment, while the interpreter handles the actual execution of the user's instructions. 
+*Shell:*
+The shell is the interface between the user and the operating system's kernel. It takes user input in the form of commands, interprets them, and translates them into instructions the OS can understand and execute. Essentially, it acts as a command-line interpreter, allowing users to navigate the file system, run programs, and interact with the system. 
+*Interpreter:*
+An interpreter is a program that executes code (e.g., Python, JavaScript) line by line. It translates the source code into a form that the computer can understand and execute. Many programming languages provide an interactive shell interface, allowing users to directly execute code snippets within the shell.
+
+## Process Management
+*Process Management:* OS function that handles the creation, scheduling, and termination of processes.
+
+### In Single-tasking/Batch Systems:
+Only one process active at a time.
+Process management is simple.
+
+### In Multiprogramming/Multitasking Systems:
+Multiple processes active at the same time.
+OS must share CPU among them efficiently.
+*Requires:*
+CPU scheduling
+Process synchronization
+Resource sharing
+Inter-process communication (IPC)
+
+### Types of Processes:
+*1. CPU-bound Process:*
+Requires more CPU time
+Spends most time in Running state
+Example: Heavy calculations
+
+*2. I/O-bound Process:*
+Requires more I/O time
+Spends most time in Waiting state
+Example: File or network operations
