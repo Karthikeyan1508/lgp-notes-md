@@ -1,4 +1,4 @@
-#Control Systems
+![image](https://github.com/user-attachments/assets/8b033aeb-cdab-46e8-bb8e-3e607687a107)#Control Systems
 A control system manages commands, directs or regulates the behavior of other devices or 
 systems using control loops. It can range from a single home heating controller using 
 a thermostat controlling a domestic boiler to large Industrial control systems which are used 
@@ -280,16 +280,211 @@ With proportional control, the actuator applies a corrective force that is propo
 Outputp = Kp × E
 Outputp = system output due to proportional control
  Kp = proportional constant for the system called gain.
+- Derivative  Controller 
+The derivative controller produces an output, which is derivative of the error signal.
+![image](https://github.com/user-attachments/assets/4b2ef541-0f8c-4a44-9142-11540c94b3f7)
+Therefore, the transfer function of the derivative controller is KDs. 
+Where, KD is the derivative constant. 
+The block diagram of the unity negative feedback closed loop control system along with the 
+derivative controller is shown in the following figure.
+![image](https://github.com/user-attachments/assets/a4f5910d-793c-4087-ac63-865e947bb3ff)
+The derivative controller is used to make the unstable control system into a stable one.
+- Integral Controller
+The integral controller produces an output, which is integral of the error signal. 
+![image](https://github.com/user-attachments/assets/53677f78-69a2-4f3e-ae68-4f7dc4b34e3d)
+Where, KIKI is the integral constant. 
+The block diagram of the unity negative feedback closed loop control system along with the 
+integral controller is shown in the following figure.
+![image](https://github.com/user-attachments/assets/4402bab0-90b3-4299-8f82-71b67aa13c05)
+The integral controller is used to decrease the steady state error.
+- Proportional Derivative (PD) Controller 
+The proportional derivative controller produces an output, which is the combination of the 
+outputs of proportional and derivative controllers.
+![image](https://github.com/user-attachments/assets/9744854f-2206-4edc-b0c0-3dc0d316ac22)
+Therefore, the transfer function of the proportional derivative controller is KP+KDs. 
+The block diagram of the unity negative feedback closed loop control system along with the 
+proportional derivative controller is shown in the following figure.
+![image](https://github.com/user-attachments/assets/7d60f610-d53c-4f64-a1d2-44b1a23d0f7e)
+The proportional derivative controller is used to improve the stability of control system 
+without affecting the steady state error.
+- Proportional  Integral (PI)  Controller 
+The proportional integral controller produces an output, which is the combination of outputs 
+of the proportional and integral controllers.
+![image](https://github.com/user-attachments/assets/fbfe2e99-f276-463b-bb97-ad0e71e582e6)
+The block diagram of the unity negative feedback closed loop control system along with the 
+proportional integral controller is shown in the following figure. 
+![image](https://github.com/user-attachments/assets/a77a7667-fdb3-4a88-bec8-e1d76b55be6e)
+The proportional integral controller is used to decrease the steady state error without 
+affecting the stability of the control system.
+- Proportional I ntegral Derivative (PID) Controller
+The proportional integral derivative controller produces an output, which is the combination 
+of the outputs of proportional, integral and derivative controllers. 
+![image](https://github.com/user-attachments/assets/9c73aa8a-9864-4312-a2eb-1602183f3442)
+The block diagram of the unity negative feedback closed loop control system along with the 
+proportional integral derivative controller is shown in the following figure.
+![image](https://github.com/user-attachments/assets/c5c80d45-e042-45a7-afce-d39bcc2c79ca)
+##STABILITY ANALYSIS
+A system is said to be stable, if its output is under control. Otherwise, it is said to be unstable. 
+A stable system produces a bounded output for a given bounded input.
+###Types of Systems based on Stability
+We can classify the systems based on stability as follows. 
+- Absolutely stable system 
+- Conditionally stable system 
+- Marginally stable system
 
+###Absolutely Stable System
+If the system is stable for all the range of system component values, then it is known as 
+the absolutely stable system. The open loop control system is absolutely stable if all the 
+poles of the open loop transfer function present in left half of ‘s’ plane. Similarly, the closed loop control system is absolutely stable if all the poles of the closed loop transfer function present in the left half of the ‘s’ plane. 
 
+###Conditionally Stable System 
+If the system is stable for a certain range of system component values, then it is known 
+as conditionally stable system.
 
+###Marginally Stable System 
+If the system is stable by producing an output signal with constant amplitude and constant 
+frequency of oscillations for bounded input, then it is known as marginally stable system. 
+The open loop control system is marginally stable if any two poles of the open loop transfer 
+function is present on the imaginary axis. Similarly, the closed loop control system is 
+marginally stable if any two poles of the closed loop transfer function is present on the 
+imaginary axis. In this chapter, let us discuss the stability analysis in the ‘s’ domain using the Routh-Hurwitz stability criterion. In this criterion, we require the characteristic equation to find the stability of the closed loop control systems.
 
+###Root Locus
+Follow these rules for constructing a root locus. 
+Rule 1 − Locate the open loop poles and zeros in the‘s’ plane. 
+Rule 2 − Find the number of root locus branches. 
+We know that the root locus branches start at the open loop poles and end at open loop 
+zeros. So, the number of root locus branches N is equal to the number of finite open loop 
+poles P or the number of finite open loop zeros Z, whichever is greater.
+Mathematically, we can write the number of root locus branches N as 
+N=P if P≥Z 
+N=Z if P<Z
+Rule 3 − Identify and draw the real axis root locus branches. 
+If the angle of the open loop transfer function at a point is an odd multiple of 1800, then that 
+point is on the root locus. If odd number of the open loop poles and zeros exist to the left 
+side of a point on the real axis, then that point is on the root locus branch. Therefore, the 
+branch of points which satisfies this condition is the real axis of the root locus branch. 
+Rule 4 − Find the centroid and the angle of asymptotes. 
+- If P=Z, then all the root locus branches start at finite open loop poles and end at finite 
+open loop zeros. 
+- If P>Z, then Z number of root locus branches start at finite open loop poles and end 
+at finite open loop zeros and P−Z number of root locus branches start at finite open 
+loop poles and end at infinite open loop zeros. 
+- If P<Z , then P number of root locus branches start at finite open loop poles and end 
+at finite open loop zeros and Z−P number of root locus branches start at infinite open 
+loop poles and end at finite open loop zeros. 
+So, some of the root locus branches approach infinity, when P≠Z. Asymptotes give the 
+direction of these root locus branches. The intersection point of asymptotes on the real axis 
+is known as centroid.
+We can calculate the centroid α by using this formula,
+![image](https://github.com/user-attachments/assets/1e121c94-045a-408b-95fa-eb0c159cb2bf)
+Rule 5 − Find the intersection points of root locus branches with an imaginary axis. 
+We can calculate the point at which the root locus branch intersects the imaginary axis and 
+the value of K at that point by using the Routh array method and special case (ii). 
+- If all elements of any row of the Routh array are zero, then the root locus branch 
+intersects the imaginary axis and vice-versa. 
+- Identify the row in such a way that if we make the first element as zero, then the 
+elements of the entire row are zero. Find the value of K for this combination. 
+- Substitute this K value in the auxiliary equation. You will get the intersection point of 
+the root locus branch with an imaginary axis. 
+Rule 6 − Find Break-away and Break-in points. 
+- If there exists a real axis root locus branch between two open loop poles, then there 
+will be a break-away point in between these two open loop poles. 
+- If there exists a real axis root locus branch between two open loop zeros, then there 
+will be a break-in point in between these two open loop zeros. 
+Note − Break-away and break-in points exist only on the real axis root locus branches. 
+Follow these steps to find break-away and break-in points. 
+- Write K in terms of s from the characteristic equation 1+G(s)H(s)=0. 
+- Differentiate K with respect to s and make it equal to zero. Substitute these values 
+of ss in the above equation. 
+- The values of ss for which the K value is positive are the break points. 
+Rule 7 − Find the angle of departure and the angle of arrival. 
+The Angle of departure and the angle of arrival can be calculated at complex conjugate open 
+loop poles and complex conjugate open loop zeros respectively.  
+The formula for the angle of departure ϕd is
+![image](https://github.com/user-attachments/assets/8fc16c2c-b86e-4a2e-8e0d-0527f2741649)
+Example 
+Let us now draw the root locus of the control system having open loop transfer 
+function, ![image](https://github.com/user-attachments/assets/a2c5717d-ad0d-43e1-8f85-c991cfa58501)
+Step 1 − The given open loop transfer function has three poles at  s = 0, 
+s = -1, s = -5. It doesn’t have any zero. Therefore, the number of root locus branches is equal 
+to the number of poles of the open loop transfer function.
+![image](https://github.com/user-attachments/assets/731d8437-b10f-4d73-a517-f06d0bbe7676)
+The three poles are located are shown in the above figure. The line segment between s=−1, 
+and s=0 is one branch of root locus on real axis. And the other branch of the root locus on 
+the real axis is the line segment to the left of s=−5. 
+Step 2 − We will get the values of the centroid and the angle of asymptotes by using the 
+given formulae.
+Centroid  
+The angle of asymptotes are ![image](https://github.com/user-attachments/assets/3eccb936-5816-485f-b555-7d3d318d0f43)
+The centroid and three asymptotes are shown in the following figure.
+![image](https://github.com/user-attachments/assets/2de0b38c-1cad-4553-a2d5-5dafff82a1b2)
+Step 3 − Since two asymptotes have the angles of 600600 and 30003000, two root locus 
+branches intersect the imaginary axis. By using the Routh array method and special case(ii), 
+the root locus branches intersects the imaginary axis at ![image](https://github.com/user-attachments/assets/95ef99bf-6d20-4e0b-a4b5-aa5238e0f16d)
 
+There will be one break-away point on the real axis root locus branch between the poles  s 
+=−1 and  s=0. By following the procedure given for the calculation of break-away point, we 
+will get it as s =−0.473. 
+The root locus diagram for the given control system is shown in the following figure.
+![image](https://github.com/user-attachments/assets/8d826796-c162-4cc2-96c9-b5f4d748b384)
+![image](https://github.com/user-attachments/assets/4071e772-fe0d-4f60-9aa7-5a6e4131b589)
+##FREQUENCY RESPONSE ANALYSIS
+The response of a system can be partitioned into both the transient response and the steady 
+state response. We can find the transient response by using Fourier integrals. The steady 
+state response of a system for an input sinusoidal signal is known as the frequency response. 
+In this chapter, we will focus only on the steady state response. 
+If a sinusoidal signal is applied as an input to a Linear Time-Invariant (LTI) system, then it 
+produces the steady state output, which is also a sinusoidal signal. The input and output 
+sinusoidal signals have the same frequency, but different amplitudes and phase angles. Let 
+the input signal be 
+![image](https://github.com/user-attachments/assets/b6f5c64d-4621-48f0-ba6f-97058ee89642)
+Where, 
+- A is the amplitude of the input sinusoidal signal. 
+- ω0 is angular frequency of the input sinusoidal signal. 
+We can write, angular frequency ω0 as shown below. 
+ω0=2πf0 
+Here, f0 is the frequency of the input sinusoidal signal. Similarly, you can follow the same 
+procedure for closed loop control system.
 
+###Stability Analysis using Bode Plots 
+From the Bode plots, we can say whether the control system is stable, marginally stable or 
+unstable based on the values of these parameters. 
+- Gain cross over frequency and phase cross over frequency 
+- Gain margin and phase margin
+###Phase Cross over Frequency
+The frequency at which the phase plot is having the phase of -1800 is known as phase cross 
+over frequency. It is denoted by ωpc. The unit of phase cross over frequency is rad/sec.
+###Gain Cross over Frequency
+The frequency at which the magnitude plot is having the magnitude of zero dB is known 
+as gain cross over frequency. It is denoted by ωgc. The unit of gain cross over frequency 
+is rad/sec. 
+The stability of the control system based on the relation between the phase cross over 
+frequency and the gain cross over frequency is listed below. 
+- If the phase cross over frequency ωpc is greater than the gain cross over 
+frequency ωgc, then the control system is stable. 
+- If the phase cross over frequency ωpc is equal to the gain cross over frequency ωgc, 
+then the control system is marginally stable. 
+- If the phase cross over frequency ωpcis less than the gain crosses over frequency ωgc, 
+then the control system is unstable.
+###Gain Margin
+Gain margin GMGM is equal to negative of the magnitude in dB at phase cross over 
+frequency. 
+GM=20log(1Mpc)=20logMpc
+Where, MpcMpc is the magnitude at phase cross over frequency. The unit of gain margin 
+(GM) is dB. 
+Phase Margin 
+The formula for phase margin PMPM is 
+PM=1800+ϕgc 
+Where, ϕgc is the phase angle at gain cross over frequency. The unit of phase margin 
+is degrees.
 
-
-
-
-
-
-
+NOTE:
+The stability of the control system based on the relation between gain margin and phase 
+margin is listed below. 
+- If both the gain margin GM and the phase margin PM are positive, then the control 
+system is stable. 
+- If both the gain margin GM and the phase margin PM are equal to zero, then the 
+control system is marginally stable. 
+If the gain margin GM and / or the phase margin PM are/is negative, then the control 
+system is unstable. 
