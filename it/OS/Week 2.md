@@ -1,4 +1,4 @@
-### Operating System Structures
+# Operating System Structures
 
 System software is a category of low-level software that directly manages and controls a computer’s hardware components. It acts as a bridge between the user and the physical hardware, enabling other software (like applications) to function properly. It is essential for the basic functioning of any computer system.
 ## Importance
@@ -259,17 +259,17 @@ Need for Context Switching
 Triggers are events or conditions that cause the operating system to perform a context switch—i.e., switch the CPU from one process to another.
 
 ## Main Categories of Triggers:
-### 1.Interrupts
+### 1. Interrupts
 Occur when external or internal hardware signals need immediate CPU attention (e.g., I/O device requests).
 Example: If a process requests data from disk and an interrupt occurs, the CPU switches to an interrupt handler.
 The current process state is saved, and after handling the interrupt, the system resumes the previous process.
 
-### 2.Multitasking
+### 2. Multitasking
 In multitasking environments, context switching is triggered to allocate CPU time fairly among processes.
 The OS uses scheduling algorithms to decide when to switch.
 The state of the currently running process is saved so it can continue later from the same point.
 
-### 3.User/Kernel Mode Switch
+### 3. User/Kernel Mode Switch
 Triggered when the system switches between user mode and kernel mode.
 Common during system calls or when a process requests an OS-level service.
 Requires context switch to switch the privilege level and handle the request securely.
@@ -304,17 +304,17 @@ More Code: Implementing a microkernel requires more code than a monolithic kerne
 https://media.geeksforgeeks.org/wp-content/uploads/20241122132346739251/modular---------os---------structure-768.webp
 
 Key Features:
-### 1.Core Kernel
+### 1. Core Kernel
 -The kernel consists of a minimal set of core components that manage basic functionalities like memory management, process scheduling, and hardware interaction.
 
-### 2.Dynamically Loadable Modules
+### 2. Dynamically Loadable Modules
 -Additional functionalities or services are provided through modules that can be loaded and unloaded dynamically without the need to restart the system.
 -Modules can include device drivers, filesystems, networking protocols, etc.
 
-### 3.Flexibility Over Layered Structure
+### 3. Flexibility Over Layered Structure
 -Unlike layered structure, where each layer has fixed interactions, a modular structure allows any module to interact with any other module.
 -This loose coupling makes the system more flexible and adaptable.
 
-### 4.Defined and Protected Interfaces
+### 4. Defined and Protected Interfaces
 -Although modules can interact freely, each module is designed with protected interfaces to ensure system stability and security.
 -This approach maintains the integrity of the core kernel while providing flexibility to add new features.
