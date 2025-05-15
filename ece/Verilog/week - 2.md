@@ -1079,35 +1079,498 @@ the most significant bits of the register variable.
 Nonblocking assignments allow scheduling of assignments without blocking
 execution of the statements that follow in a sequential block. A <= operator is
 used to specify nonblocking assignments. Note that this operator has the same
-120 Verilog HDL: A Guide to Digital Design and Synthesis
-7
 symbol as a relational operator, less_than_equal_to. The operator <= is interpreted
 as a relational operator in an expression and as an assignment operator in the
 context of a nonblocking assignment. To illustrate the behavior of nonblocking
-statements and its difference from blocking statements, let us consider
-Example 7-4, convert some blocking assignments to nonblocking assignments,
-and observe the behavior.
+statements and its difference from blocking statements.
+
+**Example code:**
+reg x, y, z;
+reg [15:0] reg_a, reg_b;
+integer count;
+//All behavioral statements must be inside an initial or always block
+initial
+begin
+end
+x = 0; y = 1; z = 1; //Scalar assignments
+count = 0; //Assignment to integer variables
+reg_a = 16'b0; reg_b = reg_a; //Initialize vectors
+reg_a[2] <= #15 1'bl; //Bit select assignment with delay
+reg_b[15:13] <= #10 (x, Y, z}; //Assign result of concatenation
+//to part select of a vector
+count <= count + 1; //Assignment to an integer (increment)
+In this example the statements x = 0 through reg_b = reg_a are executed
+sequentially at time 0. Then, the three nonblocking assignments are processed at
+the same simulation time.
+1. reg_a[2] = 0 is scheduled to execute after 15 units (i.e., time = 15) 
+2.reg_b[15:13] = {x, y, z} is scheduled to execute after 10 time units (i.e., time = 10)
+3. count = count + 1 is scheduled to be executed without any delay (i.e., time = 0)
+   
+Thus, the simulator schedules a nonblocking assignment statement to execute and
+continues to the next statement in the block without waiting for the nonblocking
+statement to complete execution. Typically, nonblocking assignment statements
+are executed last in the time step in which they are scheduled, that is, after all the
+blocking assignments in that time step are executed.
+
+#  Conditional Statements
+
+Conditional statements are used for making decisions based upon certain
+conditions. These conditions are used to decide whether or not a statement
+should be executed. Keywords if and else are used for conditional statements.
+There are three types of conditional statements. Usage of conditional statements
+is shown below. For formal syntax, see Appendix D, Formal Syntax Definition.
+
+//Type 1 conditional statement. No else statement.
+//Statement executes or does not execute.
+if (<expression>) true_statement ;
+//Type 2 conditional statement. One else statement
+//Either true_statement or false_statement is evaluated
+if (<expression>) true_statement ; else false_statement
+//Type 3 conditional statement. Nested if-else-if.
+//Choice of multiple statements. Only one is executed.
+if (<expression1>) true_statement1 ;
+else if (<expression2>) true_statement2
+else if (<expression3>) true_statement3
+else default_statement ;
+
+The <expression> is evaluated. If it is true (1 or a non-zero value), the
+true_statement is executed. However, if it is false (zero) or ambiguous (x or z), the
+false_statement is executed. The <expression> can contain any operators mentioned
+in Table 6-1 on page 92. Each true_statement or false_statement can be a single
+statement or a block of multiple statements. A block must be grouped, typically
+by using keywords begin and end. A single statement need not be grouped.
+
+**Example code:**
+//Type 1 statements
+if(!lock) buffer = data;
+if(enable) out = in;
+//Type 2 statements
+if (number_queued < MAX_Q_DEPTH)
+begin
+data_queue = data;
+number_queued = number_queued + 1;
+end
+else
+$display ("Queue Full. Try again");
+//Type 3 statements
+//Execute statements based on ALU control signal.
+if (alu_control == 0)
+y = x + z;
+else if(alu_control == 1)
+y = x - z;
+else if(alu_control == 2)
+else
+y = x * Z;
+$display("Invalid ALU control signal");
+
+## case Statement
+The keywords case, endcase, and default are used in the case statement.
+
+case (expression)
+alternativel: statementl;
+alternative2: statement2;
+alternative3: statement3;
+default: default_statement;
+endcase
+
+Each of statement1, statement2 ..., default_statement can be a single statement or a
+block of multiple statements. A block of multiple statements must be grouped by
+keywords begin and end. The expression is compared to the alternatives in the
+order they are written. For the first alternative that matches, the corresponding
+statement or block is executed. If none of the alternatives match, the
+default_statement is executed. The default_statement is optional. Placing of multiple
+default statements in one case statement is not allowed. The case statements can
+be nested. The following Verilog code implements the type 3 conditional
+
+**Example code:**
+//Execute statements based on the ALU control signal
+reg [1:0] alu_control;
+case (alu_control)
+2'20: y = x + z;
+2'd1: y = x - z;
+2'd2: y = x * Z;
+default : $display("Invalid ALU control signal");
+endcase
+
+The case statement can also act like a many-to-one multiplexer. To understand
+this, let us model the 4-to-1 multiplexer in Section 6.5, Examples, on page 102,
+using case statements. The I/O ports are unchanged. Notice that an 8-to-1 or 16-
+to-1 multiplexer can also be easily implemented by case statements.
+
+**Example code:**
+module mux4_to_1 (out, 10, il, i2, i3, s1, s0);
+// Port declarations from the I/0 diagram
+output out;
+input i0, i1, i2, 13;
+input s1, s0;
+reg out;
+always @(s1 or s0 or 10 or il or i2 or 13)
+case ({s1, s0}) //Switch based on concatenation of control signals
+2'd0: out = i0;
+2'd1: out = il;
+2'd2: out = i2;
+endcase
+2'd3 : out = i3;
+default: $display("Invalid control signals");
+endmodule
+
+The case statement compares 0, 1, x, and z values in the expression and the
+alternative bit for bit. If the expression and the alternative are of unequal bit
+width, they are zero filled to match the bit width of the widest of the expression
+and the alternative. In Example 7-15, we will define a 1-to-4 demultiplexer for
+which outputs are completely specified, that is, definitive results are provided
+even for * and z values on the select signal.
+
+ Case Statement with x and z
+
+module demultiplexerl_to_4 (out0, out1, out2, out3, in, s1, s0);
+// Port declarations from the I/0 diagram
+output out0, out1, out2, out3;
+reg outo, outl, out2, out3;
+input in;
+input s1, s0;
+always @(s1 or s0 or in)
+case ({s1, s0}) //Switch based on control signals
+2'b00: begin out0 = in; out1 = 1'bz; out2 = 1'bz; out3 = 1'bz; end
+2'b01: begin out0 = 1'bz; out1 = in; out2 = 1'bz; out3 = 1'bz; end
+2'b10: begin out0 = 1'bz; out1 = 1'bz; out2 = in; out3 = 1'bz; end
+2'b11: begin out0 = 1'bz; out1 = 1'bz; out2 = 1'bz; out3 = in; end
+//Account for unknown signals on select. If any select signal is x
+//then outputs are x. If any select signal is z, outputs are z.
+//If one is x and the other is z, x gets higher priority.
+2'bx0, 2'bx1, 2'bxz, 2'bxx, 2'b0x, 2'blx, 2'bzx:
+begin
+out0 = 1'bx; out1 = 1'bx; out2 = 1'bx; out3 = 1'bx;
+end
+2'bz0, 2'bz1, 2'bzz, 2'b0z, 2'b1z
+begin
+out0 = 1'bz; out1 = 1'bz; out2 = 1'bz; out3 = 1'bz;
+end
+default: $display("Unspecified control signals");
+endcase
+endmodule
+
+## casex, casez Keywords
+There are two variations of the case statement. They are denoted by keywords,
+casex and casez.
+
+1. casez treats all z values in the case alternatives or the case expression as
+don't cares. All bit positions with z can also represented by? in that
+position.
+2. casex treats all and z values in the case item or the case expression as
+don't cares.
+The use of casex and casez allows comparison of only non-x or -z positions in
+the case expression and the case alternatives. Example 7-16 illustrates the
+decoding of state bits in a finite state machine using a casex statement. The use of
+casez is similar. Only one bit is considered to determine the next state and the
+other bits are ignored.
+Example 7-16 casex Use
+reg [3:0] encoding;
+integer state;
+casex (encoding) //logic value x represents a don't care bit.
+4'b1xxx : next_state = 3;
+4'bx1xx : next_state = 2;
+4'bxx1x : next_state = 1;
+4'bxxx1 : next_state = 0;
+default : next_state = 0;
+endcase
+Thus, an input encoding = 4'b10xz would cause next_state = 3 to be executed.
+
+# Loops
+There are four types of looping statements in Verilog: while, for, repeat, and forever.
+The syntax of these loops is very similar to the syntax of loops in the C
+programming language. All looping statements can appear only inside an
+initial or always block. Loops may contain delay expressions.
+
+## While Loop
+The keyword while is used to specify this loop. The while loop executes until the
+while-expression becomes false. If the loop is entered when the while-expression is
+false, the loop is not executed at all. Each expression can contain the operators in
+Table 6-1 on page 92. Any logical expression can be specified with these
+operators. If multiple statements are to be executed in the loop, they must be
+grouped typically using keywords begin and end. Example 7-17 illustrates the
+use of the while looор.
+
+**Example code:**
+//Illustration 1: Increment count from 0 to 127. Exit at count 128.
+//Display the count variable.
+integer count;
+initial
+begin
+count = 0;
+while (count < 128) //Execute loop till count is 127.
+//exit at count 128
+begin
+$display ("Count = %d", count);
+count = count + 1;
+end
+end
+//Illustration 2: Find the first bit with a value 1 in flag (vector
+variable)
+'define TRUE 1'bl';
+'define FALSE 1'b0;
+reg [15:0] flag;
+integer i; //integer to keep count
+reg continue;
+initial
+begin
+flag = 16'b 0010_0000_0000_0000;
+i = 0;
+continue = 'TRUE;
+while((i < 16) && continue ) //Multiple conditions using
+operators.
+begin
+if (flagi])
+begin
+$display ("Encountered a TRUE bit at element number %d", i);
+continue = 'FALSE;
+end
+i = i + 1;
+end
+end
+
+## For Loop
+The keyword for is used to specify this loop. The for loop contains three parts:
+• An initial condition
+• A check to see if the terminating condition is true
+
+A procedural assignment to change value of the control variable
+The counter described in Example 7-17 can be coded as a for loop (Example 7-
+18). The initialization condition and the incrementing procedural assignment are
+included in the for loop and do not need to be specified separately. Thus, the for
+loop provides a more compact loop structure than the while loop. Note, however,
+that the while loop is more general purpose than the for loop. The for loop
+cannot be used in place of the while loop in all situations. p
+
+**Example code:**
+integer count;
+initial
+for ( count=0; count < 128; count = count + 1)
+$display("Count = %d", count);
+
+for loops can also be used to initialize an array or memory, as shown below.
+
+//Initialize array elements
+'define MAX STATES 32
+integerstate [0: 'MAX_STATES-1];//Integer array state with elements 0:31
+integer i;
+initial
+begin
+end
+for(i = 0; i < 32; i = i + 2) //initialize all even locations with 0
+state[i] = 0;:
+for(i = 1; i < 32; i = i + 2) //initialize all odd locations with 1
+state[i] = 1;
+
+for loops are generally used when there is a fixed beginning and end to the loop.
+If the loop is simply looping on a certain condition, it is better to use the while
+loop.
+
+## Repeat Loop
+The keyword repeat is used for this loop. The repeat construct executes the loop a
+fixed number of times.
+
+**Example code:**
+//Illustration 1: increment and display count from 0 to 127
+integer count;
+initial
+begin
+count = 0;
+repeat (128)
+begin
+$display ("Count = %d", count);
+count = count + 1;
+end
+end
+//Illustration 2 : Data buffer module example
+//After it receives a data_start signal.
+//Reads data for next 8 cycles.
+module data_buffer (data_start, data, clock);
+parameter cycles = 8;
+input data_start;
+input [15:0] data;
+input clock;
+reg [15:0] buffer [0:7];
+integer i;
+always @ (posedge clock)
+begin
+if(data_start) //data start signal is true
+begin
+i = 0;
+repeat (cycles) //Store data at the posedge of next 8 clock
+//cycles
+begin
+@ (posedge clock) buffer[i] = data; //waits till next
+// posedge to latch data
+i = i + 1;
+end
+end
+end
+endmodule
+
+##  Forever loop
+The keyword forever is used to express this loop. The loop does not contain any
+expression and executes forever until the $finish task is encountered. The loop is
+equivalent to a while loop with an expression that always evaluates to true, e.g,
+while (1). A forever loop can be exited by use of the disable statement.
+A forever loop is typically used in conjunction with timing control constructs. If
+timing control constructs are not used, the Verilog simulator would execute this
+statement infinitely without advancing simulation time and the rest of the design
+would never be executed. Example 7-20 explains the use of the forever
+statement.
 
 
+//Example 1: Clock generation
+//Use forever loop instead of always block
+reg clock;
+initial
+begin
+clock = 1'b0;
+forever #10 clock = ~clock; //Clock with period of 20 units
+end
 
+# Sequential and Parallel Blocks
+##  Block Types
 
+There are two types of blocks: sequential blocks and parallel blocks.
+Sequential blocks
+The keywords begin and end are used to group statements into sequential blocks.
+Sequential blocks have the following characteristics:
 
+1.The statements in a sequential block are processed in the order they are
+specified. A statement is executed only after its preceding statement
+completes execution (except for nonblocking assignments with intraassignment timing control).
+2. If delay or event control is specified, it is relative to the simulation time
+when the previous statement in the block completed execution.
 
+//Illustration 1: Sequential block without delay
+reg x, y;
+reg [1:0] z, w;
+initial
+begin
+x = 1'b0;
+y = 1'bl;
+z = {x, y};
+w = {y, x};
+end
+//Illustration 2: Sequential blocks with delay.
+reg x, У;
+reg [1:0] z, w;
+initial
+begin
+end
+x = 1'b0; //completes at simulation time 0
+#5 y = 1'bl; //completes at simulation time 5
+#10 z = {x, y}; //completes at simulation time 15
+#20 w = {y, x}; //completes at simulation time 35
 
+## Parallel blocks
+Parallel blocks, specified by keywords fork and join, provide interesting
+simulation features. Parallel blocks have the following characteristics.
+이
+Statements in a parallel block are executed concurrently.
+Ordering of statements is controlled by the delay or event control assigned
+to each statement.
+• If delay or event control is specified, it is relative to the time the block was
+entered.
+Notice the fundamental difference between sequential and parallel blocks. All
+statements in a parallel block start at the time when the block was entered. Thus,the order in which the statements are written in the block is not important.
 
+//Example 1: Parallel blocks with delay.
+reg x, y;
+reg [1:0] z, W;
+initial
+fork
+x = 1'b0; //completes at simulation time
+#5 y = 1'bl; //completes at simulation time 5
+#10 z = {x, y); //completes at simulation time 10
+#20 w = {y, x}; //completes at simulation time 20
+join
 
+# Tasks and Functions
 
+##  Differences Between Tasks and Functions
 
+![image](https://github.com/user-attachments/assets/385aceba-0725-4e2c-b287-07ede279f4b8)
 
+Both tasks and functions must be defined in a module and are local to the
+module. Tasks are used for common Verilog code that contains delays, timing,
+event constructs, or multiple output arguments. Functions are used when common
+Verilog code is purely combinational, executes in zero simulation time and
+provides exactly one output. Functions are typically used for conversions and
+commonly used calculations.
 
+Tasks can have input, output, and inout ports; functions can have input ports.
+In addition, they can have local variables, registers, time variables, integers, real,
+or events. Tasks or functions cannot have wires. Tasks and functions contain
+behavioral statements only. Tasks and functions do not contain always or initial
+statements but are called from always blocks, initial blocks, or other tasks and
+functions.
 
+## Tasks
+Tasks are declared with the keywords task and endtask. Tasks must be used if
+any one of the following conditions is true for the procedure.
+1.There are delay, timing, or event control constructs in the procedure.
+2. The procedure has zero or more than one output arguments.
+3. The procedure has no input arguments.
 
+##  Тask Declaration and Invocation
+//Task Declaration Syntax
+<task>
+::= task <name_of_task>;
+<tf_declaration>*
+<statement_or_null>
+endtask
+<name_of_task>
+::= <IDENTIFIER>
+<tf_declaration>
+8
+::= <parameter_declaration>
+||= <input_declaration>
+||= <output_declaration>
+||= <inout_declaration>
+|= <reg_declaration>
+|= <time_declaration>
+|= <integer_declaration>
+||= <real_declaration>
+||= <event_declaration>
+//Task Invocation Syntax
+<task_enable>
+::= <name_of_task>;
+||= <name_of_task> (<expression><,<expression>>*);
 
+##  Functions
+Functions are declared with the keywords function and endfunction. Functions
+are used if all of the following conditions are true for the procedure.
+1. There are no delay, timing, or event control constructs in the procedure.
+2. The procedure returns a single value.
+3. There is at least one input argument.
 
+##  Function Declaration and Invocation
 
-
-
-
+//Function Declaration Syntax
+<function>
+::= function <range_or_type>? <name_of_function>;
+<tf_declaration>+
+<statement>
+endfunction
+<range_or_typе>
+::= <range>
+= <INTEGER>
+||= <REAL
+<name_of_function>
+::= <IDENTIFIER>
+<tf_declaration>
+::= <parameter_declaration>
+||= <input_declaration>
+||= <reg_declaration>
+||= <time_declaration>
+||= <integer_declaration>
+||= <real_declaration>
+8
+//Function Invocation Syntax
+<function_call>
+::= <name_of_function> (<expression><,<expression>>*)
 
 
 
