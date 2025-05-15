@@ -1141,4 +1141,467 @@ Unlike the asynchronous counter, synchronous counter has one global clock which 
 
 From circuit diagram we see that Q0 bit gives response to each falling edge of clock while Q1 is dependent on Q0, Q2 is dependent on Q1 and Q0 , Q3 is dependent on Q2,Q1 and Q0. 
 
+# UNIVERSAL REGISTER
+
+ A register that is capable of transferring data in only one direction is called a ‘unidirectional shift register’ 
+whereas the register that is capable of transferring data in both left and right direction is called a ‘bidirectional 
+shift register’. Now if the register has both the shift right and shift left capabilities, along with the necessary 
+input and output terminals for parallel transfer, then it is called a shift register with parallel load or ‘universal 
+shift register’. 
+
+The most general shift register has all the capabilities listed below. Others may have only some of these 
+functions, with at least one shift operation. 
+
+1) A shift right control to enable the shift right operation and the serial input and output lines associated with 
+the shift right. 
+2) A shift left control to enable the shift left operation and the serial input and output lines associated with the 
+shift left. 
+3) A parallel load control to enable a parallel transfer and the n input lines associated with the parallel transfer. 
+4) n parallel output lines. 
+5) A clear control to clear the register to 0. 
+6) A CLK input for clock pulses to synchronize all operations. 
+7) A control state that leaves the information in the register unchanged even though clock pulses are 
+continuously applied.
+
+![image](https://github.com/user-attachments/assets/93e2c3fa-8a1d-4381-a2b3-e5689a3bfd98)
+
+The diagram of a shift register with all the capabilities listed above is shown in Figure above. This is similar to 
+IC type 74194. Though it consists of four D flipflops, SR flipflops can also be used with an inverter inserted 
+between the S and R terminals. The four multiplexers drawn are also part of the register. The four multiplexers 
+have two common selection lines S1 and S0. When S1S0 = 00, the input 0 is selected for each of the multiplexers. 
+Similarly, when S1S0 = 01, the input 1, when S1S0 = 10, the input 2 and for S1S0 = 11, the input 3, is selected for 
+each of the multiplexers.  
+
+The S1 and S0 inputs control the mode of operation of the register as specified in the entries of functions in the 
+below Table. When S1S0 = 00, the present value of the register is applied to the D inputs of the flipflops. Hence 
+this condition forms a path from the output of each flipflop into the input of the same flipflop. The next clock 
+pulse transition transfers into each flipflop the binary value held previously & no change of state occurs. When 
+S1S0 = 01, terminals 1 of each of the multiplexer inputs have a path to the D inputs of each of the flipflops. This 
+causes a shift right operation, with the serial input transferred into flipflop A4. Similarly, with S1S0 = 10, a 
+shift left operation results, with the other serial input going into flipflop A1. Finally, when S1S0 = 11, the 
+binary information on the parallel input lines is transferred into the register simultaneously during the next clock 
+pulse.
+
+![image](https://github.com/user-attachments/assets/6852e925-d79e-498b-b9ed-0259b0018c4d)
+
+A universal register is a generalpurpose register capable of performing three operations: shift right, shift left, 
+and parallel load. Not all shift registers available in MSI circuits have all these capabilities. The particular 
+application dictates the choice of one MSI circuit over another. As we have already mentioned IC 74194 is a 4
+ bit bidirectional shift register with parallel load. The pinout diagram of IC 74194 is shown in Figure below:
+
+![image](https://github.com/user-attachments/assets/ed903402-da1c-4636-8c1a-7ce740fa3b88)
+
+The parallel loading of data is accomplished with a positive transition of the clock and by applying the four bits 
+of data to the parallel inputs and a HIGH to the S1 and S0 inputs. Similarly, shift right is accomplished 
+synchronously with the positive edge of the clock when S0 is HIGH and S1 is LOW. In this mode the serial data 
+is entered at the shift right serial input. In the same manner, when S0 is LOW and S1 is HIGH, data bits shift left 
+synchronously with the clock pulse and new data is entered at the shift left serial input. 
+
+# SHIFT REGISTER COUNTERS
+
+Shift registers may be arranged to form different types of counters. These shift registers use feedback, where the 
+output of the last flipflop in the shift register is fed back to the first flipflop. Based on the type of this feedback connection, the shift register counters are classified as (i) ring counter and (ii) twisted ringor Johnsonor Shift counter.
+
+## Ring Counter
+It is possible to devise a counter like circuit in which each flipflop reaches the state Q = 1 for exactly one 
+count, while for all other counts Q = 0. Then Q indicates directly an occurrence of the corresponding count. 
+Actually, since this does not represent binary numbers, it is better to say that the outputs of the flipflops 
+represent a code. Such a circuit is shown in Figure below, which is known as a ring counter. The Q output of 
+the last stage in the shift register is fed back as the input to the first stage, which creates a ringlike structure. 
+Hence a ring counter is a circular shift register with only one flipflop being set at any particular time and all 
+others being cleared. The single bit is shifted from one flipflop to the other to produce the sequence of timing 
+signals. Such encoding where there is a single 1 and the rest of the code variables are 0, is called a one-hot code.
+
+![image](https://github.com/user-attachments/assets/bc9d4939-9c4b-476e-ad39-3cba97be2a28)
+
+The circuit shown in Figure above consists of four flipflops and their outputs are QA,QB, QC, and QE 
+respectively. The PRESET input of the last flipfl op and the CLEAR inputs of the other three flipflops are 
+connected together. Now, by applying a LOW pulse at this line, the last flipflop is SET and all the others are 
+RESET, i.e., QAQBQCQE = 0001. Hence, from the circuit it is clear that DA = 1, DB = 0, DC = 0, and DE = 0. 
+Therefore, when a clock pulse is applied, the 1st flipflop is set to 1, while the other three flipflops are reset to 
+0 i.e., the output of the ring counter is QAQBQCQE = 1000. Similarly, when the 2nd clock pulse is applied, the 1 
+in the first flipflop is shifted to the second flipflop & the output of the counter becomes QAQBQCQE = 0100; 
+on occurrence of the 3rd clock pulse, the output will be QAQBQCQE = 0010; on occurrence of the fourth clock 
+pulse the output becomes QAQBQCQE = 0001, i.e., the initial state. Thus, the 1 is shifted around the register as 
+long as the clock pulses are applied. The truth table that describes the operation of the above 4bit ring counter 
+is shown in Table below:
+
+![image](https://github.com/user-attachments/assets/6fa82e6c-6f27-49b2-9519-f4ff1eb1405e)
+
+## Johnson Counter
+
+ A kbit ring counter circulates a single bit among the flipflops to provide k distinguishable states. The number 
+of sates can be doubled if the shift register is connected as a switch-tail ring counter. A switchtail ring counter 
+is a circular shift register with the complement of the last flipflop being connected to the input of the first flip
+ flop. Figure below shows such a type of shift register. The circular connection is made from the complement of 
+the rightmost flipflop to the input of the leftmost flipflop. The register shifts its contents once to the right 
+with every clock pulse, and at the same time, the complement value of the E flipflop is transferred into the A 
+flipflop. Starting from a cleared state, the switchtail ring counter goes through a sequence of eight states as 
+listed in Table below. In general a kbit switchtail counter will go through 2k states. Starting with all 0s each 
+shift operation inserts 1s from the left until the register is filled with all 1s. In the following sequences, 0s are 
+inserted from the left until the register is again filled with all 0s.
+
+![image](https://github.com/user-attachments/assets/aebb38ad-7018-4ee5-a27b-a99ee78c7d85)
+
+A Johnson or moebius counter is a switchtail ring counter with 2k decoding gates to provide outputs for 2k 
+timing signals. The decoding gates are also shown in Figure above. Since each gate is enabled during one 
+particular state sequence, the outputs of the gates generate eight timing sequences in succession. 
+The decoding of a kbit switchtail ring counter to obtain 2k timing sequences follows a regular pattern. The all
+0s state is decoded by taking the complement of the two extreme flipflop outputs. The all1s state is decoded 
+by taking the normal outputs of the two extreme flipflops. All other states are decoded from an adjacent 1, 0 or 0, 1 pattern in the sequence. 
+
+For example, sequence 6 has an adjacent 0 and 1 pattern in flipflops A and B. the decoded output is then 
+obtained by taking the complement A and the normal of B, or the A′B.
+
+![image](https://github.com/user-attachments/assets/f6aca98b-923a-413b-a4cf-0a7af6000f82)
+
+One disadvantage of the circuit in Figure 8.16 is that, if it finds itself in an unused state, it will persist in moving from one invalid state to another and never find its way to a valid state. The difficulty can be corrected by 
+modifying the circuit to avoid this undesirable condition. One correcting procedure is to disconnect the output 
+from flipflop B that goes to the D input of flipflop C, and instead enable the input of flipflop C by the 
+function:
+
+DC = (A + C)B,  where DC is the flipflop input function for the D input of the flipflop C.
+
+Johnson counters can be constructed for any number of timing sequences. The number of flipflops needed is 
+onehalf the number of timing signals. The number of decoding gates is equal to the number of timing 
+sequences and only 2input gates are employed. Ring counter does not require any decoding gates, since in ring 
+counter only one flipflop will be in the set condition at any time. 
+
+# Asynchronous and Synchronous Shift Registers
+
+ Asynchronous circuits changes state each time the input changes the state, while synchronous circuit changes 
+state only when triggered by a momentary change in the input signal. This momentary change is called 
+triggering. 
+
+Shift registers are made of flip flops and their operation depends upon the state at the flip flops. Flip flops 
+changes their states due to triggering when flip flop change their state on the base of input pulse then it is called 
+Edge triggering. In edge triggering flip flop change its state on the basses of Leading edge or trailing edge. 
+When flip flop works on the bases of change in DC level, that is called Asynchronous Triggering. And the shift 
+registers work on this principle is called Asynchronous shift registers. On the other hand, shift registers changes 
+their state only when triggered by clock pulse are called Synchronous shift registers these type of shift registers 
+usually used in counters.
+
+## Counters:
+
+ Counting is frequently required in digital computers and other digital systems to record the number of events 
+occurring in a specified interval of time. Normally an electronic counter is used for counting the number of 
+pulses coming at the input line in a specified time period. The counter must possess memory since it has to 
+remember its past states. As with other sequential logic circuits counters can be synchronous or asynchronous. 
+As the name suggests, it is a circuit which counts. The main purpose of the counter is to record the number of 
+occurrence of some input. There are many types of counter both binary and decimal. Commonly used counters 
+are 
+      
+1. Binary Ripple Counter 
+2. Ring Counter 
+3. BCD Counter 
+4. Decade counter 
+5. Up down Counter 
+6. Frequency Counter
+
+## Ripple Counter
+
+ A counter that follows the binary number sequence is called a binary counter. An n ‐bit binary counter consists 
+of n flip‐flops and can count in binary from 0 through 2n  1. Counters are available in two categories: ripple 
+counters and synchronous counters. In a ripple counter, a flip‐flop output transition serves as a source for 
+triggering other flip‐flops. In other words, the C input of some or all flip‐flops are triggered, not by the common 
+clock pulses, but rather by the transition that occurs in other flip‐flop outputs. In a synchronous counter, the C 
+inputs of all flip‐flops receive the common clock.
+
+## Binary Ripple Counter
+
+ A binary ripple counter consists of a series connection of complementing flip‐flops, with the output of each 
+flip‐flop connected to the C input of the next higher order flip‐flop. The flip‐flop holding the least significant bit 
+receives the incoming count pulses. A complementing flip‐flop can be obtained from a JK flip‐flop with the J 
+and K inputs tied together or from a T flip‐flop. A third possibility is to use a D flip‐flop with the complement 
+output connected to the D input. In this way, the D input is always the complement of the present state, and the 
+next clock pulse will cause the flip‐flop to complement. The logic diagram of two 4‐bit binary ripple counters is 
+shown in Fig. below . The output of each flip‐flop is connected to the C input of the next flip‐flop in sequence. 
+The flip‐flop holding the least significant bit receives the incoming count pulses. The T inputs of all the 
+flip‐flops in (a) are connected to a permanent logic 1, making each flip‐flop complement if the signal in its C 
+input goes through a negative transition. The bubble in front of the dynamic indicator symbol next to C 
+indicates that the flip‐flops respond to the negative‐edge transition of the input. The negative transition occurs 
+when the output of the previous flip‐flop to which C is connected goes from 1 to 0. 
+
+The count starts with binary 0 and increments by 1 with each count pulse input. After the count of 15, the 
+counter goes back to 0 to repeat the count. The least significant bit,A0, is complemented with each count pulse 
+input. Every time that A0 goes from 1 to 0, it complementsA1. Every time thatA1 goes from 1 to 0, it 
+complements A2. Every time thatA2 goes from 1 to 0, it complements A3, and so on for any other higher order 
+bits of a ripple counter. For example, consider the transition from count 0011 to 0100.A0 is complemented with 
+the count pulse. SinceA0 goes from 1 to 0, it triggersA1 and complements it. As a result,A1 goes from 1 to 0, 
+which in turn complementsA2, changing it from 0 to 1.A2 does not triggerA3, becauseA2 produces a positive 
+transition and the flip‐flop responds only to negative transitions. Thus, the count from 0011 to 0100 is achieved 
+by changing the bits one at a time, so the count goes from 0011 to 0010, then to 0000, and finally to 0100. The 
+flip‐flops change one at a time in succession, and the signal propagates through the counter in a ripple fashion 
+from one stage to the next.  
+
+![image](https://github.com/user-attachments/assets/a3dd581c-fc65-40a3-9d4e-d3bd01dfedbe)
+
+A binary counter with a reverse count is called a binary countdown counter. In a countdown counter, the binary 
+count is decremented by 1 with every input count pulse. The count of a four‐bit countdown counter starts from 
+binary 15 and continues to binary counts 14, 13, 12, . . . , 0 and then back to 15. A list of the count sequence of 
+a binary countdown counter shows that the least significant bit is complemented with every count pulse. Any 
+other bit in the sequence is complemented if its previous least significant bit goes from 0 to 1. Therefore, the 
+diagram of a binary countdown counter looks the same as the binary ripple counter in Fig. above , provided that 
+all flip‐flops trigger on the positive edge of the clock. (The bubble in the C inputs must be absent.) If 
+negative‐edge‐triggered flip‐flops are used, then the C input of each flip‐flop must be connected to the 
+complemented output of the previous flip‐flop. Then, when the true output goes from 0 to 1, the complement 
+will go from 1 to 0 and complement the next flip‐flop as required.
+
+## BCD Ripple Counter
+
+ A decimal counter follows a sequence of 10 states and returns to 0 after the count of 9.Such a counter must have at least four flip‐flops to represent each decimal digit, since a decimal digit is represented by a binary code with at least four bits. The sequence of states in a decimal counter is dictated by the binary code used to represent a decimal digit. If BCD is used, the sequence of states is as shown in the state diagram in the side.
+
+![image](https://github.com/user-attachments/assets/4ebb57a2-9fae-41b7-b602-bfad1de87aa4)
+
+![image](https://github.com/user-attachments/assets/80a64a3f-9185-497d-a5be-42fb580f049f)
+
+A decimal counter is similar to a binary counter, except that the state after 1001 (the code for decimal digit 9) is 
+0000 (the code for decimal digit 0). 
+
+The logic diagram of a BCD ripple counter using JK flip‐flops is shown in Figure below. The four outputs are 
+designated by the letter symbol Q, with a numeric subscript equal to the binary weight of the corresponding bit 
+in the BCD code. Note that the output of Q1 is applied to the C inputs of both Q2 and Q8 and the output of Q2 is 
+applied to the C input ofQ4. The J and K inputs are connected either to a permanent 1 signal or to outputs of 
+other flip‐flops. 
+
+A ripple counter is an asynchronous sequential circuit. Signals that affect the flip‐flop transition depend on the 
+way they change from 1 to 0. The operation of the counter can be explained by a list of conditions for flip‐flop 
+transitions. These conditions are derived from the logic diagram and from knowledge of how a JK flip‐flop 
+operates. Remember that when the C input goes from 1 to 0, the flip‐flop is set if J = 1, is cleared if K = 1, is 
+complemented if J = K = 1, and is left unchanged if J = K = 0. 
+
+To verify that these conditions result in the sequence required by a BCD ripple counter, it is necessary to verify 
+that the flip‐flop transitions indeed follow a sequence of states as specified by the state diagram as mentioned 
+above .Q1 changes state after each clock pulse.Q2 complements every timeQ1 goes from 1 to 0, as long as Q8 = 
+0. WhenQ8 becomes 1,Q2 remains at 0.Q4 complements every timeQ2 goes from 1 to 0.Q8 remains at 0 as long 
+asQ2 orQ4 is 0. When bothQ2 andQ4 become 1,Q8 complements whenQ1 goes from 1 to 0.Q8 is cleared on the 
+next transition ofQ1. 
+
+The BCD counter of Fig. above is a decade counter, since it counts from 0 to 9. To count in decimal from 0 to 
+99, we need a two‐decade counter. To count from 0 to 999, we need a three‐decade counter. Multiple decade 
+counters can be constructed by connecting BCD counters in cascade, one for each decade. A three‐decade 
+counter is shown in Fig. below: 
+
+![image](https://github.com/user-attachments/assets/5d3ae7e2-63de-4205-b4e8-f8d78284ffbf)
+
+![image](https://github.com/user-attachments/assets/d4837d56-ab4d-4914-b441-4d2f1a10f355)
+
+## Synchronous counters
+
+Synchronous counters are different from ripple counters in that clock pulses are applied to the inputs of all 
+flip‐flops. A common clock triggers all flip‐flops simultaneously, rather than one at a time in succession as in a 
+ripple counter. The decision whether a flip‐flop is to be complemented is determined from the values of the data 
+inputs, such as T or J and K at the time of the clock edge. If T = 0 or J = K = 0, the flip‐flop does not change 
+state. If T = 1 or J = K = 1, the flip‐flop complements. Here we present some typical synchronous counters and 
+explain their operation. 
+
+## Binary Counter:
+
+ The design of a synchronous binary counter is so simple that there is no need to go through a sequential logic 
+design process. In a synchronous binary counter, the flip‐flop in the least significant position is complemented 
+with every pulse. A flip‐flop in any other position is complemented when all the bits in the lower significant 
+positions are equal to 1. For example, if the present state of a four‐bit counter isA3A2A1A0 = 0011, the next 
+count is 0100.A0 is always complemented.A1 is complemented because the present state of A0 = 1.A2 is 
+complemented because the present state of A1A0 = 11. However, A3 is not complemented, because the present 
+state of A2A1A0 = 011, which does not give an all‐1’s condition.
+
+Synchronous binary counters have a regular pattern and can be constructed with complementing flip flops and 
+gates. The regular pattern can be seen from the 4 bit counter depicted in Fig. below. 
+
+![image](https://github.com/user-attachments/assets/6c318f0a-e828-4fdc-ad76-715fbd57e489)
+
+The C inputs of all flip flops are connected to a common clock. The counter is enabled by Count enable. If the 
+enable input is 0, all J and K inputs are equal to 0 and the clock does not change the state of the counter. The 
+first stage, A0, has its J and K equal to 1 if the counter is enabled. The other J and K inputs are equal to 1 if all 
+previous least significant stages are equal to 1 and the count is enabled. The chain of AND gates generates the 
+required logic for the J and K inputs in each stage. The counter can be extended to any number of stages, with 
+each stage having an additional flip flop and an AND gate that gives an output of 1 if all previous flip flop 
+outputs are 1. 
+
+Note that the flip flops trigger on the positive edge of the clock. The polarity of the clock is not essential here, 
+but it is with the ripple counter. The synchronous counter can be triggered with either the positive or the 
+negative clock edge. The complementing flip flops in a binary counter can be of either the JK type, the T type, 
+or the D type with XOR gates. 
+
+## Up–Down Binary Counter:
+
+A synchronous countdown binary counter goes through the binary states in reverse order, from 1111 down to 
+0000 and back to 1111 to repeat the count. It is possible to design a countdown counter in the usual manner, but 
+the result is predictable by inspection of the downward binary count. The bit in the least significant position is 
+complemented with each pulse. A bit in any other position is complemented if all lower significant bits are 
+equal to 0. For example, the next state after the present state of 0100 is 0011. The least significant bit is always 
+complemented. The second significant bit is complemented because the first bit is 0. The third significant bit is 
+complemented because the first two bits are equal to 0. But the fourth bit does not change, because not all lower 
+significant bits are equal to 0.A countdown binary counter can be constructed as shown in previous Fig., except 
+that the inputs to the AND gates must come from the complemented outputs, instead of the normal outputs, of 
+the previous flip flops. The two operations can be combined in one circuit to form a counter capable of 
+counting either up or down. The circuit of a 4bit up–down binary counter using T flip flops is shown in Fig. 
+below.
+
+![image](https://github.com/user-attachments/assets/69c9885c-d0f3-4eed-9a6b-262ae9efa7af)
+
+It has an up control input and a down control input. When the up input is 1, the circuit counts up, since the T 
+inputs receive their signals from the values of the previous normal outputs of the flip flops. When the down 
+input is 1 and the up input is 0, the circuit counts down, since the complemented outputs of the previous 
+flip flops are applied to the T inputs. When the up and down inputs are both 0, the circuit does not change state 
+and remains. 
+
+## Decade Counter:
+
+A decade counter is the one which goes through 10 unique combinations of outputs and then resets as the clock 
+proceeds. We may use some sort of a feedback in a 4bit binary counter to skip any six of the sixteen possible 
+output states from 0000 to 1111 to get to a decade counter. A decade counter does not necessarily count from 
+0000 to 1001 it could count as 0000,0001, 0010, 1000, 1001, 1010, 1011, 1110, 1111, 0000, 0001 and so on. 
+
+Figure below shows a decade counter having a binary count that is always equivalent to the input pulse count. 
+The circuit is essentially, a ripple counter which count up to 16. We desire however, a circuit operation in which 
+the count advance from 0 to 9 and then reset to 0 for a new cycle. This reset is a accomplished at the desired 
+count as follows. 
+
+1. With counter REST count = 0000 the counter is ready to stage counter cycle. 
+2. Input pulses advance counter in binary sequence up to count of a (count = 1001) 
+3. The next count pulse advance the count to 10 count = 1010. A logic NAND gate decodes the count of 10 
+providing a level change at that time to trigger the one shot unit which then resets all counter stages. 
+Thus, the pulse after the counter is at count = 9, effectively results in the counter going to count = 0.
+
+![image](https://github.com/user-attachments/assets/82a30508-217d-47b5-8470-d2cc48aff096)
+
+Table below provides a count table showing the binary count equivalent to the decimal count of input pulses. 
+The table also shows that the count goes momentarily count from nine (1001) to ten (1010) before resetting to 
+zero(0000). The NAND gate provides an output of 1 until the count reach ten. The count of ten is decoded (or 
+sensed in this case ) by using logic inputs that are all 1 at the count of ten. When the count becomes ten the 
+NAND gate output goes to logical 0, providing a 1 to 0 logic change to trigger the one shot unit, which then 
+provides a short pulse to reset all counter stages. 
+
+The Q signal is used since it is normally high and goes low during the one shot timing period the flip flop in this 
+circuit being reset by a low signal level (active low clearing). The one shot pulse need only be long enough so 
+that slowest counter stage resets. Actually, at this time only the 21and 23 stage need be reset, but all stages are 
+reset to insure that a new cycle at the count 0000.
+
+![image](https://github.com/user-attachments/assets/941e5bd1-fe33-4ec4-8052-fc9b46e7495e)
+
+## Ring Counter:
+
+The ring counter is the simplest example of a shift register. The simplest counter is called a Ring counter. The 
+ring counter contains only one logical 1 or 0 which it circulates. The total cycle length is equal to the number of 
+stages. The ring counter is useful in applications where count has to be recognized in order to perform some 
+other logical operation. Since only one output is ever at logic 1 at given time extra logic gates are not required 
+to decode the counts and the flip flop outputs may be used directly to perform the required operation. 
+
+![image](https://github.com/user-attachments/assets/6ce2437a-ec83-4f1c-a6e3-fb7bcdca3144)
+
+Note that in the above diagram the Reset will reset Q2, Q3 and Q4 but will put Q1 to a logic 1 state. This 1 will 
+circulate when clock pulses are applied.
+
+![image](https://github.com/user-attachments/assets/4b8daa68-d06c-4b00-9186-2de3cf64444a)
+
+## Up-Down Counter:
+
+An up down counter is a bidirectional counter and it can be made to count upwards as well as downwards. In 
+other words an up down counter is one which can provide both count up and down counts operations in a single 
+unit. In the previous section it was seen that if triggering pulses are obtained from  output the counter is a 
+count up and if the triggering pulses are obtained from  outputs, the counter is a countdown. Figure below 
+gives an up down counter. When the count up signal is high the AND gate connecting Q output and count up 
+signal gives and output 1 which passes through the OR gate to trigger the next flip flop. This results in the count 
+up operation. Similarly a signal from countdown line will result the circuit to act as a down counter.
+
+![image](https://github.com/user-attachments/assets/5e9bcf05-a4bb-4578-92e2-018757e5032b)
+
+## BCD Counter:
+
+It is a special case of a decade counter in which the counter counts 0000 to 1001 and then resets. The output 
+weights of the flip flops in these counters are in accordance with 8421 code. For instance, at the end of seventh 
+clock pulse, the output sequence will be 0111 (Decimal equivalent of 0111 as per 8421 code is 7). These 
+counters will thus be different from other decade counters that provide the same count by using some kind of 
+forced feedback to skip some of the natural binary counts Figure below shows a counter of the BCD type. 
+
+![image](https://github.com/user-attachments/assets/23bfb818-a3fa-4e86-8dd0-d45a5a983d83)
+
+## Frequency Counter:
+
+Frequency counter is a digital device which can be used to measure the frequency of the periodic waveforms. 
+The block diagram of frequency counter is shown in Figure below.
+
+![image](https://github.com/user-attachments/assets/69cb4283-1b14-462f-ba86-230541ea8f37)
+
+A signal having time period t applied at one of the input terminal of AND gate. While a unknown signal is also 
+applied at the other input terminal of the AND gate. So, it is used as a clock for counter indicates the frequency 
+of the unknown signal in respect to this time period. The time interval of the counter may be called contents. Let 
+us suppose that time period of gate signal is one second and unknown signal is a square wave of 250 Hertz. In 
+this condition counter counts 250 at the end of one second. This will be frequency of unknown signal.
+
+# Finite State Machines
+
+Finite State Machines are the fundamental building blocks of various digital and computing systems. They provide a systematic approach to model the behavior of sequential circuits. They also help to control various processes in digital systems.
+
+## What is a Finite State Machine?
+
+A Finite State Machine (FSM) is a mathematical model that is used to explain and understand the behavior of a digital system. More specifically, it is a structured and systematic model that helps to understand the behavior of a sequential circuit that exists in a finite number of states at a given point of time.
+
+In more simple words, a synchronous sequential circuit is also called as Finite State Machine FSM, if it has a finite number of states.
+
+The transition of these finite states takes place based on the internal or external inputs that results in the predictable and systematic changes in the behavior of the system.
+
+## Components of a Finite State Machine
+
+A typical finite state machine consists of the following main components −
+
+**Finite States**
+The finite states are nothing but the distinct modes or conditions in the given system. Each of these finite states represents a specific behavior. In digital system representation, these finite states are generally represented through symbols or labels.
+
+**State Transitions**
+In terms of finite state machines, the state transition can be defined as the change from one state to another. This change in state or state transition takes placed based on some specific inputs or conditions. These state transitions are generally triggered by events which are associated with some rules or conditions and determine the next state of the system.
+
+**State Diagram**
+The state transition and the behavior of a finite state machine can be represented in a graphical form that is known as state diagram of the finite state machine.
+
+**Inputs**
+The inputs to the finite state machines are the external signals that trigger the state transitions in the system. These inputs are to be entered into the finite state machine by using sensors, user input devices like mic, keyboard, etc.
+
+**Outputs**
+The results produced by the system as per the inputs and current states are known as outputs. These outputs of the system can be used to trigger events, control actuators, or to provide feedback to the external environment.
+
+## Types of Finite State Machine
+There are two types of finite state machines namely,
+
+1. Mealy State Machine
+2. Moore State Machine
+
+## 1. Mealy State Machine:
+A Finite State Machine is said to be a Mealy state machine, if its outputs depend on both present inputs & present states. The block diagram of the Mealy state machine is shown in the following figure
+
+![image](https://github.com/user-attachments/assets/4da82afe-3634-495c-8527-d2d2e7e01324)
+
+As shown in the figure, there are two main parts presents in the Mealy state machine. Those are combinational logic circuit and memory element. The memory element is useful to provide some part of previous outputs and present states as inputs to the combinational logic circuit.
+
+Based on the present inputs and present states, the Mealy state machine produces outputs. Therefore, the outputs will be valid only at positive or negative transition of the clock signal.
+
+## State Diagram of Mealy State Machine
+
+The state diagram of Mealy state machine is shown in the following figure.
+
+![image](https://github.com/user-attachments/assets/ed602f2d-64d9-4a93-9d44-8dba5d352497)
+
+In the above figure, there are three states, namely A, B and C. These states are labelled inside the circles and each circle corresponds to one state. State transitions between these states are represented with directed lines. Here, 0 / 0, 1 / 0 and 1 / 1 denote the input / output. In the above figure, there are two state transitions from each state based on the value of input.
+
+In general, the number of states required in Mealy state machine is less than or equal to the number of states required in Moore state machine. There is an equivalent Moore state machine for each Mealy state machine.
+
+## 2. Moore State Machine:
+
+A Finite State Machine is said to be a Moore state machine, if its outputs depend only on the present states.
+The block diagram of the Moore state machine is shown in the following figure 
+
+![image](https://github.com/user-attachments/assets/ad7740db-7d75-4552-985b-4b24b49e91e0)
+
+As shown in above figure, there are two parts presents in a Moore state machine. Those are combinational logic and memory. In this case, the present inputs and present states determine the next states. So, based on next states, Moore state machine produces the outputs. Therefore, the outputs will be valid only after transition of the state.
+
+## State Diagram of Moore State Machine
+The state diagram of Moore state machine is shown in the following figure 
+
+![image](https://github.com/user-attachments/assets/71e33c0e-a064-4438-b9ba-43ff64a36b36)
+
+In the above figure, there are four states, namely A, B, C, and D. These states and the respective outputs are labelled inside the circles. Here, only the input value is labeled on each transition. In the above figure, there are two transitions from each state based on the value of input.
+
+In general, the number of states required in Moore state machine is more than or equal to the number of states required in Mealy state machine. There is an equivalent Mealy state machine for each Moore state machine. So, based on the requirement we can use one of them.
+
 
