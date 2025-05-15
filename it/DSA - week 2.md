@@ -1,4 +1,4 @@
-#Linked List<!-- Linked List -->
+# Linked List
 
 A linked list in data structures is a collection of elements called nodes, where each node contains some data and a reference to the next node in the sequence. This setup allows elements to be easily added or removed without reorganizing the entire structure. 
 
