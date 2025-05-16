@@ -77,7 +77,8 @@ skips from that point to the end of line. A multiple-line comment starts with "/
 
 **Example:**
 
-a = b && C; // This is a one-line comment
+a = b && C;
+// This is a one-line comment
 /* This is a multiple line
 comment */
 /* This is /* an illegal */ comment */
@@ -89,9 +90,9 @@ have two separate operators that separate three operands.
 
 **Example:**
 
-a =~ b; // ~ is a unary operator. b is the operand
-a = b && C; // && is a binary operator. b and c are operands
-a = b ? c : d; // ?: is a ternary operator. b, c and d are operands
+a =~ b;
+a = b && C;
+a = b ? c : d;
 
 ## Number Specification
 There are two types of number specification in Verilog: sized and unsized.
