@@ -1,6 +1,6 @@
 <!-- Informal Design Guidelines for Relational Databases  -->
 # Informal Design Guidelines for Relational Databases
-# 1. What is Relational Database Design?
+## 1. What is Relational Database Design?
 
 Relational database design is the process of grouping attributes to form "good" relation schemas. The main aim is to design schemas that store data efficiently, eliminate redundancy,and avoid update anomalies. 
 
@@ -10,11 +10,11 @@ There are two levels of relation schemas:
 
 ●​ Storage (Base Relation) Level: Describes how data is actually stored in the database. 
 
-# 2. Informal Guidelines for Good Relational Design
+## 2. Informal Guidelines for Good Relational Design
 
 Before applying formal rules like normal forms, the following informal design guidelines should be followed: 
 
-## GUIDELINE 1: Semantics of Relation Attributes 
+### GUIDELINE 1: Semantics of Relation Attributes 
 
 Each tuple in a relation should represent one real-world entity or relationship instance.
 
@@ -26,7 +26,7 @@ Each tuple in a relation should represent one real-world entity or relationship 
 
 Bottom Line: Design schemas that are easy to explain and understand. Each attribute's meaning (semantics) should be clear. 
 
-## GUIDELINE 2: Avoid Redundancy and Update Anomalies
+### GUIDELINE 2: Avoid Redundancy and Update Anomalies
 
 Mixing attributes from different entities often results in redundant information and update anomalies, such as: 
 
@@ -46,7 +46,7 @@ Example: EMP_PROJ (Emp#, Proj#, Ename, Pname, No_hours)
 
 Guideline 2 Conclusion: Design schemas that avoid redundancy and these anomalies. If anomalies are unavoidable, document them for application-level handling. 
 
-## GUIDELINE 3: Minimize Null Values in Tuples
+### GUIDELINE 3: Minimize Null Values in Tuples
 
 Schemas should be designed such that NULL values are minimized.
 
@@ -62,7 +62,7 @@ Schemas should be designed such that NULL values are minimized.
 
 Guideline 3 Conclusion: Avoid designs that force unnecessary NULLs, as they complicate querying and logic. 
 
-GUIDELINE 4: Avoid Spurious Tuples (Ensure Lossless Joins)
+### GUIDELINE 4: Avoid Spurious Tuples (Ensure Lossless Joins)
 
 Bad schema designs can produce spurious (meaningless) tuples during JOIN operations.
 
@@ -78,29 +78,29 @@ Two Important Properties of Decomposition:
 
 Guideline 4 Conclusion: Always ensure decompositions are lossless to maintain data integrity. 
 
-# Functional Dependencies (FDs)
+## Functional Dependencies (FDs)
 
 Functional Dependencies (FDs) are critical in relational database design. They define the relationship between attributes and help assess the quality of a schema. 
 
-# Definition of Functional Dependency
+### Definition of Functional Dependency
 
 A functional dependency, denoted as $\mathbf {X}\rightarrow \mathbf {Y}$ , exists in a relation $R$  if: 
 
-●​ For any two tuples $t1$  and t2 in any valid instance of R,
+- For any two tuples $t1$  and t2 in any valid instance of R,
 
 $\text {Ift1}[\mathrm {X}]=\mathbf {t}2[\mathrm {X}]$  then $\mathbf {t}\mathbf {1}[\mathbf {Y}]=\mathbf {t}\mathbf {2}[\mathbf {Y}]$ 
 
 This means the values of attributes in $X$  uniquely determine the values of attributes in Y.
 
-# Purpose and Role of FDs 
+### Purpose and Role of FDs 
 
-●​ FDs capture real-world constraints between data attributes.
+- FDs capture real-world constraints between data attributes.
 
-●​ They are used to define keys.
+- They are used to define keys.
 
-●​ They help detect redundancy and determine if a schema should be normalized. 
+- They help detect redundancy and determine if a schema should be normalized. 
 
-# Examples of Functional Dependencies
+### Examples of Functional Dependencies
 
 1.​ $SSN\rightarrow ENAME$ 
 
@@ -114,7 +114,7 @@ $。$  Project number determines both project name and its location.
 
 ○​ A combination of employee SSN and project number determines how many hours the employee works on that project. 
 
-## Why FDs Are Important:
+### Why FDs Are Important:
 
 Functional dependencies are used to:
 
@@ -126,9 +126,9 @@ Functional dependencies are used to:
 
 ●​ Validate schema quality based on rules and constraints.
 
-# Types of Functional Dependencies
+### Types of Functional Dependencies
 
-## 1. Trivial Functional Dependency
+### 1. Trivial Functional Dependency
 
 ●​ Occurs when the dependent attributes are a subset of the determinant.
 
@@ -138,7 +138,7 @@ Example: {EmpID, Name} $\rightarrow$ EmpID
 
 This is trivial because EmpID is already part of the left-hand side.
 
-# 2. Non-Trivial Functional Dependency 
+### 2. Non-Trivial Functional Dependency 
 
 ●​ Occurs when the dependent attributes are not a subset of the determinant.
 
@@ -148,11 +148,11 @@ Examples: EmpID $\rightarrow$ DeptName
 
 EmpID does not contain DeptName, hence it’s non-trivial.
 
-# 3. Full Functional Dependency
+### 3. Full Functional Dependency
 
 ●​ A functional dependency $\mathrm {X}\rightarrow \mathrm {Y}$ is full if no subset of X can determine Y.
 
-## ●​ Relevant in identifying violations of 2NF.
+●​ Relevant in identifying violations of 2NF.
 
 Examples: $\{\text {EmpID,ProjID}\}\rightarrow \text {Hou}$ rs
 
@@ -162,7 +162,7 @@ This is full if:
 
 -​EmpID alone does not determine Hours
 
-# 4. Partial Dependency 
+### 4. Partial Dependency 
 
 ●​ Occurs when a subset of a composite key determines a non-prime attribute.
 
@@ -172,7 +172,7 @@ This is full if:
 
 -​This is a partial dependency (StudentName depends on part of the key).
 
-# 5. Transitive Dependency 
+### 5. Transitive Dependency 
 
 ●​ If $\mathrm {A}\rightarrow \mathrm {\sim B}$  and $\mathrm {B}\rightarrow \mathrm {C}$ , then $\mathrm {A}\rightarrow \mathrm {C}$  is a transitive dependency.
 
@@ -186,7 +186,7 @@ DeptID $\rightarrow$ DeptManager
 
 $\Rightarrow \text {EmpID}\rightarrow \mathrm {D}$ eptManager (Transitive)
 
-# 6. Multivalued Dependency (MVD) (used in 4NF)
+### 6. Multivalued Dependency (MVD) (used in 4NF)
 
 ●​ Denoted as X →→ Y
 
@@ -206,13 +206,13 @@ This means:
 
 -​Employee can have multiple skills.
 
-# Introduction to Normalization
+### Introduction to Normalization
 
 ●​ Normalization is the process of decomposing unsatisfactory or poorly designed relations by breaking up their attributes into smaller, well-structured relations. 
 
 ●​ A normal form is a set of criteria (based on keys and functional dependencies) that a relation must satisfy to be considered "well-formed." 
 
-# 1. Types of Normal Forms
+### 1. Types of Normal Forms
 
 a)​ 1NF (First Normal Form)
 
@@ -228,48 +228,49 @@ f)​ 5NF (Fifth Normal Form)
 
 Higher normal forms often require checking additional properties like lossless join and dependency preservation. 
 
-# 2. Key Properties of a Good Decomposition
+### 2. Key Properties of a Good Decomposition
 
 ●​ Lossless Join Property: Guarantees no spurious (incorrect) tuples are generated when decomposed tables are joined. 
 
 ●​ Dependency Preservation Property: Ensures all functional dependencies from the original relation are preserved in the decomposed set of relations. 
 
-# 3. Practical Use of Normal Forms 
+### 3. Practical Use of Normal Forms 
 
 ●​ Normalization is widely used in practice to ensure data integrity, reduce redundancy, and avoid anomalies. 
 
 ●​ Designers typically normalize up to 3NF or BCNF, rarely going beyond unless necessary. 
 
-##  Note: 
+###  Note: 
 
 ●​ In some scenarios, full normalization may reduce performance due to complex joins. 
 
 ●​ Denormalization is the reverse process where tables in higher normal forms are merged (joined) into a single relation to improve query performance. 
 
-# 4. Key Concepts: Definitions of Keys
+### 4. Key Concepts: Definitions of Keys
 
-Superkey 
+**Super Key**
 
 ●​ A set of attributes S in relation R is a superkey if no two tuples in any legal relation state r(R) will have the same values for S. 
 
-Candidate Key
+**Candidate Key**
 
-●​ A candidate key is a minimal superkey. That means removing any attribute from it would make it no longer unique. 
+●​ A candidate key is a minimal superkey. That means removing any attribute from it would make it no longer unique.
+
 ●​ There can be multiple candidate keys in a relation.
 
-Primary Key and Secondary Keys
+**Primary Key and Secondary Keys**
 
 ●​ One candidate key is designated as the primary key.
+
 ●​ Others are called secondary keys.
 
-Prime and Nonprime Attributes
-
+**Prime and Nonprime Attributes**
 ●​ A prime attribute is an attribute that is part of any candidate key.
 ●​ A nonprime attribute is not part of any candidate key.
 
-# Anomalies in DBMS
+## Anomalies in DBMS
 
-## What is Anomaly?
+### What is Anomaly?
 
 An anomaly means an inconsistency or deviation from the normal pattern. In Database Management Systems (DBMS), an anomaly refers to inconsistency that occurs in a relational table during operations such as insertion, deletion, or update. 
 
@@ -281,14 +282,13 @@ These anomalies usually occur due to poor database design, such as:
 
 Such issues compromise the integrity of the database. To resolve these anomalies, normalization is applied, where large tables are split into smaller related tables using various types of joins. 
 
-## Types of Anomalies in DBMS
+### Types of Anomalies in DBMS
 
 ### 1. Update Anomaly 
 
 Occurs when updating data in multiple rows leads to inconsistency.
 
-Example: 
-
+**Example:**
 
 | Worker_<br>id  | Worker_<br>name  | Worker_<br>dept  | Worker_address  |
 | --- | --- | --- | --- |
@@ -306,7 +306,7 @@ In the table above, if Ramesh's address changes, we must update all rows with Ra
 
 Occurs when we cannot insert data due to missing information in a non-null column.
 
-Example:​
+**Example:​**
 
  If we want to add a new worker who is not assigned to any department, we cannot insert the row because the department column cannot be null. 
 
@@ -314,11 +314,11 @@ Example:​
 
 Occurs when deleting a row also removes unintended data.
 
-#### Example:​
+**Example:​**
 
  If we delete the department ECT669, all data related to Rajesh is also deleted, leading to loss of important information. 
 
-#### Solution: Normalization
+### Solution: Normalization
 
 To remove anomalies, we normalize the tables. Normalization involves dividing large tables into smaller, well-structured ones. Some common normal forms are: 
 
@@ -341,15 +341,15 @@ To remove anomalies, we normalize the tables. Normalization involves dividing la
 | 2018nk03 | Mansi |  Electrical |  Singing|
 | 2018nk04 | Gopal | Mechanical | Photography |
 
-#### Update Anomaly
+**Update Anomaly**
 
 If Shivani changes her branch from Computer Science to Electronics, all her rows must be updated. If we miss one, it will result in inconsistency. 
 
-#### Insertion Anomaly
+**Insertion Anomaly**
 
 If we want to insert a new student Ankit who is not part of any club, we cannot insert the record since the stu_club column cannot be null. 
 
-#### Deletion Anomaly
+**Deletion Anomaly**
 
 If we delete the Photography club, Gopal's entire record will also be deleted, even though we only intended to remove the club. 
 
@@ -359,7 +359,7 @@ If we delete the Photography club, Gopal's entire record will also be deleted, e
 
 The domain of each attribute contains only atomic (indivisible) values.The value of each attribute in a tuple must be a single value from the domain.​
 
-## Characteristics of 1NF
+### Characteristics of 1NF
 
 **-No** **composite** **attributes** (attributes that can be broken into smaller subparts)
 
@@ -371,16 +371,9 @@ The domain of each attribute contains only atomic (indivisible) values.The value
 
 **Normalization into 1NF**
 
-**Figure** **14.8** Normalization into 1NF. (a) Relation schema that is not in 1NF. (b) Example relation instance. (c) 1NF relation with redundancy.
+**Figure** Normalization into 1NF. (1) Relation schema that is not in 1NF. (2) 1NF relation with redundancy.
 
-(a) DEPARTMENT
-
-<!-- DNAME DNUMBER DMGRSSN DLOCATIONS -->
-![](https://web-api.textin.com/ocr_image/external/356f2f5f23bf776c.jpg)
-
-(b) DEPARTMENT
-
-
+(1) DEPARTMENT
 | DNAME  | DNUMBER  | DMGRSSN  | DLOCATIONS  |
 | --- | --- | --- | --- |
 | Research  | 5  | 333445555  | {Bellaire, Sugarland, Houston} |
@@ -388,9 +381,7 @@ The domain of each attribute contains only atomic (indivisible) values.The value
 | Headquarters  | 1  | 888665555  | {Houston} |
 
 
-(c) DEPARTMENT
-
-
+(2) DEPARTMENT
 | DNAME  | DNUMBER  | DMGRSSN  | DLOCATION  |
 | --- | --- | --- | --- |
 | Research  | 5  | 333445555  | Bellaire  |
@@ -400,179 +391,152 @@ The domain of each attribute contains only atomic (indivisible) values.The value
 | Headquarters  | 1  | 888665555  | Houston  |
 
 
-<!-- Addison Wesley Longman, Inc. 2000, Elmasri/Navathe, Fundamentals of Database Systems, Third Edition -->
 
-## b) Second Normal Form (2NF)
+### b) Second Normal Form (2NF)
 
-## Concepts Used in 2NF
+### Concepts Used in 2NF
 
 ●​ Based on functional dependencies (FDs) and primary key.
 
 ●​ Focuses on eliminating partial dependencies.
 
-## Key Definitions:
+### Key Definitions:
 
 ●​ Prime Attribute: An attribute that is part of a candidate key.
 
 ●​ Full Functional Dependency: A functional dependency X → Y is full if removing any attribute from X causes the dependency to no longer hold.​
 
-## Examples: 
+**Examples: **
 
 ●​ {SSN, PNUMBER} → HOURS is a full FD, since neither SSN → HOURS nor PNUMBER → HOURS holds individually. 
 
 ●​ {SSN, PNUMBER} → ENAME is not a full FD. It is a partial dependency because SSN → ENAME also holds. 
 
-## Definition 
-
-## A relation schema R is in Second Normal Form (2NF) if: 
+### Definition 
+A relation schema R is in Second Normal Form (2NF) if: 
 
 ●​ It is in 1NF. 
 
 ●​ Every non-prime attribute is fully functionally dependent on the entire primary key. 
 
-## Purpose of 2NF
-
+**Purpose of 2NF**
 ●​ Eliminates partial dependencies that cause redundancy and anomalies.
 
-## 2NF Normalization Process 
-
+**2NF Normalization Process** 
 ●​ Identify all partial dependencies.
 
 ●​ Decompose the relation into two or more relations such that each relation contains only full dependencies. 
 
-Applying 2NF helps reduce redundancy related to partial key dependencies and improves data integrity. 
+●​ Applying 2NF helps reduce redundancy related to partial key dependencies and improves data integrity. 
+
+**Example:**
+
+Original Table: EMP_PROJ (Not in 2NF)
+
+| Ssn     | Pnumber | Hours | Ename     | Pname        | Plocation   |
+|---------|---------|-------|-----------|--------------|-------------|
+| 101     | P1      | 10    | Alice     | AlphaProject | New York    |
+| 102     | P2      | 20    | Bob       | BetaProject  | Los Angeles |
+
+Functional Dependencies:
+
+FD1: (Ssn, Pnumber) → Hours
+
+FD2: Ssn → Ename
+
+FD3: Pnumber → Pname, Plocation
+
+Tables After 2NF:
+EP1: Employee Project Assignment
+
+| Ssn     | Pnumber | Hours |
+|---------|---------|-------|
+| 101     | P1      | 10    |
+| 102     | P2      | 20    |
+
+EP2: Employee Details
+
+| Ssn     | Ename   |
+|---------|---------|
+| 101     | Alice   |
+| 102     | Bob     |
+
+EP3: Project Details
+
+| Pnumber | Pname        | Plocation   |
+|---------|--------------|-------------|
+| P1      | AlphaProject | New York    |
+| P2      | BetaProject  | Los Angeles |
 
 ### c) Third Normal Form (3NF)
 
-## Transitive Functional Dependency 
+### Transitive Functional Dependency 
 
-●​ A functional dependency $\mathbf {X}\rightarrow \mathbf {Z}$  is transitive if it can be derived from $\mathbf {X}\rightarrow \mathbf {Y}$ and $\mathbf {Y}\rightarrow \mathbf {Z}.$  
+- A functional dependency $\mathbf {X}\rightarrow \mathbf {Z}$  is transitive if it can be derived from $\mathbf {X}\rightarrow \mathbf {Y}$ and $\mathbf {Y}\rightarrow \mathbf {Z}.$  
 
-### ●​ Example:
+**Example:**
 
 $。$  $SSN\rightarrow DNUMBER$ 
-
 $。$ ​ DNUMBER $\rightarrow$ DMGRSSN 
-
 $。$  Therefore, $SSN\rightarrow$ DMGRSSN is transitive.
 
-### ●​ Non-transitive example: 
+**Non-transitive example:**
 
-○​ $SSN\rightarrow$ ENAME is non-transitive because there is no attribute $X$  such that: 
-
+- $SSN\rightarrow$ ENAME is non-transitive because there is no attribute $X$  such that: 
  ​ $\text {SSN}\rightarrow \mathrm {X}$  and $X\rightarrow$ ENAME​
 
-## Definition
-
-## A relation schema R is in Third Normal Form (3NF) if:
+**Definition**
+A relation schema R is in Third Normal Form (3NF) if:
 
 1.​ It is in Second Normal Form (2NF), and
 
 2.​ No non-prime attribute is transitively dependent on the primary key.
 
-## Important Note 
+**Important Note**
 
-●​ In a transitive dependency $\mathrm {X}\rightarrow \mathrm {Y}\rightarrow \mathrm {Z},$  where X is the primary key:
+- In a transitive dependency $\mathrm {X}\rightarrow \mathrm {Y}\rightarrow \mathrm {Z},$  where X is the primary key:
+- It's only a problem if Y is not a candidate key.
+- If Y is a candidate key, it's not considered a violation of 3NF.
 
-○​ It's only a problem if Y is not a candidate key.
+**Example:** 3NF Normalization
 
-$。$ ​ If Y is a candidate key, it's not considered a violation of 3NF.
+Original Table: EMP_DEPT (Not in 3NF)
 
-### Example:
+| Ename   | Ssn     | Bdate     | Address        | Dnumber | Dname        | Dmgr_ssn |
+|---------|---------|-----------|----------------|---------|--------------|----------|
+| Alice   | 101     | 1990-01-01| 12 Main St     | 10      | Research     | 9001     |
+| Bob     | 102     | 1988-05-20| 45 Maple Ave   | 20      | Development  | 9002     |
 
-## EMP(SSN, Emp#, Salary)
+Functional Dependencies:
+Ssn → Ename, Bdate, Address, Dnumber
 
-·SSN→Emp#→Salary
+Dnumber → Dname, Dmgr_ssn
 
-· If Emp# is a candidate key, then this transitive dependency is not a 3NF violation.
+Tables After 3NF:
+ED1: Employee Details
 
-**Normalizing into 2NF and 3NF**
+| Ename   | Ssn     | Bdate     | Address        | Dnumber |
+|---------|---------|-----------|----------------|---------|
+| Alice   | 101     | 1990-01-01| 12 Main St     | 10      |
+| Bob     | 102     | 1988-05-20| 45 Maple Ave   | 20      |
 
-<!-- EMP_PROJ Ssn Pnumber Hours Ename Pname Plocation FD1 FD2 FD3 2NF Normallzation EP1 EP2 EP3 Ssn Pnumber Hours Ssn Ename Pnumber Pname Plocation FD1 FD2 FD3 -->
-![](https://web-api.textin.com/ocr_image/external/377e18a8be6c928e.jpg)
+ED2: Department Details
 
-**(b)**
+| Dnumber | Dname        | Dmgr_ssn |
+|---------|--------------|----------|
+| 10      | Research     | 9001     |
+| 20      | Development  | 9002     |
 
-<!-- EMP_DEPT Ename Ssn Bdate Address Dnumber Dname Dmgr_ssn 3NF Normallzation ED1 ED2 Ename Bdate Address Dnumber Dnumber Dname -->
-![](https://web-api.textin.com/ocr_image/external/65d36b502d1f5e43.jpg)
+### d) Boyce-Codd Normal Form (BCNF)
 
-Dmgr_ssn
+**Definition:**
 
-**Figure 15.11**
+A relation schema R is in BCNF if:
 
-Normalzing Into 2NF and 3NF. (a) Normalizing EMP_PROJ Into 2NF relations. (b) Normalzing EMP_DEPT Into 3NF relations.
+- For every functional dependency X→A in R,
 
-<!-- **Normalization into 2NF and 3NF** -->
+- X is a superkey of R.
 
-### Figure 15.12
-
-Normaltzation Into 2NF and 3NF.(a) The LOTS relation with its functional dependencles FD1 through FD4. (b) Decomposing Into the 2NF relations LOTS1 and LOTS2.(c)Decomposing LOTS1 Into the 3NF relations LOTS1A and LOTS1B. (d) Summary of the progressive normaltzation of LOTS.
-
-**(m)**
-
-<!-- Candidato Koy Proporty County. name Lote Area Price Tax rate FD1 FD2 FD3 FD4 -->
-![](https://web-api.textin.com/ocr_image/external/8138ca18d6fc975e.jpg)
-
-(b)
-
-LOTS2
-
-
-| County name  | County name  | Jate  |
-| --- | --- | --- |
-| FDa  |  |  |
-
-
-<!-- LOTS1 Property County name LotA Area Prices FD1 FD2 FD4 -->
-![](https://web-api.textin.com/ocr_image/external/ecf04b87299d3cb2.jpg)
-
-**(c)**
-
-LOTS1B
-
-
-| Area  | Price  |
-| --- | --- |
-| FD4  |  |
-
-
-<!-- LOTS1A Property ice County_name Lote Area FD1 FD2 -->
-![](https://web-api.textin.com/ocr_image/external/25c27cc92035d479.jpg)
-
-**(d)**
-
-INF
-
-<!-- LOTS LOTS1 LO LOTS1A LOT S2 -->
-![](https://web-api.textin.com/ocr_image/external/7aa72796f8e50003.jpg)
-
-2NF
-
-3NF
-
-## d) Boyce-Codd Normal Form (BCNF)
-
-## Definition:
-
-## A relation schema R is in BCNF if:
-
-·For every functional dependency X→A in R,
-
-· X is a superkey of R.
-
-## Hierarchy of Normal Forms:
-
-·Each higher normal form is stricter than the previous:
-
-o 1NF C 2NF C 3NF C BCNF
-
-○ Every:
-
-2NF relation is also in 1NF
-
-3NF relation is also in 2NF
-
-BCNF relation is also in 3NF
 
 ## Important Notes:
 
@@ -580,124 +544,60 @@ BCNF relation is also in 3NF
 
 · The ideal goal is to decompose all relations into BCNF (or at least 3NF) to avoid redundancy and anomalies.
 
-**Boyce-Codd normal form**
+**Example:**
 
-Figure 14.12 Boyce-Codd normal form. (a) BCNF normalization with the dependency of FD2 being “lost" in the decomposition.
+Original Table: Course_Instructor_Room (Not in BCNF)
 
-(b) A relation R in 3NF but not in BCNF.
+| Course | Instructor | Room  |
+|--------|------------|-------|
+| DBMS   | John       | R101  |
+| OS     | John       | R101  |
 
-(a) LOTS1A
+Functional Dependencies:
+Course → Room
 
-<!-- PROPERTY_ID# COUNTY_NAME LOT# AREA FD1 FD2 FD5 BCNF Normalization LOTS1AX LOTS1AY -->
-![](https://web-api.textin.com/ocr_image/external/291abb1dfe1f849a.jpg)
+Instructor → Room
 
+Problem: Instructor → Room violates BCNF because Instructor is not a superkey.
 
-| AREA  | COUNTY_NAME |
-| --- | --- |
+Tables After BCNF:
+Table 1: Instructor_Room
 
+| Instructor | Room  |
+|------------|-------|
+| John       | R101  |
 
+Table 2: Course_Instructor
 
-| PROPERTY_ID# | AREA  | LOT# |
-| --- | --- | --- |
+| Course | Instructor |
+|--------|------------|
+| DBMS   | John       |
+| OS     | John       |
 
-
-(b)
-
-<!-- R A B C FD1 FD2 -->
-![](https://web-api.textin.com/ocr_image/external/a0fcf6b04c09a705.jpg)
-
-<!-- Addison Wesley Longman, Inc. 2000, Elmasri/Navathe, Fundamentals of Database Systems, Third Edition -->
-
-## A relation TEACH that is in 3NF but not in BCNF
-
-**Figure** **14.13** A relation TEACH that is in 3NF but not in BCNF.
-
-TEACH
-
-
-| STUDENT  | COURSE  | INSTRUCTOR  |
-| --- | --- | --- |
-
-
-
-| Narayan  | Database  | Mark  |
-| --- | --- | --- |
-| Smith  | Database  | Navathe  |
-| Smith  | Operating Systems  | Ammar  |
-| Smith  | Theory  | Schulman  |
-| Wallace  | Database  | Mark  |
-| Wallace  | Operating Systems  | Ahamad  |
-| Wong  | Database  | Omiecinski  |
-| Zelaya  | Database  | Navathe  |
-
-
-Addison Weslay Longman, Inc. 2000, Elmasri/Navathe, Fundamentals of Database Systems, Third Edition
-
-## Achieving BCNF by Decomposition
-
-**Example:** Relation TEACH
-
-Given functional dependencies:
-
-· FD1: {student, course} →instructor
-
-· FD2: instructor→course
-
-## Analysis:
-
-· {student, course} is a candidate key.
-
-· But since instructor → course holds, and instructor is not a superkey, this violates BCNF.
-
-· Hence, the relation is in 3NF but not in BCNF.
-
-## Need for Decomposition
-
-●​ A relation not in BCNF must be decomposed to satisfy BCNF.
-
-●​ However, during decomposition: 
-
-$。$  Preservation of all functional dependencies might be lost.
-
-○​ But non-additivity (lossless join) must not be sacrificed.
-
-## Possible Decompositions of TEACH: 
-
-1.​ {student, instructor} and {student, course}
-
-2.​ {course, instructor} and {course, student}
-
-3.​ {instructor, course} and {instructor, student}
-
-## Comparison of Decompositions: 
-
-●​ All three decompositions lose FD1: {student, course} $\rightarrow$  instructor 
-
-●​ Only the 3rd decomposition satisfies the non-additivity (lossless join) property — it avoids generating spurious tuples. 
 
 ## e) Multivalued Dependencies (MVDs) and Fourth Normal Form (4NF)
 
-Multivalued Dependency (MVD) — Definition A multivalued dependency $X\rightarrow >Y$  on relation R means: If two tuples t1 and t2 exist with the same X values, then the following must also be true: 
+Multivalued Dependency (MVD) — Definition - A multivalued dependency $X\rightarrow >Y$  on relation R means: If two tuples t1 and t2 exist with the same X values, then the following must also be true: 
 
-●​ There must be two other tuples t3 and t4 such that:
+​- There must be two other tuples t3 and t4 such that:
 
-$。$  $\mathrm {t}3[\mathrm {X}]=\mathrm {t}4[\mathrm {X}]=\mathrm {t}1[\mathrm {X}]=\mathrm {t}2[\mathrm {X}]$ 
+- $  $\mathrm {t}3[\mathrm {X}]=\mathrm {t}4[\mathrm {X}]=\mathrm {t}1[\mathrm {X}]=\mathrm {t}2[\mathrm {X}]$ 
 
-○​ $\mathrm {t}3[\mathrm {Y}]=\mathrm {t}1[\mathrm {Y}],\mathrm {t}4[\mathrm {Y}]=\mathrm {t}2[\mathrm {Y}]$ 
+- $\mathrm {t}3[\mathrm {Y}]=\mathrm {t}1[\mathrm {Y}],\mathrm {t}4[\mathrm {Y}]=\mathrm {t}2[\mathrm {Y}]$ 
 
-○​ $\mathrm {t}3[Z]=\mathrm {t}2[Z],\mathrm {t}4[Z]=\mathrm {t}1[Z],$  where $Z=\mathrm {R}-(\mathrm {X}\cup \mathrm {Y})$ 
+- $\mathrm {t}3[Z]=\mathrm {t}2[Z],\mathrm {t}4[Z]=\mathrm {t}1[Z],$  where $Z=\mathrm {R}-(\mathrm {X}\cup \mathrm {Y})$ 
 
 Trivial MVD:
 
-●​ $\mathrm {Y}\subseteq \mathrm {X},$  or
+- $\mathrm {Y}\subseteq \mathrm {X},$  or
 
-● $X\cup Y=R$ 
+- $X\cup Y=R$ 
 
 EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 
-●​ ENAME —&gt;&gt; PNAME
+- ENAME —&gt;&gt; PNAME
 
-●​ $\text {ENAME}longrightarrow\text {DNAME}$ 
+- $\text {ENAME}longrightarrow\text {DNAME}$ 
 
 ### This requires decomposition into:
 
@@ -705,7 +605,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 
 · EMP_DEPENDENTS(ENAME, DNAME) These decompositions are in 4NF.
 
-(a) **EMP**
+(a) EMP
 
 
 | ENAME  | PNAME  | DNAME  |
@@ -716,9 +616,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 | Smith  | Y  | John  |
 
 
-(d)
-
-## (b) EMP_PROJECTS
+(b) EMP_PROJECTS
 
 
 | ENAME  | PNAME  |
@@ -727,7 +625,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 | Smith  | Y  |
 
 
-**EMP_DEPENDENTS**
+EMP_DEPENDENTS
 
 
 | E NAME  | DNAME  |
@@ -737,9 +635,9 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 
 **Fourth Normal Form (4NF)-Definition** A relation R is in 4NF if**:**
 
-·For every nontrivial MVD X-&gt;&gt; Y, X is a superkey of R.
+- For every nontrivial MVD X-&gt;&gt; Y, X is a superkey of R.
 
-(c) **SUPPLY**
+(c) SUPPLY
 
 
 | SNAME  | PARTNAME  | PROJNAME  |
@@ -753,8 +651,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 | Smmith  | Bolt  | ProjY  |
 
 
-**R1**
-
+R1
 
 | SNAME  | PARTNAME  |
 | --- | --- |
@@ -765,8 +662,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 | Adamsky  | Nail  |
 
 
-**R2**
-
+R2
 
 | SNAME  | PROJNAME  |
 | --- | --- |
@@ -777,8 +673,7 @@ EMP Example: Relation EMP(ENAME, PNAME, DNAME) has two MVDs:
 | Adamsky  | Projx  |
 
 
-**R3**
-
+R3
 
 | PARTNAME  | PROJNAME  |
 | --- | --- |
@@ -808,26 +703,6 @@ Note: Functional dependencies are also considered a type of MVD, so 4NF handles 
 7.​ IR7 (FD to $MVD):X\rightarrow Y$ implies $X\rightarrow Y$ 
 
 8.​ IR8 (Coalescence): $\text {If}X\rightarrow >\mathrm {Y}$ $andW\rightarrow Z,$  and W ∩ $\mathrm {Y}=\varnothing ,$  and $\mathrm {Y}\subseteq \mathrm {Z},\text {then}\mathrm {X}\rightarrow \mathrm {Z}$ 
-
-### 4NF Decomposition Lossless Join (Non-additive) condition (LJ1’): Decomposition of R into R1 and R2 is lossless if: 
-
-$·(R1\cap R2)\rightarrow >(R1-R2),$  or
-
-$·(R1\cap R2)\rightarrow >(R2-R1)$ This ensures no spurious tuples are generated.
-
-### Algorithm 11.5 – Decomposition into 4NF Input: Universal relation R and a set $F$  of FDs and MVDs Steps: 
-
-1.​ Initialize $\mathrm {D}:=\{\mathrm {R}\}$ 
-
-2.​ While there exists a relation $\mathrm {Q}\in \mathrm {D}$  not in 4NF:
-
-○​ Find a nontrivial MVD $X\rightarrow Y$  that violates 4NF 
-
-○​ Replace Q with:
-
- ​ $(\mathrm {Q}-\mathrm {Y})$ 
-
-$(\mathrm {X}\cup \mathrm {Y})$
 
 ### Join Dependency (JD)
 
@@ -859,7 +734,7 @@ Special Case: When you split the table into just 2 parts, it's a Multivalued Dep
 
  It says:
 
-"A table is in 5NF if it can’t be broken into smaller tables using a join dependency unless those smaller parts are based on a key." 
+- A table is in 5NF if it can’t be broken into smaller tables using a join dependency unless those smaller parts are based on a key.
 
 Why is this important?
 
@@ -881,10 +756,8 @@ Fourth and fifth normal forms.
 
 (d) Decomposing the relation SUPPLY into the 5NF relations $R_{1},R_{2},R_{3}$ 
 
+
 **(c)** **SUPPLY**
-
-(d)
-
 
 | S  name  | Part_name  | Proj_name  |
 | --- | --- | --- |
@@ -897,8 +770,7 @@ Fourth and fifth normal forms.
 | Smith  | Bolt  | ProjY  |
 
 
-$$R_{1}$$
-
+R1
 
 | Sname  | Part name  |
 | --- | --- |
@@ -909,8 +781,7 @@ $$R_{1}$$
 | Adamsky  | Nail  |
 
 
-$$R_{3}$$
-
+R2
 
 | Part name  | Proj name  |
 | --- | --- |
@@ -921,8 +792,7 @@ $$R_{3}$$
 | Nail  | Projx  |
 
 
-$$R_{2}$$
-
+R3
 
 | Sname  | Proj name  |
 | --- | --- |
@@ -933,7 +803,7 @@ $$R_{2}$$
 | Adamsky  | Projx  |
 
 
-
+Summary of Normal Forms
 | Normal<br>Form  | Rule/ Condition  | Example Before  | Example After  |
 | --- | --- | --- | --- |
 | 1NF (First Normal<br>Form)  | All attributes must have atomic (indivisible) values  | Student(ID, Name, Courses)<br>CN}<br>Courses $=$ {DBMS, | Student(ID, Name, Course)<br>1 row per course  |
@@ -961,7 +831,7 @@ Consider two tables, students and branches, after performing normalization.
 
 ### Normalized Tables: 
 
-#### ●​Students Table:
+#### - Students Table:
 
 
 | roll_no  | stud_name  | age  | branch_id  |
@@ -970,7 +840,7 @@ Consider two tables, students and branches, after performing normalization.
 | 2  | Bob  | 22  | 102  |
 
 
-#### ●​Branch Table: 
+#### - ​Branch Table: 
 
 |branch_id |  branch_name | 
 | --- | --- |
