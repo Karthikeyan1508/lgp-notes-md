@@ -89,11 +89,11 @@ the operand. Binary operators appear between two operands. Ternary operators
 have two separate operators that separate three operands.
 
 **Example:**
-
+```
 a =~ b;
 a = b && C;
 a = b ? c : d;
-
+```
 ## Number Specification
 There are two types of number specification in Verilog: sized and unsized.
 
