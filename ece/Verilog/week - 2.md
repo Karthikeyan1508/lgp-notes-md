@@ -76,13 +76,13 @@ are two ways to write comments. A one-line comment starts with "//". Verilog
 skips from that point to the end of line. A multiple-line comment starts with "/*"and ends with "*/". Multiple-line comments cannot be nested.
 
 **Example:**
-
+```
 a = b && C;
 // This is a one-line comment
 /* This is a multiple line
 comment */
 /* This is /* an illegal */ comment */
-
+```
 ## Operators
 Operators are of three types, unary, binary, and ternary. Unary operators precede
 the operand. Binary operators appear between two operands. Ternary operators
@@ -101,31 +101,31 @@ There are two types of number specification in Verilog: sized and unsized.
 Sized numbers are represented as <size> •<base format> <number>.
 <size> is written only in decimal and specifies the number of bits in the number.
 Legal base formats are decimal ('d or 'D), hexadecimal ('h or 'H), binary ('b or 'B)and octal ('o or 'O). The number is specified as consecutive digits from 0, 1, 2, 3,4, 5, 6, 7, 8, 9, a, b, c, d, e, f. Only a subset of these digits is legal for a particular base. Uppercase letters are legal for number specification.
-
+```
 4'b1111 // This is a 4-bit binary number
 12'habc // This is a 12-bit hexadecimal number
 16'd255 // This is a 16-bit decimal number.
-
+```
 **Unsized numbers**
 Numbers that are specified without a <base format> specification are decimal
 numbers by default. Numbers that are written without a <size> specification have
 a default number of bits that is simulator- and machine-specific (must be at least
 32).
-
+```
 23456 // This is a 32-bit decimal number by default
 'hc3 // This is a 32-bit hexadecimal number
 '021 // This is a 32-bit octal number
-
+```
 **X or Z values**
 
 Verilog has two symbols for unknown and high impedance values. These values
 are very important for modeling real circuits. An unknown value is denoted by
 an x. A high impedance value is denoted by z.
-
+```
 12'h13x //Thisis a 12-bit hex number; 4 least significant bits unknown
 6'hx //This is a 6-bit hex number
 32'bz//This is a 32-bit high impedance number
-
+```
 An x or z sets four bits for a number in the hexadecimal base, three bits for a
 number in the octal base, and one bit for a number in the binary base. If the most
 significant bit of a number is 0, x, or z, the number is automatically extended to
@@ -137,30 +137,30 @@ extended.
 Negative numbers can be specified by putting a minus sign before the size for a
 constant number. Size constants are always positive. It is illegal to have a minus
 sign between <base format> and <number>.
-
+```
 -6'd3// 8-bit negative number stored as 2's complement of 3
 4'd-2// Illegal specification
-
+```
 **Underscore characters and question marks**
 An underscore character "" is allowed anywhere in a number except the first
 character. Underscore characters are allowed only to improve readability of
 numbers and are ignored by Verilog.
 
 A question mark "?" is the Verilog HDL alternative for in the context of numbers. The ? is used to enhance readability in the casex and casez statements discussed in Chapter 7, Behavioral Modeling, where the high impedance value is don't care condition. (Note that ? has a different meaning in the context of userdefined primitives, which are discussed in Chapter 12, User-Defined Primitives.)
-
+```
 12'b1111_0000_1010 // Use of underline characters for readability
 4'b10?? // Equivalent of a 4'b10zz
-
+```
  **Strings**
 A string is a sequence of characters that are enclosed by double quotes. The
 restriction on a string is that it must be contained on a single line, that is, withouta carriage return. It cannot be on multiple lines. Strings are treated as a sequence
 of one-byte ASCII values.
 
 **Example:**
-
+```
 "Hello Verilog World" // is a string
 "a/ b" // is a string
-
+```
 **Identifiers and Keywords**
 Keywords are special identifiers reserved to define the language constructs.
 Keywords are in lowercase. A list of all keywords in Verilog is contained in
@@ -174,18 +174,16 @@ sign as the first character is reserved for system tasks, which are explained la
 the book).
 
 **Example:**
+```
 reg value; // reg is a keyword; value is an identifier
 input clk; // input is a keyword, clk is an identifier
-
+```
 **Escaped Identifiers**
 Escaped identifiers begin with the backslash (\ ) character and end with
 whitespace (space, tab, or newline). All characters between backslash and
 whitespace are processed literally. Any printable ASCII character can be included
 in escaped identifiers. The backslash or whitespace is not considered a part of the
 identifier.
-
-\a+b-c
-\ **my_name**
 
 # Data Types
 
@@ -227,10 +225,11 @@ which defaults to x). Nets get the output value of their drivers. If a net has n
 driver, it gets the value z.
 
 **Example:**
+```
 wire a; // Declare net a for the above circuit
 wire b, c; // Declare two wires b,c for the above circuit
 wire d = 1'b0; // Net d is fixed to logic value 0 at declaration.
-
+```
 Note that net is not a keyword but represents a class of data types such as wire,
 wand, wor, tri, triand, trior, trireg, etc. The wire declaration is used most
 frequently. Other net declarations are discussed in Appendix A, Strength Modeling
@@ -246,25 +245,26 @@ registers do. Values of registers can be changed anytime in a simulation by
 assigning a new value to the register.
 Register data types are commonly declared by the keyword reg. The default
 value for a reg data type isx. An example of how registers are used is shown in example:
-
+```
 reg reset; // declare a variable reset that can hold its value
 initial // this construct will be discussed later
 begin
 reset = 1'bl; //initialize reset to 1 to reset the digital circuit.
 #100 reset = 1'b0; // after 100 time units reset is deasserted.
 end
-
+```
 ##  Vectors
 Nets or reg data types can be declared as vectors (multiple bit widths). If bit
 width is not specified, the default is scalar (1-bit).
 
 **Example code:**
+```
 wire a; // scalar net variable, default
 wire [7:0] bus; // 8-bit bus
 wire [31:0] busA, busB, busC; // 3 buses of 32-bit width.
 reg clock; // scalar register, default
 reg [0:40] virtual_addr; // Vector register, virtual address 41bits wide
-
+```
 Vectors can be declared at [high# : low#] or [low#: high#], but the left number in
 the squared brackets is always the most significant bit of the vector. In the
 example shown above, bit 0 is the most significant bit of vector virtual_addr.
@@ -272,12 +272,13 @@ For the vector declarations shown above, it is possible to address bits or parts
 vectors.
 
 **Example code:**
+```
 busA [7] // bit # 7 of vector busA
 bus [2:0] // Three least significant bits of vector bus,
 // using bus [0:2] is illegal because the significant bit should
 // always be on the left of a range specification
 virtual_addr [0:1] // Two most significant bits of vector virtual_addr
-
+```
 ##  Integer, Real, and Time Register Data Types
 Integer, real, and time register data types are supported in Verilog.
 
@@ -290,6 +291,7 @@ bits. Registers declared as data type reg store values as unsigned quantities,
 whereas integers store values as signed quantities.
 
 **Example code:**
+```
 integer counter; // general purpose variable used as a counter.
 initial
 counter = -1; // A negative one is stored in the counter
@@ -300,8 +302,9 @@ real. They can be specified in decimal notation (e.g., 3.14) or in scientific no
 (e.g., 3e6, which is 3 x 106). Real numbers cannot have a range declaration, and
 their default value is 0. When a real value is assigned to an integer, the real
 number is rounded off to the nearest integer.
-
+```
 **Example code:**
+```
 real delta; // Define a real variable called delta
 initial
 begin
@@ -311,7 +314,7 @@ delta = 2.13; // delta is assigned a value 2.13
 integer i; // Define an integer i
 initial
 i = delta; // i gets the value 2 (rounded value of 2.13)
-
+```
 **Time**
 Verilog simulation is done with respect to simulation time. A special time register
 data type is used in Verilog to store simulation time. A time variable is declared
@@ -320,10 +323,11 @@ specific but is at least 64 bits.The system function $time is invoked to get the
 current simulation time.
 
 **Example code:**
+```
 time save_sim_time; // Define a time variable save_sim_time
 initial
 save_sim_time = $time; // Save the current simulation time
-
+```
 Simulation time is measured in terms of simulation seconds. The unit is denoted by
 s, the same as real time. However, the relationship between real time in the digital
 circuit and simulation time is left to the user. 
@@ -334,6 +338,7 @@ types. Arrays are not allowed for real variables. Arrays are accessed by
 <array_name>[<subscript>1. Multidimensional arrays are not permitted in Verilog.
 
 **Example code:**
+```
 integer count[0:7]; // An array of 8 count variables
 reg bool[31:0]; // Array of 32 one-bit boolean register variables
 time chk_point [1:100]; // Array of 100 time checkpoint variables
@@ -344,7 +349,7 @@ array
 count [5] //5th element of array of count variables
 chk_point[100] //100th time check point value
 port_id[3] // 3rd element of port_id array. This is a 5-bit value.
-
+```
 It is important not to confuse arrays with net or register vectors. A vector is a
 single element that is n-bits wide. On the other hand, arrays are multiple
 elements that are 1-bit or n-bits wide.
@@ -357,10 +362,11 @@ to differentiate between n 1-bit registers and one n-bit register. A particular 
 in memory is obtained by using the address as a memory array subscript.
 
 **Example code:**
+```
 reg mem1bit [0:1023]; // Memory memlbit with 1K 1-bit words
 reg [7:0] membyte[0:1023];// Memory membyte with 1K 8-bit words (bytes)
 membyte[511] // Fetches 1 byte word whose address is 511.
-
+```
 **Рarameters**
 Verilog allows constants to be defined in a module by the keyword parameter.
 Parameters cannot be used as variables. Parameter values for each module
@@ -387,12 +393,13 @@ width, Verilog truncates the leftmost bits of the string. It is always safe to d
 a string that is slightly wider than necessary.
 
 **Example code:**
+```
 reg [8*18:1] string_value; // Declare a variable that is 18 bytes
 wide
 initial
 string_value = "Hello Verilog World"; // String can be stored
 // in variable
-
+```
 Special characters serve a special purpose in displaying strings, such as newline,tabs and displaying argument values. Special characters can be displayed in
 strings only when they are preceded by escape characters, as shown in Table
 
@@ -417,6 +424,7 @@ $display is very similar to printf in C. A $display inserts a newline at the end
 of the string by default. A $display without any arguments produces a newline.
 
 **Example code:**
+```
 //Display the string in quotes
 $display("Hello Verilog World");
 -- Hello Verilog World
@@ -441,7 +449,7 @@ $display("Bus value is %b", bus)
 //is a useful feature)
 $display("This string is displayed from %m level of hierarchy");
 -- This string is displayed from top.p1 level of hierarchy
-
+```
 **Monitoring information**
 Verilog provides a mechanism to monitor a signal when its value changes. This
 facility is provided by the $monitor task.
@@ -466,6 +474,7 @@ $monitoron and $monitoroff tasks. Examples of monitoring statements are
 given in Example 3-4. Note the use of $time in the $monitor statement.
 
 **Example code:**
+```
 //Monitor time and value of the signals clock and reset
 //Clock toggles every 5 time units and reset goes down at 10 time units
 initial
@@ -477,7 +486,7 @@ Partial output of the monitor statement:
 -- 0 Value of signals clock = 0 reset = 1
 -- 5 Value of signals clock = 1 reset = 1
 -- 10 Value of signals clock = 0 reset = 0
-
+```
 **Stopping and finishing in a simulation**
 The task $stop is provided to stop during a simulation.
 Usage: $stop;
@@ -489,6 +498,7 @@ The $finish task terminates the simulation.
 Usage: $tinish;
 
 **Example code:**
+```
 // Stop at time 100 in the simulation and examine the results
 // Finish the simulation at time.
 initial // to be explained later. time = 0
@@ -498,7 +508,7 @@ reset = 1;
 #100 $stop: // This will suspend the simulation at time = 100
 #900 $finish; // This will terminate the simulation at time = 1000
 end
-
+```
 **Compiler Directives**
 Compiler directives are provided in Verilog. All compiler directives are defined
 by using the `<keyword> construct. We deal with the two most useful compiler
@@ -512,6 +522,7 @@ compiler substitutes the text of the macro wherever it encounters a
 `<macro_name>.
 
 **Example code:**
+```
 //define a text macro that defines default word size
 //Used as 'WORD_SIZE in the code
 'define WORD_SIZE 32
@@ -520,7 +531,7 @@ compiler substitutes the text of the macro wherever it encounters a
 //define a frequently used text string
 'define WORD_REG reg [31:0]
 // you can then define a 32-bit register as 'WORD_REG reg32;
-
+```
 **include**
 The `include directive allows you to include entire contents of a Verilog source
 file in another Verilog file during compilation. This works similarly to the #include
@@ -528,11 +539,12 @@ in the C programming language. This directive is typically used to include heade
 files, which typically contain global or commonly used definitions
 
 **Example code:**
+```
 // Include the file header.v, which contains declarations in the
 // main verilog file design.v.
 include header.v
 <Verilog code in file design.v>
-
+```
 # Modules and Ports 
 
 ![image](https://github.com/user-attachments/assets/7b9cce5f-c52c-4d6d-bc15-e47edc910f5d)
@@ -573,7 +585,7 @@ All ports in the list of ports must be declared in the module. Ports can be decl
 Each port in the port list is defined as input, output, or inout, based on the
 direction of the port signal. Thus, for the example of the fulladd4 in Example 4-2,
 the port declarations will be as shown in Example
-
+```
 module fulladd4 (sum, c_out, a, b, c_in);
 //Begin port declarations section
 output[3:0] sum;
@@ -583,18 +595,18 @@ input c_in;
 //End port declarations section
 <module internals>
 endmodule
-
+```
 Note that all port declarations are implicitly declared as wire in Verilog. Thus, ifa port is intended to be a wire, it is sufficient to declare it as output, input, or
 inout. Input or inout ports are normally declared as wires. However, if output
 ports hold their value, they must be declared as reg. For example, in the
 definition of DFF, in Example 2-5, we wanted the output q to retain its value untilthe next clock edge. The port declarations for DFF will look as shown in Example
-
+```
 module DFF(q, d, clk, reset);
 output q;
 reg q; // Output port q holds value; therefore it is declared as reg.
 input d, clk, reset;
 endmodule
-
+```
 Ports of the type input and inout cannot be declared as reg because reg
 variables store values and input ports should not store values but simply reflect
 the changes in the external signals they are connected to.
@@ -662,6 +674,7 @@ instantiation (see Example 5-1). Verilog automatically instantiates the appropri
 gate.
 
 **Example code:**
+```
 wire OUT, IN1, IN2;
 // basic gate instantiations.
 and al(OUT, IN1, IN2);
@@ -674,7 +687,7 @@ xnor nx1 (OUT, IN1, IN2);
 nand nal_3inp (OUT, IN1, IN2, IN3);
 // gate instantiation without instance name
 and (OUT, IN1, IN2); // legal gate instantiation
-
+```
 The truth tables for these gates define how outputs for the gates are computed
 from the inputs. Truth tables are defined assuming two inputs. The truth tables
 for these gates are shown in Table
@@ -701,6 +714,7 @@ optional for Verilog primitives but are mandatory for instances of user-defined
 modules.
 
 **Example code:**
+```
 // Module 4-to-1 multiplexer. Port list is taken exactly from
 // the I/0 diagram.
 module mux4_to_1 (out, 10, i1, i2, i3, s1, s0);
@@ -723,7 +737,7 @@ and (y3, 13, s1, s0);
 // 4-input or gate instantiated
 or (out, y0, y1, y2, y3);
 endmodule
-
+```
 This multiplexer can be tested with the stimulus shown in Example 5-5. The
 stimulus checks that each combination of select signals connects the appropriate
 input to the output. The signal OUTPUT is displayed one time unit after it
@@ -731,6 +745,7 @@ changes. System task $monitor could also be used to display the signals when
 they change values.
 
 **Example code:**
+```
 // Define the stimulus module (no ports)
 module stimulus;
 // Declare variables to be connected
@@ -763,16 +778,16 @@ S1 = 1; S0 = 1;
 #1 $display("S1 = %b, s0 = %b, OUTPUT = %b \n", S1, S0, OUTPUT);
 end
 endmodule
-
+```
 The output of the simulation is shown below. Each combination of the select
 signals is tested.
-
+```
 INO= 1, IN1= 0, IN2= 1, IN3= 0
 S1 = 0, SO = 0, OUTPUT = 1
 S1 = 0, SO = 1, OUTPUT = 0
 S1 = 1, SO = 0, OUTPUT = 1
 S1 = 1, SO = 1, OUTPUT = 0
-
+```
 ## Gate Delays
 In real circuits, logic gates have delays associated with them. Gate delays allow the
 Verilog user to specify delays through the logic circuits. Pin-to-pin delays can also
@@ -802,19 +817,20 @@ three delays are specified, they refer to rise, fall, and turn-off delay values.
 delays are specified, the default value is zero. 
 
 **Example code:**
+```
 // Delay of delay_time for all transitions
 and #(delay_time) al(out, il, i2);
 // Rise and Fall Delay Specification.
 and #(rise_val, fall_val) a2(out, il, i2);
 // Rise, Fall, and Turn-off Delay Specification
 bufif0 #(rise_val, fall_val, turnoff_val) bl (out, in, control);
-
+```
 **Examples of delay specification are shown below.**
-
+```
 and #(5) al(out, i1, i2); //Delay of 5 for all transitions
 and #(4,6) a2(out, il, i2); // Rise = 4, Fall = 6
 bufif0 #(3,4,5) b1 (out, in, control); //Rise = 3, Fall = 4, Turn-off = 5
-
+```
 ## Min/Typ/Max Values
 Verilog provides an additional level of control for each type of delay mentioned
 above. For each type of delay-rise, fall, and turn-off-three values, min, typ, and
@@ -842,6 +858,7 @@ delay values for each transition into their design. The designer can experiment
 with delay values without modifying the design.
 
 **Example code:**
+```
 // One delay
 Min, Max and Typical Delay Values
 // if +mindelays, delay= 4
@@ -858,7 +875,7 @@ and #(3:4:5, 5:6:7) a2 (out, i1, i2);
 // if +typdelays, rise= 3 fall= 4 turn-off = 5
 // if +maxdelays, rise= 4 fall= 5 turn-off = 9
 and #(2:3:4, 3:4:5, 4:5:6) a3 (out, i1,i2);
-
+```
 # Dataflow Modeling
 
 ##  Continuous Assignments
@@ -895,6 +912,7 @@ value. This feature is similar to specifying delays for gates. It is very useful
 in modeling timing behavior in real circuits.
 
 **Example code**
+```
 // Continuous assign. out is a net. il and i2 are nets.
 assign out = il & i2;
 // Continuous assign for vector nets. addr is a 16-bit vector net
@@ -903,7 +921,7 @@ assign addr [15:0] = addrl_bits [15:0]^ addr2_bits [15:0];
 // Concatenation. Left-hand side is a concatenation of a scalar
 // net and a vector net.
 assign {c_out, sum[3:0]} = a[3:0] + b[3:0] + c_in;
-
+```
 ## Implicit Continuous Assignment
 
 Instead of declaring a net and then writing a continuous assignment on the net,
@@ -914,12 +932,13 @@ In the example below, an implicit continuous assignment is contrasted with a
 regular continuous assignment.
 
 **Example code:**
+```
 //Regular continuous assignment
 wire out;
 assign out = inl & in2;
 //Same effect is achieved by an implicit continuous assignment
 wire out = inl & in2;
-
+```
 # Behavioral Modeling
 ## Structured Procedures
 There are two structured procedure statements in Verilog: always and initial.
@@ -946,6 +965,7 @@ Pascal programming language or the {} grouping in the C programming
 language.
 
 **Example code:**
+```
 module stimulus;
 reg x, y, a,b, m;
 initial
@@ -964,18 +984,20 @@ end
 initial
 #50 $finish;
 endmodule
-
+```
 In the above example, the three initial statements start to execute in parallel at time
 0. If a delay #<delay> is seen before a statement, the statement is executed <delay>
 time units after the current simulation time. Thus, the execution sequence of the
 statements inside the initial blocks will be as follows.
 time statement executed
+```
 이 m = 1'b0;
 5 a = 1'bl;
 10 x = 1'b0;
 30 b = 1'b0;
 35 y = 1'bl;
 50 $finish;
+```
 The initial blocks are typically used for initialization, monitoring, waveforms
 and other processes that must be executed only once during the entire simulation
 run. 
@@ -988,6 +1010,7 @@ generator module that toggles the clock signal every half cycle. In real circuit
 clock generator is active from time 0 to as long as the circuit is powered on.
 
 **Example code:**
+```
 module clock_gen;
 reg clock;
 //Initialize clock at time zero
@@ -999,6 +1022,7 @@ always
 initial
 #1000 $finish;
 endmodule
+```
 the always statement starts at time 0 and executes the statement
 clock = ~clock every 10 time units. Notice that the initialization of clock has to be
 done inside a separate initial statement. If we put the initialization of clock
@@ -1042,6 +1066,7 @@ Section 7.7, Sequential and Parallel Blocks, The operator is used to specify
 blocking assignments.
 
 **Example code:**
+```
 reg x, y, Z
 reg [15:0] reg_a, reg_b;
 integer count;
@@ -1056,7 +1081,7 @@ reg_a = 16'b0; reg_b = reg_a; //initialize vectors
 // part select of a vector
 count = count + 1; //Assignment to an integer (increment)
 end
-
+```
 The statement y = 1 is executed only after x = 0 is executed. The
 behavior in a particular block is sequential in a begin-end block if blocking
 statements are used, because the statements can execute only in sequence. The
@@ -1069,7 +1094,7 @@ statements are executed are as follows:
 4. Statement count = count + 1 at time = 25
 5. Since there is a delay of 15 and 10 in the preceding statements, count = count
 + 1 will be executed at time = 25 units
-+ 
+ 
 Note that for procedural assignments to registers, if the right-hand side has more
 bits than the register variable, the right-hand side is truncated to match the width
 of the register variable. The least significant bits are selected and the most
@@ -1086,6 +1111,7 @@ context of a nonblocking assignment. To illustrate the behavior of nonblocking
 statements and its difference from blocking statements.
 
 **Example code:**
+```
 reg x, y, z;
 reg [15:0] reg_a, reg_b;
 integer count;
@@ -1100,11 +1126,12 @@ reg_a[2] <= #15 1'bl; //Bit select assignment with delay
 reg_b[15:13] <= #10 (x, Y, z}; //Assign result of concatenation
 //to part select of a vector
 count <= count + 1; //Assignment to an integer (increment)
+```
 In this example the statements x = 0 through reg_b = reg_a are executed
 sequentially at time 0. Then, the three nonblocking assignments are processed at
 the same simulation time.
 1. reg_a[2] = 0 is scheduled to execute after 15 units (i.e., time = 15) 
-2.reg_b[15:13] = {x, y, z} is scheduled to execute after 10 time units (i.e., time = 10)
+2. reg_b[15:13] = {x, y, z} is scheduled to execute after 10 time units (i.e., time = 10)
 3. count = count + 1 is scheduled to be executed without any delay (i.e., time = 0)
    
 Thus, the simulator schedules a nonblocking assignment statement to execute and
@@ -1123,6 +1150,7 @@ is shown below. For formal syntax, see Appendix D, Formal Syntax Definition.
 
 //Type 1 conditional statement. No else statement.
 //Statement executes or does not execute.
+```
 if (<expression>) true_statement ;
 //Type 2 conditional statement. One else statement
 //Either true_statement or false_statement is evaluated
@@ -1133,7 +1161,7 @@ if (<expression1>) true_statement1 ;
 else if (<expression2>) true_statement2
 else if (<expression3>) true_statement3
 else default_statement ;
-
+```
 The <expression> is evaluated. If it is true (1 or a non-zero value), the
 true_statement is executed. However, if it is false (zero) or ambiguous (x or z), the
 false_statement is executed. The <expression> can contain any operators mentioned
@@ -1142,6 +1170,7 @@ statement or a block of multiple statements. A block must be grouped, typically
 by using keywords begin and end. A single statement need not be grouped.
 
 **Example code:**
+```
 //Type 1 statements
 if(!lock) buffer = data;
 if(enable) out = in;
@@ -1163,7 +1192,7 @@ else if(alu_control == 2)
 else
 y = x * Z;
 $display("Invalid ALU control signal");
-
+```
 ## case Statement
 The keywords case, endcase, and default are used in the case statement.
 
@@ -1184,6 +1213,7 @@ default statements in one case statement is not allowed. The case statements can
 be nested. The following Verilog code implements the type 3 conditional
 
 **Example code:**
+```
 //Execute statements based on the ALU control signal
 reg [1:0] alu_control;
 case (alu_control)
@@ -1192,13 +1222,14 @@ case (alu_control)
 2'd2: y = x * Z;
 default : $display("Invalid ALU control signal");
 endcase
-
+```
 The case statement can also act like a many-to-one multiplexer. To understand
 this, let us model the 4-to-1 multiplexer in Section 6.5, Examples, on page 102,
 using case statements. The I/O ports are unchanged. Notice that an 8-to-1 or 16-
 to-1 multiplexer can also be easily implemented by case statements.
 
 **Example code:**
+```
 module mux4_to_1 (out, 10, il, i2, i3, s1, s0);
 // Port declarations from the I/0 diagram
 output out;
@@ -1214,7 +1245,7 @@ endcase
 2'd3 : out = i3;
 default: $display("Invalid control signals");
 endmodule
-
+```
 The case statement compares 0, 1, x, and z values in the expression and the
 alternative bit for bit. If the expression and the alternative are of unequal bit
 width, they are zero filled to match the bit width of the widest of the expression
@@ -1223,7 +1254,7 @@ which outputs are completely specified, that is, definitive results are provided
 even for * and z values on the select signal.
 
  Case Statement with x and z
-
+```
 module demultiplexerl_to_4 (out0, out1, out2, out3, in, s1, s0);
 // Port declarations from the I/0 diagram
 output out0, out1, out2, out3;
@@ -1250,7 +1281,7 @@ end
 default: $display("Unspecified control signals");
 endcase
 endmodule
-
+```
 ## casex, casez Keywords
 There are two variations of the case statement. They are denoted by keywords,
 casex and casez.
@@ -1266,6 +1297,7 @@ decoding of state bits in a finite state machine using a casex statement. The us
 casez is similar. Only one bit is considered to determine the next state and the
 other bits are ignored.
 Example 7-16 casex Use
+```
 reg [3:0] encoding;
 integer state;
 casex (encoding) //logic value x represents a don't care bit.
@@ -1275,6 +1307,7 @@ casex (encoding) //logic value x represents a don't care bit.
 4'bxxx1 : next_state = 0;
 default : next_state = 0;
 endcase
+```
 Thus, an input encoding = 4'b10xz would cause next_state = 3 to be executed.
 
 # Loops
@@ -1293,6 +1326,7 @@ grouped typically using keywords begin and end. Example 7-17 illustrates the
 use of the while looор.
 
 **Example code:**
+```
 //Illustration 1: Increment count from 0 to 127. Exit at count 128.
 //Display the count variable.
 integer count;
@@ -1329,7 +1363,7 @@ end
 i = i + 1;
 end
 end
-
+```
 ## For Loop
 The keyword for is used to specify this loop. The for loop contains three parts:
 • An initial condition
@@ -1344,6 +1378,7 @@ that the while loop is more general purpose than the for loop. The for loop
 cannot be used in place of the while loop in all situations. p
 
 **Example code:**
+```
 integer count;
 initial
 for ( count=0; count < 128; count = count + 1)
@@ -1362,7 +1397,7 @@ for(i = 0; i < 32; i = i + 2) //initialize all even locations with 0
 state[i] = 0;:
 for(i = 1; i < 32; i = i + 2) //initialize all odd locations with 1
 state[i] = 1;
-
+```
 for loops are generally used when there is a fixed beginning and end to the loop.
 If the loop is simply looping on a certain condition, it is better to use the while
 loop.
@@ -1372,6 +1407,7 @@ The keyword repeat is used for this loop. The repeat construct executes the loop
 fixed number of times.
 
 **Example code:**
+```
 //Illustration 1: increment and display count from 0 to 127
 integer count;
 initial
@@ -1408,7 +1444,7 @@ end
 end
 end
 endmodule
-
+```
 ##  Forever loop
 The keyword forever is used to express this loop. The loop does not contain any
 expression and executes forever until the $finish task is encountered. The loop is
@@ -1423,13 +1459,14 @@ statement.
 
 //Example 1: Clock generation
 //Use forever loop instead of always block
+```
 reg clock;
 initial
 begin
 clock = 1'b0;
 forever #10 clock = ~clock; //Clock with period of 20 units
 end
-
+```
 # Sequential and Parallel Blocks
 ##  Block Types
 
@@ -1445,6 +1482,7 @@ completes execution (except for nonblocking assignments with intraassignment tim
 when the previous statement in the block completed execution.
 
 //Illustration 1: Sequential block without delay
+```
 reg x, y;
 reg [1:0] z, w;
 initial
@@ -1464,7 +1502,7 @@ x = 1'b0; //completes at simulation time 0
 #5 y = 1'bl; //completes at simulation time 5
 #10 z = {x, y}; //completes at simulation time 15
 #20 w = {y, x}; //completes at simulation time 35
-
+```
 ## Parallel blocks
 Parallel blocks, specified by keywords fork and join, provide interesting
 simulation features. Parallel blocks have the following characteristics.
@@ -1478,6 +1516,7 @@ Notice the fundamental difference between sequential and parallel blocks. All
 statements in a parallel block start at the time when the block was entered. Thus,the order in which the statements are written in the block is not important.
 
 //Example 1: Parallel blocks with delay.
+```
 reg x, y;
 reg [1:0] z, W;
 initial
@@ -1487,7 +1526,7 @@ x = 1'b0; //completes at simulation time
 #10 z = {x, y); //completes at simulation time 10
 #20 w = {y, x}; //completes at simulation time 20
 join
-
+```
 # Tasks and Functions
 
 ##  Differences Between Tasks and Functions
@@ -1516,6 +1555,7 @@ any one of the following conditions is true for the procedure.
 3. The procedure has no input arguments.
 
 ##  Тask Declaration and Invocation
+```
 //Task Declaration Syntax
 <task>
 ::= task <name_of_task>;
@@ -1539,7 +1579,7 @@ endtask
 <task_enable>
 ::= <name_of_task>;
 ||= <name_of_task> (<expression><,<expression>>*);
-
+```
 ##  Functions
 Functions are declared with the keywords function and endfunction. Functions
 are used if all of the following conditions are true for the procedure.
@@ -1548,7 +1588,7 @@ are used if all of the following conditions are true for the procedure.
 3. There is at least one input argument.
 
 ##  Function Declaration and Invocation
-
+```
 //Function Declaration Syntax
 <function>
 ::= function <range_or_type>? <name_of_function>;
@@ -1572,7 +1612,7 @@ endfunction
 //Function Invocation Syntax
 <function_call>
 ::= <name_of_function> (<expression><,<expression>>*)
-
+```
 
 
 
