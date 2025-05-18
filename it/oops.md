@@ -27,13 +27,13 @@ Functions that operate on the same kind of data and tied together - encapsulatio
 Data can be hidden from a specific portion of code - abstraction.
 Objects can communicate with each other through functions. 
 
-Features of OOP
-Class
-Object
-Encapsulation
-Abstraction
-Polymorphism
-Inheritance
+### Features of OOP <br>
+1. Class 
+2. Object 
+3. Encapsulation
+4. Abstraction
+5. Polymorphism
+6. Inheritance
 
 ## OBJECTS AND CLASSES
 
