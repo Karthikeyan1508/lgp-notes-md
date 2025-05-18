@@ -482,9 +482,99 @@ is degrees.
 NOTE:
 The stability of the control system based on the relation between gain margin and phase 
 margin is listed below. 
+
+
 - If both the gain margin GM and the phase margin PM are positive, then the control 
-system is stable. 
+system is stable.
+
 - If both the gain margin GM and the phase margin PM are equal to zero, then the 
 control system is marginally stable. 
 If the gain margin GM and / or the phase margin PM are/is negative, then the control 
 system is unstable. 
+
+
+##Routh-Hurwitz Stability Criterion
+
+Routh-Hurwitz stability criterion is having one necessary condition and one sufficient
+condition for stability. If any control system doesn’t satisfy the necessary condition, then we
+can say that the control system is unstable. But, if the control system satisfies the necessary
+condition, then it may or may not be stable. So, the sufficient condition is helpful for knowing
+whether the control system is stable or not.
+
+###Necessary Condition for Routh-Hurwitz Stability
+The necessary condition is that the coefficients of the characteristic polynomial should be
+positive. This implies that all the roots of the characteristic equation should have negative
+real parts.
+Consider the characteristic equation of the order ‘n’ is -
+![image](https://github.com/user-attachments/assets/94dfc100-c8f8-4c81-8542-229d25a5034a)
+Note that, there should not be any term missing in the nth order characteristic equation. This means that the nth order characteristic equation should not have any coefficient that is of zero value.
+###Sufficient Condition for Routh-Hurwitz Stability
+The sufficient condition is that all the elements of the first column of the Routh array should
+have the same sign. This means that all the elements of the first column of the Routh array
+should be either positive or negative.
+
+###Routh Array Method
+If all the roots of the characteristic equation exist to the left half of the ‘s’ plane, then the
+control system is stable. If at least one root of the characteristic equation exists to the right
+half of the ‘s’ plane, then the control system is unstable. So, we have to find the roots of the
+characteristic equation to know whether the control system is stable or unstable. But, it is
+difficult to find the roots of the characteristic equation as order increases.
+So, to overcome this problem there we have the Routh array method. In this method, there
+is no need to calculate the roots of the characteristic equation. First formulate the Routh
+table and find the number of the sign changes in the first column of the Routh table. The
+number of sign changes in the first column of the Routh table gives the number of roots of
+characteristic equation that exist in the right half of the ‘s’ plane and the control system is
+unstable.
+Follow this procedure for forming the Routh table.
+- Fill the first two rows of the Routh array with the coefficients of the characteristic
+polynomial as mentioned in the table below. Start with the coefficient of sn and
+continue up to the coefficient of s0.
+- Fill the remaining rows of the Routh array with the elements as mentioned in the table
+below. Continue this process till you get the first column element of row s0s0 is an.
+Here, an is the coefficient of s0 in the characteristic polynomial.
+
+Note − If any row elements of the Routh table have some common factor, then you can
+divide the row elements with that factor for the simplification will be easy.
+The following table shows the Routh array of the nth order characteristic polynomial.
+![image](https://github.com/user-attachments/assets/3e0770c0-4b12-46c8-85eb-0dc1535cb78c)
+Example:
+Let us find the stability of the control system having characteristic equation,
+![image](https://github.com/user-attachments/assets/b254f414-5eed-4991-89a1-35e0f7e1b3ed)
+![image](https://github.com/user-attachments/assets/d8a14371-e013-4adc-bb1e-225e1ad1cc31)
+Special Cases of Routh Array
+We may come across two types of situations, while forming the Routh table. It is difficult to
+complete the Routh table from these two situations.
+The two special cases are −
+- The first element of any row of the Routh’s array is zero.
+- All the elements of any row of the Routh’s array are zero.
+Let us now discuss how to overcome the difficulty in these two cases, one by one.
+First Element of any row of the Routh’s array is zero:
+If any row of the Routh’s array contains only the first element as zero and at least one of the
+remaining elements have non-zero value, then replace the first element with a small positive
+integer, ϵ. And then continue the process of completing the Routh’s table. Now, find the
+number of sign changes in the first column of the Routh’s table by substituting ϵϵ tends to
+zero.
+Example:
+Let us find the stability of the control system having characteristic equation,
+![image](https://github.com/user-attachments/assets/9b54cbe9-febd-41bd-94b3-b3f5df84d69a)
+![image](https://github.com/user-attachments/assets/20a44ee0-ddb0-4d69-a6ef-29c3d29b6992)
+![image](https://github.com/user-attachments/assets/6eabd7b4-7f53-40c6-8ba1-f4a5a9f24a09)
+![image](https://github.com/user-attachments/assets/1de53500-7092-4713-b675-35dffc4954c4)
+All the Elements of any row of the Routh’s array are zero
+In this case, follow these two steps −
+- Write the auxilary equation, A(s) of the row, which is just above the row of zeros.
+- Differentiate the auxiliary equation, A(s) with respect to s. Fill the row of zeros with
+these coefficients.
+
+![image](https://github.com/user-attachments/assets/58160a11-222c-484b-8141-ea183cdbddfe)
+
+![image](https://github.com/user-attachments/assets/cf0f715e-abc8-42b1-9214-63856b81173e)
+
+![image](https://github.com/user-attachments/assets/3b2eabd8-ad12-4af4-ae96-7f696e14259f)
+Step 3 − Verify the sufficient condition for the Routh-Hurwitz stability.
+There are two sign changes in the first column of Routh table. Hence, the control system is
+unstable.
+In the Routh-Hurwitz stability criterion, we can know whether the closed loop poles are in
+on left half of the ‘s’ plane or on the right half of the ‘s’ plane or on an imaginary axis. So, we
+can’t find the nature of the control system. To overcome this limitation, there is a technique
+known as the root locus.
