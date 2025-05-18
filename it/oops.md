@@ -62,24 +62,22 @@ methods (functions).
 -	Starts with the keyword class followed by the class name
 -	Then the class body comes enclosed by a pair of curly braces.
 -	Necessary to end with a semi-colon
-```
+
 ![image](https://github.com/user-attachments/assets/14c1c170-d0c0-4117-81e1-1c00693eab08)
-```
  
 ### Object Definition
 -	Classname followed by object name.
 -	We declare objects of a class with exactly the same sort of declaration that we declare variables of basic types.
 -	Objects can also be defined when a class is defined by placing their names immediately after the closing brace.
 
-```
+
 ![image](https://github.com/user-attachments/assets/0d4972d2-f7bf-4b3f-8820-e75a7479728c)
-```
+
 -	But, usually we would like to declare objects close to the place where they are actually going to be used.
 
-```
+
 ![image](https://github.com/user-attachments/assets/29e8bbe3-78fc-4ff3-8f4d-aa9512f08fdb)
 
-```
  
 ## Member Functions
 
@@ -90,30 +88,25 @@ methods (functions).
 1.	Within the class
 -	A member function will be called using a dot operator (.) on an object.
 
-```
 ![image](https://github.com/user-attachments/assets/ac3ede64-b10b-47dd-af2b-f7d239cecee2)
 
-```
 
 2.	Outside the class (using Scope Resolution Operator(::))
 -	Here, only important point is that you would have to use class name just before :: operator.
 -	Scope of the function is restricted to the class name given.
 -	Calling the member function is same as before.
 
-```
 ![image](https://github.com/user-attachments/assets/a7359ba5-b2bb-4cac-9a02-b2e9e285e752)
 
-```
 
 ### Features of Member Functions
 -	Several classes can use same function names, the conflict will be resolved by the membership label.
 -	Member functions can access all data of its class(whether private or public).
 -	A member function can call another member function directly without using (.) operator.
-```
+
 ![image](https://github.com/user-attachments/assets/c7e3e65c-e384-4f6d-b76a-b0ac4f86f05c)
 
-```
- 
+
 ### Abstraction
 Hiding the details?
 - Abstraction is the process of hiding the details of an entity and focusing on the essential characteristics of the entity.
@@ -142,9 +135,8 @@ By default - private in C++ and public in Java.
 -	They are not allowed to be accessed directly by any object or function outside the class.
 -	However, we can access the private data members of a class indirectly using the public member functions of the class.
 -	Practically, we define data in private section and related functions in public section so that they can be called from outside of the class
-```
+
 ![image](https://github.com/user-attachments/assets/4e7545b8-ee5f-4a2a-a894-cb26d29425c7)
-```
 
 ### What is the need of abstraction?
 -	This is to prevent other functions and classes from tampering with the class data.
@@ -157,10 +149,10 @@ Who is a friend?
 ### Declaration and definition of friend function-
 -	The function can be defined anywhere in the program like a normal C++ function.
 -	The function definition does not use either the keyword friend or scope resolution operator.
-```
+	
 ![image](https://github.com/user-attachments/assets/c94a691e-f2e5-4b73-b1e2-9a0241f8ca3d)
 
-```
+
 -	Class objects can be passed as arguments to the functions same as normal variables - that’s the magic of OOPs. And hence similarly, they can be the return type of the function as well!
  
 ### Properties of friend function-
@@ -177,10 +169,9 @@ Who is a friend?
 
 ## Friend function between multiple classes-
 -	Member function of one class can be friend functions of other class.
-```
+-	
 ![image](https://github.com/user-attachments/assets/0b523baa-e5ac-4593-b68f-32a684b14726)
 
-```
 -	More than 1 classes can have same function as friend function.
  
 ## Inline Functions
@@ -190,10 +181,8 @@ Who is a friend?
 
 ### What happens when we call a function?
 -	When the program executes the function call instruction the CPU stores the memory address of the instruction following the function call, copies the arguments of the function on the stack and finally transfers control to the specified function. The CPU then executes the function code, stores the function return value in a predefined memory location/register and returns control to the calling function.
-```
+  
 ![image](https://github.com/user-attachments/assets/d344a195-0b43-4679-a457-1a82fe204eed)
-
-```
 
 ### Overhead-
 -	This can become overhead if the execution time of function is less than the switching time from the caller function to called function (callee).
@@ -205,10 +194,9 @@ Who is a friend?
 -	C++ provides an inline functions to reduce the function call overhead.
 -	Inline function is a function that is expanded in line when it is called. When the inline function is called whole code of the inline function gets inserted or substituted at the point of inline function call. This substitution is performed by the C++ compiler at compile time. So the overhead of function calling is reduced
 -	Inline function may increase efficiency if it is small.
-```
+  
 ![image](https://github.com/user-attachments/assets/d3c576ab-6eb2-4358-ba05-53e17b13eb9a)
 
-```
 ### Properties of inline function-
 -	All the functions defined inside class definition are by default inline.
 
@@ -217,10 +205,8 @@ Who is a friend?
 -	Inline functions do increase efficiency, but we should not make all the functions inline.
 Because if we make large functions inline, it may lead to code bloat, i.e., makes the program to take up more memory because the statements that define the inline function are reproduced at each point where the function is called and this might affect the speed too.
 -	Hence, it is advised to define large functions outside the class definition using scope resolution :: operator, because if we define such functions inside class definition, then they become inline automatically.
-```
+  
 ![image](https://github.com/user-attachments/assets/78922f5f-1e5c-4b0f-853e-7d52e9ea6ef5)
-
-```
 
 ## Static Functions
 
@@ -243,14 +229,10 @@ Before discussing static functions, we’ll study static variables.
 -	The default value of static variable is zero.
 -	Once this variable is declared, it exists till the program executes. So, the lifetime of a static variable is the lifetime of the program.
 -	When used inside function, they are initialised only once, and then they hold there value even through function calls.
-```
+
 ![image](https://github.com/user-attachments/assets/5a7cef2a-8d01-4525-8e10-f59f77b6d95b)
 
-```
-```
 ![image](https://github.com/user-attachments/assets/d1bb0f20-79ba-4295-8023-cce820839f2d)
-
-```
 
 ### Static variables of a class-
 -	It is initialised to zero when the first object of its class is created.
@@ -258,17 +240,13 @@ Before discussing static functions, we’ll study static variables.
 -	Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
 -	It is a property of the class rather than any object.
 -	Static variables are normally used to maintain values common to the entire class. For example, a static data member can be used as a counter that records the occurrences of all the objects
-```
+
 ![image](https://github.com/user-attachments/assets/02ca2113-8859-4bfc-97a2-31d3263dafd6)
 
-```
 
 ### Here is the second kind of initialisation:
 
-```
 [Uploading image.png…]()
-
-```
  
 ### Static Member Functions 
 Static functions in C++ are member functions that belong to a class rather than an instance of the class. They can be called on the class itself without creating an object.
@@ -283,10 +261,7 @@ declared in the same class.
 -	Static functions are useful in various real-life scenarios, where you need to perform operations related to a class without having to create objects of that class.
 -	In a mathematics library, you can have a “Math” class with static functions for common mathematical operations.
 
-```
 ![image](https://github.com/user-attachments/assets/db2ec63d-d6d8-4328-9df4-185c42187ec3)
-
-```
  
 ## Encapsulation
 
@@ -303,10 +278,9 @@ Again think of the same TV Remote that we discussed in Abstraction.
 -	By the use of access specifiers.
 -	By the use of member functions.
 
-```
+
 ![image](https://github.com/user-attachments/assets/728fbf2d-2311-4ce0-beed-6022febee0b0)
 
-```
 
 ### Benefits of Encapsulation
 -	Improved code maintainability
