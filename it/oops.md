@@ -551,10 +551,6 @@ class subclass_name : access_mode baseclass_name{
 };
 ```
 
-## Polymorphism
-
-![image](https://github.com/user-attachments/assets/7bfb29a1-ceee-4649-aaf5-ebe5e36861ec)
-
 ### Function Overriding
 -	Suppose, the same function is declared in both the derived class and the base class.
 -	Now if we call this function using the object of the derived class, which function will be called ??
