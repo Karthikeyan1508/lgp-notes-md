@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/1445d489-bd39-4144-b564-f0566063e4b1)# Object Oriented Programming
+# Object Oriented Programming
 
 ## Types of programming
 
