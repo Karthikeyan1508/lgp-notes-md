@@ -339,7 +339,9 @@ In summary, Fast Ethernet is the basic version with a speed of 100 Mbps, Gigabit
 **4. Cost-effectiveness:** Ethernet is a cost-effective technology that is widely available and easy to implement. It is also relatively low-maintenance, requiring minimal ongoing support.
 **5. Interoperability:** Ethernet is an interoperable technology that allows devices from different manufacturers to communicate with each other seamlessly.
 **6. Security:** Ethernet includes built-in security features, including encryption and authentication, to protect data from unauthorized access.
-**7. Manageability:** Ethernet networks are easily managed, with various tools available to help network administrators monitor and control network traffic.
+**7. Manageability:** Ethernet networks are easily managed, with various tools available to help
+
+ network administrators monitor and control network traffic.
 **8. Compatibility:** Ethernet is compatible with a wide range of other networking technologies, making it easy to integrate with other systems and devices.
 **9. Availability:** Ethernet is a widely available technology that can be used in almost any setting, from homes and small offices to large data centers and enterprise-level networks.
 **10. Simplicity:** Ethernet is a simple technology that is easy to understand and use. It does not require specialized knowledge or expertise to set up and configure, making it accessible to a wide range of users.
@@ -352,3 +354,188 @@ In summary, Fast Ethernet is the basic version with a speed of 100 Mbps, Gigabit
 In the Open Systems Interconnection (OSI) model, the Ethernet is located in the lower layers and facilitates the operation of the physical and data link layers. The OSI model consists of seven layers, which are as follows.
 
 The topmost layer, known as the application layer, is what enables users to download and access data from email clients or web browsers. With the aid of the application, users enter their queries, and the request is then sent to the following layer, which is known as a “packet.” The packet contains data about the sender and the destination web address. The packet is transmitted from the application layer until it reaches the bottom layer, also known as the Ethernet frame.
+
+## Error Detection in Computer Networks
+Error is a condition when the receiver's information does not match the sender's. Digital signals suffer from noise during transmission that can introduce errors in the binary bits traveling from sender to receiver. That means a 0 bit may change to 1 or a 1 bit may change to 0. 
+
+Data (Implemented either at the Data link layer or Transport Layer of the OSI Model) may get scrambled by noise or get corrupted whenever a message is transmitted. To prevent such errors, error-detection codes are added as extra data to digital messages. This helps in detecting any errors that may have occurred during message transmission.
+
+## Types of Errors
+### Single-Bit Error
+A single-bit error refers to a type of data transmission error that occurs when one bit (i.e., a single binary digit) of a transmitted data unit is altered during transmission, resulting in an incorrect or corrupted data unit.
+
+![image](https://github.com/user-attachments/assets/3d44ce0d-5768-41da-889d-8a7781945bed)
+
+
+### Multiple-Bit Error
+A multiple-bit error is an error type that arises when more than one bit in a data transmission is affected. Although multiple-bit errors are relatively rare when compared to single-bit errors, they can still occur, particularly in high-noise or high-interference digital environments.
+
+![image](https://github.com/user-attachments/assets/ee3cc2ed-bd52-4176-8c1a-642bfffa20e9)
+
+
+### Burst Error
+When several consecutive bits are flipped mistakenly in digital transmission, it creates a burst error. This error causes a sequence of consecutive incorrect values.
+
+![image](https://github.com/user-attachments/assets/c13fec51-24aa-49c8-8ce1-4786a6bfbd8a)
+
+## Error Detection Methods
+To detect errors, a common technique is to introduce redundancy bits that provide additional information. Various techniques for error detection include:
+
+1. Simple Parity Check
+2. Two-Dimensional Parity Check
+3. Checksum
+4. Cyclic Redundancy Check (CRC)
+
+### Simple Parity Check
+Simple-bit parity is a simple error detection method that involves adding an extra bit to a data transmission. It works as:
+
+1 is added to the block if it contains an odd number of 1’s, and
+0 is added if it contains an even number of 1’s
+This scheme makes the total number of 1’s even, that is why it is called even parity checking.
+
+![image](https://github.com/user-attachments/assets/a7d231d1-40e7-435a-b9a0-02d763486d3d)
+
+### Advantages of Simple Parity Check
+- Simple parity check can detect all single bit error.
+- Simple parity check can detect an odd number of errors.
+- **Implementation:** Simple Parity Check is easy to implement in both hardware and software.
+- **Minimal Extra Data:** Only one additional bit (the parity bit) is added per data unit (e.g., per byte).
+- **Fast Error Detection:** The process of calculating and checking the parity bit is quick, which allows for rapid error detection without significant delay in data processing or communication.
+- Single-Bit Error Detection: It can effectively detect single-bit errors within a data unit, providing a basic level of error detection for relatively low-error environments.
+  
+### Disadvantages of Simple Parity Check
+- Single Parity check is not able to detect even no. of bit error. 
+For example, the Data to be transmitted is 101010. Codeword transmitted to the receiver is 1010101 (we have used even parity). 
+Let's assume that during transmission, two of the bits of code word flipped to 1111101.
+On receiving the code word, the receiver finds the no. of ones to be even and hence no error, which is a wrong assumption.
+
+## **Two-Dimensional Parity Check**
+**Two-dimensional Parity** check bits are calculated for each row, which is equivalent to a simple parity check bit. Parity check bits are also calculated for all columns, then both are sent along with the data. At the receiving end, these are compared with the parity bits calculated on the received data.
+
+![image](https://github.com/user-attachments/assets/4a067342-b935-4515-bbbe-e2ff30d039cf)
+
+
+### Advantages of Two-Dimensional Parity Check
+- Two-Dimensional Parity Check can detect and correct all single bit error.
+- Two-Dimensional Parity Check can detect two or three bit error that occur any where in the matrix.
+
+### Disadvantages of Two-Dimensional Parity Check
+- Two-Dimensional Parity Check can not correct two or three bit error. It can only detect two or three bit error.
+- If we have a error in the parity bit then this scheme will not work.
+
+## Checksum
+**Checksum error detection** is a method used to identify errors in transmitted data. The process involves dividing the data into equally sized segments and using a 1's complement to calculate the sum of these segments. The calculated sum is then sent along with the data to the receiver. At the receiver's end, the same process is repeated and if all zeroes are obtained in the sum, it means that the data is correct.
+
+### Checksum - Operation at Sender's Side
+- Firstly, the data is divided into k segments each of m bits.
+- On the sender’s end, the segments are added using 1’s complement arithmetic to get the sum. The sum is complemented to get the checksum.
+The checksum segment is sent along with the data segments.
+### Checksum - Operation at Receiver's Side
+- At the receiver’s end, all received segments are added using 1’s complement arithmetic to get the sum. The sum is complemented.
+- If the result is zero, the received data is accepted; otherwise discarded.
+
+![image](https://github.com/user-attachments/assets/7fc58023-e953-4b3e-bc53-ac6684357bbc)
+
+
+## Cyclic Redundancy Check (CRC)
+- Unlike the checksum scheme, which is based on addition, CRC is based on binary division.
+- In CRC, a sequence of redundant bits, called cyclic redundancy check bits, are appended to the end of the data unit so that the resulting data unit becomes exactly divisible by a second, predetermined binary number.
+- At the destination, the incoming data unit is divided by the same number. If at this step there is no remainder, the data unit is assumed to be correct and is therefore accepted.
+- A remainder indicates that the data unit has been damaged in transit and therefore must be rejected.
+
+![image](https://github.com/user-attachments/assets/548b1325-7353-46e2-96fa-b6a1d89aae0f)
+
+### CRC Working
+We have given dataword of length n and divisor of length k.
+
+Step 1: Append (k-1) zero's to the original message
+
+Step 2: Perform modulo 2 division
+
+Step 3: Remainder of division = CRC
+
+Step 4: Code word = Data with append k-1 zero's + CRC
+
+Note:
+- CRC must be k-1 bits
+- Length of Code word = n+k-1 bits
+
+**Example:** Let's data to be send is 1010000 and divisor in the form of polynomial is x3+1. CRC method discussed below.
+
+![image](https://github.com/user-attachments/assets/c8ad4fb9-73d6-4b8b-acc4-af9f833aace0)
+
+
+
+## Advantages of Error Detection
+- **Increased Data Reliability:** Error detection ensures that the data transmitted over the network is reliable, accurate, and free from errors. This ensures that the recipient receives the same data that was transmitted by the sender.
+- **Improved Network Performance:** Error detection mechanisms can help to identify and isolate network issues that are causing errors. This can help to improve the overall performance of the network and reduce downtime.
+- **Enhanced Data Security:** Error detection can also help to ensure that the data transmitted over the network is secure and has not been tampered with.
+
+## Disadvantages of Error Detection
+- **Overhead:** Error detection requires additional resources and processing power, which can lead to increased overhead on the network. This can result in slower network performance and increased latency.
+- **False Positives:** Error detection mechanisms can sometimes generate false positives, which can result in unnecessary retransmission of data. This can further increase the overhead on the network.
+- **Limited Error Correction:** Error detection can only identify errors but cannot correct them. This means that the recipient must rely on the sender to retransmit the data, which can lead to further delays and increased network overhead.
+
+## Error Correction in Computer Networks
+
+Computer Networks play a crucial role in the secured and encrypted transmission of data over the internet. However, the data transfer over a network includes many complex processes that cause some flaws in the data transmission. These flaws are called Errors which can be of different types. Therefore, it is important to correct them for efficient data transmission.
+
+Once the errors are detected in the network, the deviated bits sequence needs to be replaced with the right bit sequence so that the receiver can accept the data and process it. This method is called Error Correction. We can correct the errors in the Network in two different ways which are listed below:
+
+- **Forward Error Correction:** In this Error Correction Scenario, the receiving end is responsible for correcting the network error. There is no need for retransmission of the data from the sender’s side.
+- **Backward Error Correction:** the sender is responsible for retransmitting the data if errors are detected by the receiver. The receiver signals the sender to resend the corrupted data or the entire message to ensure accurate delivery.
+
+However, there is one of the most widely used Error Correction methods which is called ‘Hamming Code’ which was designed by R.W. Hamming. Let us have a quick look at it.
+
+## Hamming Code
+
+Hamming code is a block code that is capable of detecting up to two simultaneous bit errors and correcting single-bit errors. It was developed by R.W. Hamming for error correction.
+
+In this coding method, the source encodes the message by inserting redundant bits within the message. These redundant bits are extra bits that are generated and inserted at specific positions in the message itself to enable error detection and correction. When the destination receives this message, it performs recalculations to detect errors and find the bit position that has error.
+### Encoding a message by Hamming Code
+
+The procedure used by the sender to encode the message encompasses the following steps ?
+
+**Step 1: Calculation of the number of redundant bits.**
+If the message contains m?number of data bits, r?number of redundant bits are added to it so that m? is able to indicate at least (m + r+ 1) different states. Here, (m + r) indicates location of an error in each of (? + ?) bit positions and one additional state indicates no error. Since, r? bits can indicate 2r? states, 2r? must be at least equal to (m + r + 1). Thus the following equation should hold  2r ? m+r+1
+
+**Step 2: Positioning the redundant bits.**
+The r redundant bits placed at bit positions of powers of 2, i.e. 1, 2, 4, 8, 16 etc. They are referred in the rest of this text as r1 (at position 1), r2 (at position 2), r3 (at position 4), r4 (at position 8) and so on.
+
+**Step 3: Calculating the values of each redundant bit.**
+The redundant bits are parity bits. A parity bit is an extra bit that makes the number of 1s either even or odd. The two types of parity are ?
+
+- **Even Parity:** Here the total number of bits in the message is made even.
+
+- **Odd Parity:** Here the total number of bits in the message is made odd.
+
+Each redundant bit, ri, is calculated as the parity, generally even parity, based upon its bit position. It covers all bit positions whose binary representation includes a 1 in the ith position except the position of ri. Thus ?
+
+- r1 is the parity bit for all data bits in positions whose binary representation includes a 1 in the least significant position excluding 1 (3, 5, 7, 9, 11 and so on)
+
+- r2 is the parity bit for all data bits in positions whose binary representation includes a 1 in the position 2 from right except 2 (3, 6, 7, 10, 11 and so on)
+
+- r3 is the parity bit for all data bits in positions whose binary representation includes a 1 in the position 3 from right except 4 (5-7, 12-15, 20-23 and so on)
+
+## Decoding a message in Hamming Code
+Once the receiver gets an incoming message, it performs recalculations to detect errors and correct them. The steps for recalculation are ?
+
+**Step 1: Calculation of the number of redundant bits**
+Using the same formula as in encoding, the number of redundant bits are ascertained.
+
+2r ? m + r + 1 where m is the number of data bits and r is the number of redundant bits.
+
+**Step 2: Positioning the redundant bits**
+The r redundant bits placed at bit positions of powers of 2, i.e. 1, 2, 4, 8, 16 etc.
+
+**Step 3: Parity checking**
+Parity bits are calculated based upon the data bits and the redundant bits using the same rule as during generation of c1,c2 ,c3 ,c4 etc. Thus
+
+c1 = parity(1, 3, 5, 7, 9, 11 and so on)
+
+c2 = parity(2, 3, 6, 7, 10, 11 and so on)
+
+c3 = parity(4-7, 12-15, 20-23 and so on)
+
+**Step 4: Error detection and correction**
+The decimal equivalent of the parity bits binary values is calculated. If it is 0, there is no error. Otherwise, the decimal value gives the bit position which has error. For example, if c1c2c3c4 = 1001, it implies that the data bit at position 9, decimal equivalent of 1001, has error. The bit is flipped to get the correct message.
