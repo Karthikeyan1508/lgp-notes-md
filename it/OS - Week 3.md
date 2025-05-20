@@ -106,10 +106,15 @@ A Process Scheduler is a system program that decides the order in which processe
 ### Types of Scheduling Algorithms
 There are six commonly used CPU scheduling algorithms:
 1.First-Come, First-Served (FCFS) Scheduling
+
 2.Shortest-Job-Next (SJN) Scheduling (also known as Shortest Job First or SJF)
+
 3.Priority Scheduling
+
 4.Shortest Remaining Time (SRT) Scheduling
+
 5.Round Robin (RR) Scheduling
+
 6.Multi-Level Queue Scheduling
 
 ### 1.First Come First Serve (FCFS) Scheduling
@@ -138,8 +143,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          |
 
 *Gantt Chart:*
-|  P0  |  P1  |   P2   |   P3   |
-0      5      8       16      22
+| P0  | P1  | P2   | P3   |
+|-----|-----|------|------|
+| 0   | 5   | 8    | 16   | 22
 
 *Calculation:*
 | Process | AT | BT | CT | TAT = CT - AT | WT = TAT - BT |
@@ -190,8 +196,10 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               |
 
 *Gantt Chart:*
-|  P0  |  P1  |  P3  |   P2   |
-0      5      8     14       22
+| P0  | P1  | P3  | P2   |
+|-----|-----|-----|------|
+| 0   | 5   | 8   | 14   | 22
+
 
 *Calculation:*
 | Process | AT | BT | CT | TAT = CT - AT | WT = TAT - BT |
@@ -237,8 +245,10 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               | 3        |
 
 *Gantt Chart:*
-| P0 | P3 | P1 |   P2   |
-0    5    11   14       22
+| P0  | P3  | P1  | P2   |
+|-----|-----|-----|------|
+| 0   | 5   | 11  | 14   | 22 |
+
 
 *Calculation:*
 | Process | AT | BT | Priority | CT | TAT = CT - AT | WT = TAT - BT |
@@ -250,8 +260,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 
 
 *Final Metrics:*
-Average Waiting Time (AWT):\[ \text{AWT} = \frac{0 + 2 + 10 + 12}{4} = \frac{24}{4} = 6\]
-Average Turnaround Time (ATAT):\[\text{ATAT} = \frac{5 + 8 + 13 + 20}{4} = \frac{46}{4} = 11.5\]
+Average Waiting Time (AWT): AWT = (0 + 2 + 10 + 12) / 4 = 24 / 4 = 6
+Average Turnaround Time (ATAT):ATAT = (5 + 8 + 13 + 20) / 4 = 46 / 4 = 11.5
 
 ### 4.Shortest Remaining Time
 - Shortest Remaining Time (SRT) is the preemptive version of the Shortest Job Next (SJN) scheduling algorithm.
@@ -279,7 +289,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 
 *Gantt Chart:*
 | P0 | P1 | P2 | P3 | P2 | P1 | P1 | P1 | P0 | P0 | P0 | P0 |
-  0    1    2    3    4    5    6    7    8   9   10   11   12
+|----|----|----|----|----|----|----|----|----|----|----|----|
+| 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10 | 11 | 12 |
+
 
 *Calculation:*
 | Process | Arrival | Burst | Completion | Turnaround (CT - AT) | Waiting (TAT - BT) |
@@ -314,7 +326,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 
 *Gantt Chart:*
 | P0 | P1 | P2 | P3 | P0 | P2 | P3 | P2 | P2 | P2 | P2 | P3 |
-  0    4    7    11   15   16   20   20   24   28   32   34
+|----|----|----|----|----|----|----|----|----|----|----|----|
+| 0  | 4  | 7  | 11 | 15 | 16 | 20 | 20 | 24 | 28 | 32 | 34 |
 
 *Calculation:*
 | Process | Arrival Time | Burst Time | Completion Time | Turnaround Time | Waiting Time |
@@ -325,8 +338,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          | 22              | 19              | 13           |
 
 *Final Metrics:*
-Average Waiting Time (AWT):\[\frac{11 + 3 + 10 + 13}{4} = \frac{37}{4} = 9.25\]
-Average Turnaround Time (ATAT):\[\frac{16 + 6 + 18 + 19}{4} = \frac{59}{4} = 14.75\]
+Average Waiting Time (AWT): (11 + 3 + 10 + 13) / 4 = 37 / 4 = 9.25
+Average Turnaround Time (ATAT): (16 + 6 + 18 + 19) / 4 = 59 / 4 = 14.75
 
 ### 6.Multiple-Level Queues Scheduling
 Multiple-level queues are not an independent scheduling algorithm. They make use of other existing algorithms to group and schedule jobs with common characteristics.
