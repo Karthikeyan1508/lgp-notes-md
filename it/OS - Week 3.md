@@ -439,7 +439,7 @@ Ensure that producers and consumers operate in coordination, such that:
 - Allow fair access to forks.
  *Solution:*  Use Semaphores or Monitors to coordinate fork access and avoid circular wait.
 
-##Summary Table
+## Summary Table
 | Problem             | Processes Involved | Key Issue                 | Common Solution          |
 | ------------------- | ------------------ | ------------------------- | ------------------------ |
 | Producer-Consumer   | Producer, Consumer | Buffer overflow/underflow | Semaphores (Full, Empty) |
