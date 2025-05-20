@@ -9,7 +9,8 @@ CPU scheduling algorithms are classified into two main categories:
 - Once a process is assigned the CPU, it retains control until it either completes execution or moves to a waiting state (e.g., for I/O).
 - The CPU cannot be forcibly taken away from a running process.
 - Context switching occurs only after the process voluntarily gives up the CPU.
-  *Example Algorithms:*
+
+*Example Algorithms:*
 - First-Come, First-Served (FCFS)
 - Shortest Job First (SJF – Non-preemptive)
 - Priority Scheduling (Non-preemptive)
@@ -18,6 +19,7 @@ CPU scheduling algorithms are classified into two main categories:
 - A process may be preempted and moved from the running state to the ready state if:
     - A higher-priority process arrives
     - Its time slice expires
+      
 *Example Algorithms:*
 - Round Robin (RR)
 - Shortest Remaining Time First (SRTF)
