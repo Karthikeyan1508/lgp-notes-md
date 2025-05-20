@@ -105,6 +105,7 @@ A Process Scheduler is a system program that decides the order in which processe
 
 ### Types of Scheduling Algorithms
 There are six commonly used CPU scheduling algorithms:
+
 1.First-Come, First-Served (FCFS) Scheduling
 
 2.Shortest-Job-Next (SJN) Scheduling (also known as Shortest Job First or SJF)
@@ -355,6 +356,7 @@ In a multi-process system, processes often need to access shared resources (like
 - Inconsistent Data
 - Data Loss
 - Deadlocks
+  
 Thus, synchronization mechanisms are essential to maintain data integrity, system stability, and process coordination.
 *Definition*: Process Synchronization is the technique of coordinating the execution of processes so that they access shared resources in a safe and predictable way. It prevents problems like race conditions, where the system's behavior depends on the sequence or timing of uncontrollable events.
 
