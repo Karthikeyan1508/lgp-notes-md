@@ -390,10 +390,12 @@ Classical IPC problems illustrate typical synchronization challenges in multi-pr
 - A Producer process generates data and places it into a shared buffer.
 - A Consumer process takes data from this buffer and processes it.
 - The buffer has limited capacity, which both processes must respect.
+  
 *Key Issues:*
 - Buffer Overflow: Occurs when the producer tries to add data to a full buffer.
 - Buffer Underflow: Occurs when the consumer tries to remove data from an empty buffer.
 - Race Condition: Without synchronization, both may access the buffer simultaneously, leading to inconsistent data.
+  
 *Objective:*
 Ensure that producers and consumers operate in coordination, such that:
 - Producers wait when the buffer is full.
@@ -405,14 +407,17 @@ Ensure that producers and consumers operate in coordination, such that:
 - Multiple reader processes and writer processes access a shared data resource.
 - Readers: Only read the data, no modifications.
 - Writers: Modify the data.
+
 *Key Challenges:*
 - Multiple readers can read simultaneously without conflict.
 - Only one writer should write at a time.
 - No reader should read while a writer is writing to prevent data inconsistency.
+
 *Objective:*
 - Allow concurrent reads.
 - Ensure exclusive write access.
 - Prioritize based on specific scenarios.
+
 *Solutions:*
 - Readers Preference: Prioritize readers over writers.
 - Writers Preference: Prioritize writers over readers.
@@ -423,9 +428,11 @@ Ensure that producers and consumers operate in coordination, such that:
 - Five philosophers sit around a circular table with one fork between each pair.
 - To eat, a philosopher needs both forks (left and right).
 - After eating, the philosopher puts down the forks and resumes thinking.
+
 *Key Challenges:*
 - Deadlock: Each philosopher picks up their left fork and waits for the right, causing a circular wait.
 - Starvation: Some philosophers may never get to eat if scheduling is unfair.
+
 *Objective:*
 - Ensure no deadlock.
 - Ensure no starvation.
