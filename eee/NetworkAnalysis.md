@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7cf76417-090e-4227-9da0-22f9191d6bcc)## Maximum Power Transfer Theorem
+## Maximum Power Transfer Theorem
 Statement:
 It states that the maximum power is dissipated when the load resisitance is equal to the source resistance.
 Condition for Maximum Power Transfer:
