@@ -386,7 +386,7 @@ External ROM/RAM: Expandable up to 64KB
 The 8051 remains a foundational microcontroller in embedded systems education and applications due to its simplicity, ease of use, and well-documented instruction set. Its legacy continues in modern variants with more memory and peripheral support.
 
 
-## Overview of Embedded Systems
+# Overview of Embedded Systems
 
 An embedded system is a specialized computing system that performs a specific task within a larger mechanical or electrical system.
 
