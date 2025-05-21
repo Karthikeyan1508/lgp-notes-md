@@ -415,3 +415,116 @@ while entering Z1 be the potential energy of the fluid while entering Similarly 
 ![image](https://github.com/user-attachments/assets/e7f4ff67-6f29-4746-8f09-1785c3e94e23)
 
 # UNIT- II Enropy 
+
+## Limitations of the First Law: 
+
+ First law does not provide a clear idea about the direction of absorption or evolution of 
+heat. 
+
+ The first law of thermodynamics merely indicates that in any process there is a transformation between the various forms of energy involved in the process but provides no information regarding the feasibility of such transformation. 
+
+ First law does not provide any information regarding the direction processes will take 
+whether it is a spontaneous or a non spontaneous process. 
+
+## Thermal Reservoir: 
+A thermal reservoir is a large system (very high mass x specific heat value) from which a 
+quantity of energy can be absorbed or added as heat without changing its temperature. The 
+atmosphere and sea are examples of thermal reservoirs. Any physical body whose thermal 
+energy capacity is large relative to the amount of energy it supplies or absorbs can be 
+modelled as a thermal reservoir. A reservoir that supplies energy in the form of heat is called 
+a source and one that absorbs energy in the form of heat is called a sink. 
+
+## Heat Engine: 
+It is a cyclically operating device which absorbs energy as heat from a high temperature 
+reservoir, converts part of the energy into work and rejects the rest of the energy as heat to 
+a thermal reservoir at low temperature. 
+The working fluid is a substance, which absorbs energy as heat from a source, and rejects 
+energy as heat to a sink.
+
+![image](https://github.com/user-attachments/assets/ae5d3f2f-1c10-4624-ab4f-278c742da5b6)
+
+## Parameters of performance
+
+## The efficiency of Heat Engine 
+
+The efficiency ‘η’ of the heat engine is the ratio between its output of work to the heat supply of the heat engine. Let us derive an expression for the efficiency of a heat engine. 
+
+η =W/Q1 
+
+where, W is the work done by the engine and Q1 is the heat absorbed from the source. After each cycle, the engine returns to its original state so that it does not affect its internal energy. 
+
+ΔU = 0 
+W = Q1−Q2 
+
+Hence the engine efficiency is: 
+
+η =(Q1−Q2)/Q1 
+η = 1−Q2/Q1 
+
+So here efficiency will be 100% but in actual, this is not possible because there will be some loss of energy in the system. Hence for every engine, there is a limit for its efficiency. Gasoline and diesel engines, jet engines, and steam turbines that generate electricity are all examples of heat engines.
+
+## Heat pump: 
+A heat pump is a device that transfers heat energy from a source of heat to what is called a heat sink. Heat pumps move thermal energy in the opposite direction of spontaneous heat transfer, by absorbing heat from a cold space and releasing it to a warmer one. A heat pump uses a small amount of external power to accomplish the work of transferring energy from the heat source to the heat sink. The most common design of a heat pump involves four main components – a condenser, an expansion valve, an evaporator and a compressor. The heat transfer medium circulated through these components is called refrigerant.
+
+![image](https://github.com/user-attachments/assets/da5dd9a6-417c-4a79-a5a5-b7bf038b50c7)
+
+![image](https://github.com/user-attachments/assets/54f5fdf5-18b2-49a6-b779-18243d6b0d63)
+
+## Second Law of Thermodynamics 
+
+The second law of thermodynamics is a general principle which places constraints upon the direction of heat transfer and the attainable efficiencies of heat engines. In so doing, itgoes beyond the limitations imposed by the first law of thermodynamics.
+
+## Kelvin-Planck Statement:  
+It is impossible to devise a cyclically operating device, which produces no other effect than the extraction of heat from a single thermal reservoir and delivers an equivalent amount of work. Heat engine with single thermal reservoir is not possible.
+
+![image](https://github.com/user-attachments/assets/a99208ac-67f1-4a4c-9579-4461a556f46b)
+
+## Clausius statement
+It is impossible to construct a device that operates in a cycle and produces no effect other than the transfer of heat from a lower-temperature body to higher-temperature body.
+
+## Equivalence of Kelvin-Planck and Clausius Statements 
+To prove that violation of the Kelvin-Planck Statement leads to a violation of the Clausius Statement, let us assume that Kelvin-Planck statement is incorrect.
+
+![image](https://github.com/user-attachments/assets/1ab3ace2-ff5a-4545-ab7e-a76b394bf337)
+
+![image](https://github.com/user-attachments/assets/15969391-7a24-47ae-b21f-d56275af3751)
+
+![image](https://github.com/user-attachments/assets/34550807-0e04-4751-8e7f-8e8ea3037b17)
+
+![image](https://github.com/user-attachments/assets/50c3bde7-cef6-4271-a22b-defd720b5c5a)
+
+## Thermodynamic potentials
+
+Thermodynamic potentials are state functions that, together with the corresponding equations of 
+state, describe the equilibrium behavior of a system as a function of so-called ”natural variables”. The natural variables are a set of appropriate variables that allow to compute 
+other state functions by partial differentiation of the thermodynamic potentials.
+
+![image](https://github.com/user-attachments/assets/f96fc7d3-de05-46d5-8357-b886e170dad3)
+
+## Industry applications
+Automobile industries.  
+
+Refrigeration industries  
+
+Air craft applications 
+
+Defense industries 
+
+Thermal power plants etc.
+
+# UNIT -III Properties of pure substances:
+
+## Pure substance 
+A substance that has a fixed chemical composition throughout the system is called a pure 
+substance. Water, hydrogen, nitrogen, and carbon monoxide, for example, are all pure 
+substance. A pure substance can also be a mixture of various chemical elements or 
+compounds as long as the mixture is homogeneous. Air, a mixture of several compounds, is 
+often considered to be a pure substance because it has a uniform chemical composition. “A 
+mixture of two or more phases of a pure substance is still a pure substance as long as the 
+chemical composition of all phases is the same. A mixture of ice and liquid water, for 
+example, is a pure substance because both phases have the same chemical composition.” 
+
+## PVT Surface 
+Pressure can be expressed as a function of temperature and specific volume: p = p(T, v). The plot of  p = p(T, v) is a surface called p-v-T surface. Figure 3.1 shows the p-v-T surface of a substance such as water that expands on freezing.
+
+![image](https://github.com/user-attachments/assets/e6dbb3b6-00cd-456e-a82e-0d58dc3d39df)
