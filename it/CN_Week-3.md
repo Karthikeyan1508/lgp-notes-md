@@ -1,4 +1,329 @@
-## **The Transport Layer**
+# The Network Layer
+
+The Network Layer is the 5th Layer from the top and the 3rd layer from the Bottom of the OSI Model. It is one of the most important layers which plays a key role in data transmission. The main job of this layer is to maintain the quality of the data and pass and transmit it from its source to its destination. It also handles routing, which means that it chooses the best path to transmit the data from the source to its destination, not just transmitting the packet. There are several important protocols that work in this layer.
+
+---
+
+![image](https://github.com/user-attachments/assets/e6f057b5-8c4c-4e69-94c6-afdafb12521e)
+
+Data is transmitted in the form of packets via various logical network pathways between various devices. It offers routes for data packet transfers across the network. The network layer is also responsible for organizing and controlling the available paths for data transfer.
+
+## Functions of Network Layer
+Some of the most important functions of the network layer are given below :
+
+- **Assigning Logical Address:** It provides unique IP addresses to devices for identification and communication across networks.
+- **Packetizing:** It encapsulates data into packets for efficient transmission.
+- **Host-to-Host Delivery:** It ensures data is delivered from the sender to the intended receiver across networks.
+- **Forwarding:** It is the process of moving packets from the input to the appropriate output interface in a router, based on the destination address
+- **Fragmentation and Reassembly:** It splits large packets into smaller fragments for transmission and reassembles them at the destination.
+- **Logical Subnetting:** It divides larger networks into smaller subnetworks for better management and routing efficiency.
+- **Network Address Translation (NAT):** Maps private IP addresses to a public IP for internet access, conserving IPs and adding security.
+- **Routing:** It determines the best path for packets to travel to their destination across multiple networks.
+
+## How Does the Network Layer Work?
+- Every device gets a unique address (IP address) to identify it on the network.
+- Data is packaged into small packets, with labels showing where it’s coming from and where it’s going.
+- Routers figure out the best path to send the packets to their destination.
+- Packets travel step by step through different routers until they reach the right device.
+- If a packet is too big, it gets broken into smaller pieces to fit through the network.
+- At the destination, the pieces are put back together into the original data.
+- If something goes wrong, like the destination can’t be reached, an error message is sent back.
+
+## Advantages of Network Layer
+Using the network layer in the OSI paradigm offers a multitude of advantages. Let's delve into some of these benefits:
+- The network layer takes the data and breaks it down into packets, which makes transmitting the data over the network easier. This process also eliminates any weak points in the transmission, ensuring that the packet successfully reaches its intended destination.
+- Router is the important component of the network layer . Its role is to reduce network congestion by facilitating collisions and broadcasting the domains within the network layer.
+- Used to send data packets across the network nodes, the forwarding method is various.
+
+## Limitations of Network Layer
+- There is no flow control mechanism provided by the network layer design.
+- There may be times when there are too many datagrams in transit over the network, causing congestion. This could put further strain on the network routers. In some circumstances, the router may lose some data packets if there are too many datagrams. Important data may be lost in the process of transmission as a result of this.
+- Indirect control cannot be implemented at the network layer since the data packets are broken up before being sent. Additionally, this layer lacks effective error control systems.
+
+## Services Offered by Network Layer
+The services which are offered by the network layer are as follows: 
+
+### 1. Assigning Logical Address
+Logical addressing is the process of assigning unique IP addresses (IPv4 or IPv6) to devices within a network. Unlike physical addresses (MAC addresses), logical addresses can change based on network configurations. These addresses are hierarchical and help identify both the network and the device within that network. Logical addressing is important for:
+
+Enabling communication between devices on different networks.
+Facilitating routing by providing location-based information.
+
+![image](https://github.com/user-attachments/assets/aebe8c9d-95a5-4f34-b3f2-63ef556cc3d8)
+
+
+### 2. Packetizing
+The process of encapsulating the data received from the upper layers of the network (also called payload) in a network layer packet at the source and decapsulating the payload from the network layer packet at the destination is known as packetizing. 
+
+The source host adds a header that contains the source and destination address and some other relevant information required by the network layer protocol to the payload received from the upper layer protocol and delivers the packet to the data link layer. 
+
+The destination host receives the network layer packet from its data link layer, decapsulates the packet, and delivers the payload to the corresponding upper layer protocol. The routers in the path are not allowed to change either the source or the destination address. The routers in the path are not allowed to decapsulate the packets they receive unless they need to be fragmented.  
+
+![image](https://github.com/user-attachments/assets/81c55ac6-ba63-431d-b2ad-a4072c19f388)
+
+
+### 3. Host-to-Host Delivery
+The network layer ensures data is transferred from the source device (host) to the destination device (host) across one or multiple networks. This involves:
+
+Determining the destination address.
+Ensuring that data is transmitted without duplication or corruption.
+Host-to-host delivery is a foundational aspect of communication in large-scale, interconnected systems like the internet.
+
+![image](https://github.com/user-attachments/assets/d4861cdf-14da-4246-a7af-c32fbc51ff67)
+
+
+## 4. Forwarding
+Forwarding is the process of transferring packets between network devices such as routers, which are responsible for directing the packets toward their destination. When a router receives a packet from one of its attached networks, it needs to forward the packet to another attached network (unicast routing) or to some attached networks (in the case of multicast routing).The router uses:
+
+Routing tables: These tables store information about possible paths to different networks.
+Forwarding decisions: Based on the destination IP address in the packet header. Forwarding ensures that packets move closer to their destination efficiently.
+
+![image](https://github.com/user-attachments/assets/c48a89e1-d6c0-4596-892b-d042787f89a3)
+
+### 5. Fragmentation and Reassembly of Packets
+Some networks have a maximum transmission unit (MTU) that defines the largest packet size they can handle. If a packet exceeds the MTU, the network layer:
+
+Fragments the packet into smaller pieces.
+Adds headers to each fragment for identification and sequencing. At the destination, the fragments are reassembled into the original packet. This ensures compatibility with networks of varying capabilities without data loss.
+
+![image](https://github.com/user-attachments/assets/74580de1-ffa3-42c3-9f9e-f62a98694a65)
+
+
+### 6. Logical Subnetting
+Logical subnetting involves dividing a large IP network into smaller, more manageable sub-networks (subnets). Subnetting helps:
+
+Improve network performance by reducing congestion.
+Enhance security by isolating parts of a network.
+Simplify network management and troubleshooting. Subnetting uses subnet masks to define the range of IP addresses within each subnet, enabling efficient address allocation and routing.
+
+![image](https://github.com/user-attachments/assets/4a485455-087a-4243-b55d-5e4c5755ec61)
+
+### 7. Network Address Translation (NAT)
+NAT allows multiple devices in a private network to share a single public IP address for internet access. This is achieved by:
+
+Translating private IP addresses to a public IP address for outbound traffic.
+Reversing the process for inbound traffic. Benefits of NAT include:
+Conserving IPv4 addresses by reducing the need for unique public IPs for each device.
+Enhancing security by masking internal IP addresses from external networks.
+
+![image](https://github.com/user-attachments/assets/3cbfd79c-0d10-4501-983d-8aa4bccf230b)
+
+### 8. Routing
+Routing is the process of moving data from one device to another device. These are two other services offered by the network layer. In a network, there are a number of routes available from the source to the destination. The network layer specifies some strategies which find out the best possible route. This process is referred to as routing. There are a number of routing protocols that are used in this process and they should be run to help the routers coordinate with each other and help in establishing communication throughout the network.
+
+![image](https://github.com/user-attachments/assets/c383d884-1c5c-48ab-b454-251c1f777ecf)
+
+## IP Addressing
+
+An Internet Protocol (IP) address is the unique identifying number assigned to every device connected to the internet. An IP address definition is a numeric label assigned to devices that use the internet to communicate. Computers that communicate over the internet or via local networks share information to a specific location using IP addresses.
+
+Imagine every device on the internet as a house. For you to send a letter to a friend living in one of these houses, you need their home address. In the digital world, this home address is what we call an IP (Internet Protocol) Address. It's a unique string of numbers separated by periods (IPv4) or colons (IPv6) that identifies each device connected to the internet or a local network.
+
+IP addresses have two distinct versions or standards. The Internet Protocol version 4 (IPv4) address is the older of the two, which has space for up to 4 billion IP addresses and is assigned to all computers. The more recent Internet Protocol version 6 (IPv6) has space for trillions of IP addresses, which accounts for the new breed of devices in addition to computers. There are also several types of IP addresses, including public, private, static, and dynamic IP addresses.
+
+Every device with an internet connection has an IP address, whether it's a computer, laptop, IoT device, or even toys.  The IP addresses allow for the efficient transfer of data between two connected devices, allowing machines on different networks to talk to each other.
+
+### How does an IP address work?
+
+An IP address works in helping your device, whatever you are accessing the internet on, to find whatever data or content is located to allow for retrieval. 
+
+Common tasks for an IP address include both the identification of a host or a network, or identifying the location of a device. An IP address is not random. The creation of an IP address has the basis of math.  The Internet Assigned Numbers Authority (IANA) allocates the IP address and its creation. The full range of IP addresses can go from 0.0.0.0 to 255.255.255.255.  
+
+With the mathematical assignment of an IP address, the unique identification to make a connection to a destination can be made.
+
+### Public IP address
+A public IP address, or external-facing IP address, applies to the main device people use to connect their business or home internet network to their internet service provider (ISP). In most cases, this will be the router. All devices that connect to a router communicate with other IP addresses using the router’s IP address.
+
+Knowing an external-facing IP address is crucial for people to open ports used for online gaming, email and web servers, media streaming, and creating remote connections.
+
+### Private IP address
+A private IP address, or internal-facing IP address, is assigned by an office or home intranet (or local area network) to devices, or by the internet service provider (ISP). The home/office router manages the private IP addresses to the devices that connect to it from within that local network. Network devices are thus mapped from their private IP addresses to public IP addresses by the router.
+
+Private IP addresses are reused across multiple networks, thus preserving valuable IPv4 address space and extending addressability beyond the simple limit of IPv4 addressing (4,294,967,296 or 2^32).
+
+In the IPv6 addressing scheme, every possible device has its own unique identifier assigned by the ISP or primary network organization, which has a unique prefix. Private addressing is possible in IPv6, and when it's used it's called Unique Local Addressing (ULA).
+
+### Static IP address
+All public and private addresses are defined as static or dynamic. An IP address that a person manually configures and fixes to their device’s network is referred to as a static IP address. A static IP address cannot be changed automatically. An internet service provider may assign a static IP address to a user account. The same IP address will be assigned to that user for every session.
+
+### Dynamic IP address
+A dynamic IP address is automatically assigned to a network when a router is set up. The Dynamic Host Configuration Protocol (DHCP) assigns the distribution of this dynamic set of IP addresses. The DHCP can be the router that provides IP addresses to networks across a home or an organization.
+
+Each time a user logs into the network, a fresh IP address is assigned from the pool of available (currently unassigned) IP addresses. A user may randomly cycle through several IP addresses across multiple sessions.
+
+![image](https://github.com/user-attachments/assets/91c6b441-2ff8-4b91-9e0f-c967e7e41071)
+
+## How Do IP Addresses Work?
+Here's how IP addresses work:
+
+### 1. Unique Identification
+Every device connected to a network, such as computers, smartphones, and servers, is assigned an IP address. This address is used to identify the device on the network, similar to how a home address identifies a specific location.
+
+### 2. Communication Protocol
+The Internet Protocol (IP), part of the broader suite of internet protocols, uses these addresses to facilitate the routing of data packets between devices. Each piece of data sent over a network is broken into smaller units called packets. Each packet includes both the sender's and the recipient's IP addresses.
+
+### 3. Data Routing
+When a device sends information to another device over the internet:
+
+The data is divided into packets.
+- Each packet contains the IP address of the device it is destined for.
+- Routers within the network read the destination IP address on each packet and determine the best path for the packet to travel. Routers communicate with each other to update and maintain records of the fastest, most efficient routes for data.
+
+### 4. Local Area Networks (LAN) and Wide Area Networks (WAN)
+LAN: On local networks, IP addresses can be assigned manually by an administrator (static IP) or automatically by a DHCP server. Devices within the same network communicate directly using their local IP addresses.
+WAN: For devices on different networks, the data must travel through multiple routers across the internet. Each router makes independent decisions about the best route for the packets based on the destination IP address.
+
+### 5. Network Address Translation (NAT)
+Most devices on a home or small business network share a single public IP address when accessing the internet, even though each device has its own private IP address within the local network. NAT is a process where multiple local IP addresses are mapped to a single public IP address. This conserves IP addresses and adds a layer of security by hiding internal IP addresses from the external network.
+
+## Real World Scenario: Sending an Email from New York to Tokyo
+Let's explore how IP addresses work through a real-world example that involves sending an email from one person to another across the globe:
+
+### Step 1: Assigning IP Addresses
+
+Alice in New York wants to send an email to Bob in Tokyo.
+Alice’s laptop has a private IP address (e.g., 192.168.1.5) assigned by her router at home.
+Bob's computer in Tokyo has a private IP address (e.g., 192.168.2.4) assigned by his router at his office.
+
+### Step 2: Connection to the Internet
+
+Both Alice and Bob’s routers have public IP addresses assigned by their Internet Service Providers (ISPs). These public IP addresses are what the devices use to send and receive data over the internet.
+
+### Step 3: Sending the Email
+
+Alice writes her email and hits send.
+Her email service (e.g., Gmail) packages the message and its attachments into data packets. Each packet includes the source IP (Alice’s router's public IP) and the destination IP (Bob’s email server's public IP).
+
+### Step 4: Routing the Packets
+
+The data packets leave Alice’s laptop and travel to her home router. The router notes that the destination IP is outside the local network.
+The router sends the packets to Alice's ISP. The ISP uses routers that examine the destination IP address of the packets and determine the best route to send them toward their destination.
+The packets may pass through several routers around the world — in data centers in countries like Canada, Germany, and finally Japan. Each router along the way reads the destination IP and forwards the packets accordingly.
+
+### Step 5: Reaching Bob
+
+The packets arrive at Bob's email server's ISP in Tokyo and are then forwarded to the server.
+Bob's email server reassembles the packets into the original email message.
+Step 6: Bob Accesses the Email
+
+Bob’s computer requests the email from his server using his local network IP.
+The server sends the email to Bob's computer, allowing him to read the message Alice sent.
+
+### Additional Details
+#### NAT (Network Address Translation): 
+Both Alice and Bob's routers perform NAT, translating the private IP addresses to and from the public IP addresses when interfacing with the internet. This process is crucial for keeping the number of public IPs needed lower and adds a layer of security by masking internal network structures.
+#### Dynamic IP Addressing: 
+If either Alice or Bob’s public IP is dynamic, it might change if they restart their routers. This doesn’t affect their ongoing activities much because the DNS (Domain Name System) helps update the mapping of domain names (like gmail.com) to the current IP addresses.
+
+This example illustrates the fundamental role of IP addresses and the complex network of routers involved in even the simplest internet activities like sending an email. Each part of the process depends on the IP address to ensure that data finds its way correctly from sender to receiver, no matter where they are in the world.
+
+## What Is IPv4?
+IPv4 is the fourth version of the IP. It is one of the core protocols of the standards-based methods used to interconnect the internet and other networks. The protocol was first deployed on the Atlantic Packet Satellite Network (SATNET), which was a satellite network that formed a segment of the initial stages of the internet, in 1982. It is still used to route most internet traffic despite the existence of IPv6.
+
+IPv4 is currently assigned to all computers. An IPv4 address uses 32-bit binary numbers to form a unique IP address. It takes the format of four sets of numbers, each of which ranges from 0 to 255 and represents an eight-digit binary number, separated by a period point.
+
+### IP Address Classes
+Some IP addresses are reserved by the Internet Assigned Numbers Authority (IANA). These are typically reserved for networks that carry a specific purpose on the Transmission Control Protocol/Internet Protocol (TCP/IP), which is used to interconnect devices. Four of these IP address classes include:
+
+1. 0.0.0.0: This IP address in IPv4 is also known as the default network. It is the non-routeable meta address that designates an invalid, non-applicable, or unknown network target.
+2. 127.0.0.1: This IP address is known as the loopback address, which a computer uses to identify itself regardless of whether it has been assigned an IP address.
+3. 169.254.0.1 to 169.254.254.254: A range of addresses that are automatically assigned if a computer is unsuccessful in an attempt to receive an address from the DHCP.
+4. 255.255.255.255: An address dedicated to messages that need to be sent to every computer on a network or broadcasted across a network.
+
+Further reserved IP addresses are for what is known as subnet classes. Subnetworks are small computer networks that connect to a bigger network via a router. The subnet can be assigned its own IP address system, so that all devices connecting to it can communicate with each other without having to send data via the wider network. 
+
+The router on a TCP/IP network can be configured to ensure it recognizes subnets, then route the traffic onto the appropriate network. IP addresses are reserved for the following subnets:
+
+1. Class A: IP addresses between 10.0.0.0 and 10.255.255.255
+2. Class B: IP addresses between 172.16.0.0 and 172.31.255.255
+3. Class C: IP addresses between 192.186.0.0 and 192.168.255.255
+4. Class D or multicast: IP addresses between 224.0.0.0 and 239.255.255.255
+5. Class E, which are reserved for experimental usage: IP addresses between 240.0.0.0 and 254.255.255.254
+
+IP addresses listed under Class A, Class B, and Class C are most commonly used in the creation of subnets. Addresses within the multicast or Class D have specific usage rules outlined in the Internet Engineering Task Force (IETF) guidelines, while the release of Class E addresses for public use was the cause of plenty of debate before the IPv6 standard was introduced.
+
+### Internet Addresses and Subnets
+The IANA reserves specific IP address blocks for commercial organizations, government departments, and ISPs. When a user connects to the internet, their ISP assigns them an address from within one of the blocks assigned to it. If they only go online from one computer, then they can use the address assigned to it by their ISP. 
+
+However, most homes now use routers that share a network connection with multiple devices. So if a router is used to share the connection, then the ISP assigns the IP address to the router, and then a subnet is created for all computers that connect to it. 
+
+IP addresses that fall within a subnet have a network and a node. The subnet is identified by the network. The node, also known as the host, connects to the network and needs its own address. Computers separate the network and node via a subnet mask, which filters the appropriate IP address designation. When a large network is set up, the subnet mask that best fits the number of nodes or subnets required is determined. 
+
+When it comes to IP addresses within a subnet, the first address is reserved for the subnet, and the final one indicates the broadcast address for the subnet’s systems.
+
+### How Do I Locate My IP Address?
+Windows computer users can look up their IP address by typing "cmd" into the search tab and hitting Enter, then typing "ipconfig" into the pop-up box. Mac computer users can find their IP address by heading into System Preferences and selecting Network. 
+
+To look up an IP address on a mobile phone, users need to head into Settings, then open the Wi-Fi menu and their network menu. The IP address should be listed under the Advanced section, depending on the phone they use.
+
+### IP address vs MAC address
+When you analyze an IP address vs. a MAC address, you can start with the similarities. For both of these IP address types, you are dealing with a unique identifier with an attachment to that device. The manufacturer of a network card or router is the provider of the MAC address, while the internet service provider (ISP) is the provider of the IP address.
+
+The main difference between the two is that the MAC address is the physical address of a device. If you have five laptops on your home Wi-Fi network, you can identify each of those five laptops on your network via their MAC address.  
+
+The IP address works differently as it is the identifier of the connection of the network with that device. Other differences include:
+
+- A MAC address is a 6-byte hexadecimal address while an IP address is a 4 or 16-byte address.
+- A MAC address is in a data link layer, while an IP address is in a network layer.
+- A third party will have a difficult time finding a MAC address, while it can easily find an IP address.
+- MAC addresses are static, while IP addresses can change dynamically
+- MAC addresses and IP addresses are necessary to get a network packet to a destination.  However, no one can see your MAC address unless they are on your LAN
+
+### What are security threats related to IP addresses?
+A variety of security threats are related to IP addresses. Cybercriminals can deceive devices to either reveal your IP address and pretend they are you or stalk it to track activity and take advantage. Online stalking and social engineering are the two leading security threats existing for IP addresses.  
+
+Some of the other security threats to an IP address include:
+
+Allowing a cybercriminal to use your IP address to track your location
+- Using your IP address to target your network and launch a DDoS attack
+- Using your IP address to download illegal content
+
+### 5 ways to protect your IP address
+There are multiple ways to protect your IP address from cybercriminals. Some of these options include:
+
+- Use a VPN
+- Make use of a proxy server
+- Have your ISP make use of dynamic IP addresses
+- Employ a NAT firewall to hide your private IP address
+- Resetting your modem may change your IP address
+
+## Internet Protocol version 6 (IPv6)
+
+The Internet Protocol version 6, or IPv6, is the latest version of the Internet Protocol (IP), which is the system used for identifying and locating computers on the Internet. IPv6 was developed by the Internet Engineering Task Force (IETF) to deal with the problem of IPv4 exhaustion. IPv6 is a 128-bit address having an address space of 2128, which is way bigger than IPv4. IPv6 uses a Hexa-Decimal format separated by a colon (:).
+
+![image](https://github.com/user-attachments/assets/3ff9904d-b1b4-481f-b4a9-1e0cee7fb994)
+
+### What is IP Address?
+An IP address, which stands for Internet Protocol address, is like a home address for your computer or any device connected to the internet. Just as your home address lets mail find its way to your house, an IP address helps information find its way to your device.
+
+### Components in IPv6 Address Format
+There are 8 groups and each group represents 2 Bytes (16-bits). 
+Each Hex-Digit is of 4 bits (1 nibble)
+Delimiter used - colon (:)
+IPv6 Structure
+
+### Need For IPv6
+The Main reason of IPv6 was the address depletion as the need for electronic devices rose quickly when Internet Of Things (IOT) came into picture after the 1980s & other reasons are related to the slowness of the process due to some unnecessary processing, the need for new options, support for multimedia, and the desperate need for security. IPv6 protocol responds to the above issues using the following main changes in the protocol:
+
+- **Large Address Space:** An IPv6 address is 128 bits long .compared with the 32 bit address of IPv4, this is a huge(2 raised 96 times) increases in the address space.
+- **Better Header Format:** IPv6 uses a new  header format in which options are separated from the base header and inserted, when needed, between the base header and the upper layer data . This simplifies and speeds up the routing process because most of the options do not need to be checked by routers.
+- **New Options:** IPv6 has new options to allow for additional functionalities.
+- **Allowance for extension:** IPv6 is designed to allow the extension of the protocol if required by new technologies or applications.
+- **Support For Resource Allocation:** In IPv6,the type of service field has been removed, but two new fields , traffic class and flow label have been added to enables the source to request special handling of the packet . this mechanism can be used to support traffic such as real-time audio and video.
+- **Support For More Security:** The encryption and authentication options in IPv6 provide confidentiality and integrity of the packet. 
+
+In IPv6 representation, we have three addressing methods : 
+1. Unicast
+2. Multicast
+3. Anycast
+
+1. **Unicast Address:** Unicast Address identifies a single network interface. A packet sent to a unicast address is delivered to the interface identified by that address.
+2. **Multicast Address:** Multicast Address is used by multiple hosts, called as groups, acquires a multicast destination address. These hosts need not be geographically together. If any packet is sent to this multicast address, it will be distributed to all interfaces corresponding to that multicast address. And every node is configured in the same way. In simple words, one data packet is sent to multiple destinations simultaneously.
+3. **Anycast Address:** Anycast Address is assigned to a group of interfaces. Any packet sent to an anycast address will be delivered to only one member interface (mostly nearest host possible).  
+
+
+
+# **The Transport Layer**
 
 Forget the wires and routers for a sec; this layer is all about getting data from *your app* on *your computer* to *another app* on *another computer*. Think of it as the specialized postal service for your software.
 
