@@ -1,4 +1,4 @@
-## Maximum Power Transfer Theorem
+![image](https://github.com/user-attachments/assets/7cf76417-090e-4227-9da0-22f9191d6bcc)## Maximum Power Transfer Theorem
 Statement:
 It states that the maximum power is dissipated when the load resisitance is equal to the source resistance.
 Condition for Maximum Power Transfer:
@@ -60,3 +60,96 @@ Step 2 − Replace the part of the circuit, which is left side of terminals A & 
 
 Step 3 − We can find the maximum power that will be delivered to the load resistor, RL by using the following formula
 ![image](https://github.com/user-attachments/assets/c13d38aa-81bf-43e8-8855-52ad55ba4ff7)
+
+## Two Port Networks
+A pair ofterminals at which a signal may enter orleave a network is also called a port, and a network like the above having two such pair of terminalsis called a Two - port network.
+
+### Impedance Parameters: Z parameters (open circuit impedance parameters)
+We will assume that the two port networks that we will consider are composed of linear elements and contain no independent sources but dependentsources are permissible. We will considerthe two-port network as shown in the figure below.
+![image](https://github.com/user-attachments/assets/52cb7b8f-87b0-4a95-808b-a57ad8f9d985)
+A general two-port network with terminal voltages andc urrentsspecified. The two- port network is composed of linear elements, possibly including dependent sources, but not containing any independent sources.
+The voltage and current at the input terminals are V1 & I1, and V2 & I2 are voltage and current at the output port. The directions of I1 and I2 are both customarily selected asinto the network at the upper conductors(and out at the lower conductors). Since the network is Linear and contains no independent sources within it,V1 may be considered to be the superposition of two components,one caused by I1 And the other by I2.When the same argument is applied to V2, we get the set of equations
+![image](https://github.com/user-attachments/assets/98943d49-ccd7-4cd2-a954-257cdcbdf897)
+
+Where [V],[Z] and [I]are Voltage,impedance and current matrices.The description of the Z parameters,defined in the above equations is obtained by setting each of the currents equal to zero as given below.
+Z11=V1/I1│I2=0 Z12=V1/I2│I1=0 Z21=V2/I1│I2=0 Z22=V2/I2│ I1=0
+
+Thus, since zero current results from an open-circuit termination, the Z parameters are known as the Open-circuit Impedance parameters. And more specifically Z11 & Z22 are called Driving point Impedances and Z12 & Z21 are called Reverse and Forward transfer impedances respectively. A basic Z parameter equivalent circuit depicting the above defining equations is shown in the figure below.
+![image](https://github.com/user-attachments/assets/9a43c6b7-34fc-4d95-85c6-6eee003dfe15)
+
+### Admittance parameters: ( Y Parameters or Short circuit admittance parameters)
+The same generaltwoport network shownforZ parametersis applicable here also and is shown below
+![image](https://github.com/user-attachments/assets/fc692673-35fd-4cf6-b0da-bee50a102ea7)
+
+Since the network is linear and contains no independent sources within, on the same lines of Z parameters the defining equations for the Y parameters are given below. I1 and I2 may be considered to be the superposition of two components, one caused by V1 and the other by V2 and then we get the set of equations defining the Y parameters.
+I1=Y11V1+Y12V2
+I2=Y21V1+Y22V2
+
+Where the Ys are no more than proportionality constants and their dimensions are A/V (Current/Voltage). Hence theyare calledtheY (or admittance)parameters.They are also defined in the matrix form given below. And in much simpler form as
+[I] = [Y][V]
+
+The individual Y parameters are defined on the same lines asZ parameters but by setting either of the voltages V1 and
+V2 as zero as given below.
+The most informative way to attach a physical meaning to the y parameters is through a direct inspection of defining equations. The conditions which must be applied to the basic defining equations are very important.In the first equation for example; if we let V2 zero, then Y11 is given by the ratio of I1 to V1. We therefore describe Y11 as the admittance measured at the input terminals with the output terminals short-circuited (V2 = 0). Each of the Y parameters may be described as a current-voltage ratio with either V1 = 0 (the input terminals short circuited) or V2 = 0 (the output terminals short-circuited):
+
+Y11 = I1/V1 with V2 = 0
+Y12 = I1/V2 with V1 = 0
+Y21 = I2/V1 with V2 = 0
+y22 = I2/V2 with V1 = 0
+
+Because each parameteris an admittance which is obtained by short circuiting eitherthe output or the input port, the Y parameters are known asthe short-circuit admittance parameters. The specific name of Y11 is theshortcircuit input admittance, Y22 is the short circuit output admittance, and Y12and Y21 are the short circuit reverse and forward transfer admittances respectively.
+![image](https://github.com/user-attachments/assets/b26ccc18-974d-468a-a1a7-43d27c84d572)
+
+h parameter representation is used widely in modeling of Electronic components and circuits particularly Transistors.Here both short circuit and open circuit conditions are utilized.The hybrid parameters are defined by writing the pair of equations relating V1, I1, V2, and I2:
+V1 =h11.I1+h12.V2
+I2 =h21.I1+h22.V2
+
+The nature of the parameters is made clear by first setting V2 = 0. Thus,
+h11 = V1/I1 with V2=0 = short-circuit input impedance
+h21 = I2/I1 withV2=0 = short-circuit forward current gain
+Then letting I1 = 0, we obtain h12 = V1/V2 with I1=0 = open-circuit reverse voltage gain
+h22 = I2/V2 with I1=0 = open-circuit output admittance
+Since the parameters represent an impedance, an admittance, a voltage gain, and a current gain, they are called the “hybrid’’ parameters.
+The subscript designations for these parameters are often simplified when they are applied to transistors. Thus, h11,h12, h21, and h22 become hi, hr, hf, and ho, respectively, where the subscripts denote input, reverse, forward, and output.
+![image](https://github.com/user-attachments/assets/6d63970c-d606-453b-a051-3447d254c435)
+
+##Transmission parameters:
+The last two-port parametersthat we will consider are called the t parameters, the ABCD parameters, or simply the transmission parameters. They are defined by the equations and in Matrix notation these equations can be written in the form
+V1=A.V2 –B.I2
+I1 =C.V2 –D.I2
+
+V1 = A B V2
+I1 = C D –I2
+
+where V1, V2, I1, and I2 are defined as as shown in the figure below
+
+![image](https://github.com/user-attachments/assets/705736f2-2168-4f63-bff7-64d0e8f4b73e)
+
+The minus signs that appear in the above equations should be associated with the output current, as (−I2). Thus, both I1 and−I2 are directed to the right,the direction of energy or signal transmission.
+The four Transmission parameters are defined and explained below.
+A = V1/V2 with I2 = 0 = Reverse voltage Ratio C
+= I1/V2 with I2 = 0 = Transfer admittance
+
+Next B and D are defined with receiving end short circuited i.e. with V2 = 0
+B=V1/−I2 with V2= 0 = Transfer impedance
+D = I1/−I2 with V2= 0 =Reverse current ratio
+
+Z Parameters in terms of Y parameters:
+Though this relationship can be obtained by the above steps, the following simpler method is used for Z in terms of Y and Y in terms of Z:
+Z and Y being the Impedance and admittance parameters(Inverse),inmatrix notation they are governed by the following inverse relationship.
+![image](https://github.com/user-attachments/assets/b8616e6d-2611-4822-a41a-9a6cf96c370a)
+
+Thus :
+![image](https://github.com/user-attachments/assets/095e051d-1c83-4175-996f-d4836d021c6f)
+
+Z Parameters in terms of ABCD parameters:
+![image](https://github.com/user-attachments/assets/e09ef6dc-d3ab-4899-a7fa-296d1c83ea0a)
+
+Z Parameters in terms of h parameters:
+The governing equations of h parameter network are: V1 = h11I1 + h12V2
+![image](https://github.com/user-attachments/assets/81f40702-09e7-40a5-829b-0a66864cbfa3)
+
+Y Parameters in terms of Z parameters:
+Y and Z being the admittance and Impedance parameters(Inverse),in matrix notation they are governed by the following inverse relationship.
+![image](https://github.com/user-attachments/assets/205252ca-39f6-433c-ac66-6e9347b4ff38)
+![image](https://github.com/user-attachments/assets/84d27df2-10f6-49b4-afdb-110e10f38a36)
