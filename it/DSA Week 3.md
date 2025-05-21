@@ -143,6 +143,17 @@ Expected Time ≈ 1 / (1 - α)
 
 ---
 
+## Problems On Hashing
+1. https://leetcode.com/problems/two-sum/
+2. https://leetcode.com/problems/intersection-of-two-arrays/
+3. https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/
+4. https://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
+5. https://leetcode.com/problems/find-the-difference-of-two-arrays/description/
+6. https://leetcode.com/problems/intersection-of-two-arrays/description/
+7. https://leetcode.com/problems/subarray-sum-equals-k/description/
+8. https://leetcode.com/problems/frequency-of-the-most-frequent-element/description/
+
+
 ## Summary
 
 Hashing provides fast access and insertion with O(1) time on average, making it ideal for sets, maps, and caches. Proper choice of hash function and collision resolution technique is key to performance.
@@ -319,6 +330,20 @@ void inorder(Node* node) {
 | Inorder     | Left → Root → Right    | Children (except last) → Root → Last child         |
 | Postorder   | Left → Right → Root    | Children → Root                                    |
 
+## Practice examples on Trees
+1. https://leetcode.com/problems/maximum-depth-of-binary-tree/
+2. https://leetcode.com/problems/binary-tree-inorder-traversal/
+3. https://leetcode.com/problems/invert-binary-tree/
+4. https://leetcode.com/problems/symmetric-tree/
+5. https://leetcode.com/problems/same-tree/
+6. https://leetcode.com/problems/path-sum/
+7. https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+8. https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+9. https://leetcode.com/problems/validate-binary-search-tree/
+10. https://leetcode.com/problems/delete-node-in-a-bst/
+11. https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+12. https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+
 ---
 
 
@@ -370,6 +395,15 @@ void getPaths(TreeNode* root, vector<int>& path, vector<vector<int>>& result) {
     path.pop_back(); // backtrack
 }
 ```
+## Practice Problems on Recursive Backtracking
+1. https://leetcode.com/problems/subsets/
+2. https://leetcode.com/problems/n-queens/
+3. https://leetcode.com/problems/sudoku-solver/
+4. https://leetcode.com/problems/permutations/
+5. https://leetcode.com/problems/combination-sum/
+6. https://leetcode.com/problems/palindrome-partitioning/
+7. https://leetcode.com/problems/word-search/
+8. https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
 ---
 
