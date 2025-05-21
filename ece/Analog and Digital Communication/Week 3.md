@@ -449,37 +449,102 @@ Assume the band pass noise is mixed with AM wave in the channel as shown in the 
 
 ![image](https://github.com/user-attachments/assets/cad83c1c-0e28-4f46-bf8c-a89cae838fb9)
 
+## Sampling
+So far, we have discussed about continuous-wave modulation. We will discuss about pulse modulation in the next chapter. These pulse modulation techniques deal with discrete signals. So, now let us see how to convert a continuous time signal into a discrete one.
 
+The process of converting continuous time signals into equivalent discrete time signals, can be termed as Sampling. A certain instant of data is continually sampled in the sampling process.
 
+The following figure shows a continuous-time signal x(t) and the corresponding sampled signal xs(t). When x(t) is multiplied by a periodic impulse train, the sampled signal xs(t) is obtained.
 
+![image](https://github.com/user-attachments/assets/5bf8b51f-b219-4144-bc69-b014d3f2ed36)
 
+A sampling signal is a periodic train of pulses, having unit amplitude, sampled at equal intervals of time Ts, which is called as sampling time. This data is transmitted at the time instants Ts and the carrier signal is transmitted at the remaining time.
 
+## Sampling Rate
+To discretize the signals, the gap between the samples should be fixed. That gap can be termed as the sampling period T. Reciprocal of the sampling period is known as sampling frequency or sampling rate fs.
 
+Mathematically, we can write it as
 
+![image](https://github.com/user-attachments/assets/e97cd745-162a-473d-b4f8-9f2bb577e9fc)
 
+## Sampling Theorem
+The sampling rate should be such that the data in the message signal should neither be lost nor it should get over-lapped. The sampling theorem states that, a signal can be exactly reproduced if it is sampled at the rate fs, which is greater than or equal to twice the maximum frequency of the given signal W.
 
+Mathematically, we can write it as
 
+![image](https://github.com/user-attachments/assets/d49da0f7-79e0-4182-891b-b510263e13d4)
 
+If the sampling rate is equal to twice the maximum frequency of the given signal W, then it is called as Nyquist rate.
 
+The sampling theorem, which is also called as Nyquist theorem, delivers the theory of sufficient sample rate in terms of bandwidth for the class of functions that are bandlimited.
 
+For continuous-time signal x(t), which is band-limited in the frequency domain is represented as shown in the following figure.
 
+![image](https://github.com/user-attachments/assets/028d72f3-a00b-40b8-be87-ad918c0ba5d6)
 
+We can observe from the above pattern that there is over-lapping of information, which leads to mixing up and loss of information. This unwanted phenomenon of over-lapping is called as Aliasing.
 
+Aliasing can be referred to as the phenomenon of a high-frequency component in the spectrum of a signal, taking on the identity of a low-frequency component in the spectrum of its sampled version.
 
+Hence, the sampling rate of the signal is chosen to be as Nyquist rate. If the sampling rate is equal to twice the highest frequency of the given signal W, then the sampled signal would look like the following figure.
 
+![image](https://github.com/user-attachments/assets/ccb82def-d19e-4437-9819-aa2e58655dc6)
 
+## Pulse Modulation
+After continuous wave modulation, the next division is Pulse modulation. In this chapter, let us discuss the following analog pulse modulation techniques.
 
+1. Pulse Amplitude Modulation
+2. Pulse Width Modulation
+3. Pulse Position Modulation
 
+## Pulse Amplitude Modulation
+In Pulse Amplitude Modulation (PAM) technique, the amplitude of the pulse carrier varies, which is proportional to the instantaneous amplitude of the message signal.
 
+The pulse amplitude modulated signal will follow the amplitude of the original signal, as the signal traces out the path of the whole wave. In natural PAM, a signal sampled at Nyquist rate can be reconstructed, by passing it through an efficient Low Pass Filter (LPF) with exact cutoff frequency.
 
+The following figures explain the Pulse Amplitude Modulation.
 
+![image](https://github.com/user-attachments/assets/68812063-fa26-4e39-a151-23845fd912a8)
 
+Though the PAM signal is passed through a LPF, it cannot recover the signal without distortion. Hence, to avoid this noise, use flat-top sampling. The flat-top PAM signal is shown in the following figure.
 
+## Pulse Width Modulation
+In Pulse Width Modulation (PWM) or Pulse Duration Modulation (PDM) or Pulse Time Modulation (PTM) technique, the width or the duration or the time of the pulse carrier varies, which is proportional to the instantaneous amplitude of the message signal.
 
+The width of the pulse varies in this method, but the amplitude of the signal remains constant. Amplitude limiters are used to make the amplitude of the signal constant. These circuits clip off the amplitude to a desired level, and hence the noise is limited.
 
+The following figure explains the types of Pulse Width Modulations.
 
+![image](https://github.com/user-attachments/assets/ec07fb3a-de34-403b-b31a-5033e3eda2c0)
 
+There are three types of PWM.
 
+1. The leading edge of the pulse being constant, the trailing edge varies according to the message signal. The waveform for this type of PWM is denoted as (a) in the above figure.
+
+2. The trailing edge of the pulse being constant, the leading edge varies according to the message signal. The waveform for this type of PWM is denoted as (b) in the above figure.
+
+3. The center of the pulse being constant, the leading edge and the trailing edge varies according to the message signal. The waveform for this type of PWM is denoted as (c) shown in the above figure.
+
+## Pulse Position Modulation
+Pulse Position Modulation (PPM) is an analog modulation scheme in which, the amplitude and the width of the pulses are kept constant, while the position of each pulse, with reference to the position of a reference pulse varies according to the instantaneous sampled value of the message signal.
+
+The transmitter has to send synchronizing pulses (or simply sync pulses) to keep the transmitter and the receiver in sync. These sync pulses help to maintain the position of the pulses. The following figures explain the Pulse Position Modulation.
+
+![image](https://github.com/user-attachments/assets/8c959a54-52f1-49bb-9e73-eba649e7f288)
+
+Pulse position modulation is done in accordance with the pulse width modulated signal. Each trailing edge of the pulse width modulated signal becomes the starting point for pulses in PPM signal. Hence, the position of these pulses is proportional to the width of the PWM pulses.
+
+**Advantage**
+As the amplitude and the width are constant, the power handled is also constant.
+
+**Disadvantage**
+The synchronization between the transmitter and the receiver is a must.
+
+## Comparison between PAM, PWM, and PPM
+
+![image](https://github.com/user-attachments/assets/b7855d87-97b0-4123-a377-a5d8deb25aa7)
+
+## Line Codes
 
 
 
