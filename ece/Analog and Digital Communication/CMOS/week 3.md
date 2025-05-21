@@ -196,20 +196,143 @@ Step 12 – Oxidation Process: An oxidation layer is deposited over the wafer wh
 
 Step 13 – Masking and Diffusion: For making regions for diffusion of n-type impurities using masking process small gaps are made.
 
+![image](https://github.com/user-attachments/assets/40e2cf0a-3395-4ccd-b130-389e01e6620f)
+
+Using diffusion process three n+ regions are developed for the formation of terminals of NMOS
 
 
+Step 14 – Removal of Oxide: The oxide layer is stripped off.
+
+![image](https://github.com/user-attachments/assets/40f24223-fac0-42c2-a150-5fcd1a6b66d8)
+
+Step 15 – P-type Diffusion: Similar to the n-type diffusion for forming the terminals of PMOS p-type diffusion are carried out.
+
+![image](https://github.com/user-attachments/assets/de929195-e2d4-4dea-b97a-21f7e9dfae04)
+
+Step 16 – Laying of Thick Field oxide: Before forming the metal terminals a thick field oxide is laid out to form a protective layer for the regions of the wafer where no terminals are required.
+
+![image](https://github.com/user-attachments/assets/998484cb-e8b9-47bb-b27a-bf64d899b18c)
+
+Step 17 – Metallization: This step is used for the formation of metal terminals which can provide interconnections. Aluminum is spread on the whole wafer.
+
+![image](https://github.com/user-attachments/assets/1dddccdb-00f0-4793-afbf-8100f1e798fe)
+
+Step 18 – Removal of Excess Metal: The excess metal is removed from the wafer.
+
+Step 19 – Formation of Terminals: In the gaps formed after removal of excess metal terminals are formed for the interconnections.
+
+Step 20 – Assigning the Terminal Names: Names are assigned to the terminals of NMOS and PMOS transistors.
+
+![image](https://github.com/user-attachments/assets/c30e2dfd-6160-4cb3-bc04-166ead0aaaed)
+
+## Implementation of NAND and NOR gate using CMOS Logic:
+
+** NAND GATE **
+
+![image](https://github.com/user-attachments/assets/39bb0a01-c1d1-421e-a4ed-122a1941054a)
+
+For two input NAND gate, if A and B are the inputs then its output Y = (A.B)’.
+
+In NMOS network when we have AND operation between the two variables, then two NMOS transistors will get connected in series. And the output will be complement of it.
+
+The PMOS network is dual of the NMOS network. In the NMOS network, if two transistors are connected in series then in the PMOS network, the two PMOS transistors will get connected in parallel.
+
+** NAND GATE **
+![image](https://github.com/user-attachments/assets/84cc7828-be36-4db4-9b40-cbfeb94a746e)
+
+For two input NOR gate, if A and B are the inputs then its output Y = (A+B)’.
+
+In the NMOS network, whenever there is an OR operation between the two variables then two NMOS transistors will get connected in parallel. And the output will be complement of it.
+
+The PMOS network will be the dual of the NMOS network. Therefore, in the PMOS network, the two PMOS transistors will get connected in series.
+
+## Power Dissipation of a CMOS Inverter
+
+### Dynamic Power Consumption
+
+Power is consumed whenever current is flowing through a conductive element. We see this relationship in the basic formula for electric power:
+
+P = I * V
+
+Though a CMOS inverter doesn’t require current flow in its steady state, power is consumed during its logic transitions. This dynamic power loss comes in two types:
+
+1. Switching power dissipation.
+2. Short-circuit power dissipation.
+
+## Switching Power Dissipation
+When an input logic transition occurs, transient current must flow in order to charge or discharge capacitance in the circuit. During a low-to-high output transition, current flows to charge up the load capacitance as the output voltage increases to VDD. Figure 2 shows the path taken by this current.
+
+![image](https://github.com/user-attachments/assets/ef72d882-5fe1-4038-bf07-3b9ab9b5494a)
+
+Current also flows during a high-to-low output transition (Figure 3), discharging capacitance as the output voltage decreases to ground potential.
+
+![image](https://github.com/user-attachments/assets/1fb854b1-4812-4a70-b1bb-d986a8330953)
+
+To estimate the switching loss of a CMOS inverter, we use the following equation:
+
+![image](https://github.com/user-attachments/assets/78d017d6-6b06-42d9-a8d5-61fdac7e4037)
+
+where:
+
+CL is the expected load capacitance
+
+f is the switching frequency.
+
+CL × VDD2 calculates the amount of energy required for one switching cycle.
+
+## Short-Circuit Power Dissipation
+
+Another type of dynamic power dissipation is caused by short-circuit current. Also known as shoot-through current, this is a transient condition that occurs during an inverter’s logic level transitions.
+
+When a CMOS inverter is settled in a logic state, one of its two transistors is in a non-conductive mode. Consequently, current can’t easily flow from VDD to ground. When the inverter changes states, however, there’s a brief crossover period during which both the NMOS and the PMOS have some degree of conductivity. Energy is lost as current flows through the resulting short circuit
+
+![image](https://github.com/user-attachments/assets/b498a616-774e-499f-a1dc-03b24f740317)
+
+## Static Power Consumption
+Throughout this article, I’ve avoided saying anything along the lines of “absolutely no steady-state power dissipation occurs in a CMOS inverter.” The fact is that field-effect transistors aren’t ideal switches. Even in the OFF state, leakage currents can flow from the drain to the source and from the drain or source to the substrate.
+
+If the magnitude of these leakage currents is known, the resulting power dissipation can be calculated using the formula:
+
+![image](https://github.com/user-attachments/assets/942f36ce-e6ee-4df5-9d63-da4195693c11)
+
+Dynamic power consumption used to be much higher than static power consumption. Nowadays, static power can be significant. As CMOS feature sizes decrease, its contribution to total dissipation approaches that of dynamic power.
+
+Finally, note that static power is a function of operating temperature. As temperature increases, static power dissipation also increases.
+
+## Design a CMOS digital circuit that realizes the
+Boolean function:
+
+![image](https://github.com/user-attachments/assets/6461a5a2-782b-4c26-a77a-4d6cb46c4d1b)
+
+Solution: Follow the steps of the design synthesis handout!
+
+Step1: Design the PDN
+
+First, we must rewrite the Boolean function as:
+
+![image](https://github.com/user-attachments/assets/e9fbb25c-857a-4f06-a3cd-d7ceefc91c52)
+
+In other words, write the complemented output in terms of
+un-complemented inputs. 
+
+![image](https://github.com/user-attachments/assets/e2c467d9-0c3a-4b28-86c3-d65544afa892)
+
+We can thus realize this logic with the following NMOS PDN:
+
+Step2: Design the PUN 
+
+![image](https://github.com/user-attachments/assets/df3f1db8-3e86-4128-9151-6f878a719aec)
 
 
+![image](https://github.com/user-attachments/assets/12ac342b-20a0-408e-beb9-9b2a6e2c9135)
 
+We can thus realize this logic with the following PMOS PUN:
 
+![image](https://github.com/user-attachments/assets/af08bef7-0bc3-4df7-9749-c02faf75d837)
 
+Thus, the entire CMOS realization is
 
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/8b6438bd-9109-41a5-abae-2b397d48a88b)
 
 
 
