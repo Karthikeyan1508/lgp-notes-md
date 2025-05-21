@@ -528,3 +528,124 @@ example, is a pure substance because both phases have the same chemical composit
 Pressure can be expressed as a function of temperature and specific volume: p = p(T, v). The plot of  p = p(T, v) is a surface called p-v-T surface. Figure 3.1 shows the p-v-T surface of a substance such as water that expands on freezing.
 
 ![image](https://github.com/user-attachments/assets/e6dbb3b6-00cd-456e-a82e-0d58dc3d39df)
+
+## Enthalpy–Entropy Chart 
+
+An enthalpy–entropy chart, also known as the H–S chart or Mollier diagram, plots the total 
+heat against entropy, describing the enthalpy of a thermodynamic system. A typical chart 
+covers a pressure range of 0.01–1000 bar, and temperatures up to 800 degrees Celsius. It 
+shows enthalpy H in terms of internal energy U, pressure p and volume V using the 
+relationship H=U+pV or, in terms of specific enthalpy, specific entropy and specific volume. 
+On the diagram, lines of constant pressure, constant temperature and volume are plotted, 
+so in a two-phase region, the lines of constant pressure and temperature coincide. Thus, 
+coordinates on the diagram represent entropy and heat. 
+
+A vertical line in the h–s chart represents an isentropic process. The process 3–4 in a 
+Rankine cycle is isentropic when the steam turbine is said to be an ideal one. So the 
+expansion process in a turbine can be easily calculated using the h–s chart when the process 
+is considered to be ideal (which is the case normally when calculating enthalpies, entropies, 
+etc. Later the deviations from the ideal values and they can be calculated considering the 
+isentropic efficiency of the steam turbine used.
+
+## Characteristics of the critical point: 
+
+ For saturated phase often its enthalpy is an important property. 
+
+ Enthalpy-pressure charts are used for refrigeration cycle analysis. 
+
+ Enthalpy-entropy charts for water are used for steam cycle analysis. 
+
+ Note: Unlike pressure, volume and temperature which have specified numbers 
+associated with it, in the case of internal energy, enthalpy (and entropy) only 
+changes are required. Consequently, a base (or datum) is defined -as you have seen 
+in the case of water.
+
+## Saturation States 
+
+When a liquid and its vapour are in equilibrium at certain pressure and temperature, only 
+the pressure or the temperature i is s sufficient to identify the saturation state. 
+If pressure is given, the temperature of the mixture gets fixed, which is known as saturation 
+temperature, or if the temperature is given, the saturation pressure gets fixed. 
+Saturation liquid or saturated vapour has only on independent variable, i.e. only one 
+property is required to b known to fix up the state. 
+
+## Type of Steam 
+
+Wet steam:
+ Wet steam is defined as steam which is partly vapour and partly liquid suspended in it. It 
+means that evaporation of water is not complete. 
+
+Dry saturated steam:
+ When the wet steam is further heated, and it does not contain any suspended particles of 
+water, it is known as dry saturated steam. 
+
+Superheated steam:
+ When the dry steam is further heated at constant pressure, thus raising 
+its temperature, it is called superheated steam. 
+
+## Measurement of Steam Quality:
+
+The state of a pure substance gets fixed if two independent properties are given. A pure 
+substance is thus said to have two degrees of freedom. Of all thermodynamic properties, it 
+is easiest to measure the pressure and temperature of a substance. Therefore, whenever 
+pressure and temperature are independent properties, it is the practice to measure them to 
+determine that state of the substance. 
+
+Types of Calorimeters used for measurement of Steam Quality
+
+ Barrel Calorimeter 
+
+ Separating Calorimeter 
+
+ Throttling Calorimeter 
+
+ Combined Separating and Throttling calorimeter
+
+# Ideal Gas: 
+Perfect gas, also called ideal gas, a gas that conforms, in physical behaviour, to a particular, idealized relation between pressure, volume, and temperature called the general gas law. 
+
+## Gas Laws: 
+
+## Boyle’s Law
+Boyle’s Law Pressure is inversely proportional to volume: p∞ 1/v Robert Boyle noticed that 
+when the volume of a container holding an amount of gas is increased, pressure decreases, 
+and vice versa (while the temperature is held constant). Note that this is not a linear 
+relationship between p and V. 
+
+## Charles’ Law:
+Charles’ Law Volume is directly proportional to temperature: V = cT, where c > 0 is constant. 
+Scientist Jacque Charles noticed that if air in a balloon is heated, the balloon expands. For an ideal gas, this relationship between V and T should be linear (as long as pressure is 
+constant). 
+
+## Charles’ and Boyle’s Laws combined
+Combine the two laws above: pV/T = K, where k is a constant, = pV=mRT 
+
+## The Individual Gas Constant - R
+The Individual Gas Constant depends on the particular gas and is related to the molecular 
+weight of the gas. The value is independent of temperature. The induvidual gas constant, R, 
+for a gas can be calculated from the universal gas constant, Ru (given in several units  
+below), and the gas molecular weight, Mgas: 
+
+R = Ru/Mgas 
+
+In the SI system units are J/kg K. 
+
+## The Universal Gas Constant - Ru
+
+The Universal Gas Constant - Ru - appears in the ideal gas law and can be expressed as the 
+product between the Individual Gas Constant - R - for the particular gas - and the Molecular 
+Weight - Mgas - for the gas, and is the same for all ideal or perfect gases: 
+
+Ru = Mgas R, kJ/(kmol.K) : 8.3144598
+
+## van der Waals Equation of State: 
+
+The ideal gas law treats the molecules of a gas as point particles with perfectly elastic 
+collisions. This works well for dilute gases in many experimental circumstances. But gas 
+molecules are not point masses, and there are circumstances where the properties of the 
+molecules have an experimentally measurable effect. A modification of the ideal gas law 
+was proposed by Johannes D. van der Waals in 1873 to take into account molecular size and 
+molecular interaction forces. It is usually referred to as the van der Waals equation of state. 
+
+![image](https://github.com/user-attachments/assets/1282a367-50d5-42f5-a343-bd1da314f45b)
+
