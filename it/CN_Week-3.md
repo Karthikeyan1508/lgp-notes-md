@@ -746,6 +746,230 @@ For an IP address range to be considered a valid CIDR block, it must adhere to s
 
 **Conclusion:** All three rules are followed by this block. Hence, **`100.1.2.32` to `100.1.2.47` is a valid CIDR IP address block.**
 (This block would be represented as `100.1.2.32/28`, as `32 - 4 = 28` network bits).
+---
+# What is Routing?
+
+**Routing** is the fundamental process in computer networking of selecting the best path for **Internet Protocol (IP) packets** to travel from their source to their destination across one or more networks. It is an autonomous process primarily handled by specialized network devices.
+
+### **What is a Router?**
+
+* A **router** is a dedicated network hardware device that makes intelligent decisions about where to forward data packets.
+* It operates at **Layer 3 (the Network Layer)** of the OSI Model.
+* Its main functions include:
+    * Forwarding data packets between different computer networks.
+    * Directing network traffic based on the **destination IP address**.
+    * Ensuring data reaches its intended destination by determining the most efficient or **"best" path**.
+  
+![image](https://github.com/user-attachments/assets/43b93ec0-dd13-4560-9818-2e427a10bdb3)
+
+### **Key Aspects of Routing:**
+
+* **Direction of Data:** Routing directs data packets from one network node (typically a router) to another.
+* **Crucial Mechanism:** It's essential for transmitting data across various network types, including LAN, WAN, or MAN.
+* **Decision-Making:** The process involves making continuous routing decisions to ensure reliable and efficient delivery.
+* **Path Optimization:** Routers utilize various **routing metrics** (e.g., shortest path, fewest hops, bandwidth) to find the most optimal path for data transmission.
+
+  # Types of Routing
+
+Routing, the process of directing data packets across networks, typically involves three main types, each with distinct functionalities and applications.
+
+### **1. Static Routing**
+
+* **Definition:** Also known as "non-adaptive routing," where network administrators manually configure and maintain routing information.
+* **Control:** Offers complete control over the network path selection.
+* **Mechanism:** Routers forward packets to destinations based on these manually entered configurations.
+* **Suitability:** While providing fine-grained control, it is generally **not suitable for large-scale enterprise networks** due to the high manual overhead for configuration and updates.
+
+### **2. Dynamic Routing**
+
+* **Definition:** Also known as "adaptive routing," this is an autonomous process that requires no human intervention for route updates.
+* **Mechanism:** Routers automatically add, update, or remove routes in their routing tables based on changes in network topology. This is achieved using various **shortest-path algorithms** and pre-determined **routing metrics**.
+* **Flexibility:** Highly preferred in modern, complex networks due to its flexibility and versatile functionality, as it automates routing operations.
+
+### **3. Default Routing**
+
+* **Definition:** A technique where a router is configured to send packets to a pre-defined **default route** (a gateway or next-hop device) if no specific path to the destination is found in its routing table.
+* **Common Use Case:** Primarily used in networks with a **single exit point** to the Internet or another large network.
+* **Representation:** The default route is commonly represented by the IP address `0.0.0.0/0`.
+
+# Working Principle of Routing
+
+Routing is the process by which networks determine the most efficient path for data packets to travel from a source to a destination. This involves a series of steps and relies heavily on routers and routing tables.
+
+### **Step-by-Step Process:**
+
+1.  **Communication Initiation:**
+    * A source node (e.g., client or server) begins communication across a network, typically using protocols like HTTP.
+
+2.  **Data Packet Preparation:**
+    * The source device breaks down the information into smaller **data packets** for efficient and reliable transmission.
+    * Each packet is then labeled with the **destination node's IP address**.
+
+3.  **Routing Table Lookup:**
+    * The router, a specialized network device, maintains a **routing table**. This logical data structure stores IP addresses and information about reachable networks and the "next-hop" routers.
+    * The router consults this table to identify the shortest or most optimal path to the destination, often using shortest-path algorithms and considering traffic conditions.
+  
+   # What is a Routing Table?
+
+A **routing table** is a crucial set of rules, typically displayed in a table format, that an IP-enabled device (like a router or switch) uses to determine the next hop or path for data packets traveling across an Internet Protocol (IP) network. Its primary function is to direct packets towards their intended destination.
+
+### **Key Components/Entries**
+
+Each entry in a routing table provides the necessary information to forward a packet and commonly includes:
+
+* **Network ID / Destination:** The IP network address of the destination.
+* **Subnet Mask:** Used to match a destination IP address to the corresponding network ID.
+* **Next Hop:** The IP address of the next device (router) to which the packet should be forwarded.
+* **Outgoing Interface:** The specific local interface on the router through which the packet should exit.
+* **Metric:** A value (e.g., hop count, cost) indicating the "bestness" or desirability of a route, used to choose among multiple paths.
+* **Default Route:** A special entry (`Destination: 0.0.0.0`, `Subnet Mask: 0.0.0.0`) that specifies where to send packets if no more specific route is found in the table.
+
+![image](https://github.com/user-attachments/assets/f9595b06-76c2-46b2-a582-f1d437a12991)
+
+### **How Routing Tables are Populated**
+
+Routing tables can be maintained in three primary ways:
+
+1.  **Directly Connected Networks:** Routes to networks directly attached to the router's interfaces are added automatically.
+2.  **Static Routing:** Routes are manually configured by a network administrator. These entries remain fixed unless manually changed.
+3.  **Dynamic Routing:** Routers automatically build and maintain their routing tables by exchanging network topology information with other routers using **routing protocols** (e.g., OSPF, EIGRP, BGP). This allows them to adapt to network changes like device failures or congestion.
+
+### **Route Determination Process**
+
+When a router receives an IP packet, it performs the following steps to determine the packet's path:
+
+1.  **Examine Destination IP:** The router extracts the destination IP address from the packet.
+2.  **Match with Table Entries:** It performs a **bitwise AND operation** between the destination IP address and the subnet masks of all entries in its routing table.
+3.  **Forwarding Logic:**
+    * **Single Match:** If only one routing table entry matches, the packet is forwarded via the corresponding outgoing interface.
+    * **Multiple Matches (Longest Prefix Match):** If the destination IP matches multiple entries, the router selects the route with the **longest subnet mask** (the most specific match, indicated by more `1`s in the mask).
+    * **No Match:** If no specific route matches, the packet is forwarded to the interface corresponding to the **default route**.
+
+4.  **Hopping Procedure:**
+    * Data packets traverse multiple intermediate nodes (routers) in a network, known as **hops**, until they reach their final destination.
+    * A **hop count** defines the number of nodes a packet must pass through. Packets have a limited hop count; if exceeded, they are considered lost and may be retransmitted.
+
+5.  **Destination Reached:**
+    * Once all data packets arrive at the intended destination node, they are re-assembled to form the complete original information.
+    * The receiver performs **error-checking mechanisms** to verify data authenticity and integrity.
+
+  ![image](https://github.com/user-attachments/assets/fb83cbfd-a70b-4a07-94ce-1691388d69c1)
+
+### **Key Optimization:**
+
+Overall, the routing process aims to transmit data packets over the path with the **least hop count** and **less traffic** to minimize latency and prevent packet loss, ensuring efficient data delivery.
+
+![image](https://github.com/user-attachments/assets/ebf450d0-b4f6-41be-8aa2-289bec3a5964)
+
+### **Main Routing Protocol Types**
+
+1.  **Distance Vector Routing**
+    * **Principle:** Nodes advertise their entire routing table to directly connected (adjacent) nodes at regular intervals.
+    * **Convergence:** Can be slower to achieve a consistent network view across all nodes.
+    * **Suitability:** Often uses fixed-length subnets, less suitable for large, highly scalable networks.
+    * **Algorithm:** Typically uses the **Bellman-Ford Algorithm** to find the shortest path.
+    * **Example:** **RIP (Routing Information Protocol)** - Uses hop count as its primary metric.
+  
+   # Distance Vector Routing (DVR) Protocol
+
+**Distance Vector Routing (DVR) Protocol** is a method used by routers to determine the most efficient path for data across a network. Each router maintains a table containing the shortest distance (often based on hop count) to all other known routers. This information is regularly shared with directly connected neighbors, allowing routers to update their own tables and adapt to network changes.
+
+### **What is DVR?**
+
+* A routing protocol where each router maintains a "distance vector" (routing table) that lists the shortest distance to every other destination in the network.
+* Distances are typically measured in **hop counts** (number of routers crossed).
+* Routers share their complete routing table with their immediate **neighbors** periodically.
+
+### **How it Works (Bellman-Ford Algorithm)**
+
+DVR protocols are historically associated with the **Bellman-Ford Algorithm**.
+
+1.  **Information Exchange:** Routers periodically send their current distance vector (their routing table) to all directly connected neighbors.
+2.  **Receiving Updates:** Upon receiving a distance vector from a neighbor, a router saves this information.
+3.  **Table Recalculation:** A router recalculates its own distance vector when:
+    * It receives a new distance vector from a neighbor that contains different information.
+    * It detects a link to a neighbor has gone down.
+4.  **Minimizing Cost:** The calculation aims to minimize the cost (distance) to each destination using the Bellman-Ford equation:
+    `Dx(y) = min { C(x,v) + Dv(y) }`
+    * `Dx(y)`: Estimated least cost from router `x` to destination `y`.
+    * `C(x,v)`: Cost from router `x` to its neighbor `v`.
+    * `Dv(y)`: Neighbor `v`'s estimated least cost to destination `y`.
+    This process ensures routes are updated based on the lowest cost path through any neighbor.
+
+### **Applications of DVR**
+
+* **Computer Networking:** Core function in routing data packets.
+* **Telephone Systems:** Used in certain telephone switching infrastructures.
+* **Military Applications:** Historically applied in areas like missile routing.
+
+### **Advantages of DVR**
+
+* **Shortest Path:** Effectively finds the shortest paths for data transmission.
+* **Widespread Usage:** Applicable in local, metropolitan, and wide-area networks.
+* **Easy Implementation:** Relatively simple to set up and manage, requiring fewer resources.
+
+### **Disadvantages of DVR**
+
+* **Slower Convergence:** It is generally slower to update and achieve a stable network view compared to link-state protocols, especially in large networks.
+* **Count-to-Infinity Problem:** Susceptible to routing loops when network links fail, potentially causing packets to endlessly "count to infinity" before routes stabilize.
+* **Higher Traffic & Bandwidth Consumption:** Generates more network traffic due to periodic, full routing table broadcasts, even when no topology changes occur.
+* **Larger Routing Tables:** In larger networks, routers must store information about all other routers, leading to larger routing tables and potential congestion on WAN links.
+
+ ### Example
+
+Consider a network with three routers: X, Y, and Z (as shown in an accompanying figure, not provided here).
+![image](https://github.com/user-attachments/assets/7248b915-677e-4887-8487-b13063c64a67)
+
+* Each router possesses its own routing table.
+* These routing tables include the calculated distances to all reachable destination nodes.
+
+### **Working Principle with Bellman-Ford Equation:**
+
+1.  **Information Sharing:**
+    * Router X will share its routing table (its distance vector) with its neighbors (Y and Z, if directly connected).
+    * Similarly, its neighbors will share their routing tables with X.
+
+2.  **Distance Calculation & Update:**
+    * Router X then calculates its distance to any destination `y` using the Bellman-Ford equation:
+        `Dx(y) = min { C(x,v) + Dv(y) } for each node y ? N`
+        * `Dx(y)`: The estimated shortest cost from router X to destination Y.
+        * `C(x,v)`: The cost (e.g., hop count) from router X to its neighbor V.
+        * `Dv(y)`: The neighbor V's estimated shortest cost to destination Y.
+   ![image](https://github.com/user-attachments/assets/45231ba3-437a-4543-8d6a-ade3cbd16931)
+   ![image](https://github.com/user-attachments/assets/d377a97e-cb04-462b-95c4-0b81a7f005c2)
+
+3.  **Route Selection:**
+    * Through this calculation, Router X will identify the path with the minimum cost. For instance, if the distance to Z is less when Y is an intermediate hop (X -> Y -> Z) compared to a direct link, then Router X's routing table will be updated accordingly to reflect this shorter path via Y.
+    * A similar process occurs for Router Z and other routers in the network, as they continuously update their routing tables based on information from their neighbors.
+
+### **Final Routing Tables:**
+
+![image](https://github.com/user-attachments/assets/cd849a14-66b9-4c53-8faf-d345e93d5657)
+
+---
+2.  **Link State Routing**
+    * **Principle:** Routers advertise updates about their directly connected links only when there are changes (e.g., link status, cost). This leads to more efficient bandwidth use.
+    * **Information Exchange:** Routers exchange detailed information about link states (cost, hop count, etc.) to build a complete topology map.
+    * **Suitability:** Uses variable-length subnet masks, making it highly scalable and efficient for addressing.
+    * **Algorithm:** Primarily uses **Dijkstra's Algorithm** to calculate the shortest path.
+    * **Examples:**
+        * **OSPF (Open Shortest Path First):** A widely used link-state protocol.
+        * **IS-IS (Intermediate System to Intermediate System):** Another link-state protocol often used in large networks, especially by ISPs.
+
+3.  **Hybrid/Advanced Protocols**
+    * **EIGRP (Enhanced Interior Gateway Routing Protocol):** A Cisco-proprietary hybrid protocol that combines features of both distance-vector and link-state routing, offering fast convergence and efficient operation.
+    * **BGP (Border Gateway Protocol):** A **path-vector protocol** primarily used for routing between different **Autonomous Systems (AS)** on the global internet (inter-domain routing). It focuses on path attributes and policy-based routing rather than just shortest path.
+
+### **Key Routing Metrics**
+
+Routing protocols use various metrics to measure the "cost" of a path and determine the best route:
+
+* **Hop Count:** The number of routers a data packet must traverse to reach its destination. The goal is typically to minimize this.
+* **Bandwidth Consumption:** The available capacity of a network link, measured in Kbps, Mbps, or Gbps. Higher bandwidth links are generally preferred.
+* **Delay:** The time it takes for a data packet to travel from source to destination (includes propagation, transmission, and queuing delays). Lower delay is preferred.
+* **Load:** The amount of network traffic on a specific path. Routers aim to route packets through paths with less load to prevent congestion and loss.
+* **Reliability:** The stability and availability of a network link, ensuring assured delivery. Routes through more reliable links are favored.
+
 ______
 # **The Transport Layer**
 
