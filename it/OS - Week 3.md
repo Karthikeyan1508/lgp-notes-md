@@ -144,9 +144,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          |
 
 *Gantt Chart:*
-| P0  | P1  | P2   | P3   |
-|-----|-----|------|------|
-| 0   | 5   | 8    | 16   | 22
+| P0  | P1  | P2   | P3   |    |
+|-----|-----|------|------|----|
+| 0   | 5   | 8    | 16   | 22 |
 
 *Calculation:*
 | Process | AT | BT | CT | TAT = CT - AT | WT = TAT - BT |
@@ -197,9 +197,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               |
 
 *Gantt Chart:*
-| P0  | P1  | P3  | P2   |
-|-----|-----|-----|------|
-| 0   | 5   | 8   | 14   | 22
+| P0  | P1  | P3  | P2   |    |
+|-----|-----|-----|------|----|
+| 0   | 5   | 8   | 14   | 22 |
 
 
 *Calculation:*
@@ -246,8 +246,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               | 3        |
 
 *Gantt Chart:*
-| P0  | P3  | P1  | P2   |
-|-----|-----|-----|------|
+| P0  | P3  | P1  | P2   |    |
+|-----|-----|-----|------|----|
 | 0   | 5   | 11  | 14   | 22 |
 
 
@@ -289,8 +289,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 1          |
 
 *Gantt Chart:*
-| P0 | P1 | P2 | P3 | P2 | P1 | P1 | P1 | P0 | P0 | P0 | P0 |
-|----|----|----|----|----|----|----|----|----|----|----|----|
+| P0 | P1 | P2 | P3 | P2 | P1 | P1 | P1 | P0 | P0 | P0 | P0 |    |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|
 | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10 | 11 | 12 |
 
 
