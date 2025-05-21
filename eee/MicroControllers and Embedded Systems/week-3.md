@@ -204,11 +204,12 @@ Assembly language is a low-level programming language that uses mnemonics to rep
 - Comments: Added using ; to improve code readability.
 
 **Example Program (8085):**
-
+```
 MVI A, 05H   ; Load 5 into Accumulator
 MVI B, 03H   ; Load 3 into Register B
 ADD B        ; Add B to A
 HLT          ; Halt the program
+```
 
 **Tools Required:**
 
@@ -245,6 +246,9 @@ Used in embedded systems like washing machines, microwaves.
 Examples: 8051, PIC, AVR, ARM Cortex-M.
 
 ![image](https://github.com/user-attachments/assets/e9c6d2d1-4e29-4341-b2cc-a84432d9f3fe)
+
+
+
 
 
 ## Overview of Embedded Systems
@@ -680,3 +684,82 @@ An assembler converts assembly language programs into machine code.
 
 - EQU: Define constants.
 
+## Assembly Language Programming Examples for 8051 Microcontroller
+
+**Example 1: Blinking an LED**
+```
+; Blinks an LED connected to P1.0
+ORG 0000H
+START:
+    SETB P1.0       ; Turn ON LED
+    ACALL DELAY
+    CLR P1.0        ; Turn OFF LED
+    ACALL DELAY
+    SJMP START      ; Repeat forever
+
+DELAY:
+    MOV R1, #0FFH
+    MOV R2, #0FFH
+HERE:
+    DJNZ R2, HERE
+    DJNZ R1, HERE
+    RET
+END
+```
+
+**Example 2: Add Two Numbers**
+```
+; Adds 25H and 15H, result in ACC
+ORG 0000H
+    MOV A, #25H
+    ADD A, #15H
+    SJMP $
+END
+```
+
+**Example 3: Data Transfer from Port**
+```
+; Reads data from Port 0 and sends it to Port 2
+ORG 0000H
+    MOV A, P0
+    MOV P2, A
+    SJMP $
+END
+```
+
+**Example 4: Timer Delay using Timer 0**
+```
+; Toggle P1.0 using Timer 0 delay
+ORG 0000H
+START:
+    CPL P1.0        ; Toggle LED
+    ACALL DELAY
+    SJMP START
+
+DELAY:
+    MOV TMOD, #01H  ; Timer 0, Mode 1
+    MOV TH0, #0FCH
+    MOV TL0, #66H
+    SETB TR0        ; Start Timer 0
+WAIT:
+    JNB TF0, WAIT
+    CLR TR0
+    CLR TF0         ; Clear overflow flag
+    RET
+END
+```
+
+**Example 5: Check for Even or Odd Number**
+```
+; Check if number in A is even or odd
+ORG 0000H
+    MOV A, #05H
+    ANL A, #01H
+    JZ EVEN
+    ; Odd case
+    SJMP $
+EVEN:
+    ; Even case
+    SJMP $
+END
+```
