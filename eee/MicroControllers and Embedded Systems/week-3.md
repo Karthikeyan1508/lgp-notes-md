@@ -247,8 +247,143 @@ Examples: 8051, PIC, AVR, ARM Cortex-M.
 
 ![image](https://github.com/user-attachments/assets/e9c6d2d1-4e29-4341-b2cc-a84432d9f3fe)
 
+## 8051 Microcontroller: Architecture and Features
 
+The 8051 is an 8-bit microcontroller developed by Intel in 1981. It is widely used in embedded systems for control-oriented applications. The 8051 family includes many derivatives with additional features.
 
+**Key Features**
+
+- 8-bit CPU with Accumulator (A) and B register
+
+- On-chip RAM: 128 bytes
+
+- On-chip ROM: 4KB (can vary by version)
+
+- Clock frequency: Up to 12 MHz
+
+- 32 I/O lines (4 Ports: P0, P1, P2, P3)
+
+- Two 16-bit Timers (Timer 0 and Timer 1)
+
+- Full duplex UART for serial communication
+
+- Five interrupt sources with two external interrupts
+
+- On-chip oscillator and clock circuitry
+
+**Pin Diagram**
+
+The 8051 has a 40-pin DIP package:
+
+- Port 0 (P0.0 to P0.7): AD0–AD7 (Address/Data multiplexed)
+
+- Port 1 (P1.0 to P1.7): General purpose I/O
+
+- Port 2 (P2.0 to P2.7): Higher-order address bus
+
+- Port 3 (P3.0 to P3.7): Alternate functions (interrupts, timers, serial I/O)
+
+- Vcc: +5V supply
+
+- GND: Ground
+
+- XTAL1/XTAL2: Crystal oscillator pins
+
+![image](https://github.com/user-attachments/assets/247384ce-f577-4f43-8cb8-9c4b30e3adf3)
+
+**8051 Architecture**
+
+- CPU: Executes instructions and manages data flow
+
+- RAM: Used for temporary data storage
+
+- ROM: Stores firmware or permanent code
+
+- I/O Ports: Used to interface with external devices
+
+- Timers/Counters: Generate time delays, count events
+
+- Serial Port: For RS232 communication
+
+- Interrupts: Enable response to asynchronous events
+
+![image](https://github.com/user-attachments/assets/3e2cbd38-0303-429b-a7bf-3c8d5267dc5a)
+
+**Special Function Registers (SFRs)**
+
+SFRs are control registers used for configuring the microcontroller's operations:
+
+- ACC: Accumulator
+
+- B: Register B
+
+- PSW: Program Status Word
+
+- SP: Stack Pointer
+
+- DPTR: Data Pointer (DPH + DPL)
+
+- TMOD: Timer Mode Control
+
+- TCON: Timer Control
+
+- SCON: Serial Control
+
+- IE: Interrupt Enable
+
+**Memory Organization**
+
+Internal RAM: 128 bytes
+
+- 00H–1FH: Register banks and bit-addressable area
+
+- 20H–2FH: Bit-addressable space
+
+- 30H–7FH: General-purpose RAM
+
+External ROM/RAM: Expandable up to 64KB
+
+- Timers and Counters
+
+- Timer 0 and Timer 1 can operate in different modes:
+
+- Mode 0: 13-bit
+
+- Mode 1: 16-bit
+
+- Mode 2: 8-bit auto-reload
+
+**Interrupts**
+
+- 5 interrupt sources:
+
+- INT0, INT1: External
+
+- Timer 0, Timer 1
+
+- Serial communication (RI/TI)
+
+**Applications**
+
+- Consumer electronics
+
+- Industrial automation
+
+- Automotive systems
+
+- Medical instruments
+
+- Robotics
+
+**Advantages**
+
+- Easy to program and interface
+
+- Low cost and power consumption
+
+- Highly reliable for control applications
+
+The 8051 remains a foundational microcontroller in embedded systems education and applications due to its simplicity, ease of use, and well-documented instruction set. Its legacy continues in modern variants with more memory and peripheral support.
 
 
 ## Overview of Embedded Systems
