@@ -545,27 +545,176 @@ The synchronization between the transmitter and the receiver is a must.
 ![image](https://github.com/user-attachments/assets/b7855d87-97b0-4123-a377-a5d8deb25aa7)
 
 ## Line Codes
+A line code is the code used for data transmission of a digital signal over a transmission line. This process of coding is chosen so as to avoid overlap and distortion of signal such as inter-symbol interference.
 
+## Properties of Line Coding
+Following are the properties of line coding −
 
+1. As the coding is done to make more bits transmit on a single signal, the bandwidth used is much reduced.
+2. For a given bandwidth, the power is efficiently used.
+3. The probability of error is much reduced.
+4. Error detection is done and the bipolar too has a correction capability.
+5. Power density is much favorable.
+6. The timing content is adequate.
+7. Long strings of 1s and 0s is avoided to maintain transparency.
 
+**Types of Line Coding**
+There are 3 types of Line Coding
 
+1. Unipolar
+2. Polar
+3. Bi-polar
 
+## Unipolar Signaling
+Unipolar signaling is also called as On-Off Keying or simply OOK.
 
+The presence of pulse represents a 1 and the absence of pulse represents a 0.
 
+There are two variations in Unipolar signaling −
 
+1. Non Return to Zero (NRZ)
+2. Return to Zero (RZ)
 
+## Unipolar Non-Return to Zero (NRZ)
+In this type of unipolar signaling, a High in data is represented by a positive pulse called as Mark, which has a duration T0 equal to the symbol bit duration. A Low in data input has no pulse.
 
+The following figure clearly depicts this.
 
+![image](https://github.com/user-attachments/assets/c3f8a3ed-6c51-4bcf-a518-21c66319d585)
 
+## Unipolar Return to Zero (RZ)
+In this type of unipolar signaling, a High in data, though represented by a Mark pulse, its duration T0 is less than the symbol bit duration. Half of the bit duration remains high but it immediately returns to zero and shows the absence of pulse during the remaining half of the bit duration.
 
+It is clearly understood with the help of the following figure.
 
+![image](https://github.com/user-attachments/assets/8c28aa6e-5dc0-434c-b658-9a2e539e537f)
 
+## Polar Signaling
+There are two methods of Polar Signaling. They are −
 
+1. Polar NRZ
+2. Polar RZ
 
+## Polar NRZ
+In this type of Polar signaling, a High in data is represented by a positive pulse, while a Low in data is represented by a negative pulse. The following figure depicts this well.
 
+![image](https://github.com/user-attachments/assets/f1b534fb-ed73-4c85-bcae-4a6c7456d0ec)
 
+## Polar RZ
+In this type of Polar signaling, a High in data, though represented by a Mark pulse, its duration T0 is less than the symbol bit duration. Half of the bit duration remains high but it immediately returns to zero and shows the absence of pulse during the remaining half of the bit duration.
 
+However, for a Low input, a negative pulse represents the data, and the zero level remains same for the other half of the bit duration. The following figure depicts this clearly.
 
+![image](https://github.com/user-attachments/assets/f7f115d6-95bf-45ad-ab5a-ce53aafe16dd)
+
+## Bipolar Signaling
+This is an encoding technique which has three voltage levels namely &plus;, - and 0. Such a signal is called as duo-binary signal.
+
+An example of this type is Alternate Mark Inversion (AMI). For a 1, the voltage level gets a transition from &plus; to or from to &plus;, having alternate 1s to be of equal polarity. A 0 will have a zero voltage level.
+
+Even in this method, we have two types.
+
+1. Bipolar NRZ
+2. Bipolar RZ
+
+From the models so far discussed, we have learnt the difference between NRZ and RZ. It just goes in the same way here too. The following figure clearly depicts this.
+
+![image](https://github.com/user-attachments/assets/4f0d2540-28ea-44c4-bb4b-cedcf5cb5a0c)
+
+## Manchester Encoding
+Manchester encoding is a method of data transmission used in computer networks and telecommunications. It works by combining the clock and data signals into one stream, making it easier to synchronize the data. Each bit of data is represented by a transition; a change from high to low or low to high in the signal. This helps ensure that the data is correctly interpreted by the receiving device. It is widely used in Ethernet technology and other digital communication systems due to its reliability and simplicity.
+
+In Manchester, the duration of a bit is divided into two halves. The voltage remains the same at one level during the first half & moves to the other level. The transition in the middle of the bit provides synchronization. Differential Manchester, on the other hand, combines the idea of RZ and NRZ-I. There is always a transition in the middle of the bit, but the bit values are determined at the beginning of the bit. if the next bit is zero there is a transition if next bit is 1 there is none. 
+
+![image](https://github.com/user-attachments/assets/3dae8cdf-8459-4a4b-baf5-f4fb0fbe612f)
+
+## Phase Shift Keying
+Phase Shift Keying (PSK) is the digital modulation technique in which the phase of the carrier signal is changed by varying the sine and cosine inputs at a particular time. PSK technique is widely used for wireless LANs, bio-metric, contactless operations, along with RFID and Bluetooth communications.
+
+PSK is of two types, depending upon the phases the signal gets shifted. They are −
+
+## Binary Phase Shift Keying (BPSK)
+This is also called as 2-phase PSK or Phase Reversal Keying. In this technique, the sine wave carrier takes two phase reversals such as 0° and 180°.
+
+BPSK is basically a Double Side Band Suppressed Carrier (DSBSC) modulation scheme, for message being the digital information.
+
+## Quadrature Phase Shift Keying (QPSK)
+This is the phase shift keying technique, in which the sine wave carrier takes four phase reversals such as 0°, 90°, 180°, and 270°.
+
+If this kind of techniques are further extended, PSK can be done by eight or sixteen values also, depending upon the requirement.
+
+## BPSK Modulator
+The block diagram of Binary Phase Shift Keying consists of the balance modulator which has the carrier sine wave as one input and the binary sequence as the other input. Following is the diagrammatic representation.
+
+![image](https://github.com/user-attachments/assets/a6d6ab04-4b36-4c88-83ec-ff96fce729f9)
+
+The modulation of BPSK is done using a balance modulator, which multiplies the two signals applied at the input. For a zero binary input, the phase will be 0° and for a high input, the phase reversal is of 180°.
+
+Following is the diagrammatic representation of BPSK Modulated output wave along with its given input.
+
+![image](https://github.com/user-attachments/assets/287355a5-8d7a-4949-b8ce-d0461c8894cd)
+
+## Quadrature Phase Shift Keying
+The Quadrature Phase Shift Keying (QPSK) is a variation of BPSK, and it is also a Double Side Band Suppressed Carrier (DSBSC) modulation scheme, which sends two bits of digital information at a time, called as bigits.
+
+Instead of the conversion of digital bits into a series of digital stream, it converts them into bit pairs. This decreases the data bit rate to half, which allows space for the other users.
+
+## QPSK Modulator
+The QPSK Modulator uses a bit-splitter, two multipliers with local oscillator, a 2-bit serial to parallel converter, and a summer circuit. Following is the block diagram for the same.
+
+![image](https://github.com/user-attachments/assets/2e4350f5-9828-45c1-bdfa-e3f9e7244904)
+
+At the modulators input, the message signals even bits (i.e., 2nd bit, 4th bit, 6th bit, etc.) and odd bits (i.e., 1st bit, 3rd bit, 5th bit, etc.) are separated by the bits splitter and are multiplied with the same carrier to generate odd BPSK (called as PSKI) and even BPSK (called as PSKQ). The PSKQ signal is anyhow phase shifted by 90° before being modulated.
+
+The QPSK waveform for two-bits input is as follows, which shows the modulated result for different instances of binary inputs.
+
+![image](https://github.com/user-attachments/assets/075c4f53-2e5e-44be-bb02-1da094c16018)
+
+## QPSK Demodulator
+The QPSK Demodulator uses two product demodulator circuits with local oscillator, two band pass filters, two integrator circuits, and a 2-bit parallel to serial converter. Following is the diagram for the same.
+
+![image](https://github.com/user-attachments/assets/48f747a9-1b72-4afb-90b5-a5c7500a7c13)
+
+The two product detectors at the input of demodulator simultaneously demodulate the two BPSK signals. The pair of bits are recovered here from the original data. These signals after processing, are passed to the parallel to serial converter.
+
+## Frequency Shift Keying
+Frequency Shift Keying (FSK) is the digital modulation technique in which the frequency of the carrier signal varies according to the digital signal changes. FSK is a scheme of frequency modulation.
+
+The output of a FSK modulated wave is high in frequency for a binary High input and is low in frequency for a binary Low input. The binary 1s and 0s are called Mark and Space frequencies.
+
+The following image is the diagrammatic representation of FSK modulated waveform along with its input.
+
+![image](https://github.com/user-attachments/assets/19eb7acd-334c-443f-8787-d33dca7b6798)
+
+To find the process of obtaining this FSK modulated wave, let us know about the working of a FSK modulator.
+
+## FSK Modulator
+The FSK modulator block diagram comprises of two oscillators with a clock and the input binary sequence. Following is its block diagram.
+
+![image](https://github.com/user-attachments/assets/1d8ad0b0-f02e-46c8-855e-b88b74b3a09b)
+
+The two oscillators, producing a higher and a lower frequency signals, are connected to a switch along with an internal clock. To avoid the abrupt phase discontinuities of the output waveform during the transmission of the message, a clock is applied to both the oscillators, internally. The binary input sequence is applied to the transmitter so as to choose the frequencies according to the binary input.
+
+## FSK Demodulator
+There are different methods for demodulating a FSK wave. The main methods of FSK detection are asynchronous detector and synchronous detector. The synchronous detector is a coherent one, while asynchronous detector is a non-coherent one.
+
+## Asynchronous FSK Detector
+The block diagram of Asynchronous FSK detector consists of two band pass filters, two envelope detectors, and a decision circuit. Following is the diagrammatic representation.
+
+![image](https://github.com/user-attachments/assets/9665e429-a9a7-4cb5-ae67-2aa7f77acbcc)
+
+The FSK signal is passed through the two Band Pass Filters (BPFs), tuned to Space and Mark frequencies. The output from these two BPFs look like ASK signal, which is given to the envelope detector. The signal in each envelope detector is modulated asynchronously.
+
+The decision circuit chooses which output is more likely and selects it from any one of the envelope detectors. It also re-shapes the waveform to a rectangular one.
+
+## Synchronous FSK Detector
+The block diagram of Synchronous FSK detector consists of two mixers with local oscillator circuits, two band pass filters and a decision circuit. Following is the diagrammatic representation.
+
+![image](https://github.com/user-attachments/assets/6b9b650b-f14c-40fd-8265-ffc254a5f7b3)
+
+The FSK signal input is given to the two mixers with local oscillator circuits. These two are connected to two band pass filters. These combinations act as demodulators and the decision circuit chooses which output is more likely and selects it from any one of the detectors. The two signals have a minimum frequency separation.
+
+For both of the demodulators, the bandwidth of each of them depends on their bit rate. This synchronous demodulator is a bit complex than asynchronous type demodulators.
 
 
 
