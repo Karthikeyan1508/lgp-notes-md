@@ -551,7 +551,7 @@ https://media.geeksforgeeks.org/wp-content/uploads/20200406112035/paging_2.jpg
 - Needs a page table to map pages to frames, which takes up memory.
 - Using multi-level page tables may increase memory access time due to additional lookups.
 
-### Swapping
+## Swapping
 Swapping is another memory management method where an entire process is moved between RAM and disk storage. When RAM becomes full, inactive or less important processes are swapped out to the disk. When needed again, they are swapped back in.
 
 *Swapping involves two operations:*
@@ -594,7 +594,7 @@ https://media.geeksforgeeks.org/wp-content/uploads/20240208232601/Screenshot-202
 ### Functions of the MMU
 As computing systems evolve, the MMU plays an increasingly vital role in memory management. Some of its core functions include:
 
-_Address Translation*
+*Address Translation*
 - The MMU’s primary job is to translate virtual addresses into physical addresses, ensuring that the CPU accesses the correct data in RAM.
   
 *Memory Protection*
