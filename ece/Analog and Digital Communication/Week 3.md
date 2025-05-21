@@ -334,6 +334,131 @@ The frequency of the modulated wave increases, when the amplitude of the modulat
 
 ![image](https://github.com/user-attachments/assets/85ea5e8c-4614-431a-a5a4-7ef7ea881c98)
 
+## Narrowband FM
+Following are the features of Narrowband FM.
+
+1. This frequency modulation has a small bandwidth when compared to wideband FM.
+2. The modulation index β is small, i.e., less than 1.
+3. Its spectrum consists of the carrier, the upper sideband and the lower sideband.
+4. This is used in mobile communications such as police wireless, ambulances, taxicabs, etc.
+
+## Wideband FM
+Following are the features of Wideband FM.
+
+1. This frequency modulation has infinite bandwidth.
+2. The modulation index β is large, i.e., higher than 1.
+3. Its spectrum consists of a carrier and infinite number of sidebands, which are located around it.
+4. This is used in entertainment, broadcasting applications such as FM radio, TV, etc.
+
+## FM Modulators
+
+## Generation of NBFM
+We know that the standard equation of FM wave is
+
+![image](https://github.com/user-attachments/assets/1071fb12-5130-4939-a640-0881cfcdad06)
+
+Here, the integrator is used to integrate the modulating signal m(t). The carrier signal Accos(2πfct) is the phase shifted by −90 degree to get Acsin(2πfct) with the help of −900 phase shifter. The product modulator has two inputs ∫m(t)dt and Acsin(2πfct). It produces an output, which is the product of these two inputs.
+
+This is further multiplied with 2πkf by placing a block 2πkf in the forward path. The summer block has two inputs, which are nothing but the two terms of NBFM equation. Positive and negative signs are assigned for the carrier signal and the other term at the input of the summer block. Finally, the summer block produces NBFM wave.
+
+## Generation of WBFM
+The following two methods generate WBFM wave.
+
+1. Direct method
+2. Indirect method
+
+## Direct Method
+This method is called as the Direct Method because we are generating a wide band FM wave directly. In this method, Voltage Controlled Oscillator (VCO) is used to generate WBFM. VCO produces an output signal, whose frequency is proportional to the input signal voltage. This is similar to the definition of FM wave. The block diagram of the generation of WBFM wave is shown in the following figure.
+
+![image](https://github.com/user-attachments/assets/8afc35f5-89ed-4052-bbb7-4323713b09c7)
+
+## Indirect Method
+This method is called as Indirect Method because we are generating a wide band FM wave indirectly. This means, first we will generate NBFM wave and then with the help of frequency multipliers we will get WBFM wave. The block diagram of generation of WBFM wave is shown in the following figure
+
+![image](https://github.com/user-attachments/assets/d290a588-4b40-4fee-8a19-5d9f5fed6a2c)
+
+This block diagram contains mainly two stages. In the first stage, the NBFM wave will be generated using NBFM modulator. We have seen the block diagram of NBFM modulator at the beginning of this chapter. We know that the modulation index of NBFM wave is less than one. Hence, in order to get the required modulation index (greater than one) of FM wave, choose the frequency multiplier value properly.
+
+## FM Demodulators
+The following two methods demodulate FM wave.
+
+1. Frequency discrimination method
+2. Phase discrimination method
+
+## Frequency Discrimination Method
+
+![image](https://github.com/user-attachments/assets/1b62ec04-c40a-422a-adee-5a22bb7501ee)
+
+In the above equation, the amplitude term resembles the envelope of AM wave and the angle term resembles the angle of FM wave. Here, our requirement is the modulating signal m(t). Hence, we can recover it from the envelope of AM wave.
+
+The following figure shows the block diagram of FM demodulator using frequency discrimination method.
+
+![image](https://github.com/user-attachments/assets/80fc376e-2a9b-4714-9b77-2d6d268b2af0)
+
+This block diagram consists of the differentiator and the envelope detector. Differentiator is used to convert the FM wave into a combination of AM wave and FM wave. This means, it converts the frequency variations of FM wave into the corresponding voltage (amplitude) variations of AM wave. We know the operation of the envelope detector. It produces the demodulated output of AM wave, which is nothing but the modulating signal.
+
+## Phase Discrimination Method
+The following figure shows the block diagram of FM demodulator using phase discrimination method.
+
+![image](https://github.com/user-attachments/assets/da780eee-013c-4325-8d32-26ea49021ad3)
+
+This block diagram consists of the multiplier, the low pass filter, and the Voltage Controlled Oscillator (VCO). VCO produces an output signal v(t), whose frequency is proportional to the input signal voltage d(t). Initially, when the signal d(t) is zero, adjust the VCO to produce an output signal v(t), having a carrier frequency and −90 degree phase shift with respect to the carrier signal.
+
+FM wave s(t) and the VCO output v(t) are applied as inputs of the multiplier. The multiplier produces an output, having a high frequency component and a low frequency component. Low pass filter eliminates the high frequency component and produces only the low frequency component as its output.
+
+This low frequency component contains only the term-related phase difference. Hence, we get the modulating signal m(t) from this output of the low pass filter.
+
+## Noise
+## What is Noise?
+Noise is an unwanted signal, which interferes with the original message signal and corrupts the parameters of the message signal. This alteration in the communication process, leads to the message getting altered. It most likely enters at the channel or the receiver.
+
+The noise signal can be understood by taking a look at the following figure.
+
+![image](https://github.com/user-attachments/assets/c7c4e49e-b403-4ed6-a522-2933fa730a2f)
+
+Hence, it is understood that the noise is some signal which has no pattern and no constant frequency or amplitude. It is quite random and unpredictable. Measures are usually taken to reduce it, though it cant be completely eliminated.
+
+Most common examples of noise are −
+
+1. Hiss sound in radio receivers
+2. Buzz sound amidst of telephone conversations
+3. Flicker in television receivers, etc
+
+## SNR Calculations
+
+## Signal to Noise Ratio
+Signal-to-Noise Ratio (SNR) is the ratio of the signal power to noise power. The higher the value of SNR, the greater will be the quality of the received output.
+
+Signal-to-Noise Ratio at different points can be calculated using the following formulas.
+
+![image](https://github.com/user-attachments/assets/373481f7-3322-4292-a11d-c2a03305ce7b)
+
+## Figure of Merit
+The ratio of output SNR and input SNR can be termed as Figure of Merit. It is denoted by F. It describes the performance of a device.
+
+![image](https://github.com/user-attachments/assets/1641a7d9-51c0-4c28-812f-4f488be4d956)
+
+## SNR Calculations in AM System
+Consider the following receiver model of AM system to analyze noise.
+
+![image](https://github.com/user-attachments/assets/45413157-f00e-4a61-968e-5cab4088c1a5)
+
+![image](https://github.com/user-attachments/assets/1c4e71ca-2245-4624-a5fa-4f4ec61829db)
+
+Assume the band pass noise is mixed with AM wave in the channel as shown in the above figure. This combination is applied at the input of AM demodulator. Hence, the input of AM demodulator is.
+
+![image](https://github.com/user-attachments/assets/cad83c1c-0e28-4f46-bf8c-a89cae838fb9)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
