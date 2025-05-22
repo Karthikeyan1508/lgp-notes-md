@@ -144,6 +144,7 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          |
 
 *Gantt Chart:*
+
 ![image](https://github.com/user-attachments/assets/6b2b9dd3-408a-4af5-aa64-1909d7b2dcb9)
 
      
@@ -196,6 +197,7 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               |
 
 *Gantt Chart:*
+
 ![image](https://github.com/user-attachments/assets/68c2e94e-13c1-4cd0-840d-34f850427560)
 
 
@@ -243,6 +245,7 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3                 | 6               | 3        |
 
 *Gantt Chart:*
+
 ![image](https://github.com/user-attachments/assets/0c486eeb-ea38-4005-90eb-1c0d9ded3dc3)
 
 
