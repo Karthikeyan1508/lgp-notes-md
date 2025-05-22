@@ -39,12 +39,15 @@ Notice that the relationship between the two tables above is the `P_Id` column.
 
 ## Types of SQL JOINs
 
-| JOIN Type     | Description |
-|---------------|-------------|
+| JOIN Type           | Description |
+|---------------------|-------------|
 | `JOIN` / `INNER JOIN` | Returns rows with at least one match in both tables |
-| `LEFT JOIN`   | Returns all rows from the left table, even if no match in the right |
-| `RIGHT JOIN`  | Returns all rows from the right table, even if no match in the left |
-| `FULL JOIN`   | Returns rows with a match in either left or right table |
+| `LEFT JOIN`         | Returns all rows from the left table, even if no match in the right |
+| `RIGHT JOIN`        | Returns all rows from the right table, even if no match in the left |
+| `FULL JOIN`         | Returns rows with a match in either left or right table |
+| `CROSS JOIN`        | Returns the Cartesian product of both tables (every row of left with every row of right) |
+| `SELF JOIN`         | Joins a table to itself; used to compare rows within the same table |
+
 
 ---
 
