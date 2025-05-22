@@ -203,10 +203,52 @@ int fact(int n)
 3)	Every recursive call needs extra space in the stack memory.	 Every iteration does not require any extra space.
 4)	Smaller code size.	                                         Larger code size.
 
+## Backtracking
+Backtracking is a problem-solving algorithmic technique that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end. It is commonly used in situations where you need to explore multiple possibilities to solve a problem, like searching for a path in a maze or solving puzzles like Sudoku. When a dead end is reached, the algorithm backtracks to the previous decision point and explores a different path until a solution is found or all possibilities have been exhausted.
+
+### Types of Backtracking Problems
+Problems associated with backtracking can be categorized into 3 categories:
+Decision Problems: Here, we search for a feasible solution.
+Optimization Problems: For this type, we search for the best solution.
+Enumeration Problems: We find set of all possible feasible solutions to the problems of this type.
+
+### Determining Backtracking Problems:
+Generally every constraint satisfaction problem can be solved using backtracking but, Is it optimal to use backtracking every time? Turns out NO, there are a vast number of problem that can be solved using Greedy or Dynamic programming in logarithmic or polynomial time complexity which is far better than exponential complexity of Backtracking. However many problems still exists that can only be solved using Backtracking.
+
+### Pseudocode for Backtracking
+The best way to implement backtracking is through recursion, and all backtracking code can be summarised as per the given Pseudocode:
+```
+void FIND_SOLUTIONS( parameters):
+if (valid solution):
+store the solution
+Return
+for (all choice):
+if (valid choice):
+APPLY (choice)
+FIND_SOLUTIONS (parameters)
+BACKTRACK (remove choice)
+Return
+```
+
+C### omplexity Analysis of Backtracking
+Since backtracking algorithm is purely brute force therefore in terms of time complexity, it performs very poorly. Generally backtracking can be seen having below mentioned time complexities:
+Exponential (O(K^N))
+Factorial (O(N!))
+
+### Applications of Backtracking
+Creating smart bots to play Board Games such as Chess.
+Solving mazes and puzzles such as N-Queen problem.
+Network Routing and Congestion Control.
+Decryption
+Text Justification
+
+### Backtracking Problems
+
+
 ## Recursion and backtracking 
 They are powerful algorithmic techniques in DSA used to solve complex problems by breaking them down into smaller subproblems and exploring all possible solutions systematically. Recursion involves a function calling itself, while backtracking uses recursion to explore a decision tree, undoing previous choices when a solution isn't found. 
 
-###Recursion:
+### Recursion:
 Definition: A function calling itself within its own definition. 
 Purpose: To solve problems by breaking them into smaller, similar subproblems. 
 Key Components:
@@ -214,7 +256,7 @@ Base Case: The condition that stops the recursion.
 Recursive Case: The part of the function that calls itself. 
 Example: Calculating factorial, Fibonacci sequence, or traversing a tree. 
 
-###Backtracking:
+### Backtracking:
 Definition:
 A systematic approach to exploring all possible solutions to a problem, often using recursion. 
 Purpose:
