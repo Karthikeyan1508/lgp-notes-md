@@ -144,9 +144,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          |
 
 *Gantt Chart:*
-| P0  | P1  | P2   | P3   |    |
-|-----|-----|------|------|----|
-| 0   | 5   | 8    | 16   | 22 |
+| P0  | P1  | P2   | P3   |    
+|-----|-----|------|------|
+0     5     8      16    22 
 
 *Calculation:*
 | Process | AT | BT | CT | TAT = CT - AT | WT = TAT - BT |
