@@ -203,6 +203,13 @@ int fact(int n)
 3)	Every recursive call needs extra space in the stack memory.	 Every iteration does not require any extra space.
 4)	Smaller code size.	                                         Larger code size.
 
+### Recursion Problems
+[Link Text](https://leetcode.com/problems/merge-two-sorted-lists/description/?envType=problem-list-v2&envId=recursion)
+[Link Text](https://leetcode.com/problems/regular-expression-matching/description/?envType=problem-list-v2&envId=recursion)
+[Link Text](https://leetcode.com/problems/add-two-numbers/description/?envType=problem-list-v2&envId=recursion)
+[Link Text](https://leetcode.com/problems/remove-linked-list-elements/description/?envType=problem-list-v2&envId=recursion)
+[Link Text](https://leetcode.com/problems/reverse-linked-list/description/?envType=problem-list-v2&envId=recursion)
+
 ## Backtracking
 Backtracking is a problem-solving algorithmic technique that involves finding a solution incrementally by trying different options and undoing them if they lead to a dead end. It is commonly used in situations where you need to explore multiple possibilities to solve a problem, like searching for a path in a maze or solving puzzles like Sudoku. When a dead end is reached, the algorithm backtracks to the previous decision point and explores a different path until a solution is found or all possibilities have been exhausted.
 
@@ -243,30 +250,16 @@ Decryption
 Text Justification
 
 ### Backtracking Problems
+[Linkk Text](https://www.geeksforgeeks.org/printing-solutions-n-queen-problem/)
+[Link Text](https://www.geeksforgeeks.org/sudoku-backtracking-7/)
+[Link Text](https://www.geeksforgeeks.org/m-coloring-problem/)
+[Link Text](https://www.geeksforgeeks.org/rat-in-a-maze/)
+[Link Text](https://www.geeksforgeeks.org/the-knights-tour-problem/)
+[Link Text](https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/)
 
 
 ## Recursion and backtracking 
 They are powerful algorithmic techniques in DSA used to solve complex problems by breaking them down into smaller subproblems and exploring all possible solutions systematically. Recursion involves a function calling itself, while backtracking uses recursion to explore a decision tree, undoing previous choices when a solution isn't found. 
-
-### Recursion:
-Definition: A function calling itself within its own definition. 
-Purpose: To solve problems by breaking them into smaller, similar subproblems. 
-Key Components:
-Base Case: The condition that stops the recursion. 
-Recursive Case: The part of the function that calls itself. 
-Example: Calculating factorial, Fibonacci sequence, or traversing a tree. 
-
-### Backtracking:
-Definition:
-A systematic approach to exploring all possible solutions to a problem, often using recursion. 
-Purpose:
-To find solutions by trying different options, undoing choices when they lead to dead ends. 
-Key Concepts:
-Decision Tree: Backtracking explores a decision tree, where each node represents a choice. 
-Exploration: It systematically tries different paths (choices) to find a solution. 
-Undo (Backtrack): If a path doesn't lead to a solution, it returns to a previous choice and tries a different path. 
-Example:
-N-Queens problem, Sudoku solver, finding all permutations. 
 
 ### Differences between Recursion and Backtracking:
 Purpose:
