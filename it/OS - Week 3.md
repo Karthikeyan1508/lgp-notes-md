@@ -324,8 +324,9 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 | P3      | 3            | 6          |
 
 *Gantt Chart:*
+| P0 | P1 | P2 | P3 | P0 | P1 | P2 | P3 | P0 | P2 | P3 | P2 |
+0    2    4    6    8   10   11  13   15  16   18   20  22
 
-![Uploading image.png…]()
 
 *Calculation:*
 | Process | Arrival Time | Burst Time | Completion Time | Turnaround Time | Waiting Time |
