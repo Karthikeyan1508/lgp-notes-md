@@ -159,7 +159,102 @@ Expected Time ≈ 1 / (1 - α)
 Hashing provides fast access and insertion with O(1) time on average, making it ideal for sets, maps, and caches. Proper choice of hash function and collision resolution technique is key to performance.
 
 ---
+# Recursion
 
+The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function.
+
+- A recursive algorithm takes one step toward solution and then recursively call itself to further move. The algorithm stops once we reach the solution.
+- Since called function may further call itself, this process might continue forever. So it is essential to provide a base case to terminate this recursion process.
+
+Steps to Implement Recursion
+
+Step1 - Define a base case: Identify the simplest (or base) case for which the solution is known or trivial. This is the stopping condition for the recursion, as it prevents the function from infinitely calling itself.
+Step2 - Define a recursive case: Define the problem in terms of smaller subproblems. Break the problem down into smaller versions of itself, and call the function recursively to solve each subproblem.
+Step3 - Ensure the recursion terminates: Make sure that the recursive function eventually reaches the base case, and does not enter an infinite loop.
+Step4 - Combine the solutions: Combine the solutions of the subproblems to solve the original problem.
+
+### What is the base condition in recursion? 
+A recursive program stops at a base condition. There can be more than one base conditions in a recursion. In the above program, the base condition is when n = 1.
+
+### How a particular problem is solved using recursion? 
+The idea is to represent a problem in terms of one or more smaller problems, and add one or more base conditions that stop the recursion.  
+
+### When does Stack Overflow error occur in recursion? 
+If the base case is not reached or not defined, then the stack overflow problem may arise. Let us take an example to understand this.
+
+```
+int fact(int n)
+{
+    // wrong base case (it may cause stack overflow).
+    if (n == 100) 
+        return 1;
+    else
+        return n*fact(n-1);
+}
+```
+
+- In this example, if fact(10) is called, the function will recursively call fact(9), then fact(8), fact(7), and so on. However, the base case checks if n == 100. Since n will never reach 100 during these recursive calls, the base case is never triggered. As a result, the recursion continues indefinitely.
+- This continuous recursion consumes memory on the function call stack. If the system's memory is exhausted due to these unending function calls, a stack overflow error occurs.
+- To prevent this, it's essential to define a proper base case, such as if (n == 0) to ensure that the recursion terminates and the function doesn't run out of memory.
+
+ No.	Recursion	                                                    Iteration
+1)	Terminates when the base case becomes true.	                 Terminates when the loop condition becomes false.
+2)	Logic is built in terms of smaller problems.                 Logic is built using iterating over something.
+3)	Every recursive call needs extra space in the stack memory.	 Every iteration does not require any extra space.
+4)	Smaller code size.	                                         Larger code size.
+
+## Recursion and backtracking 
+They are powerful algorithmic techniques in DSA used to solve complex problems by breaking them down into smaller subproblems and exploring all possible solutions systematically. Recursion involves a function calling itself, while backtracking uses recursion to explore a decision tree, undoing previous choices when a solution isn't found. 
+
+###Recursion:
+Definition: A function calling itself within its own definition. 
+Purpose: To solve problems by breaking them into smaller, similar subproblems. 
+Key Components:
+Base Case: The condition that stops the recursion. 
+Recursive Case: The part of the function that calls itself. 
+Example: Calculating factorial, Fibonacci sequence, or traversing a tree. 
+
+###Backtracking:
+Definition:
+A systematic approach to exploring all possible solutions to a problem, often using recursion. 
+Purpose:
+To find solutions by trying different options, undoing choices when they lead to dead ends. 
+Key Concepts:
+Decision Tree: Backtracking explores a decision tree, where each node represents a choice. 
+Exploration: It systematically tries different paths (choices) to find a solution. 
+Undo (Backtrack): If a path doesn't lead to a solution, it returns to a previous choice and tries a different path. 
+Example:
+N-Queens problem, Sudoku solver, finding all permutations. 
+
+### Differences between Recursion and Backtracking:
+Purpose:
+Recursion focuses on solving problems by breaking them down, while backtracking focuses on exploring all possible solutions. 
+Scope:
+Recursion can be used in various scenarios, while backtracking is more specialized for problems with a vast solution space. 
+Complexity:
+Backtracking can have higher time complexity (e.g., O(n!), according to GeeksforGeeks) depending on the problem, while recursion usually has O(n) stack space. 
+
+Advantages of Recursion:
+Elegant Solutions:
+Recursion can provide concise and elegant solutions for problems that can be naturally broken down.
+Simpler Code:
+In some cases, recursive code can be easier to understand and maintain than iterative code. 
+
+Disadvantages of Recursion:
+Memory Overhead:
+Recursive function calls create stack frames, which can consume memory, especially for deep recursion. 
+Stack Overflow:
+If there's no base case or if the recursion is too deep, a stack overflow error can occur. 
+
+Advantages of Backtracking:
+Systematic Exploration: Backtracking provides a structured way to explore all possible solutions. 
+Constraint Satisfaction: Backtracking is well-suited for problems where constraints need to be considered during solution exploration. 
+
+Disadvantages of Backtracking:
+High Complexity:
+Backtracking can have high time and space complexity, especially for problems with a large solution space. 
+Potentially Slow:
+Backtracking might not be efficient for all problems, and optimization techniques might be necessary. 
 
 #  Tree Traversals and Recursive Implementations (Detailed Notes)
 
