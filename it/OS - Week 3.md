@@ -148,6 +148,8 @@ Assume we have the following processes with their Arrival Time (AT) and Burst Ti
 |-----|-----|------|------|
 0     5     8      16    22 
 
+    P0     P1     P2    
+1       5
 *Calculation:*
 | Process | AT | BT | CT | TAT = CT - AT | WT = TAT - BT |
 | ------- | -- | -- | -- | ------------- | ------------- |
