@@ -59,3 +59,63 @@ System designers implement various strategies and technologies to achieve high a
 - Monitoring and Alerting: putting in place reliable monitoring systems that can identify problems instantly and alert administrators so they can act quickly.
 - Performance optimization: lowering the possibility of bottlenecks and breakdowns by making sure the system is built and adjusted to efficiently manage the expected load.
 - Scalability: Designing the system to scale easily by adding more resources when needed to accommodate increased demand.
+
+## Consistency
+
+Consistency in system design refers to the guarantee that all users or components of a distributed system see the same data at the same time under defined rules. It determines how data is synchronized and made uniform across replicas or services, ensuring that any read operation returns the most recent write or a predictable result depending on the consistency model.
+
+### Why is Consistency Important?
+- **Data Integrity:** Consistency ensures that every user or system component has access to correct and up-to-date information, which is vital for making accurate decisions and processing transactions.
+- **User Trust:** When users get consistent responses from the system regardless of where or when they access it, it builds trust in the application.
+- **Preventing Conflicts:** In multi-user or distributed environments, consistent data prevents issues like double-bookings, incorrect balances, or conflicting updates.
+
+### Types of Consistency Models:
+- **Strong Consistency:** Guarantees that any read will return the most recent write. This is essential for systems like banking where precision is non-negotiable.
+- **Eventual Consistency:** Ensures that if no new updates are made, all replicas will eventually reflect the same value. Systems like DNS and social media feeds use this model to improve performance and availability.
+- **Causal Consistency:** Maintains the order of causally-related operations across nodes, useful in collaborative tools like shared documents.
+- **Read-Your-Writes Consistency:** Ensures that a user sees their own updates immediately, even if global consistency is not guaranteed.
+
+### Consistency in the CAP Theorem
+According to the CAP theorem, a distributed system can achieve only two out of the following three guarantees: Consistency, Availability, and Partition Tolerance. Many systems opt for availability and partition tolerance at the cost of strong consistency, instead using eventual consistency models to balance trade-offs.
+
+### Techniques to Achieve Consistency
+- **Quorum-Based Reads/Writes:** Requires a minimum number of nodes to agree on the read/write operation before proceeding.
+- **Replication Protocols:** Ensures consistency across copies of data using master-slave or multi-leader architectures.
+- **Conflict Resolution:** Implements version control, vector clocks, or custom reconciliation logic to resolve data conflicts when nodes sync.
+
+---
+
+## Reliability
+
+Reliability in system design is the ability of a system to operate correctly and consistently over time, even in the face of failures. A reliable system is one that continues to function without errors or unexpected behavior, ensuring the delivery of services to users as intended.
+
+### Why is Reliability Important?
+- **User Satisfaction:** Systems that frequently crash or return incorrect results frustrate users and erode trust.
+- **Business Continuity:** Reliable systems minimize the risk of service interruptions, helping organizations maintain productivity and operations.
+- **Financial Impact:** Unreliable systems can lead to significant revenue losses, especially in industries like finance, e-commerce, or healthcare.
+- **Regulatory Compliance:** Many sectors require a minimum standard of reliability. Failing to meet these can result in penalties or legal repercussions.
+- **Operational Efficiency:** High reliability reduces the burden on technical support and operations teams by minimizing incidents and service desk tickets.
+
+### Key Concepts:
+- **Fault Tolerance:** The ability to continue operations when parts of the system fail. Achieved by duplicating critical components (hardware or services).
+- **Redundancy:** Deploying multiple instances of a component so the system can fall back on one if another fails.
+- **Failover Mechanisms:** Automatically transferring operations from a failed system component to a backup.
+- **Replication and Backups:** Regularly copying data and system states to ensure recovery from corruption or deletion.
+- **Graceful Degradation:** Designing systems to continue offering limited functionality during failures rather than shutting down entirely.
+- **Monitoring and Alerting:** Continuously observing system health and sending alerts in case of anomalies for quick remediation.
+- **Disaster Recovery:** Preparing for large-scale failures with a comprehensive plan that includes recovery time objectives (RTO) and recovery point objectives (RPO).
+
+### Metrics to Measure Reliability:
+- **Mean Time to Failure (MTTF):** Average time between failures.
+- **Mean Time to Recovery (MTTR):** Average time taken to recover after a failure.
+- **Error Rate:** Number of errors per transaction or operation.
+- **Uptime:** Total time the system is running without disruption.
+
+### How to Achieve High Reliability?
+Designing a reliable system requires architectural decisions that prevent single points of failure, allow for seamless failover, and ensure system components degrade gracefully. Strategies include:
+- Using **replicated databases** across zones or regions.
+- Employing **microservices** so that a failure in one module doesn’t affect the entire system.
+- Implementing **automated testing** to catch bugs early.
+- Regular **incident response drills** to ensure teams can handle real failures effectively.
+
+---
