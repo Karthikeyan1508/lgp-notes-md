@@ -414,7 +414,7 @@ while entering Z1 be the potential energy of the fluid while entering Similarly 
 
 ![image](https://github.com/user-attachments/assets/e7f4ff67-6f29-4746-8f09-1785c3e94e23)
 
-# UNIT- II Enropy 
+# Entropy 
 
 ## Limitations of the First Law: 
 
