@@ -334,6 +334,73 @@ Thus, the entire CMOS realization is
 
 ![image](https://github.com/user-attachments/assets/8b6438bd-9109-41a5-abae-2b397d48a88b)
 
+# MOSFET- Current Mirror
+## What is Current Mirror?
+The current mirror is an analog circuit that senses the reference current and generates the copy or number of copies of the reference current, with the same characteristics. The replicated current is as stable as the reference current source. The replicated current could be the same as the reference current (Icopy = IREF), or it could be either multiple or fraction of the reference current. (Icopy = N*Iref or Icopy = (1/N)*IREF).
+
+![image](https://github.com/user-attachments/assets/2e09f863-6d3f-438b-adb5-afd2a7a1d745)
+
+## Why Current Mirrors are used?
+Current Mirrors are particularly useful in the integrated circuits, for biasing the amplifiers. The advantage of biasing the amplifiers with the current source is that it provides a high voltage gain and good biasing stability. This current source can be generated using a simple PMOS transistor or using a MOS transistor in cascode configuration 
+
+![image](https://github.com/user-attachments/assets/c9e26f36-2fd9-4806-a902-44376b3d8103)
+
+But this type of MOS current source (shown in Fig.2) is susceptible to the change in the biasing voltage and the change in temperature. Moreover, the integrated circuit may contain hundred or thousand of such amplifiers. To bias all the amplifiers with precise biasing voltage is another challenge. So, to overcome all these problems, in integrated circuits, one stable current source is fabricated within IC, and using the current mirror the multiple copies of the stable current source is generated (which can be used to bias the amplifiers)
+
+## MOSFET- Current Mirror
+The given figure shows a current mirror circuit using the NMOS transistor. The reference current is converted to the voltage using diode connected transistor and the same is applied between the gate and the source of the another MOSFET.
+
+![image](https://github.com/user-attachments/assets/a0221541-f651-4ea3-bf43-def91f5bf73c)
+
+The relation between the ID1 and IREF can be given by the following expression.
+
+![image](https://github.com/user-attachments/assets/baf8a614-6c06-4861-98cd-6e10d4005c42)
+
+By changing the W/L ratio of the two transistors, the current which is fraction or multiple of the reference current can be generated. The only thing which needs to be ensured is that, the MOSFET should operate in the saturation region.
+
+## Effect of Channel Length Modulation on Current Mirror
+So far during the discussion, the effect of channel length modulation was neglected. If the channel length modulation effect is also considered, then as shown in figure, as the drain to source voltage (VDS) of the MOSFET increases, the drain current also slightly increases.
+
+![image](https://github.com/user-attachments/assets/5638b74c-821e-42a4-ba5b-f7108d571c89)
+
+Considering the channel length modulation effect, if VDS of MOSFET M1 changes by ΔVDS then the drain current ID1 also changes to ID1 + ΔID1.
+
+![image](https://github.com/user-attachments/assets/11d6160b-6bdf-44a5-a6b8-2e7a9bbc3cb8)
+
+The effect of channel length modulation can be reduced by increasing the length of the channel for the given W/L ratio.
+
+## PMOS Current Mirror
+Figure shows the implementation of current mirror using the PMOS transistors. In PMOS current mirror, the source terminals for both transistors are connected to Supply voltage Vdd.
+
+![image](https://github.com/user-attachments/assets/3b2b2a8e-37c9-4272-a73d-c97444d31cb2)
+
+The relation between the ID1 and IREF can be given by the same expression.
+
+![image](https://github.com/user-attachments/assets/b3bc52f1-0f67-4750-aa9a-89f3f41f4fdb)
+
+The only thing which needs to be ensured is that M1 should operate in the saturation region. Or in other words, VSD1 ≥ VSG – |VTP |, Where VTP is the threshold voltage of the PMOS transistor.
+
+## Current Steering Circuit
+The given figure shows the current steering circuit, which can be used to drive different amplifiers. And using this circuit is possible to generate a bias current which is multiple or the fraction of the reference current source.
+
+![image](https://github.com/user-attachments/assets/8989ca02-4046-4d77-803b-a2747b91a199)
+
+For example, let’s say (W/L)1 = 2 x (W/L)REF , (W/L)2 = (W/L)3 = 3 x (W/L)REF and (W/L)4 = 6 x (W/L)REF.
+
+Therefore, ID1 = 2 x IREF and ID2 = 3 x IREF. The same current ID2 will also flow through the transistor M3. Therefore, ID3 = ID2. And since (W/L)3 = 3 x (W/L)REF and (W/L)4 = 6 x (W/L)REF, ID4 = 2 x ID3 or ID4 = 6 x IREF. (assuming μn Cox = μp Cox, and overdrive voltage for M2 and M3 are equal)
+
+So, in this way, by changing the W/L ratios, it is possible to generate a multiple or fraction of the reference current. And the same can be used to drive different circuits. For example, current ID1 can be used to drive a source follower circuit and current ID4 can be used to drive a common source amplifier.
+
+![image](https://github.com/user-attachments/assets/6da66b35-ad97-4722-9e6f-3898c80d6562)
+
+Typically in the integrated circuits, the amplifiers are biased as shown in Fig. 8. Where current ID4 and ID3 are derived using the current mirror circuits. This type of arrangement provides good biasing stability. But to further improve the gain of the amplifier, the cascode current mirror circuits are used and the same is used as an active load with the MOS amplifiers.
+
+
+
+
+
+
+
 
 
 
