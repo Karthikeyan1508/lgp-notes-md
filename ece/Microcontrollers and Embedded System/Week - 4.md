@@ -768,6 +768,298 @@ Following is the list of instructions under this group −
 
 - **LODS/LODSB/LODSW** − Used to store the string byte into AL or string word into AX.
 
+## Program Execution Transfer Instructions (Branch and Loop Instructions)
+
+These instructions are used to transfer/branch the instructions during an execution. It includes the following instructions −
+
+**Instructions to transfer the instruction during an execution without any condition −**
+
+- **CALL** − Used to call a procedure and save their return address to the stack.
+
+- **RET** − Used to return from the procedure to the main program.
+
+- **JMP** − Used to jump to the provided address to proceed to the next instruction.
+
+**Instructions to transfer the instruction during an execution with some conditions −**
+
+- **JA/JNBE** − Used to jump if above/not below/equal instruction satisfies.
+
+- **JAE/JNB** − Used to jump if above/not below instruction satisfies.
+
+- **JBE/JNA** − Used to jump if below/equal/ not above instruction satisfies.
+
+- **JC** − Used to jump if carry flag CF = 1
+
+- **JE/JZ** − Used to jump if equal/zero flag ZF = 1
+
+- **JG/JNLE** − Used to jump if greater/not less than/equal instruction satisfies.
+
+- **JGE/JNL** − Used to jump if greater than/equal/not less than instruction satisfies.
+
+- **JL/JNGE** − Used to jump if less than/not greater than/equal instruction satisfies.
+
+- **JLE/JNG** − Used to jump if less than/equal/if not greater than instruction satisfies.
+
+- **JNC** − Used to jump if no carry flag (CF = 0)
+
+- **JNE/JNZ** − Used to jump if not equal/zero flag ZF = 0
+
+- **JNO** − Used to jump if no overflow flag OF = 0
+
+- **JNP/JPO** − Used to jump if not parity/parity odd PF = 0
+
+- **JNS** − Used to jump if not sign SF = 0
+
+- **JO** − Used to jump if overflow flag OF = 1
+
+- **JP/JPE** − Used to jump if parity/parity even PF = 1
+
+- **JS** − Used to jump if sign flag SF = 1
+
+**Processor Control Instructions**
+
+These instructions are used to control the processor action by setting/resetting the flag values.
+
+Following are the instructions under this group −
+
+- **STC** − Used to set carry flag CF to 1
+
+- **CLC** − Used to clear/reset carry flag CF to 0
+
+- **CMC** − Used to put complement at the state of carry flag CF.
+
+- **STD** − Used to set the direction flag DF to 1
+
+- **CLD** − Used to clear/reset the direction flag DF to 0
+
+- **STI** − Used to set the interrupt enable flag to 1, i.e., enable INTR input.
+
+- **CLI** − Used to clear the interrupt enable flag to 0, i.e., disable INTR input.
+
+**Iteration Control Instructions**
+
+These instructions are used to execute the given instructions for number of times. Following is the list of instructions under this group −
+
+**LOOP** − Used to loop a group of instructions until the condition satisfies, i.e., CX = 0
+
+**LOOPE/LOOPZ** − Used to loop a group of instructions till it satisfies ZF = 1 & CX = 0
+
+**LOOPNE/LOOPNZ** − Used to loop a group of instructions till it satisfies ZF = 0 & CX = 0
+
+**JCXZ** − Used to jump to the provided address if CX = 0
+
+**Interrupt Instructions**
+
+These instructions are used to call the interrupt during program execution.
+
+**INT** − Used to interrupt the program during execution and calling service specified.
+
+**INTO** − Used to interrupt the program during execution if OF = 1
+
+**IRET** − Used to return from interrupt service to the main program
+
+# Microprocessor - 8086 Interrupts
+
+Interrupt is the method of creating a temporary halt during program execution and allows peripheral devices to access the microprocessor. The microprocessor responds to that interrupt with an ISR (Interrupt Service Routine), which is a short program to instruct the microprocessor on how to handle the interrupt.
+
+The following image shows the types of interrupts we have in a 8086 microprocessor −
+
+![image](https://github.com/user-attachments/assets/98f14f03-ad24-4040-a814-28c3d9bf4750)
+
+## Hardware Interrupts
+Hardware interrupt is caused by any peripheral device by sending a signal through a specified pin to the microprocessor.
+
+The 8086 has two hardware interrupt pins, i.e. NMI and INTR. NMI is a non-maskable interrupt and INTR is a maskable interrupt having lower priority. One more interrupt pin associated is INTA called interrupt acknowledge.
+
+## NMI
+
+It is a single non-maskable interrupt pin (NMI) having higher priority than the maskable interrupt request pin (INTR)and it is of type 2 interrupt.
+
+When this interrupt is activated, these actions take place −
+
+- Completes the current instruction that is in progress.
+
+- Pushes the Flag register values on to the stack.
+
+- Pushes the CS (code segment) value and IP (instruction pointer) value of the return address on to the stack.
+
+- IP is loaded from the contents of the word location 00008H.
+
+- CS is loaded from the contents of the next word location 0000AH.
+
+- Interrupt flag and trap flag are reset to 0.
+
+## INTR
+
+The INTR is a maskable interrupt because the microprocessor will be interrupted only if interrupts are enabled using set interrupt flag instruction. It should not be enabled using clear interrupt Flag instruction.
+
+The INTR interrupt is activated by an I/O port. If the interrupt is enabled and NMI is disabled, then the microprocessor first completes the current execution and sends 0 on INTA pin twice. The first 0 means INTA informs the external device to get ready and during the second 0 the microprocessor receives the 8 bit, say X, from the programmable interrupt controller.
+
+These actions are taken by the microprocessor −
+
+- First completes the current instruction.
+
+- Activates INTA output and receives the interrupt type, say X.
+
+- Flag register value, CS value of the return address and IP value of the return address are pushed on to the stack.
+
+- IP value is loaded from the contents of word location X × 4
+
+- CS is loaded from the contents of the next word location.
+
+- Interrupt flag and trap flag is reset to 0
+
+## Microprocessor - 8086 Addressing Modes
+
+The different ways in which a source operand is denoted in an instruction is known as addressing modes. There are 8 different addressing modes in 8086 programming −
+
+**Immediate addressing mode**
+The addressing mode in which the data operand is a part of the instruction itself is known as immediate addressing mode.
+
+Example
+```asm
+MOV CX, 4929 H
+ADD AX, 2387 H
+MOV AL, FFH
+```
+
+## Register addressing mode
+It means that the register is the source of an operand for an instruction.
+
+Example
+```asm
+MOV CX, AX   ; copies the contents of the 16-bit AX register into  
+             ; the 16-bit CX register),  
+ADD BX, AX 
+```
+
+## Direct addressing mode
+The addressing mode in which the effective address of the memory location is written directly in the instruction.
+
+Example
+```asm
+MOV AX, [1592H]
+MOV AL, [0300H]
+```
+
+## Register indirect addressing mode
+This addressing mode allows data to be addressed at any memory location through an offset address held in any of the following registers: BP, BX, DI & SI.
+
+Example
+```asm
+MOV AX, [BX]  ; Suppose the register BX contains 4895H, then the contents  
+              ; 4895H are moved to AX 
+ADD CX, {BX}
+```
+
+## Based addressing mode
+In this addressing mode, the offset address of the operand is given by the sum of contents of the BX/BP registers and 8-bit/16-bit displacement.
+
+Example
+```asm
+MOV DX, [BX+04]
+ADD CL, [BX+08]
+```
+## Indexed addressing mode
+In this addressing mode, the operands offset address is found by adding the contents of SI or DI register and 8-bit/16-bit displacements.
+
+Example
+```asm
+MOV BX, [SI+16]
+ADD AL, [DI+16] 
+```
+
+## Based-index addressing mode
+In this addressing mode, the offset address of the operand is computed by summing the base register to the contents of an Index register.
+
+Example
+```asm
+ADD CX, [AX+SI]
+MOV AX, [AX+DI] 
+```
+
+## Based indexed with displacement mode
+In this addressing mode, the operands offset is computed by adding the base register contents. An Index registers contents and 8 or 16-bit displacement.
+
+Example
+```asm
+MOV AX, [BX+DI+08]
+ADD CX, [BX+SI+16] 
+```
+
+## Maximum Mode and Minimum Mode in 8086 Microprocessor
+
+The 8086 Microprocessor is one of the very popular microprocessors developed by Intel Corporation. Being a foundational component in microprocessor technology, it played an important role in computer architecture.
+
+The 8086 microprocessor has a 16-bit architecture and a versatile design which allows it to operate in two different modes namely, Maximum Mode and Minimum Mode.
+
+Each of these two operating modes are used in different system configurations and providing flexibility in addressing different system requirements. In this chapter, we will learn about basics, features, applications of and differences between maximum and minimum modes of the 8086-microprocessor.
+
+## Introduction to Operating Modes of 8086 Microprocessor
+
+In a microprocessor, an operating mode is nothing but a specific state or configuration of operation that determines how the processor will communicate or interact with other components of the system like memory, I/O, and other peripherals. The operating mode of a microprocessor defines its behavior and control during its operation.
+
+In the 8086-microprocessor, there are two operating modes which are −
+
+**Minimum Mode** − This operating mode of the 8086 microprocessor is designed for single-processor systems. In this mode, the microprocessor itself control the system bus.
+
+**Maximum Mode** − This mode is designed for multi-processor systems, hence this operating mode allows multiple processors to operate simultaneously.
+
+Let's have a detailed discussion on minimum and maximum modes of the 8086-microprocessor and their features.
+
+## Minimum Mode of 8086
+
+In the 8086-microprocessor, the minimum mode of operation is triggered by setting the pin MN/MX to logic 1. In this operating mode, the microprocessor produces all the control signals for memory and I/O operations. This mode of operation is primarily designed for one-processor systems. This mode is known for its simple configuration and low cost.
+
+The following are some important features of minimum mode of the 8086 microprocessor −
+
+- This mode supports only a single processor and unable to perform multiprocessing.
+- The 8086-microprocessor itself generates all the control signals required for memory and I/O operations.
+- In the minimum mode operation, the system has a straightforward architecture and requires a lesser number of components.
+- In the minimum mode, the system has some basic components such as latches, transceivers, clock generator, memory, and I/O devices.
+- Due to less number of components, the minimum mode makes the system cost-effective.
+
+## Maximum Mode of 8086
+
+When the MN/MX pin of the 8086-microprocessor is connected to logic 0, then the microprocessor operates in the maximum mode. In the maximum mode of operation, the 8086 microprocessor becomes capable to perform functions beyond calculations.
+
+Maximum mode is mainly used, when the 8086-microprocessor is used in a multiprocessor system, as it allows multiple processors to work together. In this mode, an additional bus controller namely, 8288 bus controller, is used to control the system bus. Hence, the cost of maximum mode operation is higher and circuit is more complex.
+
+Some of the key features of maximum mode operation of the 8086-microprocessor are highlighted below −
+
+- This mode is mainly designed to use in systems having multiple processors.
+- It provides multiprocessing capabilities.
+- It improves the performance of the system by allowing simultaneous execution of multiple tasks.
+- It uses an 8288 bus controller to control the system bus and manage the communication among multiple processors and devices.
+- The maximum mode requires additional chips and components, and hence it makes the circuit more complex.
+- Due to additional hardware components, the cost of maximum mode is high.
+
+## Difference between Maximum Mode and Minimum Mode in 8086
+The following table provides a comparative study of maximum mode and minimum mode of the 8086 microprocessor and highlights all the significant differences between them −
+
+![image](https://github.com/user-attachments/assets/9544632c-83b0-43db-88d7-5bd0ff60f809)
+
+## Applications of Maximum Mode and Minimum Mode of 8086
+
+The following are some key applications of the maximum mode of 8086-microprocessor
+
+- High-end servers that require better performance
+- Systems that require multiprocessing capabilities
+- Advanced computing systems, etc.
+
+The key applications of minimum mode of 8086-microprocessor are as follows
+
+- Embedded systems
+- Personal computers
+- Low-cost systems, etc.
+
+
+
+
+
+
+
+
 
 
 
