@@ -1,1 +1,790 @@
+# Microprocessor
+A microprocessor is an electronic device used in computing devices like computers, smartphones, smart watches, and many other for data processing, performing logical and control operations. Microprocessors are generally built in the form an integrated circuit (IC).
+
+A typical microprocessor consists of two main units namely, arithmetic logic unit and control circuitry. A microprocessor is also termed as CPU (Central Processing Unit) in personal computers. The microprocessor is a digital integrated circuit that works by taking binary data as input and processing this data as per the instructions provided. Finally, it produces a result in the binary form.
+Microprocessors use both combinational and sequential circuits to perform arithmetic and logical operations in a digital system.
+
+## What is a Microprocessor?
+
+A microprocessor is nothing but a semiconductor electronic device designed to perform data processing and digital operations in a computing machine like a computer. It is also termed as a processor or central processing unit or CPU. It is generally built in the form of a single IC (integrated circuit). The first commercially available microprocessor was developed by Intel Corporation in the year of 1971, which was named as Intel 4004.
+
+The primary function of a microprocessor is to take digital data from user, process them according to instructions, and produce the output. Hence, it performs three basic functions namely,
+
+1. Inputting
+2. Processing
+3. Outputting
+   
+Here, it is also important to know that a microprocessor is different from a microcontroller which combines a complete computing system on a single chip.
+
+## Block Diagram of Microprocessor
+The block diagram of a typical microprocessor is shown in the following figure −
+
+![image](https://github.com/user-attachments/assets/beabf0b7-7ddd-49c1-ba06-e67682ca685f)
+
+It consists of three main parts which are described as follows −
+
+**1. Arithmetic Logic Unit (ALU)** − It is an electronic circuit that performs arithmetic and logical operations on data received from an input device or memory.
+
+**2. Control Unit (CU)** − This electronic circuit of the microprocessor is responsible controlling the flow of data and instructions within the device or the system.
+
+**3. Register Array** − Register array is nothing but a collection of digital registers to provide small and fast storage to temporarily hold data and instructions in the microprocessor during processes.
+In addition to these three basic components, modern microprocessors also consist of cache memory as well.
+
+## How does a Microprocessor Work?
+The working of a microprocessor can be understood by breaking it down into the following four key steps −
+
+**1. Fetch** − It is the very first function that a microprocessor performs. In this step, the microprocessor access data and instructions from memory unit or an input device.
+
+**2. Decode** − After receiving data and instructions, the microprocessor decodes them and interprets for computing process.
+
+**3. Execute** − In this step, the microprocessor performs the requested operations on the data.
+
+**4. Store** − Finally, the results produced by the operations are stored in the memory unit.
+Hence, a typical microprocessor completes its working in four steps, where each step represents a specific task or function.
+
+## Types of Microprocessors
+Based on the architecture, microprocessors are broadly classified into the following three types −
+
+## CISC (Complex Instruction Set Computer) Microprocessor
+
+In CISC microprocessors, a single instruction contains multiple low-level instructions. For example, a single instruction in a CISC microprocessor can be like retrieving data from memory unit and storing data into memory. This one instruction contains two low-level instructions. This type of microprocessor uses very few registers, as a single instruction can perform many operations.
+
+Examples of CISC microprocessors include Intel 386, 486, Pentium, Pentium II, Pentium Pro, etc.
+
+## RISC (Reduced Instruction Set Computer) Microprocessor
+
+RISC microprocessors has a quite simple architecture and thus they are capable in faster execution of operations. In RISC microprocessors, small and optimized instructions are used to perform tasks at a faster rate. In these microprocessors, an instructions execution completes in one clock cycle.
+
+Because RISC microprocessors use multiple registers, thus they have fewer interactions with the main memory. Some common examples of RISC microprocessors are Alpha 21164, IBM RS6000, Alpha 21064, etc.
+
+## Applications of Microprocessors
+
+Today, microprocessors are being used in almost all electronic devices and systems used in household to industries. Some common applications of microprocessors depending on their nature are listed below −
+
+1. Microprocessors are used in a wide range of common electronic and computing devices like laptops, desktops, smart watches, smart TVs, etc.
+2. Microprocessors are also used in microcontrollers to perform data processing and control operations.
+3. Microprocessors specially designed for digital signal processing are used in applications like telecommunication, audio processing, image processing, etc.
+4. Microprocessors are also used in robotic or autonomous devices like surveillance drones, autonomous aircrafts, etc.
+5. The specialized microprocessors named Application Specific Integrated Circuits (ASICs) microprocessors are designed for specific tasks and customization depending on the application requirements.
+6. GPU (Graphical Processing Unit) microprocessors are designed and used for performing high performance graphics functions.
+7. Microprocessors are also used in network devices like switches, routers, or security devices to process network data packets. These microprocessors are highly optimized for this function.
+8. Some microprocessors, known as coprocessors, are used to provide auxiliary processing support to the main processor of a system.
+
+## Important Terms Related to Microprocessors
+
+In this section, we have picked up and defined some most important terms related to microprocessors. These terms will be very helpful for readers to understand the concepts covered in the tutorial.
+
+**1. Central Processing Unit (CPU)**
+
+CPU is considered the brain of a computing machine. It is the most important part of the system that performs operations, calculations, logic functions, execution of instructions, and manages data flow across the system.
+
+**2. Instruction Set Architecture (ISA)**
+
+ISA is a design architecture of microprocessors. It defines the set of instructions that the microprocessor can execute. There are two different types of ISAs commonly used in microprocessors namely, RISC (Reduced Instruction Set Computing) and CISC (Complex Instruction Set Computing).
+
+**3. Arithmetic Logic Unit (ALU)**
+
+ALU is one of the key components of a microprocessor that is basically an electronic circuit designed to perform arithmetic and logic operations.
+
+**4. Control Unit (CU)**
+
+It is another key part of a microprocessor which is responsible for controlling the execution of instructions and managing the data flow among components of the system.
+
+**5. Clock Speed**
+
+Clock speed is a performance measurement parameter of a microprocessor that indicates how fast the processor can execute instructions. It is generally measured in MHz or GHz.
+
+**6. Core**
+
+In the case of a microprocessor, the term core is used to represented an independent processing unit. Hence, microprocessors are available 1 core, dual core, quad core, octa core, etc. designs.
+
+**7. Cache Memory**
+
+Cache memory is a SRAM (Static Random Access Memory) used as an integral part of a microprocessor. It is a small and high-speed memory that provides a storage space for most frequently accessed data and instructions.
+
+**8. Bus**
+
+In microprocessors, Bus represents a communication channel for data and instructions. There are two types of buses are very common in microprocessors namely, data bus that allows transmission of data between CPU and other hardware components and address bus that allows access of memory address to the microprocessor.
+
+**9. Floating Point Unit (FPU)**
+
+FPU, also known as Math Coprocessor, is a specially designed component to handle complex arithmetic operations that involve the use of decimal points.
+
+**10. Pipelining**
+
+Pipelining is a technique that breaks down big tasks into smaller subtasks and accomplishes them in stages. This technique is used to enhance the efficiency of the microprocessor.
+
+**11. Multithreading**
+
+Multithreading is a processing technique in which a single core microprocessor executes multiple threads of a process concurrently. The primary objective of multithreading is to enhance performance and optimize the resource utilization.
+
+**12. Overclocking**
+
+As the name implies, overclocking is a process that makes the speed of the microprocessor greater than its factory setting to enhance its performance. However, it can lead to generation of more heat.
+
+**13. Die**
+
+Die is nothing but a piece of silicon within an integrated circuit that houses the entire microprocessor circuit.
+
+**14. ASIC (Application Specific Integrated Circuit)**
+
+ASIC is a specialized and customizable microprocessor that can be optimized to meet the requirements of a specific application.
+
+**15. Digital Signal Processor**
+
+Digital signal processor is a microprocessor specially designed for applications like audio, video, and image processing.
+
+**16. Register**
+
+A register is a small, high-speed memory device used as a part of a microprocessor unit. It is provided in microprocessors to hold data and instructions during processing temporarily.
+
+**17. Integrated Circuit (IC)**
+
+IC is also called as Chip. It is an electronic device that combines several components like transistors, capacitors, diodes, resistors, etc. into a small silicon wafer.
+
+## Components of a Microprocessor
+
+A microprocessor is a most important component of a computing device or an embedded system. It provides capabilities to execute instructions and process data. This chapter is meant to explain the main components of a microprocessor and their functions.
+
+A microprocessor consists of many components to perform various functions. The following are some key components of a typical microprocessor −
+
+1. Arithmetic Logic Unit (ALU)
+2. Control Unit (CU)
+3. Registers
+4. Cache Memory
+5. Clock Generator
+6. System Bus
+   
+These six elements are the main components of a microprocessor, let's discuss each of these components in detail and understand their functions.
+
+## Arithmetic Logic Unit (ALU)
+ALU is the most important component of a microprocessor, as it is responsible performing all computing tasks and operations. As its name implies, ALU can perform the following two main operations namely,
+
+**Arithmetic Operations** − It performs mathematical operations like addition, subtraction, multiplication, division, etc. of numbers.
+
+**Logical Operations** − It also performs logical functions that involve comparison or decision-making processes.
+Arithmetic logic unit uses instructions and input data in binary format to produce desired results.
+
+The structure of the arithmetic logic unit is divided into the following two segments −
+
+**Arithmetic Circuit** − This segment of ALU consists of binary adders and subtractors and handles all arithmetic operations like addition, subtraction, multiplication, and division.
+
+**Logic Circuit** − This part of ALU comprises of digital circuits like AND gate, OR gate, NOT gate, etc. and performs logical operations such as comparison, shifting, and decision-making.
+Arithmetic logic unit, being a part of a microprocessor, provides the following functionalities −
+
+1. It allows for executing instructions.
+2. It provides capabilities to manipulate input data and generate desired outputs.
+3. It ensures the speed, efficiency, and overall performance of the microprocessor.
+
+## Control Unit (CU)
+Control Unit (CU) is another key component of a microprocessor, as it allows for managing and coordinating the operations of all other components of the system. It is responsible for ensuring that every part of the microprocessor works smoothly and reliably.
+
+It is nothing but a digital circuit that directs the flow and execution of instructions and data within a microprocessor.
+
+The structure of a typical control unit of a microprocessor comprises of the following key components −
+
+**Instruction Register** − It temporarily stores the instructions being executed.
+
+**Instruction Decoder** − It decodes the binary instructions and breaks them into opcode and operands to identify the operations.
+
+**Control and Timing Circuit** − It generates control signals to synchronize all microprocessor operations and guide them to execute in correct sequence. It also sends control signals to various microprocessor components to enable and disable them as needed.
+In a microprocessor, the control unit typically performs the following key functions −
+
+1. It allows ALU to fetch instructions from memory and load them into instruction register.
+2. It decodes instructions to identify the operations to be performed.
+3. It produces control signals for synchronization and coordination among various components of the microprocessor.
+4. It controls the flow of data and execution of instructions in the correct sequence.
+So, this is all about control unit in a microprocessor, let now discuss about the third key component of microprocessor namely, registers.
+
+## Registers
+Registers in a microprocessor are another important component. They are high-speed, small-sized storage devices, provided in a microprocessor to hold data and instruction temporarily.
+
+In a microprocessor, registers are crucial for efficient data manipulation and instructions execution.
+
+Registers, being a part of a microprocessor, perform the following key functions −
+
+1. They provide a temporary storage for data to be processed and instructions to be executed.
+2. They also store intermediate outputs/results during computations.
+
+The most important feature of registers in a microprocessor is that they provide direct access capability without need for any external communication.
+
+The following are some common types of registers used in microprocessors −
+
+**General Purpose Registers** − These registers temporarily hold data to be processed and intermediate results during calculations.
+
+**Special Purpose Registers** − These registers are provided to perform a specific task like to store address of next instruction that has to be executed.
+
+**Instruction Register** − These registers are provided to temporarily store current instructions.
+
+**Base and Index Registers** − These registers are used for memory addressing purposes.
+
+**Flag Registers** − These registers store flags that denote the output of operations in arithmetic logic unit.
+
+**Memory Address Registers** − These registers store the address of memory locations.
+
+**Data Registers** − These registers are provided to temporarily store data that are being transferred between memory and the ALU.
+
+## Cache Memory
+
+Cache memory is also an integral part of modern microprocessors. It is used to enhance the speed and performance of the microprocessor. It creates a high-speed storage layer between the microprocessor and main memory (RAM). In a microprocessor, cache memory stores recent, most frequently used data and instructions. Hence, it reduces the access time and boosts the performance of the microprocessor.
+
+## Clock Generator
+
+The clock generator is another important component of a microprocessor, as it provides signals to synchronize all the components and operations of a computing device.
+
+The clock generator is nothing but an electronic circuit that can generate a timing/clock signal. The signal produced by the clock generator defines the operational speed of the microprocessor.
+
+## System Bus
+
+The system bus in a microprocessor act as a communication channel and connects various components of the microprocessor together. This provides capabilities for flow of data, instructions, and control signals among different parts of the microprocessor.
+
+The system buses in a microprocessor can be classified into the following three main types −
+
+**Data Bus** − It allows for data transfer among the processor, memory unit, and I/O devices. It provides data flow in both directions i.e., from processor to other components and vice-versa.
+
+**Address Bus** − It carries the addresses of memory locations that the microprocessor requires to access. These are unidirectional buses.
+
+**Control Bus** − It carries the control signals to and from the microprocessor to manage the entire computing system. It can be unidirectional or bidirectional.
+
+## Characteristics of Microprocessor
+A microprocessor is the most important component of a computing machine. It is basically a small electronic integrated circuit having capability of executing instructions and processing data to perform tasks or operations.
+
+A microprocessor has several important characteristics that describe its working and performance. In this chapter, we will learn about all these key characteristics of microprocessors.
+
+A microprocessor has various important characteristics, some key of them are explained below −
+
+## Clock Speed
+
+In a microprocessor, the clock speed, also known as clock rate, is defined as the frequency at which clock signals/pulses are generated by the microprocessor's clock generator. In other words, the clock speed can be defined as the number of execution cycles completed per second by the microprocessor.
+
+Clock speed of a microprocessor is generally measured in Hz (Hertz). In case of modern microprocessors, it can be of the order of GHz. For example, when a microprocessor is said to have a clock speed of 4.5 GHz, then it means that it can execute 4.5 billion cycles in one second.
+
+The clock speed of a microprocessor determines the processing speed of the processor. Thus, a microprocessor having a higher clock speed will complete tasks faster.
+
+## Instruction Set
+
+A group or set of commands written in machine language and the microprocessor can interpret is referred to as an instruction set of that microprocessor. An instruction set includes all possible instructions of the microprocessor that can improve its performance in the specific situations.
+
+In a microprocessor, instruction sets direct the processor to switch the relevant transistors to perform the tasks. Microprocessor instructions are made up of a certain number of bits, where some of the bits represent the operation code while the remaining bits represent the operand.
+
+For example, if a microprocessor has an 8-bit instruction set, then the first 4 bits represent the operation code that tells the system what to do, while the remaining 4 bits represent the operand that tells the system what data should be used. Instruction sets define the design, efficiency, and compatibility of microprocessors.
+
+## Word Size
+
+The word size of a microprocessor is defined as the number of bits processed simultaneously by the processor. For a microprocessor, the word size determines the amount of data that it can handle in a single operation. It also determines the overall performance of the computing system in which the microprocessor is used. Some very common word sizes of commercially available microprocessors include 8-bit, 16-bit, 32-bit, and 64-bit.
+
+Word size is a very important characteristic of microprocessors, because a larger word size represents that the microprocessor can handle more amount of data at one time and provides a better performance.
+
+## Number of Processor Cores
+
+A processor core is a single processing unit within a microprocessor that can execute instructions. If a microprocessor has more cores, then it can handle a greater number of tasks simultaneously. It is also important to note that each core of the microprocessor can independently execute instructions. Modern microprocessors come up with multiple cores such as dual-core, quad-core, octa-core, etc. Multiple cores provide multitasking functionality in the processor.
+
+## Cache Memory
+
+Cache memory is another important characteristic of a microprocessor which is directly linked its speed and performance. Cache memory is nothing but a high-speed, small-sized memory located within the microprocessor’s base structure. It is provided in the microprocessor to store most frequently used, recent instructions and data, enabling faster access to them. Hence, cache memory reduces the time required by the microprocessor for accessing data from the main memory and improves the overall performance of the system.
+
+## Bus Width
+
+It is also referred to as width of data bus. In the context of a microprocessor, bus width can be defined as the amount of data that can be transferred simultaneously during each operation. It is measured in bits, like 8-bit data bus, 16-bit data bus, 32-bit data bus, etc.
+
+A wider bus width allows the microprocessor to handle a larger amount of data in a single operation and provides an enhanced speed and efficiency.
+
+## Power Consumption
+
+Power consumption or energy efficiency is another critical characteristic of a microprocessor. It becomes more important in the case of battery operated, portable devices like smartphones or laptops. It is desirable that a microprocessor must have a higher energy efficiency, so it consumes less power.
+
+## Pipelining
+
+In microprocessors, pipelining is a processing technique in which a sequential process is broken down into multiple sub-operations, and each sub-operation is then executed in its own dedicated segment in parallel with all other segments. Pipelining improves the performance of the microprocessor.
+
+## Functions of a Microprocessor
+
+he major functions of a microprocessor are explained below with the help of examples −
+
+## Arithmetic Operations
+
+It is the most fundamental function that a microprocessor performs. A microprocessor is capable in performing basic arithmetic calculations like addition, subtraction, multiplication, and division. These operations are very important in many computing tasks such as solving math problems, enabling graphics, processing financial data, etc.
+
+Some practical examples of arithmetic operations performed by microprocessors −
+
+1. Calculating the total of numbers
+2. Measuring distances in GPS-based navigation system
+3. Calculating interest rates in banking systems, etc.
+
+## Logical Operations
+
+Logical operation is another key function that microprocessors perform. To perform logical operations, microprocessors compare two or more values and make a decision depending on the logical condition.
+
+Examples of logical operations performed by microprocessors include −
+
+1. Verifying if a password is correct during login
+2. Sorting list of items based on specified parameters
+3. Filtering messages or emails as read/unread/spam/important based on keywords, etc.
+
+## Data Handling
+
+Data handling is another important function that microprocessors perform. Data handling involves moving data among different parts of the system, storing, and retrieving data, etc.
+
+Some of the practical examples of data handling in microprocessors include −
+
+1. Fetching data or webpages from a server
+2 .Saving a document, pdf, image, or any other type of file
+3. Moving or copying photos or videos from a computer to a pen drive, etc.
+
+## Control Operations
+
+Microprocessor also controls the flow of instruction and defines the sequence in which tasks will be performed. The following are examples of control operations that microprocessors perform −
+
+1. Controlling the speed of cooling fan in a laptop depending on the temperature
+2. Regulating temperature in a microwave oven
+3. Controlling the sequence of traffic lights depending on the traffic density, etc.
+
+## Instruction Execution
+
+Instruction execution is the most fundamental function of a microprocessor. Microprocessors execute different kinds of instructions to perform specific tasks. For example,
+
+1. Opening a software like Microsoft Word in laptop
+2. Removing the background in an image
+3. Scanning a computer by using an antivirus, etc.
+
+## Interrupt Handling
+
+Microprocessors also handle interrupts. This function of microprocessor allows to prioritize important tasks and temporarily stop other less important processes. For example,
+
+1. It pauses a video when battery is low
+2. When a message is received, it displays a pop-up notification
+3. Stops the printing process immediately, when cancel button is pressed, etc.
+
+## Power Management
+
+Microprocessor also manages the power consumption by the system. It issues commands to put unused components into low-power state to save energy. For example,
+
+1. When the computer is not in use, it reduces the power consumed by processor, memory unit, peripherals, etc.
+2. It turns off the backlight of the screen when the device is inactive for a certain period.
+3. Reduces the cooling fan speed when device’s temperature is normal, etc.
+
+## Microprocessor - 8086
+
+8086 Microprocessor is an enhanced version of 8085Microprocessor that was designed by Intel in 1976. It is a 16-bit Microprocessor having 20 address lines and16 data lines that provides up to 1MB storage. It consists of powerful instruction set, which provides operations like multiplication and division easily.
+
+It supports two modes of operation, i.e. Maximum mode and Minimum mode. Maximum mode is suitable for system having multiple processors and Minimum mode is suitable for system having a single processor.
+
+## Features of 8086
+The most prominent features of a 8086 microprocessor are as follows −
+
+It has an instruction queue, which is capable of storing six instruction bytes from the memory resulting in faster processing.
+
+It was the first 16-bit processor having 16-bit ALU, 16-bit registers, internal data bus, and 16-bit external data bus resulting in faster processing.
+
+It is available in 3 versions based on the frequency of operation −
+
+- It has an instruction queue, which is capable of storing six instruction bytes from the memory resulting in faster processing.
+
+- It was the first 16-bit processor having 16-bit ALU, 16-bit registers, internal data bus, and 16-bit external data bus resulting in faster processing.
+
+- It is available in 3 versions based on the frequency of operation −
+
+  1. 8086 → 5MHz
+  2. 8086-2 → 8MHz
+  3. 8086-1 → 10 MHz
+
+- It uses two stages of pipelining, i.e. Fetch Stage and Execute Stage, which improves performance.
+
+- Fetch stage can prefetch up to 6 bytes of instructions and stores them in the queue.
+
+- Execute stage executes these instructions.
+
+- It has 256 vectored interrupts.
+
+- It consists of 29,000 transistors.
+
+## Architecture of 8086
+
+The following diagram depicts the architecture of a 8086 Microprocessor −
+
+![image](https://github.com/user-attachments/assets/f836ae25-c7ea-4e11-af55-cc2f08d55cd3)
+
+## Microprocessor - 8086 Functional Units
+
+8086 Microprocessor is divided into two functional units, i.e., EU (Execution Unit) and BIU (Bus Interface Unit).
+
+## EU (Execution Unit)
+
+Execution unit gives instructions to BIU stating from where to fetch the data and then decode and execute those instructions. Its function is to control operations on data using the instruction decoder & ALU. EU has no direct connection with system buses as shown in the above figure, it performs operations over data through BIU.
+
+Let us now discuss the functional parts of 8086 microprocessors.
+
+## ALU
+
+It handles all arithmetic and logical operations, like &plus;, −, ×, /, OR, AND, NOT operations.
+
+## Flag Register
+
+It is a 16-bit register that behaves like a flip-flop, i.e. it changes its status according to the result stored in the accumulator. It has 9 flags and they are divided into 2 groups − Conditional Flags and Control Flags.
+
+## Conditional Flags
+
+It represents the result of the last arithmetic or logical instruction executed. Following is the list of conditional flags −
+
+- **Carry flag** − This flag indicates an overflow condition for arithmetic operations.
+
+- **Auxiliary flag** − When an operation is performed at ALU, it results in a carry/barrow from lower nibble (i.e. D0 D3) to upper nibble (i.e. D4 D7), then this flag is set, i.e. carry given by D3 bit to D4 is AF flag. The processor uses this flag to perform binary to BCD conversion.
+
+- **Parity flag** − This flag is used to indicate the parity of the result, i.e. when the lower order 8-bits of the result contains even number of 1s, then the Parity Flag is set. For odd number of 1s, the Parity Flag is reset.
+
+- **Zero flag** − This flag is set to 1 when the result of arithmetic or logical operation is zero else it is set to 0.
+
+- **Sign flag** − This flag holds the sign of the result, i.e. when the result of the operation is negative, then the sign flag is set to 1 else set to 0.
+
+- **Overflow flag** − This flag represents the result when the system capacity is exceeded.
+
+## Control Flags
+
+Control flags controls the operations of the execution unit. Following is the list of control flags −
+
+- **Trap flag** − It is used for single step control and allows the user to execute one instruction at a time for debugging. If it is set, then the program can be run in a single step mode.
+
+- **Interrupt flag** − It is an interrupt enable/disable flag, i.e. used to allow/prohibit the interruption of a program. It is set to 1 for interrupt enabled condition and set to 0 for interrupt disabled condition.
+
+- **Direction flag** − It is used in string operation. As the name suggests when it is set then string bytes are accessed from the higher memory address to the lower memory address and vice-a-versa.
+
+## General purpose register
+
+There are 8 general purpose registers, i.e., AH, AL, BH, BL, CH, CL, DH, and DL. These registers can be used individually to store 8-bit data and can be used in pairs to store 16bit data. The valid register pairs are AH and AL, BH and BL, CH and CL, and DH and DL. It is referred to the AX, BX, CX, and DX respectively.
+
+- **AX register** − It is also known as accumulator register. It is used to store operands for arithmetic operations.
+
+- **BX register** − It is used as a base register. It is used to store the starting base address of the memory area within the data segment.
+
+- **CX register** − It is referred to as counter. It is used in loop instruction to store the loop counter.
+
+- **DX register** − This register is used to hold I/O port address for I/O instruction.
+
+## Stack pointer register
+
+It is a 16-bit register, which holds the address from the start of the segment to the memory location, where a word was most recently stored on the stack.
+
+## BIU (Bus Interface Unit)
+
+BIU takes care of all data and addresses transfers on the buses for the EU like sending addresses, fetching instructions from the memory, reading data from the ports and the memory as well as writing data to the ports and the memory. EU has no direction connection with System Buses so this is possible with the BIU. EU and BIU are connected with the Internal Bus.
+
+It has the following functional parts −
+
+- **Instruction queue** − BIU contains the instruction queue. BIU gets upto 6 bytes of next instructions and stores them in the instruction queue. When EU executes instructions and is ready for its next instruction, then it simply reads the instruction from this instruction queue resulting in increased execution speed.
+
+- Fetching the next instruction while the current instruction executes is called **pipelining.**
+
+- **Segment register** − BIU has 4 segment buses, i.e. CS, DS, SS& ES. It holds the addresses of instructions and data in memory, which are used by the processor to access memory locations. It also contains 1 pointer register IP, which holds the address of the next instruction to executed by the EU.
+  
+   - **CS** − It stands for Code Segment. It is used for addressing a memory location in the code segment of the memory, where the executable program is stored.
+
+   - **DS** − It stands for Data Segment. It consists of data used by the program andis accessed in the data segment by an offset address or the content of other register that holds the offset address.
+
+  - **SS** − It stands for Stack Segment. It handles memory to store data and addresses during execution.
+
+  - **ES** − It stands for Extra Segment. ES is additional data segment, which is used by the string to hold the extra destination data.
+ 
+- **Instruction pointer**
+ It is a 16-bit register used to hold the address of the next instruction to be executed.
+
+## Microprocessor - 8086 Pin Configuration
+
+8086 was the first 16-bit microprocessor available in 40-pin DIP (Dual Inline Package) chip. Let us now discuss in detail the pin configuration of a 8086 Microprocessor.
+
+## 8086 Pin Diagram
+
+![image](https://github.com/user-attachments/assets/f669ac39-53c2-4d86-8ff8-7ae4168066c0)
+
+Let us now discuss the signals in detail −
+
+**Power supply and frequency signals**
+
+It uses 5V DC supply at VCC pin 40, and uses ground at VSS pin 1 and 20 for its operation.
+
+**Clock signal**
+
+Clock signal is provided through Pin-19. It provides timing to the processor for operations. Its frequency is different for different versions, i.e. 5MHz, 8MHz and 10MHz.
+
+**Address/data bus**
+
+AD0-AD15. These are 16 address/data bus. AD0-AD7 carries low order byte data and AD8AD15 carries higher order byte data. During the first clock cycle, it carries 16-bit address and after that it carries 16-bit data.
+
+**Address/status bus**
+
+A16-A19/S3-S6. These are the 4 address/status buses. During the first clock cycle, it carries 4-bit address and later it carries status signals.
+
+**S7/BHE**
+
+BHE stands for Bus High Enable. It is available at pin 34 and used to indicate the transfer of data using data bus D8-D15. This signal is low during the first clock cycle, thereafter it is active.
+
+**Read($\overline{RD}$)**
+
+It is available at pin 32 and is used to read signal for Read operation.
+
+**Ready**
+
+It is available at pin 22. It is an acknowledgement signal from I/O devices that data is transferred. It is an active high signal. When it is high, it indicates that the device is ready to transfer data. When it is low, it indicates wait state.
+
+**RESET**
+
+It is available at pin 21 and is used to restart the execution. It causes the processor to immediately terminate its present activity. This signal is active high for the first 4 clock cycles to RESET the microprocessor.
+
+**INTR**
+
+It is available at pin 18. It is an interrupt request signal, which is sampled during the last clock cycle of each instruction to determine if the processor considered this as an interrupt or not.
+
+**NMI**
+
+It stands for non-maskable interrupt and is available at pin 17. It is an edge triggered input, which causes an interrupt request to the microprocessor.
+
+**$\overline{\text{TEST}}$**
+
+This signal is like wait state and is available at pin 23. When this signal is high, then the processor has to wait for IDLE state, else the execution continues.
+
+**MN/$\overline{MX}$**
+
+It stands for Minimum/Maximum and is available at pin 33. It indicates what mode the processor is to operate in; when it is high, it works in the minimum mode and vice-aversa.
+
+**INTA**
+
+It is an interrupt acknowledgement signal and id available at pin 24. When the microprocessor receives this signal, it acknowledges the interrupt.
+
+**ALE**
+
+It stands for address enable latch and is available at pin 25. A positive pulse is generated each time the processor begins any operation. This signal indicates the availability of a valid address on the address/data lines.
+
+**DEN**
+
+It stands for Data Enable and is available at pin 26. It is used to enable Transreceiver 8286. The transreceiver is a device used to separate data from the address/data bus.
+
+**DT/R**
+
+It stands for Data Transmit/Receive signal and is available at pin 27. It decides the direction of data flow through the transreceiver. When it is high, data is transmitted out and vice-a-versa.
+
+**M/IO**
+
+This signal is used to distinguish between memory and I/O operations. When it is high, it indicates I/O operation and when it is low indicates the memory operation. It is available at pin 28.
+
+**WR**
+
+It stands for write signal and is available at pin 29. It is used to write the data into the memory or the output device depending on the status of M/IO signal.
+
+**HLDA**
+
+It stands for Hold Acknowledgement signal and is available at pin 30. This signal acknowledges the HOLD signal.
+
+**HOLD**
+
+This signal indicates to the processor that external devices are requesting to access the address/data buses. It is available at pin 31.
+
+**QS1 and QS0**
+
+These are queue status signals and are available at pin 24 and 25. These signals provide the status of instruction queue. Their conditions are shown in the following table −
+
+![image](https://github.com/user-attachments/assets/ee46388b-d8de-44ea-8c07-78c1edeb6fce)
+
+S0, S1, S2
+
+These are the status signals that provide the status of operation, which is used by the Bus Controller 8288 to generate memory & I/O control signals. These are available at pin 26, 27, and 28. Following is the table showing their status −
+
+![image](https://github.com/user-attachments/assets/13ed13f0-1c97-4570-b0bc-9349c1aac9be)
+
+**LOCK**
+
+When this signal is active, it indicates to the other processors not to ask the CPU to leave the system bus. It is activated using the LOCK prefix on any instruction and is available at pin 29.
+
+**RQ/GT1 and RQ/GT0**
+
+These are the Request/Grant signals used by the other processors requesting the CPU to release the system bus. When the signal is received by CPU, then it sends acknowledgment. RQ/GT0 has a higher priority than RQ/GT1.
+
+## Microprocessor - 8086 Instruction Sets
+
+The 8086 microprocessor supports 8 types of instructions −
+
+- Data Transfer Instructions
+- Arithmetic Instructions
+- Bit Manipulation Instructions
+- String Instructions
+- Program Execution Transfer Instructions (Branch & Loop Instructions)
+- Processor Control Instructions
+- Iteration Control Instructions
+- Interrupt Instructions
+
+## Data Transfer Instructions
+
+These instructions are used to transfer the data from the source operand to the destination operand. Following are the list of instructions under this group −
+
+**Instruction to transfer a word**
+
+- **MOV** − Used to copy the byte or word from the provided source to the provided destination.
+
+- **PUSH** − Used to put a word at the top of the stack.
+
+- **POP** − Used to get a word from the top of the stack to the provided location.
+
+- **PUSHA** − Used to put all the registers into the stack.
+
+- **POPA** − Used to get words from the stack to all registers.
+
+- **XCHG** − Used to exchange the data from two locations.
+
+- **XLAT** − Used to translate a byte in AL using a table in the memory.
+
+**Instructions for input and output port transfer**
+
+- **IN** − Used to read a byte or word from the provided port to the accumulator.
+
+- **OUT** − Used to send out a byte or word from the accumulator to the provided port.
+
+**Instructions to transfer the address**
+
+- **LEA** − Used to load the address of operand into the provided register.
+
+- **LDS** − Used to load DS register and other provided register from the memory
+
+- **LES** − Used to load ES register and other provided register from the memory.
+
+**Instructions to transfer flag registers**
+
+- **LAHF** − Used to load AH with the low byte of the flag register.
+
+- **SAHF** − Used to store AH register to low byte of the flag register.
+
+- **PUSHF** − Used to copy the flag register at the top of the stack.
+
+- **POPF** − Used to copy a word at the top of the stack to the flag register.
+
+## Arithmetic Instructions
+
+These instructions are used to perform arithmetic operations like addition, subtraction, multiplication, division, etc.
+
+Following is the list of instructions under this group −
+
+**Instructions to perform addition**
+
+- **ADD** − Used to add the provided byte to byte/word to word.
+
+- **ADC** − Used to add with carry.
+
+- **INC** − Used to increment the provided byte/word by 1.
+
+- **AAA** − Used to adjust ASCII after addition.
+
+- **DAA** − Used to adjust the decimal after the addition/subtraction operation.
+
+**Instructions to perform subtraction**
+
+- **SUB** − Used to subtract the byte from byte/word from word.
+
+- **SBB** − Used to perform subtraction with borrow.
+
+- **DEC** − Used to decrement the provided byte/word by 1.
+
+- **NPG** − Used to negate each bit of the provided byte/word and add 1/2s complement.
+
+- **CMP** − Used to compare 2 provided byte/word.
+
+- **AAS** − Used to adjust ASCII codes after subtraction.
+
+- **DAS** − Used to adjust decimal after subtraction.
+
+**Instruction to perform multiplication**
+
+- **MUL** − Used to multiply unsigned byte by byte/word by word.
+
+- **IMUL** − Used to multiply signed byte by byte/word by word.
+
+- **AAM** − Used to adjust ASCII codes after multiplication.
+
+**Instructions to perform division**
+
+- **DIV** − Used to divide the unsigned word by byte or unsigned double word by word.
+
+- **IDIV** − Used to divide the signed word by byte or signed double word by word.
+
+- **AAD** − Used to adjust ASCII codes after division.
+
+- **CBW** − Used to fill the upper byte of the word with the copies of sign bit of the lower byte.
+
+- **CWD** − Used to fill the upper word of the double word with the sign bit of the lower word.
+
+## Bit Manipulation Instructions
+
+These instructions are used to perform operations where data bits are involved, i.e. operations like logical, shift, etc.
+
+Following is the list of instructions under this group −
+
+**Instructions to perform logical operation**
+
+- **NOT** − Used to invert each bit of a byte or word.
+
+- **AND** − Used for adding each bit in a byte/word with the corresponding bit in another byte/word.
+
+- **OR** − Used to multiply each bit in a byte/word with the corresponding bit in another byte/word.
+
+- **XOR** − Used to perform Exclusive-OR operation over each bit in a byte/word with the corresponding bit in another byte/word.
+
+- **TEST** − Used to add operands to update flags, without affecting operands.
+
+**Instructions to perform shift operations**
+
+- **SHL/SAL** − Used to shift bits of a byte/word towards left and put zero(S) in LSBs.
+
+- **SHR** − Used to shift bits of a byte/word towards the right and put zero(S) in MSBs.
+
+- **SAR** − Used to shift bits of a byte/word towards the right and copy the old MSB into the new MSB.
+
+**Instructions to perform rotate operations**
+
+- **ROL** − Used to rotate bits of byte/word towards the left, i.e. MSB to LSB and to Carry Flag [CF].
+
+- **ROR** − Used to rotate bits of byte/word towards the right, i.e. LSB to MSB and to Carry Flag [CF].
+
+- **RCR** − Used to rotate bits of byte/word towards the right, i.e. LSB to CF and CF to MSB.
+
+- **RCL** − Used to rotate bits of byte/word towards the left, i.e. MSB to CF and CF to LSB.
+
+## String Instructions
+
+String is a group of bytes/words and their memory is always allocated in a sequential order.
+
+Following is the list of instructions under this group −
+
+- **REP** − Used to repeat the given instruction till CX 0.
+
+- **REPE/REPZ** − Used to repeat the given instruction until CX = 0 or zero flag ZF = 1.
+
+- **REPNE/REPNZ** − Used to repeat the given instruction until CX = 0 or zero flag ZF = 1.
+
+- **MOVS/MOVSB/MOVSW** − Used to move the byte/word from one string to another.
+
+- **COMS/COMPSB/COMPSW** − Used to compare two string bytes/words.
+
+- **INS/INSB/INSW** − Used as an input string/byte/word from the I/O port to the provided memory location.
+
+- **OUTS/OUTSB/OUTSW** − Used as an output string/byte/word from the provided memory location to the I/O port.
+
+- **SCAS/SCASB/SCASW** − Used to scan a string and compare its byte with a byte in AL or string word with a word in AX.
+
+- **LODS/LODSB/LODSW** − Used to store the string byte into AL or string word into AX.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
