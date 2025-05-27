@@ -139,3 +139,119 @@ This type of generator used to charge a battery and provide excitation to the al
 
 Series-wound Generator
 Series-wound generators are used in locomotive for providing field excitation current as well as for regenerative braking. In a distribution power system, it is used as a booster.
+
+## Losses in DC Machines
+In DC machines (generator or motor), the losses may be classified into three categories 
+namely, 
+- Copper losses
+- Iron or core losses
+- Mechanical losses 
+All these losses appear as heat and hence raise the temperature of the machine. They 
+also reduce the efficiency of the machine.
+
+### Copper Losses 
+In dc machines, the losses that occur due to resistance of the various windings of the 
+machine are called copper losses. The copper losses are also known as I2R losses 
+because these losses occur due to current flowing through the resistance of the windings. 
+The major copper losses that occur in dc machines are as, 
+Armature copper loss = 𝐼𝑎2 𝑅𝑎 
+Series field copper loss = 𝐼𝑠𝑒 2 𝑅𝑠𝑒 
+Shunt field copper loss = 𝐼𝑠ℎ
+ 2 𝑅𝑠ℎ 
+In dc machines, there is also a brush contact loss due to brush contact resistance. In 
+practical calculation, this loss is generally included in armature copper loss. 
+
+### Iron Losses 
+The iron losses occur in core of the armature of a DC machine due to rotation of the 
+armature in the magnetic field. Because these losses occur in core of the armature, these 
+are also called core losses. 
+There are two types iron or core losses namely hysteresis loss and eddy current loss. 
+
+### Hysteresis Loss 
+The core loss that occurs in core of the armature of a dc machine due to magnetic field 
+reversal in the armature core when it passes under the successive magnetic poles of 
+different polarity is called hysteresis loss. The hysteresis loss in dc machines can be reduced by making the armature core of such materials that have a low value of Steinmetz’s hysteresis coefficient like silicon steel. 
+
+### Eddy Current Loss 
+When the armature of a DC machine rotates in the magnetic field of the poles, an EMF is 
+induced in core of the armature which circulates eddy currents in it. The power loss due 
+to these eddy currents is known as eddy current loss.
+
+### Mechanical Losses 
+The power losses due to friction and windage in a dc machine are known as mechanical 
+losses. In a dc machine, the friction loss occurs in form of bearing friction, brush friction, 
+etc. while the windage loss occurs due to air friction of rotating armature. 
+The mechanical losses depend upon the speed of the machine. But these losses are practically constant for a given speed. 
+Note: Iron or core losses and mechanical losses together are known as stray losses
+
+### Constant and Variable Losses 
+In DC machines, we may group the above discussed losses in the following two 
+categories: 
+- Constant Losses 
+- Variable Losses 
+Those losses in a DC machine that remain constant at all loads are called constant losses. These losses include: iron losses, shunt field copper loss, and mechanical losses. 
+Those losses in a DC machine that vary with load are known as variable losses. The  variable losses in a DC machine are: armature copper loss and series field copper loss.
+Total losses in a DC machine = Constant losses + Variable losses
+
+## Applications of DC Generators 
+The applications of different kinds of DC generators are listed below:  
+
+### Separately-Excited DC Generator 
+- Generators are mainly used in laboratories for experiments and testing purposes. 
+- They are also used as a source of DC power for supplying DC motors.
+
+### Series DC Generator 
+- Series DC generators are used in DC locomotives for regenerative braking for 
+supplying field excitation current.
+- Series DC generators are also used as a booster in distribution systems. 
+- Differentially compounded series generators are used for arc welding. 
+- Over compounded cumulative series generators are used for lighting and heavy 
+power supplies. 
+- Flat compounded series generators are used for supplying power to offices, 
+houses, and the other commercial buildings. 
+
+### Shunt DC Generator 
+- Shunt DC generators are mainly used for lighting purposes.
+- Shunt DC generators are used for charging batteries.
+- These generators are also used for supplying field excitation current to alternators.
+
+## Applications of DC Motors 
+The applications of different types of DC motors are given below: 
+
+### Series DC Motor 
+- Series DC motors are used in applications where high starting torque is required. 
+- Series DC motors are used in cranes and hoists.
+- Series DC motors are used in electric tractions. 
+- They are used in air compressors. 
+- They are also used in vacuum cleaners. 
+- Series DC motors are also used in sewing machines, etc.
+
+### Shunt DC Motor 
+- Shunt DC motors are used in applications that require constant speed.
+- Shunt DC motors are used for driving lathe machines.
+- These are also used in centrifugal pumps and blowers.
+- These are used in fans, conveyors, and spinning machines.
+- These DC motors are also used in lifts.
+
+### Compound DC Motor 
+- Compound DC motors are used in those applications which require high starting 
+torque and constant speed.
+- Used in printing presses.
+- They are also used in shears.
+- They are used in elevators and lifts.
+- Compound DC motors are also used in rolling mills and heavy planners, etc.
+
+## Induction Motor
+
+Induction motors are the most widely used electric motors in industrial applications. 
+Almost all induction motors run at essentially constant speed from no-load to full-load 
+conditions. The speed of induction motors depends on the supply frequency and hence 
+these motors are not easily adapted to speed control. Induction motors are simple and 
+rugged in construction, less expensive, easy to maintain, and can be designed and 
+produced with characteristics to suit most industrial requirements.
+An induction motor is an asynchronous AC electric motor which converts alternating 
+current electricity into the mechanical energy. It is called an induction motor because the 
+electric current in the rotor circuit required to produce the deriving torque is obtained 
+through electromagnetic induction from the rotating magnetic field of the stator winding. 
+These motors are referred to as asynchronous motors because their rotor rotates at a 
+speed less than the synchronous speed of the rotating magnetic field.
