@@ -515,19 +515,6 @@ int main() {
 Time Complexity: O(n), As we just need to make 3n function calls and there will be no repetitive calculations as we are returning previously calculated results.
 Auxiliary Space: O(n), dp array of size n+1 is used to store the results of subproblems.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Advantages of Dynamic Programming (DP)
 Dynamic programming has a wide range of advantages, including:
 - Avoids recomputing the same subproblems multiple times, leading to significant time savings.
@@ -539,4 +526,11 @@ Dynamic programming has a wide range of applications, including:
 - Computer Science: Longest common subsequence, edit distance, string matching
 - Operations Research: Inventory management, scheduling, resource allocation
 
+Problems:
+[Link Text](https://leetcode.com/problems/fibonacci-number/description/?envType=problem-list-v2&envId=dynamic-programming)
+[Link Text](https://leetcode.com/problems/is-subsequence/description/?envType=problem-list-v2&envId=dynamic-programming)
+[Link Text](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1?page=1&category=Dynamic%20Programming&sortBy=submissions)
+[Link Text](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1?page=1&category=Dynamic%20Programming&sortBy=submissions)
+[Link Text](https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=dynamic-programming)
+[Link Text](https://leetcode.com/problems/maximum-subarray/description/?envType=problem-list-v2&envId=dynamic-programming)
 
