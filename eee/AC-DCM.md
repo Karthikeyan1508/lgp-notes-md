@@ -244,3 +244,74 @@ torque and constant speed.
 ## Induction Motor
 
 Induction motors are the most widely used electric motors in industrial applications. Almost all induction motors run at essentially constant speed from no-load to full-load conditions. The speed of induction motors depends on the supply frequency and hence these motors are not easily adapted to speed control. Induction motors are simple and rugged in construction, less expensive, easy to maintain, and can be designed and produced with characteristics to suit most industrial requirements. An induction motor is an asynchronous AC electric motor which converts alternating current electricity into the mechanical energy. It is called an induction motor because the electric current in the rotor circuit required to produce the deriving torque is obtained through electromagnetic induction from the rotating magnetic field of the stator winding. These motors are referred to as asynchronous motors because their rotor rotates at a speed less than the synchronous speed of the rotating magnetic field.
+
+The induction motor is an electromechanical energy conversion device, i.e. it converts electrical energy into mechanical energy in the form of rotation of shaft. Like any electric motor, an induction motor has two main parts namely stator and rotor.  
+- The stator carries a set of windings called stator winding. The stator winding may 
+be single-phase winding or three-phase winding.  
+- The rotor carries a short-circuited winding called rotor winding.  
+In case an induction motor, only the stator winding is fed from an AC supply, while the rotor winding derives its voltage and power from the stator winding through electromagnetic induction.
+
+### Working Principle of Induction Motor 
+The working of an induction motor is based on the principle of electromagnetic induction. In an induction, there are two windings namely, stator winding and rotor winding. The input AC supply is connected to the stator winding, the current flowing in the stator winding produces a magnetic flux. This magnetic flux is usually rotating, hence also called rotating magnetic field. The rotor winding of the induction motor is a short-circuit winding. The rotating magnetic flux from the stator cuts the short-circuited conductors of the rotor winding. According to Faraday’s law of electromagnetic induction, an EMF is induced in the rotor circuit which causes a current to flow through it. When the current flows through the rotor winding, another magnetic flux being produced in the machine. Therefore, there are two magnetic fluxes inside the induction motor, one is stator flux and the other is rotor flux. These two magnetic fluxes interact with each other. Because of that, the rotor will experience a torque which makes the rotor to rotate in the direction of the rotating magnetic field of the stator. In this way, an induction motor runs.
+
+### Types of Induction Motors
+Depending on the type of input supply, induction motors are classified into the following 
+two types: 
+- Single-Phase Induction Motors: An induction motor that works on single-phase AC supply is called as a single-phase induction motor. 
+- Three-Phase Induction Motors: An induction motor which requires three-phase AC supply to operate is called a three-phase induction motor.
+
+### Advantages of Induction Motors 
+
+The following are some major advantages of induction motors: 
+- Induction motors have simple and rugged construction.
+- Induction motors are relatively less expensive.
+- Induction motors have relatively high efficiency.
+- Induction motors can be designed to have characteristics to meet the industrial requirements.
+- Induction motors need little maintenance. 
+
+### Disadvantages of Induction Motors 
+
+The main disadvantages of induction motors are as follows: 
+- The speed of induction motors cannot be changed easily because they are essentially constant speed motors. 
+- Induction motors draw a high inrush current at starting. 
+- Induction motors always operate at lagging power factor. 
+- Single-phase induction motors are not self-starting; hence we need provide some 
+extra starting mechanism.
+
+### Types of Single-Phase Induction Motors 
+
+Depending upon the method employed to make the motor self-starting, single-phase 
+induction motors may be classified into the following three types: 
+- Split-phase induction motor
+- Capacitor-start induction motor
+- Capacitor-start capacitor-run induction motor
+
+### Split-Phase Induction Motor 
+A split-phase induction motor is a type of single-phase induction motor in which the stator consists of two windings namely, a starting winding and a main winding, where the starting winding is displaced by 90° electrical from the main winding. The starting winding operates only during the starting period of the motor. The starting and main windings are so designed that the starting winding has high resistance and relatively low reactance, while the main winding has relatively low resistance and high reactance so that currents flowing in the two windings have a reasonable phase difference (α) of about 25° to 30°.
+
+### Capacitor-Start Induction Motor
+The type of single-phase induction motor in which a capacitor C is connected in series with the starting winding as shown in Figure-2. This capacitor is called starting capacitor. The value of starting capacitor is so chosen that the starting current Is leads the current Im through the main winding by about 80°. Once the motor attains about 75% of the rated speed, a centrifugal switch isolates the starting winding from the circuit. The motor then operates as a single-phase induction motor and continues to accelerate till it reaches the normal speed. Therefore, in this type of single-phase induction motor, the capacitor in series with the starting winding introduces a phase shift between the two windings so that the motor can start itself. 
+
+### Capacitor-Start Capacitor-Run Induction Motor 
+This motor is almost identical to a capacitor-start induction motor except that the starting winding is not disconnected from the motor circuit. Therefore, in case of capacitor-start capacitor-run induction motor, both the windings (starting winding & main winding) remain connected to the supply during starting as well as running period.
+
+### Applications of Single-Phase Induction Motors 
+
+- Single-phase induction motors are mainly used in domestic and commercial appliances like fans, ACs, refrigerators, air-cooler, washing machines, etc. Given below are some of the applications of different kinds of single-phase induction motors:
+
+- Split-Phase Induction Motors: These motors are best suited for moderate starting-torque applications like fans, washing machines, oil burners, small machine tools, etc. 
+
+- Capacitor-Start Induction Motors: These motors are suitable for applications that require relatively high-starting torque like compressors, large fans, pumps and high-inertia loads, etc. 
+
+- Capacitor-Start Capacitor-Run Induction Motors: These motors are suitable for constant torque, and vibration free applications like in hospital appliances, studio equipment and in many other appliances that are used in such areas where silence is important.
+
+## Three-Phase Induction Motor
+
+As the name suggests, a three-phase induction motor is one which works on three-phase AC supply, and converts three-phase AC electricity into mechanical energy. Three-phase induction motors are the most extensively used electric motors in industries. These motors run at almost a constant speed from no-load to full-load, i.e., they have good speed regulation. Although the speed of three-phase induction motors depends on the supply frequency and number of poles in the machine and therefore, it is quite difficult to change their speed. Just like any other electric motor, a typical three-phase induction motor also consists of two main parts namely stator and rotor. The stator is a stationary part and carries a three phase winding, called stator winding. The rotor is a rotating part of the motor and carries a short-circuited winding, called rotor winding. The stator winding of a three-phase induction motor is fed from a three-phase balanced AC supply, while the rotor winding derives its working voltage and power from the stator winding via electromagnetic induction. This is why, it is named so. A three-phase induction motor may be considered to be a three-phase transformer with a rotating secondary winding. Therefore, it could be described as a transformer-type AC machine. The only difference is that the induction motor converts electricity into mechanical energy.
+
+### Types of Three-Phase Induction Motors 
+According to the rotor construction, three-phase induction motors are classified into the 
+following two basic types: 
+- Squirrel-Cage Induction Motor 
+- Slip-Ring Induction Motor
+
