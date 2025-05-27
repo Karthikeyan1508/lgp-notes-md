@@ -189,13 +189,13 @@ A stream line is a continuous line in a fluid which shows the direction of the v
 
 - For example, as a fluid flows round a cylindrical body, the stream line pattern will be as shown in Fig. 6.3. In steady flow the velocity at a point does not change in its magnitude and directions Hence, there is no change in the direction of the velocity vector at a point. In other words, the stream line is fixed in position. Conversely, if the stream line pattern remains constant the flow is steady. In the case of an unsteady flow, the direction of the velocity changes with time at every point. This means the position of a stream line is not constant. The position of a stream line changes from instant to instant.
 
-Path Line:
+### Path Line:
 
 A path line means the path or a line actually described by a single fluid particle as it moves during a period of time. The path line indicates the direction of the velocity of the same fluid particle at successive instants of time.
 
 ![image](https://github.com/user-attachments/assets/e02bbdcd-4e94-43da-a917-c33a89500c5e)
 
-Streak Line:
+### Streak Line:
 
 - The streak line is the locus of the positions of fluid particles which have passed through a given point in succession. Suppose A, B, C, D… are fluid particles which passed through a reference point say the origin one after the other in succession. These particles have described their own path lines. Suppose at a time t, these particles A, B, C, D… are at Pa,
 
@@ -203,13 +203,13 @@ Pb, Pc, Pd …. The line Pa, Pb, Pc, Pd …. is the streak line, at time t.
 
 ![image](https://github.com/user-attachments/assets/041f97ae-3d6c-48b3-aafa-df9f6ee08283)
 
-Stream Tube:
+### Stream Tube:
 
 - A stream tube is an imaginary tubular space formed by a number of stream lines. It is an assembly or collection of stream lines forming a tabular space. The surface of a stream tube is made up of stream lines. The velocity of a fluid particle on the surface of the stream tube is along the stream line over the surface of the stream tube. This means there can be no flow across the walls of a stream tube.
 
 ![image](https://github.com/user-attachments/assets/e7a7c4f1-10b3-459d-b7a2-3c0cf55842ab)
 
-Potential Lines:
+### Potential Lines:
 
 - On a surface consisting of stream lines, we can imagine lines running orthogonally with the stream lines. Such line are called potential lines.
 
@@ -255,6 +255,94 @@ Steady Flow:
 - If the flow characteristics like velocity, density, pressure etc. at a given instant remain the same at all points, the flow is uniform. If V is chosen as a flow characteristic, then, at a given instant V has the same value at all points and is independent of the space position. If the flow characteristics have different values at different points at a given instant of time, the flow is non-uniform flow.
 
 ![image](https://github.com/user-attachments/assets/dbc979d1-f486-4b46-b15b-610612da6464)
+
+# Viscous Flow:
+
+- Viscous flow refers to the flow of a fluid where viscosity (internal friction between fluid layers) significantly affects the motion. It contrasts with ideal (inviscid) flow, where viscosity is neglected.
+
+  Viscosity (μ):
+
+A measure of a fluid’s resistance to deformation.
+
+Units: Pa·s or N·s/m² (SI units)
+
+Types of Viscous Flow:
+
+### 1. Steady Flow:
+   
+- A steady flow is one in which conditions (velocity, pressure, and cross-section) can vary from point to point, but do not change over time.
+
+- In real conditions, it is very rare to have such flows with parameters that are constant over time. The parameters usually change over time but the variance is within a small range such that the average of a particular parameter remains constant for a fixed time.
+
+  ### 2. Unsteady Flow:
+ 
+- If at any point in the fluid, the conditions change over time, the flow is said to be unstable. (In practice there is always a slight difference in velocity and pressure, but if the average values ​​are constant, the flow is assumed to be constant.
+
+- A constant flow can be uniform or non-uniform and thus, an unstable flow can also be uniform or non-uniform. For a steady flow, the discharge is constant over time, and for uniform flow, the area of ​​the cross-section of the fluid flow through the flow stream is constant.
+
+  ### 3. Uniform Flow:
+ 
+- If the flow parameter remains constant with distance along the flow path, then the fluid flow is known as uniform flow.
+
+- For a uniform flow, the area of ​​the cross-section of the flow must remain constant. So a suitable example of uniform flow is the flow of a fluid through a pipeline of constant diameter. Conversely, the flow through a pipeline of variable diameter will be essentially non-uniform.
+
+  ### 4. Non-uniform Flow:
+ 
+- The fluid flow is non-uniform if the flow parameters change and are varied at different points on the flow path.
+
+- If at a given moment, the velocity is not uniform at every point then the flow is non-uniform. (In practice, by this definition, each fluid that flows near a solid boundary will be non-uniform because the fluid at the boundary must have a boundary speed, usually zero. However, the flow is assumed to be uniform if the shape and size of the cross-section of the fluid stream are constant).
+
+  # Reynolds number:
+
+  The term Reynolds number is the ratio of inertia force to the viscous force present in the fluid.
+It is denoted by the symbol Re.
+
+Mathematically, Reynolds number is given by,
+
+The Reynolds number is given by:
+
+$$
+R_e = \frac{\rho \cdot u \cdot L}{\mu}
+$$
+
+Where,
+ρ = Density of fluid
+u = Average velocity of fluid
+L = Characteristics length
+μ = Dynamic viscosity of the fluid
+
+The Reynolds number has the following importances:-
+
+1) The Reynolds number indicates the relation between inertia forces and viscous forces in the fluid flow.
+2) Based on the Reynolds number, the criteria was developed to identify the type of flow.
+
+# Dimensional Analysis:
+
+- The study of the relationship between physical quantities with the help of dimensions and units of measurement is termed dimensional analysis. Dimensional analysis is essential because it keeps the units the same, helping us perform mathematical calculations smoothly.
+
+Homogeneity Principle of Dimensional Analysis:
+
+- Principle of Homogeneity states that dimensions of each of the terms of a dimensional equation on both sides should be the same. This principle is helpful because it helps us convert the units from one form to another.
+
+## Applications of Dimensional Analysis:
+
+Dimensional analysis is a fundamental aspect of measurement and is applied in real-life physics. We make use of dimensional analysis for three prominent reasons:
+
+- To check the consistency of a dimensional equation
+- To derive the relation between physical quantities in physical phenomena
+- To change units from one system to another
+
+## Limitations of Dimensional Analysis:
+
+  Some limitations of dimensional analysis are:
+
+- It doesn’t give information about the dimensional constant.
+- The formula containing trigonometric function, exponential functions, logarithmic function, etc. cannot be derived.
+- It gives no information about whether a physical quantity is a scalar or vector.
+
+  
+
+  
 
 
 
