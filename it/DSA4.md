@@ -164,7 +164,7 @@ Output - 22
 
 ## Example of Dynamic Programming (DP)
 
-### Example 1: Consider the problem of finding the Fibonacci sequence:
+## Example 1: Consider the problem of finding the Fibonacci sequence:
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
 Brute Force Approach: To find the nth Fibonacci number using a brute force approach, you would simply add the (n-1)th and (n-2)th Fibonacci numbers.
@@ -199,4 +199,134 @@ The time complexity of the above approach is exponential and upper bounded by O(
 
 ### How will Dynamic Programming (DP) Work?
 Let’s us now see the above recursion tree with overlapping subproblems highlighted with same color. We can clearly see that that recursive solution is doing a lot work again and again which is causing the time complexity to be exponential. Imagine time taken for computing a large Fibonacci number.
+
+![image](https://github.com/user-attachments/assets/dd2aa693-9b6b-4315-920f-da6bc68a404a)
+
+- Identify Subproblems: Divide the main problem into smaller, independent subproblems, i.e., F(n-1) and F(n-2)
+- Store Solutions: Solve each subproblem and store the solution in a table or array so that we do not have to recompute the same again.
+- Build Up Solutions: Use the stored solutions to build up the solution to the main problem. For F(n), look up F(n-1) and F(n-2) in the table and add them.
+- Avoid Recomputation: By storing solutions, DP ensures that each subproblem (for example, F(2)) is solved only once, reducing computation time.
+
+### Using Memoization Approach - O(n) Time and O(n) Space
+To achieve this in our example we simply take an memo array initialized to -1. As we make a recursive call, we first check if the value stored in the memo array corresponding to that position is -1. The value -1 indicates that we haven't calculated it yet and have to recursively compute it. The output must be stored in the memo array so that, next time, if the same value is encountered, it can be directly used from the memo array.   
+
+```
+// C++ program to find
+// fibonacci number using memoization.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int fibRec(int n, vector<int> &memo) {
+  
+    // Base case
+    if (n <= 1) {
+        return n;
+    }
+
+    // To check if output already exists
+    if (memo[n] != -1) {
+        return memo[n];
+    }
+
+    // Calculate and save output for future use
+    memo[n] = fibRec(n - 1, memo) + fibRec(n - 2, memo);
+
+    return memo[n];
+}
+
+int fib(int n) {
+    vector<int> memo(n + 1, -1);
+    return fibRec(n, memo);
+}
+
+int main() {
+    int n = 5;
+    cout << fib(n);
+    return 0;
+}
+```
+Output - 5
+
+### Using Tabulation Approach - O(n) Time and O(n) Space
+In this approach, we use an array of size (n + 1), often called dp[], to store Fibonacci numbers. The array is initialized with base values at the appropriate indices, such as dp[0] = 0 and dp[1] = 1. Then, we iteratively calculate Fibonacci values from dp[2] to dp[n] by using the relation dp[i] = dp[i-1] + dp[i-2]. This allows us to efficiently compute Fibonacci numbers in a loop. Finally, the value at dp[n] gives the Fibonacci number for the input n, as each index holds the answer for its corresponding Fibonacci number.
+
+```
+// C++ program to find
+// fibonacci number using tabulation.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function for calculating the nth Fibonacci number
+int fibo(int n) {
+    vector<int> dp(n + 1);
+
+    // Storing the independent values in dp
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Using the bottom-up approach
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+  
+    return dp[n];
+}
+
+int main() {
+    int n = 5;
+    cout << fibo(n);
+    return 0;
+}
+```
+Output - 5
+
+### Common Algorithms that Use DP:
+In the above code, we can see that the current state of any fibonacci number depends only on the previous two values. So we do not need to store the whole table of size n+1 but instead of that we can only store the previous two values. 
+
+```
+// C++ program to find
+// fibonacci number using space optimised.
+#include <iostream>
+using namespace std;
+
+int fibo(int n) {
+  
+    int prevPrev, prev, curr;
+
+    // Storing the independent values
+    prevPrev = 0;
+    prev = 1;
+    curr = 1;
+
+    // Using the bottom-up approach
+    for (int i = 2; i <= n; i++) {
+        curr = prev + prevPrev;
+        prevPrev = prev;
+        prev = curr;
+    }
+
+    return curr;
+}
+
+int main() {
+    int n = 5;
+    cout << fibo(n);
+    return 0;
+}
+
+```
+Output - 5
+
+### Common Algorithms that Use DP:
+- Longest Common Subsequence (LCS): This is used in day to day life to find difference between two files (diff utility)
+- Edit Distance : Checks how close to strings are. Can we be useful in implementing Google's did you mean type feature.
+- Longest Increasing Subsequence : There are plenty of variations of this problem that arise in real world.
+Bellman–Ford Shortest Path: Finds the shortest path from a given source to all other vertices.
+- Floyd Warshall : Finds shortest path from every pair of vertices.
+- Knapsack Problem: Determines the maximum value of items that can be placed in a knapsack with a given capacity.
+- Matrix Chain Multiplication: Optimizes the order of matrix multiplication to minimize the number of operations.
+- Fibonacci Sequence: Calculates the nth Fibonacci number.
+
 
