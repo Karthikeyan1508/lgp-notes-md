@@ -243,15 +243,4 @@ torque and constant speed.
 
 ## Induction Motor
 
-Induction motors are the most widely used electric motors in industrial applications. 
-Almost all induction motors run at essentially constant speed from no-load to full-load 
-conditions. The speed of induction motors depends on the supply frequency and hence 
-these motors are not easily adapted to speed control. Induction motors are simple and 
-rugged in construction, less expensive, easy to maintain, and can be designed and 
-produced with characteristics to suit most industrial requirements.
-An induction motor is an asynchronous AC electric motor which converts alternating 
-current electricity into the mechanical energy. It is called an induction motor because the 
-electric current in the rotor circuit required to produce the deriving torque is obtained 
-through electromagnetic induction from the rotating magnetic field of the stator winding. 
-These motors are referred to as asynchronous motors because their rotor rotates at a 
-speed less than the synchronous speed of the rotating magnetic field.
+Induction motors are the most widely used electric motors in industrial applications. Almost all induction motors run at essentially constant speed from no-load to full-load conditions. The speed of induction motors depends on the supply frequency and hence these motors are not easily adapted to speed control. Induction motors are simple and rugged in construction, less expensive, easy to maintain, and can be designed and produced with characteristics to suit most industrial requirements. An induction motor is an asynchronous AC electric motor which converts alternating current electricity into the mechanical energy. It is called an induction motor because the electric current in the rotor circuit required to produce the deriving torque is obtained through electromagnetic induction from the rotating magnetic field of the stator winding. These motors are referred to as asynchronous motors because their rotor rotates at a speed less than the synchronous speed of the rotating magnetic field.
