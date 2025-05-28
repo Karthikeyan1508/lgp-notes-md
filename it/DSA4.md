@@ -665,24 +665,36 @@ There are two major ways to detect greedy problems -
 ### 1). Sorting
 
 - Job Sequencing:- In order to maximize profits, we prioritize jobs with higher profits. So we sort them in descending order based on profit. For each job, we try to schedule it as late as possible within its deadline to leave earlier slots open for other jobs with closer deadlines.
+[Job Sequencing](https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1)
 
 - Activity Selection:- To maximize the number of non-overlapping activities, we prioritize activities that end earlier, which helps us to select more activities. Therefore, we sort them based on their end times in ascending order. Then, we select the first activity and continue adding subsequent activities that start after the previous one has ended.
+ [Activity Selection](https://www.geeksforgeeks.org/problems/activity-selection-1587115620/1)
 
 - Disjoint Intervals:- The approach for this problem is exactly similar to previous one, we sort the intervals based on their start or end times in ascending order. Then, select the first interval and continue adding next intervals that start after the previous one ends.
+[Disjoint Intervals](https://www.geeksforgeeks.org/problems/maximal-disjoint-intervals/1)
 
 - Fractional Knapsack:- The basic idea is to calculate the ratio profit/weight for each item and sort the item on the basis of this ratio. Then take the item with the highest ratio and add them as much as we can (can be the whole element or a fraction of it).
+[Fractional Knapsack](https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1)
 
 - Kruskal Algorithm:- To find the Minimum Spanning Tree (MST), we prioritize edges with the smallest weights to minimize the overall cost. We start by sorting all the edges in ascending order based on their weights. Then, we iteratively add edges to the MST while ensuring that adding an edge does not form a cycle.
+[Kruskal Algorithm](https://www.geeksforgeeks.org/problems/minimum-spanning-tree-kruskals-algorithm/1)
 
 ### 2). Using Priority Queue or Heaps
 
 - Dijkstra Algorithm:- To find the shortest path from a source node to all other nodes in a graph, we prioritize nodes based on the smallest distance from the source node. We begin by initializing the distances and using a min-priority queue. In each iteration, we extract the node with the minimum distance from the priority queue and update the distances of its neighboring nodes. This process continues until all nodes have been processed, ensuring that we find the shortest paths efficiently.
+[Dijkstra Algorithm](https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1)
 
 - Connect N ropes:- In this problem, the lengths of the ropes picked first are counted multiple times in the total cost. Therefore, the strategy is to connect the two smallest ropes at each step and repeat the process for the remaining ropes. To implement this, we use a min-heap to store all the ropes. In each operation, we extract the top two elements from the heap, add their lengths, and then insert the sum back into the heap. We continue this process until only one rope remains.
+ [Connect N ropes](https://www.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1)
 
 - Huffman Encoding:- To compress data efficiently, we assign shorter codes to more frequent characters and longer codes to less frequent ones. We start by creating a min-heap that contains all characters and their frequencies. In each iteration, we extract the two nodes with the smallest frequencies, combine them into a new node, and insert this new node back into the heap. This process continues until there is only one node left in the heap.
+[Huffman Encoding](https://www.geeksforgeeks.org/problems/huffman-encoding3345/1)
 
 ### 3). Arbitrary
+- Minimum Number of Jumps To Reach End:- In this problem we maintain a variable to store maximum reachable position at within the current jump's range and increment the jump counter when the current jump range has been traversed. We stop this process when the maximum reachable position at any point is greater than or equal to the last index value.
+[Minimun Number of Jumps To Reach End](https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1)
 
-Minimum Number of Jumps To Reach End:- In this problem we maintain a variable to store maximum reachable position at within the current jump's range and increment the jump counter when the current jump range has been traversed. We stop this process when the maximum reachable position at any point is greater than or equal to the last index value.
+# Difference between Greedy Approach and Dynamic Programming
+
+![image](https://github.com/user-attachments/assets/d8d34957-da6b-49e8-a679-eb4b26340684)
 
