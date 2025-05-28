@@ -1,3 +1,94 @@
+# Understanding Threads and Processes in Multithreaded Programming
+
+In modern computing, both threads and processes are fundamental concepts in the execution of programs. While traditionally the term process encapsulated everything—address space, execution state, and resources—modern operating systems distinguish between processes and threads, especially in multithreaded environments.
+
+## What is a Thread?
+
+A thread is an independent flow of control that operates within the same address space as other threads in a process. Threads are sometimes referred to as lightweight processes, especially in operating systems where they are used to implement concurrent execution.
+
+Each thread has its own:
+	•	Stack
+	•	Program counter
+	•	Registers
+	•	Scheduling properties (like priority)
+	•	Thread-specific data (e.g., errno)
+
+Despite their independence in execution, threads share the following resources with other threads in the same process:
+	•	Code section
+	•	Data section
+	•	Open files
+	•	Signal actions
+	•	Address space
+	•	Environment variables
+
+Because of this shared environment, changes made by one thread (such as closing a file) are visible to all other threads within the same process.
+
+## What is a Process?
+
+A process is a higher-level execution unit that provides the execution environment for threads. It acts as a container for resources and execution state. In a multithreaded system, a process is considered the changeable entity that holds:
+	•	Process ID, group ID
+	•	User ID, group ID
+	•	Environment variables
+	•	Working directory
+	•	File descriptors
+	•	Signal handling information
+	•	IPC tools (e.g., pipes, message queues, semaphores, shared memory)
+
+A process provides the common address space and resources that all its threads share.
+
+## Thread vs Process: Key Differences
+
+Here is the formatted solid table:
+
+Feature	Thread	Process
+Definition	Schedulable unit of execution	Execution environment for threads
+Memory Space	Shares address space with other threads in the same process	Has its own memory space
+Creation Overhead	Lower	Higher
+Resource Sharing	Shares resources like files, data, and code	Resources are independent across processes
+Scheduling	Managed individually by OS (kernel or user level)	Scheduled by OS
+Communication	Uses shared memory (efficient)	Requires inter-process communication (more complex)
+
+### Initial Thread
+
+When a new process is created, a single initial thread is created automatically. This thread:
+	•	Runs the main() function in C/C++
+	•	Ensures backward compatibility with older single-threaded programs
+	•	Has special invisible properties for binary compatibility
+
+## Thread Models
+
+Thread implementations vary across operating systems:
+	•	User Threads: Managed entirely by a user-level threads library. The OS kernel is unaware of their existence.
+	•	Kernel Threads: Managed directly by the OS kernel and scheduled like regular processes.
+	•	Hybrid (One-to-One, Many-to-One, Many-to-Many Models):
+	•	1:1: Each user thread maps to one kernel thread.
+	•	M:1: Many user threads map to a single kernel thread.
+	•	M:N: Many user threads are mapped to a pool of kernel threads.
+
+The way user threads map to kernel threads is known as the thread model.
+
+### Modularity in Multithreaded Programming
+
+Programs are often built from modular components that interact to provide functionality. Threads make modular programming more efficient because:
+	•	Threads can perform distinct tasks simultaneously, each in its own logical section.
+	•	They share the same memory, making data sharing between modules simple and fast.
+	•	Synchronization tools like mutexes and condition variables help ensure data integrity across modules.
+
+This modular design promotes separation of concerns—each thread can manage one functional part of the program while communicating only when necessary.
+
+## Threads Library (pthreads)
+
+Many systems use the POSIX Threads (pthreads) library to manage multithreading. It offers:
+	•	An object-oriented API, where threads and synchronization primitives are manipulated as opaque objects.
+	•	A naming convention, where all identifiers start with pthread_, such as pthread_create, pthread_mutex_lock.
+
+Example:
+
+pthread_t tid;
+pthread_create(&tid, NULL, my_function, NULL);
+
+The pthreads implementation files handle all the underlying system calls and thread management functionalities.
+
 # What is a Deadlock?
 A deadlock occurs when a group of processes becomes permanently blocked, with each process holding a resource and waiting for another resource that is currently held by another process in the group.
 
