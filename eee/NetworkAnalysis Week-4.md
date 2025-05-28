@@ -122,13 +122,14 @@ SUMMARY OF TWO PORT NETWORK PARAMETERS:
 # Two-Port Parameter Conversions
 Procedure of two port parameter conversions
 Follow these steps, while converting one set of two port network parameters into the other set of two port network parameters.
-Step 1 − Write the equations of a two port network in terms of desired parameters.
-Step 2 − Write the equations of a two port network in terms of given parameters.
-Step 3 − Re-arrange the equations of Step2 in such a way that they should be similar to the equations of Step1.
-Step 4 − By equating the similar equations of Step1 and Step3, we will get the desired parameters in terms of given parameters. We can represent these parameters in matrix form.
+- Step 1 − Write the equations of a two port network in terms of desired parameters.
+- Step 2 − Write the equations of a two port network in terms of given parameters.
+- Step 3 − Re-arrange the equations of Step2 in such a way that they should be similar to the equations of Step1.
+- Step 4 − By equating the similar equations of Step1 and Step3, we will get the desired parameters in terms of given parameters. We can represent these parameters in matrix form.
 
 ## Z parameters to Y parameters
 Here, we have to represent Y parameters in terms of Z parameters. So, in this case Y parameters are the desired parameters and Z parameters are the given parameters.
+
 **Step 1** − We know that the following set of two equations, which represents a two port network in terms of Y parameters.
 ![image](https://github.com/user-attachments/assets/a6f6cf29-db69-4606-936e-6d5e7e1e3d8e)
 
@@ -151,6 +152,7 @@ So, just by doing the inverse of Z parameters matrix, we will get Y parameters m
 
 ## Z parameters to T parameters
 Here, we have to represent T parameters in terms of Z parameters. So, in this case T parameters are the desired parameters and Z parameters are the given parameters.
+
 **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
 ![image](https://github.com/user-attachments/assets/41a665c8-80a9-4f34-9866-35cf63021327)
 
@@ -174,6 +176,7 @@ Here, we have to represent T parameters in terms of Z parameters. So, in this ca
 
 ## Y parameters to Z parameters
 Here, we have to represent Z parameters in terms of Y parameters. So, in this case Z parameters are the desired parameters and Y parameters are the given parameters.
+
 **Step 1** − We know that, the following matrix equation of two port network regarding Z parameters as
 ![image](https://github.com/user-attachments/assets/814a4150-040f-4105-8c9c-faae67963940)
 
@@ -190,6 +193,7 @@ So, just by doing the inverse of Y parameters matrix, we will get the Z paramete
 
 ## Y parameters to T parameters
 Here, we have to represent T parameters in terms of Y parameters. So, in this case, T parameters are the desired parameters and Y parameters are the given parameters.
+
 **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
 ![image](https://github.com/user-attachments/assets/8e2af05c-b7dd-447a-a17c-ff1773504df3)
 
@@ -213,6 +217,7 @@ Here, we have to represent T parameters in terms of Y parameters. So, in this ca
 
 ## T parameters to h-parameters
 Here, we have to represent h-parameters in terms of T parameters. So, in this case hparameters are the desired parameters and T parameters are the given parameters.
+
 **Step 1** − We know that, the following h-parameters of a two port network.
 ![image](https://github.com/user-attachments/assets/a56cf6fc-ef85-4c7f-8cd9-313343091758)
 
@@ -239,6 +244,7 @@ Substitute I1 value in h-parameter h21.
 
 ## h-parameters to Z parameters
 Here, we have to represent Z parameters in terms of h-parameters. So, in this case Z parameters are the desired parameters and h-parameters are the given parameters.
+
 **Step 1** − We know that, the following set of two equations of two port network regarding Z parameters.
 ![image](https://github.com/user-attachments/assets/e4fb1019-49e9-485e-a75a-3d2a1aac3a85)
 
