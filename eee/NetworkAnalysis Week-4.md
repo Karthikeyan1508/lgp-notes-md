@@ -301,15 +301,15 @@ Substitute I1 value in h-parameter h21.
 ## h-parameters to Z parameters
 Here, we have to represent Z parameters in terms of h-parameters. So, in this case Z parameters are the desired parameters and h-parameters are the given parameters.
 
-**Step 1** − We know that, the following set of two equations of two port network regarding Z parameters.
+- **Step 1** − We know that, the following set of two equations of two port network regarding Z parameters.
 
 ![image](https://github.com/user-attachments/assets/e4fb1019-49e9-485e-a75a-3d2a1aac3a85)
 
-**Step 2** − We know that, the following set of two equations of two-port network regarding h-parameters.
+- **Step 2** − We know that, the following set of two equations of two-port network regarding h-parameters.
 
 ![image](https://github.com/user-attachments/assets/03178149-cc86-4cfa-b59a-331725293560)
 
-**Step 3** − We can modify the above equation as
+- **Step 3** − We can modify the above equation as
 
 ![image](https://github.com/user-attachments/assets/f0a01b48-b7ca-4d9b-8b24-f0c8c206f349)
 
@@ -317,7 +317,7 @@ The above equation is in the form of V2=Z21I1+Z22I2.Here,
 
 ![image](https://github.com/user-attachments/assets/bcc7e6e7-c8c1-486e-be1a-2eabdeba12b9)
 
-**Step 4** − Substitute V2 value in first equation of step 2.
+- **Step 4** − Substitute V2 value in first equation of step 2.
 
 ![image](https://github.com/user-attachments/assets/e0ede530-2123-4d6b-9e5c-50f36913963a)
 
@@ -325,7 +325,7 @@ The above equation is in the form of V1=Z11I1+Z12I2. Here,
 
 ![image](https://github.com/user-attachments/assets/718a3581-5a9f-47bf-ab4a-fed487a9c0c3)
 
-**Step 5** − Therefore, the Z parameters matrix is
+- **Step 5** − Therefore, the Z parameters matrix is
 
 ![image](https://github.com/user-attachments/assets/d848c78e-b517-46f3-8c4e-3b8a60c67f1f)
 
