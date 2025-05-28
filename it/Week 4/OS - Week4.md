@@ -89,6 +89,128 @@ pthread_create(&tid, NULL, my_function, NULL);
 
 The pthreads implementation files handle all the underlying system calls and thread management functionalities.
 
+# Synchronization
+
+## Race Condition?
+
+A race condition occurs when the outcome of a program depends on the non-deterministic timing or sequence of events. In multithreaded or multiprocess systems, this typically arises when two or more threads access shared resources concurrently without proper synchronization.
+	•	The final result depends on the order of execution of threads.
+	•	This behavior is unpredictable and often hard to detect and debug.
+	•	Race conditions generally occur inside critical sections.
+
+Example: Two threads withdrawing money from a bank account at the same time may both read the same balance and deduct the same amount, resulting in an incorrect final balance.
+
+Preventing Race Conditions
+	•	Use atomic operations in the critical section.
+	•	Implement thread synchronization mechanisms such as locks, mutexes, or semaphores.
+
+## Critical Section?
+
+A critical section is a portion of code that accesses shared resources (like memory, files, or devices) and must not be executed by more than one thread at the same time.
+
+### Typical Structure of a Critical Section:
+
+do {
+    // Entry Section
+    // Acquire lock or check conditions
+
+    // Critical Section
+    // Access or modify shared resources
+
+    // Exit Section
+    // Release lock or notify others
+
+    // Remainder Section
+    // Other unrelated code
+} while(TRUE);
+
+Key Points:
+	•	Entry Section: Requests permission to enter.
+	•	Critical Section: Executes operations on shared resources.
+	•	Exit Section: Releases locks or signals completion.
+	•	Remainder Section: Executes the rest of the program.
+
+### Requirements for a Solution to the Critical Section Problem
+	1.	Mutual Exclusion
+	•	Only one process/thread can execute in the critical section at a time.
+	•	Prevents simultaneous access to shared resources.
+	2.	Progress
+	•	If no process is in the critical section, one of the waiting processes must be allowed to enter.
+	•	Ensures system does not remain idle unnecessarily.
+	3.	Bounded Waiting
+	•	Limits how many times other processes can enter their critical sections before a waiting process is granted access.
+	•	Prevents starvation.
+
+### Synchronization Mechanisms for Critical Sections
+
+*i. Preemptive Kernels*
+	•	The OS can interrupt a running process even in kernel mode.
+	•	Enables better multitasking and responsiveness.
+	•	Complex to implement due to potential race conditions in kernel data structures.
+	•	Used in: Windows, Linux, macOS.
+
+*ii. Non-Preemptive Kernels*
+	•	Once a process enters kernel mode, it runs until it blocks, exits, or voluntarily yields the CPU.
+	•	Easier to implement and avoids kernel-level race conditions.
+	•	Poor responsiveness.
+	•	Used in: Some older or embedded systems.
+
+### Issues Related to Critical Sections
+
+*Deadlock*
+	•	Occurs when two or more processes wait indefinitely for each other to release resources.
+
+*Starvation*
+	•	A process is perpetually denied access to the critical section while others repeatedly enter.
+
+*Overhead*
+	•	Acquiring and releasing locks incurs CPU and memory usage.
+
+### Pseudo-code Representation
+
+Simple Implementation
+
+do {
+    acquireLock();       // Entry section
+    // Critical section
+    releaseLock();       // Exit section
+    // Remainder section
+} while(true);
+
+### Real-World Examples of Critical Sections
+
+Application	Critical Section	Risk Without Synchronization
+Banking System	Updating account balance	Incorrect balance due to concurrent access
+Ticket Booking System	Reserving the last seat	Double booking, overbooking
+Print Spooler	Adding print jobs to queue	Jobs may mix or be skipped
+Shared Document Editing	Saving changes	Data loss or version conflict
+Multiplayer Online Games	Updating player stats	Inconsistent game state
+E-Commerce Inventory	Reducing item stock after order	Overselling of items
+
+### Advantages of Using Critical Sections
+	•	Prevents race conditions by controlling access.
+	•	Enforces mutual exclusion to maintain data consistency.
+	•	Reduces CPU usage by minimizing unnecessary polling or spinning.
+	•	Simplifies synchronization logic for shared resources.
+
+### Disadvantages of Critical Sections
+	•	Overhead due to synchronization mechanisms.
+	•	Deadlocks if not managed properly.
+	•	Limited parallelism if critical sections are too long.
+	•	Contention if too many processes compete for access.
+
+### Real-Life Case: The Therac-25 Incident
+
+The Therac-25 radiation therapy machine had a race condition in its software. A counter overflow during rapid terminal input caused safety locks to fail. As a result, several patients received fatal overdoses of radiation.
+	•	Root cause: Critical synchronization bug due to a race condition.
+	•	Takeaway: Even subtle bugs in timing can have severe consequences.
+
+### Common Causes of Race Conditions
+	•	Multiple threads modifying shared global variables simultaneously.
+	•	Use-after-free errors where memory is deallocated before use.
+	•	Returning local variables from threads.
+	•	Calling non-thread-safe functions concurrently.
+
 # What is a Deadlock?
 A deadlock occurs when a group of processes becomes permanently blocked, with each process holding a resource and waiting for another resource that is currently held by another process in the group.
 
