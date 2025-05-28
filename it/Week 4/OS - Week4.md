@@ -158,13 +158,13 @@ Key Points:
 ### Issues Related to Critical Sections
 
 *Deadlock*
-	• Occurs when two or more processes wait indefinitely for each other to release resources.
+- Occurs when two or more processes wait indefinitely for each other to release resources.
 
 *Starvation*
-	• A process is perpetually denied access to the critical section while others repeatedly enter.
+- A process is perpetually denied access to the critical section while others repeatedly enter.
 
 *Overhead*
-	• Acquiring and releasing locks incurs CPU and memory usage.
+- Acquiring and releasing locks incurs CPU and memory usage.
 
 ### Pseudo-code Representation
 
@@ -188,28 +188,28 @@ Multiplayer Online Games	Updating player stats	Inconsistent game state
 E-Commerce Inventory	Reducing item stock after order	Overselling of items
 
 ### Advantages of Using Critical Sections
-	• Prevents race conditions by controlling access.
-	• Enforces mutual exclusion to maintain data consistency.
-	• Reduces CPU usage by minimizing unnecessary polling or spinning.
-	• Simplifies synchronization logic for shared resources.
+- Prevents race conditions by controlling access.
+- Enforces mutual exclusion to maintain data consistency.
+- Reduces CPU usage by minimizing unnecessary polling or spinning.
+- Simplifies synchronization logic for shared resources.
 
 ### Disadvantages of Critical Sections
-	• Overhead due to synchronization mechanisms.
-	• Deadlocks if not managed properly.
-	• Limited parallelism if critical sections are too long.
-	• Contention if too many processes compete for access.
+- Overhead due to synchronization mechanisms.
+- Deadlocks if not managed properly.
+- Limited parallelism if critical sections are too long.
+- Contention if too many processes compete for access.
 
 ### Real-Life Case: The Therac-25 Incident
 
 The Therac-25 radiation therapy machine had a race condition in its software. A counter overflow during rapid terminal input caused safety locks to fail. As a result, several patients received fatal overdoses of radiation.
-	• Root cause: Critical synchronization bug due to a race condition.
-	• Takeaway: Even subtle bugs in timing can have severe consequences.
+- Root cause: Critical synchronization bug due to a race condition.
+- Takeaway: Even subtle bugs in timing can have severe consequences.
 
 ### Common Causes of Race Conditions
-	• Multiple threads modifying shared global variables simultaneously.
-	• Use-after-free errors where memory is deallocated before use.
-	• Returning local variables from threads.
-	• Calling non-thread-safe functions concurrently.
+- Multiple threads modifying shared global variables simultaneously.
+- Use-after-free errors where memory is deallocated before use.
+- Returning local variables from threads.
+- Calling non-thread-safe functions concurrently.
 
 # What is a Deadlock?
 A deadlock occurs when a group of processes becomes permanently blocked, with each process holding a resource and waiting for another resource that is currently held by another process in the group.
