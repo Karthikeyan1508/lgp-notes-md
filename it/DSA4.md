@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/e1c0bcf7-4cca-4eb2-87c7-e387ca610dea)# Dynamic Programming or DP
+# Dynamic Programming or DP
 
 Dynamic Programming is an algorithmic technique with the following properties.
 - It is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for the same inputs, we can optimize it using Dynamic Programming.
@@ -61,7 +61,7 @@ Tabulation:
 -Iterative implementation
 -Entries are filled in a bottom-up manner from the smallest size to the final size.
 
-![image](![image](https://github.com/user-attachments/assets/d6a9a70c-2190-4073-878d-79fbc69e0122)
+![image](https://github.com/user-attachments/assets/a97625b2-cf31-4e75-a577-098f52ca7975)
 
 ### Implementation Analysis: Rod Cutting Problem
 Given a rod of length n inches and an array price[]. price[i] denotes the value of a piece of length i. The task is to determine the maximum value obtainable by cutting up the rod and selling the pieces.
