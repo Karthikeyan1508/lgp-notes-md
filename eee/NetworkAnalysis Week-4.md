@@ -20,12 +20,15 @@ In terms of matrix equations, the following can be obtained:
 ![image](https://github.com/user-attachments/assets/9340382a-eafb-483d-b228-70b2be5e80d5)
 
 ![image](https://github.com/user-attachments/assets/3bbcd401-d019-493a-92a6-c1c4e6490425)
+
 is called impedance matrix
 
 The individual Z-parameters can be found as indicated in the following. When the output-port is open-circuited, that is, when I2 = 0, the equation will be as follows:
+
 ![image](https://github.com/user-attachments/assets/491e4ea7-ae25-48d4-88cf-fdfc99c0b9d6)
 
 When the input port is open-circuited, that is, when I1 = 0, then equation (11.1) will be given as follows:
+
 ![image](https://github.com/user-attachments/assets/59034ecb-ab66-45a0-bc61-9cdfca74abbf)
 
 Therefore, the Z-parameters of a two port network are as follows
@@ -39,6 +42,7 @@ Z22 is known as the driving-point impedance at the output port, when input port 
 Z12 is known as the transfer impedance at the output port, when input port is open-circuited.
 
 As these impedance parameters are measured with either the input or output port opencircuited, these are called open-circuit impedance parameters. The equivalent circuit of the two-port network in terms of Z parameters is shown
+
 ![image](https://github.com/user-attachments/assets/dc29b0da-d23a-4d67-8d8f-ba9d02009a32)
 
 The network is to be reciprocal if Z12 = Z21
@@ -46,18 +50,24 @@ The network is to be symmetrical if Z11 = Z22
 
 ## SHORT-CIRCUIT ADMITTANCE PARAMETERS (or) Y-PARAMETERS
 The admittance parameters are also called Y-parameters. To determine Y-parameters, V1 and V2 are taken as independent variables and I1 and I2 as dependent variables. Port currents I1 and I2 are expressed in terms of the voltages V1 and V2. The network equations are written as follows:
+
 ![image](https://github.com/user-attachments/assets/538f0e5c-5edb-486e-b70f-e3d8f7f83d36)
 
 The equations can be represented in matrix form as follows:
+
 ![image](https://github.com/user-attachments/assets/d5fe2c97-0313-437c-854e-94094f727326)
 
 where Y11, Y12, Y21 and Y22 are admittance parameters and these can be determined as in the following
+
 ![image](https://github.com/user-attachments/assets/f2d51aff-15d3-4925-8651-a0049aeacd5e)
+
 ![image](https://github.com/user-attachments/assets/a305503b-76f2-4700-8873-072236fe8e4b)
+
 ![image](https://github.com/user-attachments/assets/b31f634a-1eb9-4c15-aae7-a3511052457b)
 
 As these admittance parameters are measured with either input or output port short-circuited, these are called short-circuit admittance parameters.
 The equivalent circuit of the two-port network in terms of Y parameters is shown in Fig
+
 ![image](https://github.com/user-attachments/assets/f1a3ae37-4716-49ac-a56a-2e9d4d9f7aa3)
 
 If the network is reciprocal if Y12 = Y21
@@ -65,13 +75,17 @@ If the network is symmetrical if Y11 = Y22
 
 ## ΤRANSMISSION PARAMETERS (or) ABCD PARAMETERS
 The transmission parameters or chain parameters or ABCD parameters serve to relate the voltage and current at the input port to voltage and current at the output port.
+
 ![image](https://github.com/user-attachments/assets/0618897b-517b-4903-9f33-1a088d2fac40)
 
 Here, the negative sign is used with I2 and not for parameters B and D. The reason the current I2 carries a negative sign is that in transmission field, the output current is assumed to be coming out of the output port instead of going into the port. In matrix form, we can write
+
 ![image](https://github.com/user-attachments/assets/0d69093d-6249-4bd5-9101-36c62f977d0f)
+
 ![image](https://github.com/user-attachments/assets/24fdfa51-c044-42c1-9624-b02b7a094acb)
 
 The two-port parameters in above equations provide a measure of how a circuit transmits voltage and current from a source to a load. They are useful in the analysis of transmission lines (such as cable and fiber) because they express sending-end variables (V1 and I1) in terms of the receiving-end variables (V2 and ‒I2). For this reason, they are called transmission parameters. They are also known as ABCD parameters. They are used in the design of telephone systems, microwave networks, and radars.
+
 ![image](https://github.com/user-attachments/assets/d8f3ffd9-12c0-4ede-8dd4-31536445f4f4)
 
 Thus, the transmission parameters are called, specifically,
@@ -85,7 +99,9 @@ The network is to be symmetrical if A = D
 
 ## INVERSE ΤRANSMISSION PARAMETERS (or) A’B’C’D’ PARAMETERS
 The inverse transmission parameters serve to relate the voltage and current at the output port to the voltage and current at the input port.
+
 ![image](https://github.com/user-attachments/assets/2a8bdc4f-e15c-4c57-88e3-7a98f9ddef21)
+
 ![image](https://github.com/user-attachments/assets/87f3d813-12c2-4090-b2b4-e254410e1cd9)
 
 The network is to be reciprocal if A’D’ − B’C’ = 1
@@ -93,30 +109,38 @@ The network is to be symmetrical if A’ = D’
 
 ## HYBRID PARAMETERS (or) h - PARAMETERS
 The hybrid parameters of a two-port network may be defined by expressing the voltage of input port V1 and current of output port I2 in terms of current of input port I1 and voltage of output port V2.
+
 ![image](https://github.com/user-attachments/assets/47d8762d-f242-44e1-8c02-370f75b588ce)
+
 ![image](https://github.com/user-attachments/assets/df4807f4-488b-406a-9c49-3e4e14d983a0)
 
 The network is to be reciprocal if h12 = − h21
 The network is to be symmetrical if h11 h22 − h12 h21 = 1
 
 It is evident from Eq. that the parameters represent impedance, a voltage gain, a current gain, and admittance, respectively. Therefore, they are called the hybrid parameters.
+
 ![image](https://github.com/user-attachments/assets/5f6b3dee-44a7-4746-b566-6f3165493380)
 
 ## INVERSE HYBRID PARAMETERS (or) g – PARAMETERS
 The inverse hybrid parameters of a two-port network may be defined by expressing the current of the input port I1 and voltage of the output port V2 in terms of the voltage of the input port V1 and the current of the output port I2.
+
 ![image](https://github.com/user-attachments/assets/25f19364-7535-4f1f-8557-bbabb35318c6)
+
 ![image](https://github.com/user-attachments/assets/a159a461-9b0b-4a0b-a72c-0e017fbc41a7)
 
 The equivalent circuit of a two-port network in terms of inverse hybrid parameters is shown in Fig.
+
 ![image](https://github.com/user-attachments/assets/7c15a4fc-6606-430d-bc3b-11011f19db15)
 
 The network is to be reciprocal if g12 = − g 21
 The network is to be symmetrical if g 11 g 22 − g 12 g 21 = 1
 
 NOTE: Conditions for reciprocity and symmetry
+
 ![image](https://github.com/user-attachments/assets/b14e7b6b-0864-46dd-8363-072a39b049d8)
 
 SUMMARY OF TWO PORT NETWORK PARAMETERS:
+
 ![image](https://github.com/user-attachments/assets/66364c66-9a61-444e-8921-a0e5cbea37c0)
 
 # Two-Port Parameter Conversions
@@ -131,21 +155,27 @@ Follow these steps, while converting one set of two port network parameters into
 Here, we have to represent Y parameters in terms of Z parameters. So, in this case Y parameters are the desired parameters and Z parameters are the given parameters.
 
 **Step 1** − We know that the following set of two equations, which represents a two port network in terms of Y parameters.
+
 ![image](https://github.com/user-attachments/assets/a6f6cf29-db69-4606-936e-6d5e7e1e3d8e)
 
 We can represent the above two equations in matrix form as
+
 ![image](https://github.com/user-attachments/assets/06e0c08e-75f9-4575-b231-54cd1917dfc6)
 
 **Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
+
 ![image](https://github.com/user-attachments/assets/5de284ee-18b6-47fb-9e9d-b8d430e8213f)
 
 We can represent the above two equations in matrix form as
+
 ![image](https://github.com/user-attachments/assets/6e7899ec-5547-489e-9f62-ce72c58eb976)
 
 **Step 3** − We can modify it as
+
 ![image](https://github.com/user-attachments/assets/64a6345e-a638-40cd-9e16-ce447d000440)
 
 **Step 4** − By equating Equation 1 and Equation 2, we will get
+
 ![image](https://github.com/user-attachments/assets/970bb8d7-158f-4f31-88ab-5c85845ec9f7)
 
 So, just by doing the inverse of Z parameters matrix, we will get Y parameters matrix.
@@ -154,39 +184,50 @@ So, just by doing the inverse of Z parameters matrix, we will get Y parameters m
 Here, we have to represent T parameters in terms of Z parameters. So, in this case T parameters are the desired parameters and Z parameters are the given parameters.
 
 **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
+
 ![image](https://github.com/user-attachments/assets/41a665c8-80a9-4f34-9866-35cf63021327)
 
 **Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
+
 ![image](https://github.com/user-attachments/assets/79a2fd0a-5bd7-4f2b-b4ee-4a00adb082a3)
 
 **Step 3** − We can modify the above equation as
+
 ![image](https://github.com/user-attachments/assets/37022f55-69a2-41cc-9fff-32c64e338002)
 
 **Step 4** − The above equation is in the form of I1=CV2DI2. Here,
+
 ![image](https://github.com/user-attachments/assets/129ff249-b641-48de-bb1e-56e9c87efbab)
 
 **Step 5** − Substitute I1 value of Step 3 in V1 equation of Step 2.
+
 ![image](https://github.com/user-attachments/assets/9f54ed4d-14df-42f1-a0ae-5e40d091a483)
 
 **Step 6** − The above equation is in the form of V1=AV2BI2. Here,
+
 ![image](https://github.com/user-attachments/assets/5903e459-ef9b-4c56-b1c9-700da0afe918)
 
 **Step 7** − Therefore, the T parameters matrix is
+
 ![image](https://github.com/user-attachments/assets/cdcd0a0a-8424-4150-ac48-a4b97c1f5ccd)
 
 ## Y parameters to Z parameters
 Here, we have to represent Z parameters in terms of Y parameters. So, in this case Z parameters are the desired parameters and Y parameters are the given parameters.
 
 **Step 1** − We know that, the following matrix equation of two port network regarding Z parameters as
+
 ![image](https://github.com/user-attachments/assets/814a4150-040f-4105-8c9c-faae67963940)
 
 **Step 2** − We know that, the following matrix equation of two port network regarding Y parameters as
+
 ![image](https://github.com/user-attachments/assets/ac35a819-32fd-4666-8dee-19de16631f86)
 
 **Step 3** − We can modify it as
+
 ![image](https://github.com/user-attachments/assets/0f4cc78a-974b-4d90-a1e5-bf8022794900)
 
 **Step 4** − By equating Equation 3 and Equation 4, we will get
+
 ![image](https://github.com/user-attachments/assets/7bf59d14-4f0e-4b26-bd2f-1dfe8ea46f00)
 
 So, just by doing the inverse of Y parameters matrix, we will get the Z parameters matrix.
@@ -195,85 +236,97 @@ So, just by doing the inverse of Y parameters matrix, we will get the Z paramete
 Here, we have to represent T parameters in terms of Y parameters. So, in this case, T parameters are the desired parameters and Y parameters are the given parameters.
 
 **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
+
 ![image](https://github.com/user-attachments/assets/8e2af05c-b7dd-447a-a17c-ff1773504df3)
 
 **Step 2** − We know that the following set of two equations of two port network regarding Y parameters.
+
 ![image](https://github.com/user-attachments/assets/d88b7a90-8b9c-48a3-9770-db7c9cfd3053)
 
 **Step 3** − We can modify the above equation as
+
 ![image](https://github.com/user-attachments/assets/fb21bd0b-f0b6-47ae-b606-ccabcd935c0e)
 
 **Step 4** − The above equation is in the form of V1=AV2BI2. Here,
+
 ![image](https://github.com/user-attachments/assets/ea38e4e0-bb85-4038-bf61-3e87c8ee2816)
 
 **Step 5** − Substitute V1 value of Step 3 in I1 equation of Step 2.
+
 ![image](https://github.com/user-attachments/assets/d6eb7293-7a3f-464e-a3f5-10e607494368)
 
 **Step 6** − The above equation is in the form of I1=CV2DI2. Here,
+
 ![image](https://github.com/user-attachments/assets/d5930ec4-9cf8-489c-9757-589dd369e35b)
 
 **Step 7** − Therefore, the T parameters matrix is
+
 ![image](https://github.com/user-attachments/assets/e6397ac3-e218-41b1-a4e2-bd2fbef80532)
 
 ## T parameters to h-parameters
 Here, we have to represent h-parameters in terms of T parameters. So, in this case hparameters are the desired parameters and T parameters are the given parameters.
 
 **Step 1** − We know that, the following h-parameters of a two port network.
+
 ![image](https://github.com/user-attachments/assets/a56cf6fc-ef85-4c7f-8cd9-313343091758)
 
 **Step 2** − We know that the following set of two equations of two port network regarding T parameters.
+
 ![image](https://github.com/user-attachments/assets/c3777f4d-babf-4950-b029-4944b0d5a604)
 
 **Step 3** − Substitute V2=0 in the above equations in order to find the two h-parameters, h11 and h21.
+
 ![image](https://github.com/user-attachments/assets/b8d57f71-ef03-42f9-8f38-e8ef2b2d62cd)
 
 Substitute, V1 and I1 values in h-parameter, h11.
+
 ![image](https://github.com/user-attachments/assets/6c4f3ee9-5286-4af6-af1c-262312bf29fe)
 
 Substitute I1 value in h-parameter h21.
+
 ![image](https://github.com/user-attachments/assets/a940d1f2-c7e7-47b8-95c2-16b34d469e67)
 
 **Step 4** − Substitute I1=0 in the second equation of step 2 in order to find the h-parameter h22.
+
 ![image](https://github.com/user-attachments/assets/34e0e067-239b-42fb-8dd3-1dcf4e7814d7)
 
 **Step 5** − Substitute I2=⟮CD⟯V2 in the first equation of step 2 in order to find the h-parameter, h12.
+
 ![image](https://github.com/user-attachments/assets/a340545f-a21b-4081-96cf-fc6825238e2c)
 
 **Step 6** − Therefore, the h-parameters matrix is
+
 ![image](https://github.com/user-attachments/assets/0f8ff10b-ae4f-4531-95d0-062b5f869f10)
 
 ## h-parameters to Z parameters
 Here, we have to represent Z parameters in terms of h-parameters. So, in this case Z parameters are the desired parameters and h-parameters are the given parameters.
 
 **Step 1** − We know that, the following set of two equations of two port network regarding Z parameters.
+
 ![image](https://github.com/user-attachments/assets/e4fb1019-49e9-485e-a75a-3d2a1aac3a85)
 
 **Step 2** − We know that, the following set of two equations of two-port network regarding h-parameters.
+
 ![image](https://github.com/user-attachments/assets/03178149-cc86-4cfa-b59a-331725293560)
 
 **Step 3** − We can modify the above equation as
+
 ![image](https://github.com/user-attachments/assets/f0a01b48-b7ca-4d9b-8b24-f0c8c206f349)
 
 The above equation is in the form of V2=Z21I1+Z22I2.Here,
+
 ![image](https://github.com/user-attachments/assets/bcc7e6e7-c8c1-486e-be1a-2eabdeba12b9)
 
 **Step 4** − Substitute V2 value in first equation of step 2.
+
 ![image](https://github.com/user-attachments/assets/e0ede530-2123-4d6b-9e5c-50f36913963a)
 
 The above equation is in the form of V1=Z11I1+Z12I2. Here,
+
 ![image](https://github.com/user-attachments/assets/718a3581-5a9f-47bf-ab4a-fed487a9c0c3)
 
 **Step 5** − Therefore, the Z parameters matrix is
+
 ![image](https://github.com/user-attachments/assets/d848c78e-b517-46f3-8c4e-3b8a60c67f1f)
 
 In this way, we can convert one set of parameters into other set of parameters.
-
-
-
-
-
-
-
-
-
-
