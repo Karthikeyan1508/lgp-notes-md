@@ -140,6 +140,25 @@ This type of generator used to charge a battery and provide excitation to the al
 Series-wound Generator
 Series-wound generators are used in locomotive for providing field excitation current as well as for regenerative braking. In a distribution power system, it is used as a booster.
 
+## Types of DC Machines
+
+A DC machine is a device which converts electrical energy in the form of direct current into mechanical energy or mechanical energy into electrical energy in the form of direct current. Therefore, a DC machine is basically an electromechanical energy conversion device. 
+Based on the energy conversion, DC machines can be classified into the following two types: 
+- DC Motor
+- DC Generator 
+
+### DC Motor
+A DC machine which can convert mechanical energy input into electrical energy output is known as a DC generator. Thus, in a DC generator, the mechanical energy from a source like engine, turbine, etc. is supplied to the DC machine in the form of rotational energy of the shaft and the DC electrical energy is received as output from the armature terminals.
+
+### working Principle of DC Generator
+The working principle of DC generator is based on the Faraday’s law of electromagnetic induction. According to this law, when the magnetic flux liked to a conductor or coil changes an EMF is induced in the conductor or coil. The magnitude of this induced EMF is given by,
+![image](https://github.com/user-attachments/assets/4e635bca-bea6-4ccd-86a4-4173548ce013)
+Where, ϕ is the flux linkage of the coil and N is the number of turns in the coil. 
+
+In case of a DC generator, the magnetic flux (ϕ) remains stationary and the coil rotates. The EMF induced where the coil is rotating and flux is stationary, is known as dynamically induced EMF.
+
+
+
 ## Losses in DC Machines
 In DC machines (generator or motor), the losses may be classified into three categories 
 namely, 
