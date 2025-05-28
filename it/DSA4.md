@@ -526,11 +526,163 @@ Dynamic programming has a wide range of applications, including:
 - Computer Science: Longest common subsequence, edit distance, string matching
 - Operations Research: Inventory management, scheduling, resource allocation
 
-Problems:
-[Link Text](https://leetcode.com/problems/fibonacci-number/description/?envType=problem-list-v2&envId=dynamic-programming)
-[Link Text](https://leetcode.com/problems/is-subsequence/description/?envType=problem-list-v2&envId=dynamic-programming)
-[Link Text](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1?page=1&category=Dynamic%20Programming&sortBy=submissions)
-[Link Text](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1?page=1&category=Dynamic%20Programming&sortBy=submissions)
-[Link Text](https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=dynamic-programming)
-[Link Text](https://leetcode.com/problems/maximum-subarray/description/?envType=problem-list-v2&envId=dynamic-programming)
+Problems:<br>
+[Problem 1](https://leetcode.com/problems/fibonacci-number/description/?envType=problem-list-v2&envId=dynamic-programming)<br>
+[Problem 2](https://leetcode.com/problems/is-subsequence/description/?envType=problem-list-v2&envId=dynamic-programming)<br>
+[Problem 3](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1?page=1&category=Dynamic%20Programming&sortBy=submissions)<br>
+[Problem 4](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1?page=1&category=Dynamic%20Programming&sortBy=submissions)<br>
+[Problem 5](https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=dynamic-programming)<br>
+[Problem 6](https://leetcode.com/problems/maximum-subarray/description/?envType=problem-list-v2&envId=dynamic-programming)<br>
+
+# Greedy Algorithms
+Greedy algorithms are a class of algorithms that make locally optimal choices at each step with the hope of finding a global optimum solution.
+- At every step of the algorithm, we make a choice that looks the best at the moment. To make the choice, we sometimes sort the array so that we can always get the next optimal choice quickly. We sometimes also use a priority queue to get the next optimal item.
+- After making a choice, we check for constraints (if there are any) and keep picking until we find the solution.
+- Greedy algorithms do not always give the best solution. For example, in coin change and 0/1 knapsack problems, we get the best solution using Dynamic Programming.
+- Examples of popular algorithms where Greedy gives the best solution are Fractional Knapsack, Dijkstra's algorithm, Kruskal's algorithm, Huffman coding and Prim's Algorithm
+
+Greedy is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. Greedy algorithms are used for optimization problems. 
+
+An optimization problem can be solved using Greedy if the problem has the following property: 
+- At every step, we can make a choice that looks best at the moment, and we get the optimal solution to the complete problem. 
+- Some popular Greedy Algorithms are Fractional Knapsack, Dijkstra’s algorithm, Kruskal’s algorithm, Huffman coding and Prim’s Algorithm
+- The greedy algorithms are sometimes also used to get an approximation for Hard optimization problems. For example, the Traveling Salesman Problem is an NP-Hard problem. A Greedy choice for this problem is to pick the nearest unvisited city from the current city at every step. These solutions don't always produce the best optimal solution but can be used to get an approximately optimal solution.
+
+However, it's important to note that not all problems are suitable for greedy algorithms. They work best when the problem exhibits the following properties:
+
+Greedy Choice Property: The optimal solution can be constructed by making the best local choice at each step.
+Optimal Substructure: The optimal solution to the problem contains the optimal solutions to its subproblems.
+
+### Characteristics of Greedy Algorithm
+Here are the characteristics of a greedy algorithm:
+
+Greedy algorithms are simple and easy to implement.
+They are efficient in terms of time complexity, often providing quick solutions. Greedy Algorithms are typically preferred over Dynamic Programming for the problems where both are applied. For example, Jump Game problem and Single Source Shortest Path Problem (Dijkstra is preferred over Bellman Ford where we do not have negative weights).
+These algorithms do not reconsider previous choices, as they make decisions based on current information without looking ahead.
+
+### How does the Greedy Algorithm works?
+Greedy Algorithm solve optimization problems by making the best local choice at each step in the hope of finding the global optimum. It's like taking the best option available at each moment, hoping it will lead to the best overall outcome.
+
+Here's how it works:
+
+1. Start with the initial state of the problem. This is the starting point from where you begin making choices.
+2. Evaluate all possible choices you can make from the current state. Consider all the options available at that specific moment.
+Choose the option that seems best at that moment, regardless of future consequences. This is the "greedy" part - you take the best option available now, even if it might not be the best in the long run.
+3. Move to the new state based on your chosen option. This becomes your new starting point for the next iteration.
+4. Repeat steps 2-4 until you reach the goal state or no further progress is possible. Keep making the best local choices until you reach the end of the problem or get stuck.
+
+### Example:
+Let's say you have a set of coins with values [1, 2, 5, 10] and you need to give minimum number of coin to someone change for 39.
+The greedy algorithm for making change would work as follows:
+
+Step-1: Start with the largest coin value that is less than or equal to the amount to be changed. In this case, the largest coin less than or equal to 39 is 10.
+Step- 2: Subtract the largest coin value from the amount to be changed, and add the coin to the solution. In this case, subtracting 10 from 39 gives 29, and we add one 10-coin to the solution.
+Repeat steps 1 and 2 until the amount to be changed becomes 0.
+
+Below is the illustration of above example:
+
+```
+// C++ Program to find the minimum number of coins
+// to construct a given amount using greedy approach
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int minCoins(vector<int> &coins, int amount) {
+    int n = coins.size();
+    sort(coins.begin(), coins.end());
+    int res = 0;
+  
+    // Start from the coin with highest denomination
+    for(int i = n - 1; i >= 0; i--) {
+    	if(amount >= coins[i]) {
+          
+            // Find the maximum number of ith coin 
+            // we can use
+            int cnt = (amount / coins[i]);
+          
+            // Add the count to result
+        	res += cnt;
+          
+            // Subtract the corresponding amount from
+            // the total amount
+            amount -= (cnt * coins[i]);
+        }
+      
+        // Break if there is no amount left
+        if(amount == 0)
+            break;
+    }
+    return res;
+}
+
+int main() {
+    vector<int> coins = {5, 2, 10, 1};
+    int amount = 39;
+  
+    cout << minCoins(coins, amount);
+    return 0;
+}
+```
+
+Output: 6
+
+The greedy algorithm is not always the optimal solution for every optimization problem, as shown in the example below.
+
+- When using the greedy approach to make change for the amount 20 with the coin denominations [18, 1, 10], the algorithm starts by selecting the largest coin value that is less than or equal to the target amount. In this case, the largest coin is 18, so the algorithm selects one 18 coin. After subtracting 18 from 20, the remaining amount is 2.
+- At this point, the greedy algorithm chooses the next largest coin less than or equal to 2, which is 1. It then selects two 1 coins to make up the remaining amount. So, the greedy approach results in using one 18 coin and two 1 coins.
+
+However, the greedy approach fails to find the optimal solution in this case. Although it uses three coins, a better solution would have been to use two 10 coins, resulting in a total of only two coins (10 + 10 = 20).
+
+## Greedy Algorithms General Structure
+A greedy algorithm solves problems by making the best choice at each step. Instead of looking at all possible solutions, it focuses on the option that seems best right now.
+
+![image](https://github.com/user-attachments/assets/2303df10-1743-49b1-9655-e295a04d512d)
+
+Problem structure:
+Most of the problems where greedy algorithms work follow these two properties:
+
+1). Greedy Choice Property:- This property states that choosing the best possible option at each step will lead to the best overall solution. If this is not true, a greedy approach may not work.
+
+2). Optimal Substructure:- This means that you can break the problem down into smaller parts, and solving these smaller parts by making greedy choices helps solve the overall problem.
+
+How to Identify Greedy Problems:
+There are two major ways to detect greedy problems -
+
+1). Can we break the problem into smaller parts? If so, and solving those parts helps us solve the main problem, it probably would be solved using greedy approach. For example - In activity selection problem, once we have selected a activity then remaining subproblem is to choose those activities that start after the selected activity.
+
+2). Will choosing the best option at each step lead to the best overall solution? If yes, then a greedy algorithm could be a good choice. For example - In Dijkstra’s shortest path algorithm, choosing the minimum-cost edge at each step guarantees the shortest path.
+
+### Difference between Greedy and Dynamic Programming:
+1). Greedy algorithm works when the problem has Greedy Choice Property and Optimal Substructure, Dynamic programming also works when a problem has optimal substructure but it also requires Overlapping Subproblems.
+
+2). In greedy algorithm each local decision leads to an optimal solution for the entire problem whereas in dynamic programming solution to the main problem depends on the overlapping subproblems.
+
+### Some common ways to solve Greedy Problems:
+
+### 1). Sorting
+
+- Job Sequencing:- In order to maximize profits, we prioritize jobs with higher profits. So we sort them in descending order based on profit. For each job, we try to schedule it as late as possible within its deadline to leave earlier slots open for other jobs with closer deadlines.
+
+- Activity Selection:- To maximize the number of non-overlapping activities, we prioritize activities that end earlier, which helps us to select more activities. Therefore, we sort them based on their end times in ascending order. Then, we select the first activity and continue adding subsequent activities that start after the previous one has ended.
+
+- Disjoint Intervals:- The approach for this problem is exactly similar to previous one, we sort the intervals based on their start or end times in ascending order. Then, select the first interval and continue adding next intervals that start after the previous one ends.
+
+- Fractional Knapsack:- The basic idea is to calculate the ratio profit/weight for each item and sort the item on the basis of this ratio. Then take the item with the highest ratio and add them as much as we can (can be the whole element or a fraction of it).
+
+- Kruskal Algorithm:- To find the Minimum Spanning Tree (MST), we prioritize edges with the smallest weights to minimize the overall cost. We start by sorting all the edges in ascending order based on their weights. Then, we iteratively add edges to the MST while ensuring that adding an edge does not form a cycle.
+
+### 2). Using Priority Queue or Heaps
+
+- Dijkstra Algorithm:- To find the shortest path from a source node to all other nodes in a graph, we prioritize nodes based on the smallest distance from the source node. We begin by initializing the distances and using a min-priority queue. In each iteration, we extract the node with the minimum distance from the priority queue and update the distances of its neighboring nodes. This process continues until all nodes have been processed, ensuring that we find the shortest paths efficiently.
+
+- Connect N ropes:- In this problem, the lengths of the ropes picked first are counted multiple times in the total cost. Therefore, the strategy is to connect the two smallest ropes at each step and repeat the process for the remaining ropes. To implement this, we use a min-heap to store all the ropes. In each operation, we extract the top two elements from the heap, add their lengths, and then insert the sum back into the heap. We continue this process until only one rope remains.
+
+- Huffman Encoding:- To compress data efficiently, we assign shorter codes to more frequent characters and longer codes to less frequent ones. We start by creating a min-heap that contains all characters and their frequencies. In each iteration, we extract the two nodes with the smallest frequencies, combine them into a new node, and insert this new node back into the heap. This process continues until there is only one node left in the heap.
+
+### 3). Arbitrary
+
+Minimum Number of Jumps To Reach End:- In this problem we maintain a variable to store maximum reachable position at within the current jump's range and increment the jump counter when the current jump range has been traversed. We stop this process when the maximum reachable position at any point is greater than or equal to the last index value.
 
