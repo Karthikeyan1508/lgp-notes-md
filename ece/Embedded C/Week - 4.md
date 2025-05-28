@@ -358,8 +358,121 @@ The second form is a common error (omitting the second equal sign), and usually 
 - Execute one set of statements if a condition is met and an
 alternate set if the condition is not met.
 
-
 ![image](https://github.com/user-attachments/assets/37cd15cb-e295-4c70-a4e5-3f1e545fe943)
+
+## Ambiguous ELSE association
+
+![image](https://github.com/user-attachments/assets/ea8ec402-647f-4b28-a50e-93a22baba118)
+
+## Multiple ELSE-IF structure
+
+- Multi-way decision, with expressions evaluated in a specified order
+
+![image](https://github.com/user-attachments/assets/ba747300-1c9f-45b6-842e-569c96d980b4)
+
+## SWITCH statement
+- Compact alternative to ELSE-IF structure, for multiway decision that tests one variable or expression for a number of constant values
+
+![image](https://github.com/user-attachments/assets/c16be5e9-75e9-474f-ab2f-9ae6b0520104)
+
+## WHILE loop structure
+
+- Repeat a set of statements (a “loop”) as long as some condition is met
+
+![image](https://github.com/user-attachments/assets/470411c5-963d-480a-856f-f5da86e193e1)
+
+## DO-WHILE loop structure
+- Repeat a set of statements (one “loop”) until some condition is met
+
+![image](https://github.com/user-attachments/assets/13f4ce15-d040-4421-88e1-cb645d0fce0a)
+
+## DO-WHILE example
+
+![image](https://github.com/user-attachments/assets/1fd81415-6924-47c0-b7e2-19a88ee1472f)
+
+## WHILE examples
+
+![image](https://github.com/user-attachments/assets/685770f9-a4d4-452b-814f-5eb84ca143b7)
+
+## WHILE example
+
+![image](https://github.com/user-attachments/assets/98c37f00-d88b-412b-acda-046481e2ce73)
+
+## FOR loop structure
+
+- Repeat a set of statements (one “loop”) while some condition is met 
+  - often a given # of iterations
+
+![image](https://github.com/user-attachments/assets/a02e85f9-d700-4a62-a7b4-e20a61a67caf)
+
+## FOR loop structure
+
+- FOR loop is a more compact form of the WHILE loop structure
+
+![image](https://github.com/user-attachments/assets/e9f9c872-343a-4e7f-bc83-6ba8d98130a8)
+
+## FOR structure example
+
+![image](https://github.com/user-attachments/assets/e919a54f-63e3-45cd-a577-898807506337)
+
+## FOR structure example
+
+![image](https://github.com/user-attachments/assets/0988eec8-c95c-4fc8-ac28-7377b855fccc)
+
+## C functions
+
+- Functions partition large programs into a set of smaller tasks
+  - Helps manage program complexity
+  - Smaller tasks are easier to design and debug
+  - Functions can often be reused instead of starting over
+  - Can use of “libraries” of functions developed by 3rd parties, instead of designing your own
+ 
+- A function is “called” by another program to perform a task
+  - The function may return a result to the caller
+  - One or more arguments may be passed to the function/procedure
+
+## Function definition
+
+![image](https://github.com/user-attachments/assets/597bffbc-9cdd-4dd1-8cb4-7873c7fe828c)
+
+## Function arguments
+
+- Calling program can pass information to a function in two ways
+  - **By value:** pass a constant or a variable value
+      - function can use, but not modify the value
+   
+  - **By reference:** pass the address of the variable
+      - function can both read and update the variable
+   
+  - Values/addresses are typically passed to the function by pushing them onto the system stack
+  - Function retrieves the information from the stack
+
+## Example – pass by value
+
+![image](https://github.com/user-attachments/assets/420d3a22-5605-4141-9311-896374799251)
+
+## Example – pass by reference
+
+![image](https://github.com/user-attachments/assets/e094ade0-5c6a-4345-b823-9383b98d0a8b)
+
+## Example – receive serial data bytes
+
+![image](https://github.com/user-attachments/assets/1350f35f-dc5f-4eda-af39-bd4032630c16)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
