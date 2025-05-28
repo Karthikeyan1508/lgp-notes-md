@@ -154,7 +154,7 @@ Follow these steps, while converting one set of two port network parameters into
 ## Z parameters to Y parameters
 Here, we have to represent Y parameters in terms of Z parameters. So, in this case Y parameters are the desired parameters and Z parameters are the given parameters.
 
-**Step 1** − We know that the following set of two equations, which represents a two port network in terms of Y parameters.
+- **Step 1** − We know that the following set of two equations, which represents a two port network in terms of Y parameters.
 
 ![image](https://github.com/user-attachments/assets/a6f6cf29-db69-4606-936e-6d5e7e1e3d8e)
 
@@ -162,7 +162,7 @@ We can represent the above two equations in matrix form as
 
 ![image](https://github.com/user-attachments/assets/06e0c08e-75f9-4575-b231-54cd1917dfc6)
 
-**Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
+- **Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
 
 ![image](https://github.com/user-attachments/assets/5de284ee-18b6-47fb-9e9d-b8d430e8213f)
 
@@ -170,11 +170,11 @@ We can represent the above two equations in matrix form as
 
 ![image](https://github.com/user-attachments/assets/6e7899ec-5547-489e-9f62-ce72c58eb976)
 
-**Step 3** − We can modify it as
+- **Step 3** − We can modify it as
 
 ![image](https://github.com/user-attachments/assets/64a6345e-a638-40cd-9e16-ce447d000440)
 
-**Step 4** − By equating Equation 1 and Equation 2, we will get
+- **Step 4** − By equating Equation 1 and Equation 2, we will get
 
 ![image](https://github.com/user-attachments/assets/970bb8d7-158f-4f31-88ab-5c85845ec9f7)
 
@@ -183,50 +183,50 @@ So, just by doing the inverse of Z parameters matrix, we will get Y parameters m
 ## Z parameters to T parameters
 Here, we have to represent T parameters in terms of Z parameters. So, in this case T parameters are the desired parameters and Z parameters are the given parameters.
 
-**Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
+- **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
 
 ![image](https://github.com/user-attachments/assets/41a665c8-80a9-4f34-9866-35cf63021327)
 
-**Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
+- **Step 2** − We know that the following set of two equations, which represents a two port network in terms of Z parameters.
 
 ![image](https://github.com/user-attachments/assets/79a2fd0a-5bd7-4f2b-b4ee-4a00adb082a3)
 
-**Step 3** − We can modify the above equation as
+- **Step 3** − We can modify the above equation as
 
 ![image](https://github.com/user-attachments/assets/37022f55-69a2-41cc-9fff-32c64e338002)
 
-**Step 4** − The above equation is in the form of I1=CV2DI2. Here,
+- **Step 4** − The above equation is in the form of I1=CV2DI2. Here,
 
 ![image](https://github.com/user-attachments/assets/129ff249-b641-48de-bb1e-56e9c87efbab)
 
-**Step 5** − Substitute I1 value of Step 3 in V1 equation of Step 2.
+- **Step 5** − Substitute I1 value of Step 3 in V1 equation of Step 2.
 
 ![image](https://github.com/user-attachments/assets/9f54ed4d-14df-42f1-a0ae-5e40d091a483)
 
-**Step 6** − The above equation is in the form of V1=AV2BI2. Here,
+- **Step 6** − The above equation is in the form of V1=AV2BI2. Here,
 
 ![image](https://github.com/user-attachments/assets/5903e459-ef9b-4c56-b1c9-700da0afe918)
 
-**Step 7** − Therefore, the T parameters matrix is
+- **Step 7** − Therefore, the T parameters matrix is
 
 ![image](https://github.com/user-attachments/assets/cdcd0a0a-8424-4150-ac48-a4b97c1f5ccd)
 
 ## Y parameters to Z parameters
 Here, we have to represent Z parameters in terms of Y parameters. So, in this case Z parameters are the desired parameters and Y parameters are the given parameters.
 
-**Step 1** − We know that, the following matrix equation of two port network regarding Z parameters as
+- **Step 1** − We know that, the following matrix equation of two port network regarding Z parameters as
 
 ![image](https://github.com/user-attachments/assets/814a4150-040f-4105-8c9c-faae67963940)
 
-**Step 2** − We know that, the following matrix equation of two port network regarding Y parameters as
+- **Step 2** − We know that, the following matrix equation of two port network regarding Y parameters as
 
 ![image](https://github.com/user-attachments/assets/ac35a819-32fd-4666-8dee-19de16631f86)
 
-**Step 3** − We can modify it as
+- **Step 3** − We can modify it as
 
 ![image](https://github.com/user-attachments/assets/0f4cc78a-974b-4d90-a1e5-bf8022794900)
 
-**Step 4** − By equating Equation 3 and Equation 4, we will get
+- **Step 4** − By equating Equation 3 and Equation 4, we will get
 
 ![image](https://github.com/user-attachments/assets/7bf59d14-4f0e-4b26-bd2f-1dfe8ea46f00)
 
@@ -235,46 +235,46 @@ So, just by doing the inverse of Y parameters matrix, we will get the Z paramete
 ## Y parameters to T parameters
 Here, we have to represent T parameters in terms of Y parameters. So, in this case, T parameters are the desired parameters and Y parameters are the given parameters.
 
-**Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
+- **Step 1** − We know that, the following set of two equations, which represents a two port network in terms of T parameters.
 
 ![image](https://github.com/user-attachments/assets/8e2af05c-b7dd-447a-a17c-ff1773504df3)
 
-**Step 2** − We know that the following set of two equations of two port network regarding Y parameters.
+- **Step 2** − We know that the following set of two equations of two port network regarding Y parameters.
 
 ![image](https://github.com/user-attachments/assets/d88b7a90-8b9c-48a3-9770-db7c9cfd3053)
 
-**Step 3** − We can modify the above equation as
+- **Step 3** − We can modify the above equation as
 
 ![image](https://github.com/user-attachments/assets/fb21bd0b-f0b6-47ae-b606-ccabcd935c0e)
 
-**Step 4** − The above equation is in the form of V1=AV2BI2. Here,
+- **Step 4** − The above equation is in the form of V1=AV2BI2. Here,
 
 ![image](https://github.com/user-attachments/assets/ea38e4e0-bb85-4038-bf61-3e87c8ee2816)
 
-**Step 5** − Substitute V1 value of Step 3 in I1 equation of Step 2.
+- **Step 5** − Substitute V1 value of Step 3 in I1 equation of Step 2.
 
 ![image](https://github.com/user-attachments/assets/d6eb7293-7a3f-464e-a3f5-10e607494368)
 
-**Step 6** − The above equation is in the form of I1=CV2DI2. Here,
+- **Step 6** − The above equation is in the form of I1=CV2DI2. Here,
 
 ![image](https://github.com/user-attachments/assets/d5930ec4-9cf8-489c-9757-589dd369e35b)
 
-**Step 7** − Therefore, the T parameters matrix is
+- **Step 7** − Therefore, the T parameters matrix is
 
 ![image](https://github.com/user-attachments/assets/e6397ac3-e218-41b1-a4e2-bd2fbef80532)
 
 ## T parameters to h-parameters
 Here, we have to represent h-parameters in terms of T parameters. So, in this case hparameters are the desired parameters and T parameters are the given parameters.
 
-**Step 1** − We know that, the following h-parameters of a two port network.
+- **Step 1** − We know that, the following h-parameters of a two port network.
 
 ![image](https://github.com/user-attachments/assets/a56cf6fc-ef85-4c7f-8cd9-313343091758)
 
-**Step 2** − We know that the following set of two equations of two port network regarding T parameters.
+- **Step 2** − We know that the following set of two equations of two port network regarding T parameters.
 
 ![image](https://github.com/user-attachments/assets/c3777f4d-babf-4950-b029-4944b0d5a604)
 
-**Step 3** − Substitute V2=0 in the above equations in order to find the two h-parameters, h11 and h21.
+- **Step 3** − Substitute V2=0 in the above equations in order to find the two h-parameters, h11 and h21.
 
 ![image](https://github.com/user-attachments/assets/b8d57f71-ef03-42f9-8f38-e8ef2b2d62cd)
 
@@ -286,15 +286,15 @@ Substitute I1 value in h-parameter h21.
 
 ![image](https://github.com/user-attachments/assets/a940d1f2-c7e7-47b8-95c2-16b34d469e67)
 
-**Step 4** − Substitute I1=0 in the second equation of step 2 in order to find the h-parameter h22.
+- **Step 4** − Substitute I1=0 in the second equation of step 2 in order to find the h-parameter h22.
 
 ![image](https://github.com/user-attachments/assets/34e0e067-239b-42fb-8dd3-1dcf4e7814d7)
 
-**Step 5** − Substitute I2=⟮CD⟯V2 in the first equation of step 2 in order to find the h-parameter, h12.
+- **Step 5** − Substitute I2=⟮CD⟯V2 in the first equation of step 2 in order to find the h-parameter, h12.
 
 ![image](https://github.com/user-attachments/assets/a340545f-a21b-4081-96cf-fc6825238e2c)
 
-**Step 6** − Therefore, the h-parameters matrix is
+- **Step 6** − Therefore, the h-parameters matrix is
 
 ![image](https://github.com/user-attachments/assets/0f8ff10b-ae4f-4531-95d0-062b5f869f10)
 
