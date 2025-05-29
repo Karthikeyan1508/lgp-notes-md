@@ -180,6 +180,11 @@ Let,
 ![image](https://github.com/user-attachments/assets/fa3539d5-2be8-426c-acc9-955299d8a423)
 ![image](https://github.com/user-attachments/assets/413cfa73-ebd6-479a-9762-d5de0bbbe270)
 
+### Back EMF
+In a DC motor, when the armature rotates under the influence of the driving torque, the armature conductors move through the magnetic field, and therefore an EMF is induced in them by the generator action. This induced EMF in the armature conductors acts in opposite direction to the applied voltage 𝑉𝑠 and is known as the back EMF or counter EMF.  
+
+### Significance of Back EMF
+The back EMF in a DC motor makes it a self-regulating machine, which means it makes the motor to draw a sufficient amount of armature current to develop the torque required by the mechanical load.
 
 ## Losses in DC Machines
 In DC machines (generator or motor), the losses may be classified into three categories 
@@ -356,3 +361,110 @@ following two basic types:
 - Squirrel-Cage Induction Motor 
 - Slip-Ring Induction Motor
 
+### Advantages of Three-Phase Induction Motors
+- The design and construction of three-phase induction motors are quite simple. 
+- They have robust construction. 
+- Three-phase induction motors require less maintenance. 
+- Three-phase induction motors have self-starting property. 
+- These motors have reasonably good power factor. 
+- Three-phase induction motors are more economical. 
+- They have high efficiency.
+
+### Applications of Three-Phase Induction Motors 
+- The squirrel-cage type three-phase induction motors are suitable for driving blowers, fans, machine tools, centrifugal pumps, etc. 
+- Three-phase induction motors are also used for driving different industrial load like compressors, crushers, conveyors, reciprocating pumps, etc.
+- The slip-ring induction motors are best suited for driving loads that require high starting toque like crushers, plungers, cranes, elevators, hoists, conveyors, etc.
+
+Based on the construction, the rotor of a three-phase induction motor can be of the following two types: 
+- Squirrel-cage rotor 
+- Wound rotor 
+
+### Squirrel Cage Rotor 
+The squirrel-cage rotor consists of a laminated cylindrical core having parallel slots on its outer periphery. In case of squirrel-cage rotor, the rotor winding is made up of metal (copper or aluminium) bars. These metal bars are placed in the rotor slots and are short-circuited at each end by metal rings called end-rings.
+The three-phase induction motors that employ squirrel-cage rotor are known as squirrel-cage induction motors. Almost 70% to 80% three-induction motors used in industrial applications are squirrel-cage induction motors because of their simple and robust construction which enable them to operate in most adverse circumstances. Although, the induction motors that use squirrel-cage rotor have a low starting torque. 
+
+### Wound Rotor 
+The wound rotor consists of a laminated cylindrical core made up of silicon steel. It carries a 3-phase rotor winding similar to the stator winding.
+The rotor winding of the wound rotor is uniformly distributed in the slots and is connected in star fashion. The open ends of the star-connected rotor winding are brought out and connected to three slip rings mounted in the rotor shaft. A carbon brush is resting on each slip ring, and through these brushes, external resistances can be added to the rotor circuit.  At starting, suitable values of external resistances are added into phases of the rotor winding to obtain a high starting torque. These external resistances are gradually removed from the circuit as the motor runs up to speed. The use of external resistances considerably reduces the starting current and increases the starting torque of the motor. Once the motor attains normal speed, the three carbon brushes are short-circuited so that the wound motor runs like a squirrel cage induction motor.
+
+### Concept of Slip in Induction Motor 
+In a three-phase induction motor, the rotor can never reach the speed of stator’s rotating magnetic field (called synchronous speed). If it did, there would be no relative motion between the rotating magnetic field and rotor conductors, no induced EMF in the rotor conductors, and hence no torque to rotate the rotor. Therefore, in practice, the speed of rotor of an induction motor is always less than the synchronous speed. This difference is known as slip speed, i.e., 
+Slip speed = 𝑁𝑠 −𝑁𝑟 
+Where, 𝑁𝑠 is the synchronous speed and 𝑁𝑟 is the rotor speed. 
+![image](https://github.com/user-attachments/assets/a7d669d8-12e4-4444-9666-6e727920d1fc)
+
+### Speed Regulation of Induction Motors 
+The speed regulation of induction motor is defined as the change in the motor speed with 
+change in load. It is expressed as a fraction or percentage of full-load speed, i.e., 
+![image](https://github.com/user-attachments/assets/04a13444-1acc-4430-a7ae-6f294c33a933)
+
+Where, 𝑁𝑛𝑙 is the no-load speed of the motor and 𝑁𝑓𝑙 is the full-load speed of the motor. The speed regulation of an induction motor is about 3% to 5%. Due to this small speed regulation, the induction motors are classified as the constant speed motors. 
+
+### Speed Control of Three-Phase Induction Motors
+![image](https://github.com/user-attachments/assets/4eada1c6-e199-4494-8915-ebe6ca58ebf5)
+
+### Speed Control of Squirrel-Cage Induction Motors 
+The speed control of squirrel-cage induction motors is changed by changing the number of stator poles. By the pole changing method, there are only two or four speeds are possible. In a two-speed induction motor, one stator winding is provided, which may be switched through a suitable control equipment to provide the two speeds. Where, one speed is half of the other. For example, the stator winding may be connected for either 4 or 8 stator poles, giving synchronous speeds of 1500 RPM and 750 RPM, when the motor is supplied 
+from a source of 50 Hz AC supply. 
+In a four speed induction motor, two separate stator windings are provided each of which 
+provides two speeds. 
+Following are the major disadvantages of pole changing method of speed control: 
+- This method cannot be used to obtain gradual continuous speed control. 
+- It makes the motor design and switching of the interconnection of stator windings more complicated. 
+- This method can provide a maximum of four different speeds for any one motor due to design and interconnection complications.
+
+### Speed Control of Slip-Ring Induction Motors
+The speed of a slip-ring induction motor can be varied by changing the motor slip. The following methods are employed for changing the slip and hence the speed- 
+- By the changing the stator line voltage. 
+- By changing the resistance of the rotor circuit. 
+- By adding and changing a foreign voltage in the rotor circuit.
+
+An electromechanical energy conversion device (or electrical machine) which operates on synchronous speed (i.e. speed of rotating magnetic field) is termed as a synchronous machine. A synchronous machine an AC machine, i.e., it requires AC supply to work. 
+Based on the energy conversion, synchronous machines may be classified into two types: 
+- Synchronous Generator 
+- Synchronous Motor 
+The synchronous machines are the most extensively used electrical machines in power system applications like power generator, power factor correction, driving constant speed mechanical load, etc. The synchronous machine which converts mechanical energy into alternating current electricity is called a synchronous generator or alternator. While the synchronous machine which converts alternating current electricity into mechanical energy is called a synchronous motor. 
+The synchronous machines, used in most practical applications, are three-phase AC machines. However, there are single-phase synchronous machines also exist but they are used in special applications. A synchronous machine (generator or motor) always operate at a constant speed called synchronous speed. The synchronous speed is given by the following relation,
+![image](https://github.com/user-attachments/assets/68025f73-73b2-4de4-98a6-9ca725905040)
+
+### Working Principle of Synchronous Machine 
+The working principle of a synchronous machine is based on the law of electromagnetic interaction and law of magnetic interlocking. According to the law of electromagnetic interaction, when there is a relative motion between a conductor and a magnetic field, an EMF is induced in the conductor. On the other hand, when a current carrying conductor is placed in a magnetic field, a force acts on the conductor that tends to move it. According to the law of magnetic interlocking, two different magnetic fields (field of stator and field of rotor) are locked together and rotate at the same speed. This phenomenon is called magnetic interlocking. These two principles explain the working of a synchronous machine. The synchronous machine is first started by the electromagnetic interaction, and then the magnetic fields of rotor and stator are locked together to rotate at the synchronous speed. 
+
+### Three-Phase Synchronous Generator 
+
+A synchronous machine that converts mechanical energy into 3-phase electrical energy through the process of electromagnetic induction is known as a 3-phase synchronous generator or alternator. A 3-phase alternator consists of an armature winding and a field winding, where the EMF is induced in the armature winding, while field winding produces the working magnetic field. In case of a 3-phase alternator, the armature winding is provided on the stator part of the machine while the field winding is provided on the rotor. The major advantage of stationary armature winding is that there is no need of commutator as required in the DC generators. The 3-phase synchronous generators are most widely used for generation of electric power in power generating plants. 
+
+### Features of Synchronous Machines 
+The following are the key features of synchronous machines (motor or generator): 
+- Synchronous motors do not self-starting torque. 
+- Synchronous machine is a doubly-excited machine because it requires two input supplies – one on the stator and the other on the rotor. 
+- Synchronous machines operate at constant speed, called synchronous speed. 
+- Synchronous generators can produce a voltage of constant magnitude and frequency. 
+- A synchronous machine can be operated at lagging, leading or unity power factor just by changing the excitation. 
+- Synchronous motors have relatively high starting torque as compared to induction motors. 
+- Synchronous motors are suitable for driving constant and slow speed (usually less than 300 RPM) loads. 
+- Synchronous machines are expensive.
+
+### Working of 3-phase Alternator
+A 3-phase alternator is a synchronous machine that converts mechanical energy into 3-phase electrical energy through the process of electromagnetic induction. As we discussed in previous chapters, a 3-phase alternator, also called a 3-phase synchronous generator, has a stationary armature and a rotating magnetic field. In the three-phase alternator, the rotor winding (serves as field winding) is energized from a DC supply and alternate north and south poles are developed on the rotor. 
+
+### EMF Equation of Three-Phase Alternator 
+![image](https://github.com/user-attachments/assets/b691d5ff-d9e0-4ec3-9288-669e2aa46d50)
+![image](https://github.com/user-attachments/assets/43abef23-a113-403f-8e35-c7ca1acf0f5d)
+
+### Armature Reaction in an Alternator 
+When a three-phase alternator is operating at no-load, there will be no current flowing through its armature winding. Hence, the magnetic flux produced in the air-gap will be due to rotor field poles only. But, when the alternator is loaded, the three-phase currents flowing through the armature winding will produce a rotating magnetic field in the air-gap. As a result, the resultant magnetic flux in the air-gap is changed. This effect is known as armature reaction, and may be defined as under- The current flowing through the armature winding of a three-phase alternator, the resulting magnetomotive force (MMF) produces a magnetic flux. This armature flux interacts with the main pole flux, and causing the resultant magnetic flux to become either less or more than the original main pole flux. This effect of armature flux on the main pole flux is called armature reaction. In a three-phase alternator, the effect of armature reaction depends upon the magnitude of the armature current and power factor of the load. Which means the power factor of the load determines whether the armature reaction flux distorts, opposes or assists the main field flux. The following discussion explains the nature of armature reaction in synchronous machines for different power factors:
+- Unity Power Factor – When the alternator supplies a load at unity power factor, i.e. purely resistive load, the effect of armature reaction is to distort the main field flux. This is called cross-magnetizing effect of armature reaction. 
+- Lagging Power Factor – When the alternator supplies a load at lagging power factor, i.e. purely inductive load, the effect of armature reaction is partly demagnetizing and partly cross-magnetizing. This causes a reduction in generated voltage. 
+- Leading Power Factor – When the alternator supplies a load at leading power factor, i.e. purely capacitive load, the effect of the armature reaction is partly magnetizing and partly cross-magnetizing. This causes an increase in generated voltage.
+
+### Losses in Three-Phase Alternator 
+The losses that occur in a three-phase alternator may be divided into the following four categories: 
+- Copper losses 
+- Iron or core losses 
+- Mechanical losses 
+- Stray load losses
+
+### Efficiency of Three-Phase Alternator
+![image](https://github.com/user-attachments/assets/3ab015fb-bb53-421f-ba62-7f142ac9eea0)
+![image](https://github.com/user-attachments/assets/b8841e0d-d35d-48f1-aedc-829a3653797f)
