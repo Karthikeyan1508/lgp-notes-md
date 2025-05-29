@@ -235,23 +235,111 @@ The main functionality of the perceptron is:-
 
 ![image](https://github.com/user-attachments/assets/ab7593f0-528d-43a7-8fa9-0a940fd36ca0)
 
+## Implementation of Single-layer Perceptron
+Let’s build a simple single-layer perceptron to recognize handwritten digits from the MNIST dataset using TensorFlow. This model will help you understand how neural networks work at the most basic level.
 
 ## Types of Neural Networks:
 
 ![image](https://github.com/user-attachments/assets/6478c71a-4eb2-4c1d-a426-a46a0862a351)
 
+### Convolutional Neural Network (CNN)
+Convolutional Neural Networks (CNNs) are deep learning models designed to process data with a grid-like topology such as images. They are the foundation for most modern computer vision applications to detect features within visual data.
+
+**Key Characteristics of CNN**
+-> Local receptive fields: CNNs employ small, machine-learning filters that move across the input image, focusing on specific regions to detect local features such as edges, textures, and patterns.
+-> Weight sharing: The same filter is applied to various regions of the input image, decreasing the number of parameters and computational complexity while allowing the network to recognize objects regardless of position.
+-> Pooling: Pooling layers minimize the spatial dimensions of feature maps, making the network more efficient and adaptable to changes. Max pooling, for example, takes the highest value from each patch, aggregating feature presence while decreasing parameters.
+
+CNNs' structure, which combines local receptive fields, weight sharing, and pooling, makes them extremely efficient and reliable for image processing tasks. This enables CNNs to perform tasks such as image classification, object detection, and segmentation, making them indispensable in computer vision.
+
+### Layers in CNN
+The convolutional layer is the primary component of a CNN. It works as a convolution operation by sliding a filter (which is also referred to as a kernel) across the input image and calculating the dot product of the filter and the input's receptive field. This operation aids in detecting local characteristics such as edges, textures, and trends. The layers in CNN are:
+
+**Convolutional Layers:** Apply filters to the input image to extract local features such as edges and textures.
+**Pooling Layers:** Reduce the spatial dimensions of feature maps, decreasing the computational load and enhancing feature robustness.
+**Fully Connected layers:** Connect every neuron in one layer to every neuron in the next, integrating extracted features for final predictions.
+**Dropout:** Randomly sets a fraction of neurons to zero during training to prevent overfitting and improve model generalization.
+**Activation Functions:** Introduce non-linearity into the network, enabling the learning of complex patterns; common examples include ReLU and Sigmoid.
+
+### Convolutional Operations and Working
+The convolution operation entails sliding a filter across the input image and calculating the dot product between the filter and the local region of interest. This operation generates a feature map that highlights the detected features.
+![image](https://github.com/user-attachments/assets/f6c11c5a-49d1-46a4-9203-b1dc2bc6e966)
+
+Where I is the input image, K Is the kernel, and (I,j) are the coordinates of the output feature maps.
+
+**Example of a Convolution Operation**
+Consider a 3x3 filter used on a 5x5 input image. The filter moves across the image, computing the dot product at each position, yielding a smaller feature map.
+Pooling Operation
+Pooling reduces the spatial dimensions of the feature map by aggregating the presence of features in different patches of the map.
+
+### Workflow of CNN
+Convolutional Neural Networks (CNNs) are designed to process and analyze visual data by learning spatial feature hierarchies automatically and adaptively. Here's a thorough explanation of how CNNs operate:
+
+![image](https://github.com/user-attachments/assets/90ece1ba-2b81-4d7c-a145-77299fa9a19c)
 
 
+**1. Input Layer**
+The input layer of a CNN receives the image's raw pixel values. A color image typically has three channels (RGB), whereas a grayscale image only has one. For example, a color image measuring 32x32 pixels would have an input dimension of 32x32x3.
+
+**2. Convolutional Layers**
+The main operation in convolutional layers is convolution, which involves applying filters (kernels) to the input data. A filter is a small matrix (e.g., 3x3) that moves across an input image and performs element-wise multiplication and summation to yield a single output value. Convolution is the process that produces a feature map or an activation map.
+
+For example, if a 3x3 filter is applied to a 5x5 input image, the filter slides over it, calculating the dot product between the filter and the input. The output feature map captures specific features such as edges, corners, or textures, depending on the filter's learned values.
+
+**3. Stride and Padding**
+Stride: The stride determines how the filter traverses the input image. A stride of 1 indicates that the filter moves one pixel at a time, whereas a stride of 2 moves two pixels at a time. Higher strides produce smaller output feature maps.
+Padding: Padding is used to control the spatial dimensions of the final feature map. "Same" padding adds zeros around the input's border, resulting in an output feature map with the same dimensions as the input. "Valid" padding does not include any padding, resulting in a smaller output feature map.
+
+**4. ReLU(Rectified Linear Unit)**
+The ReLU activation function is widely used in CNNs due to its simplicity and effectiveness. It is defined as:
+ReLU(x)=max(0,x)
+This means that if the input value is positive, ReLU outputs it directly; otherwise, it returns zero. ReLU helps to mitigate the vanishing gradient problem, allowing for faster and more effective deep network training by keeping the gradient flow active and non-zero for positive inputs.
+
+**5.Pooling Layers**
+Pooling layers are used to reduce the spatial dimensions of feature maps, lowering the computational load and the network's parameter count. Pooling is typically used after the convolution and activation layers. Max pooling is the process of extracting the maximum value from each receptive field (for example, 2x2) of the feature map. Average pooling computes the average value for each receptive field.
+
+**6. Stacking Layers**
+CNNs are made up of stacked convolutional and pooling layers. Early layers detect basic features such as edges and textures, while later layers detect more complex structures and objects. This hierarchical feature extraction is critical to the success of CNNs in visual recognition.
+
+**7. Fully Connected Layers**
+Following several convolutional and pooling layers, the network's high-level reasoning is carried out via fully connected layers (dense layers). Each neuron in these layers is connected to every neuron in the layer before it. The features extracted by the convolutional layers are combined in the fully connected layers to make final predictions.
+
+**8. Dropout**
+Dropout layers are commonly used in CNNs to prevent overfitting. During training, dropout randomly assigns a fraction of input units to zero at each update cycle. This helps to make the model more generalizable by preventing it from relying too heavily on individual neurons.
+
+## Recurrent Neural Networks (RNNs)
+
+A recurrent neural network or RNN is a deep neural network trained on sequential or time series data to create a machine learning (ML) model that can make sequential predictions or conclusions based on sequential inputs.
+
+![image](https://github.com/user-attachments/assets/ec12c405-dade-4b85-be19-4daad4824bbe)
 
 
+The Recurrent Neural Network consists of multiple fixed activation function units, one for each time step. Each unit has an internal state which is called the hidden state of the unit. This hidden state signifies the past knowledge that the network currently holds at a given time step. This hidden state is updated at every time step to signify the change in the knowledge of the network about the past. The hidden state is updated using the following recurrence relation:- 
+
+![image](https://github.com/user-attachments/assets/7b2f6972-c7ca-495d-85f5-1ddc4337f982)
+
+![image](https://github.com/user-attachments/assets/b1b06ee4-b1b5-4064-a8b7-05930aa9020f)
+
+At each time step, the new hidden state is calculated using the recurrence relation as given above. This new generated hidden state is used to generate indeed a new hidden state and so on. 
+
+The basic work-flow of a Recurrent Neural Network is as follows:- 
+
+![image](https://github.com/user-attachments/assets/3c1ddfde-03d6-4d36-a373-6cac42c74030)
+
+Note that h0 is the initial hidden state of the network. Typically, it is a vector of zeros, but it can have other values also. One method is to encode the presumptions about the data into the initial hidden state of the network. For example, for a problem to determine the tone of a speech given by a renowned person, the person's past speeches' tones may be encoded into the initial hidden state. Another technique is to make the initial hidden state a trainable parameter. Although these techniques add little nuances to the network, initializing the hidden state vector to zeros is typically an effective choice. 
+
+**Working of each Recurrent Unit:**
+
+Take input the previously hidden state vector and the current input vector. 
+Note that since the hidden state and current input are treated as vectors, each element in the vector is placed in a different dimension which is orthogonal to the other dimensions. Thus each element when multiplied by another element only gives a non-zero value when the elements involved are non-zero and the elements are in the same dimension.
+Element-wise multiplies the hidden state vector by the hidden state weights and similarly performs the element-wise multiplication of the current input vector and the current input weights. This generates the parameterized hidden state vector and the current input vector. 
+Note that weights for different vectors are stored in the trainable weight matrix.
+Perform the vector addition of the two parameterized vectors and then calculate the element-wise hyperbolic tangent to generate the new hidden state vector.
 
 
+During the training of the recurrent network, the network also generates an output at each time step. This output is used to train the network using gradient descent. 
 
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/44426e1d-5865-477a-952a-3af157cf57c8)
 
 
 
