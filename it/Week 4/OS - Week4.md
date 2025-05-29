@@ -211,6 +211,177 @@ The Therac-25 radiation therapy machine had a race condition in its software. A 
 - Returning local variables from threads.
 - Calling non-thread-safe functions concurrently.
 
+# **Synchronization in Concurrent Systems: Mutex, Monitor, and Semaphore**
+
+When multiple threads or processes try to access shared resources simultaneously, there is a risk of inconsistent or incorrect results due to **race conditions**. To avoid such issues, synchronization mechanisms like **mutex**, **monitor**, and **semaphore** are used. Each serves a unique purpose in ensuring safe, predictable access to shared resources.
+
+## **1. Mutex (Mutual Exclusion Object)**
+
+### **Definition:**
+
+A **mutex** ensures that **only one thread at a time** can enter a critical section, which is a block of code that accesses a shared resource. It is the simplest and most direct synchronization tool.
+
+### **Purpose:**
+
+* Prevents multiple threads from modifying or reading a resource simultaneously.
+* Maintains data consistency and avoids race conditions.
+
+### **Working Principle:**
+
+* A mutex has two states: **locked** or **unlocked**.
+* When a thread wants to access a shared resource:
+
+  * It must **acquire (lock)** the mutex.
+  * If the mutex is already locked, the thread must **wait** until it becomes available.
+  * After finishing its task, the thread must **release (unlock)** the mutex, allowing others to proceed.
+
+### **Real-World Analogy:**
+
+Imagine a **public restroom** with a single stall. A person goes in and locks the door. Others must wait outside until the person finishes and unlocks the door. Only one person can use the stall at a time.
+
+### **Generic Pseudocode:**
+
+```plaintext
+mutex lock
+
+function useSharedResource() {
+    acquire(lock)
+        // critical section: access shared resource
+    release(lock)
+}
+```
+
+### **Key Characteristics:**
+
+* Simple and effective for **mutual exclusion**.
+* Does **not support waiting conditions** or **signaling** between threads.
+
+## **2. Monitor**
+
+### **Definition:**
+
+A **monitor** is a synchronization construct that combines:
+
+* **Mutual exclusion** (like a mutex)
+* **Condition variables** to manage waiting and signaling behavior
+
+It allows **only one thread** to execute inside the monitor at a time and provides built-in mechanisms to manage threads that must **wait for certain conditions** to be true before proceeding.
+
+### **Purpose:**
+
+* Coordinates access to shared resources.
+* Allows threads to wait and be notified when conditions change.
+
+### **Working Principle:**
+
+* When a thread enters a monitor, it automatically acquires the lock.
+* If the desired condition is **not met**, it can **wait** inside the monitor.
+* Other threads can **signal or notify** waiting threads once the condition is satisfied.
+
+### **Real-World Analogy:**
+
+Imagine a **doctor’s office**:
+
+* Only one patient (thread) can see the doctor (critical section) at a time.
+* Other patients wait in the lounge (waiting queue) until the doctor is free or calls them.
+* The nurse (signaling mechanism) tells the next patient to go in.
+
+### **Generic Pseudocode:**
+
+```plaintext
+monitor SharedResource {
+    condition canProceed
+
+    function access() {
+        if (condition not met) {
+            wait(canProceed)
+        }
+        // perform actions
+        signal(canProceed)
+    }
+}
+```
+
+### **Key Characteristics:**
+
+* Handles **both mutual exclusion and conditional synchronization**.
+* Provides **wait()** and **signal()** for communication between threads.
+* Suitable for problems like **producer-consumer**, **readers-writers**, and **bounded buffers**.
+
+## **3. Semaphore**
+
+### **Definition:**
+
+A **semaphore** is a more generalized synchronization mechanism that uses an **internal counter** to control how many threads can access a resource simultaneously.
+
+### **Types of Semaphore:**
+
+1. **Binary Semaphore** – Value is either 0 or 1 (similar to a mutex).
+2. **Counting Semaphore** – Value can be any non-negative integer, allowing multiple concurrent accesses.
+
+### **Purpose:**
+
+* Controls access to resources with **limited availability**.
+* Allows **more than one** thread to access the resource concurrently (based on the counter).
+
+### **Working Principle:**
+
+* A semaphore maintains a **count** of available "permits".
+* When a thread calls `acquire`:
+
+  * If the count is **> 0**, it proceeds and decreases the count.
+  * If the count is **0**, it waits.
+* When a thread finishes and calls `release`:
+
+  * The count increases.
+  * Waiting threads may be allowed to proceed.
+
+### **Real-World Analogy:**
+
+Consider a **parking lot** with 5 spaces:
+
+* Each space is a permit.
+* Cars (threads) can enter only if a space is available.
+* If all are full, cars must wait until someone leaves.
+
+### **Generic Pseudocode:**
+
+```plaintext
+semaphore slots = 5
+
+function useResource() {
+    acquire(slots)
+        // use one unit of the resource
+    release(slots)
+}
+```
+
+### **Key Characteristics:**
+
+* Controls access based on available permits.
+* Suitable for limiting **concurrent access** (e.g., max 5 users).
+* Lacks built-in condition handling (unlike monitors).
+
+## **Summary Comparison**
+
+| Feature             | Mutex                                       | Monitor                                   | Semaphore                               |
+| ------------------- | ------------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| Main Function       | Ensures only one thread accesses a resource | Mutual exclusion + wait/notify mechanisms | Controls access using counters          |
+| Access Limit        | One thread                                  | One thread inside monitor                 | Multiple threads (based on count)       |
+| Signaling Support   | No                                          | Yes (wait & signal)                       | No direct signaling                     |
+| Condition Variables | Not supported                               | Supported                                 | Not supported                           |
+| Resource Ownership  | Typically owned by acquiring thread         | Managed within monitor block              | No strict ownership                     |
+| Use Case            | Simple locking                              | Coordinated multi-threading with waiting  | Limited concurrent access to a resource |
+| Analogy             | Locked restroom                             | Doctor’s office with waiting area         | Parking lot with limited spots          |
+
+## **When to Use What**
+
+| Scenario                                                                         | Recommended Tool |
+| -------------------------------------------------------------------------------- | ---------------- |
+| One thread must access the resource at a time                                    | **Mutex**        |
+| Multiple threads require coordination with conditions (e.g., wait if empty/full) | **Monitor**      |
+| Limit the number of concurrent accesses (e.g., 5 threads max)                    | **Semaphore**    |
+
 # What is a Deadlock?
 A deadlock occurs when a group of processes becomes permanently blocked, with each process holding a resource and waiting for another resource that is currently held by another process in the group.
 
