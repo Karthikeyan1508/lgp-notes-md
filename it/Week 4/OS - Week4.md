@@ -7,32 +7,32 @@ In modern computing, both threads and processes are fundamental concepts in the 
 A thread is an independent flow of control that operates within the same address space as other threads in a process. Threads are sometimes referred to as lightweight processes, especially in operating systems where they are used to implement concurrent execution.
 
 Each thread has its own:
-	• Stack
-	• Program counter
-	• Registers
-	• Scheduling properties (like priority)
-	• Thread-specific data (e.g., errno)
+- Stack
+- Program counter
+- Registers
+- Scheduling properties (like priority)
+- Thread-specific data (e.g., errno)
 
 Despite their independence in execution, threads share the following resources with other threads in the same process:
-	• Code section
-	• Data section
-	• Open files
-	• Signal actions
-	• Address space
-	• Environment variables
+- Code section
+- Data section
+- Open files
+- Signal actions
+- Address space
+- Environment variables
 
 Because of this shared environment, changes made by one thread (such as closing a file) are visible to all other threads within the same process.
 
 ## What is a Process?
 
 A process is a higher-level execution unit that provides the execution environment for threads. It acts as a container for resources and execution state. In a multithreaded system, a process is considered the changeable entity that holds:
-	• Process ID, group ID
-	• User ID, group ID
-	• Environment variables
-	• Working directory
-	• File descriptors
-	• Signal handling information
-	• IPC tools (e.g., pipes, message queues, semaphores, shared memory)
+- Process ID, group ID
+- User ID, group ID
+- Environment variables
+- Working directory
+- File descriptors
+- Signal handling information
+- IPC tools (e.g., pipes, message queues, semaphores, shared memory)
 
 A process provides the common address space and resources that all its threads share.
 
@@ -51,36 +51,36 @@ Communication	Uses shared memory (efficient)	Requires inter-process communicatio
 ### Initial Thread
 
 When a new process is created, a single initial thread is created automatically. This thread:
-	• Runs the main() function in C/C++
-	• Ensures backward compatibility with older single-threaded programs
-	• Has special invisible properties for binary compatibility
+- Runs the main() function in C/C++
+- Ensures backward compatibility with older single-threaded programs
+- Has special invisible properties for binary compatibility
 
 ## Thread Models
 
 Thread implementations vary across operating systems:
-	• User Threads: Managed entirely by a user-level threads library. The OS kernel is unaware of their existence.
-	• Kernel Threads: Managed directly by the OS kernel and scheduled like regular processes.
-	• Hybrid (One-to-One, Many-to-One, Many-to-Many Models):
-	• 1:1: Each user thread maps to one kernel thread.
-	• M:1: Many user threads map to a single kernel thread.
-	• M:N: Many user threads are mapped to a pool of kernel threads.
+- User Threads: Managed entirely by a user-level threads library. The OS kernel is unaware of their existence.
+- Kernel Threads: Managed directly by the OS kernel and scheduled like regular processes.
+- Hybrid (One-to-One, Many-to-One, Many-to-Many Models):
+	- 1:1: Each user thread maps to one kernel thread.
+	- M:1: Many user threads map to a single kernel thread.
+	- M:N: Many user threads are mapped to a pool of kernel threads.
 
 The way user threads map to kernel threads is known as the thread model.
 
 ### Modularity in Multithreaded Programming
 
 Programs are often built from modular components that interact to provide functionality. Threads make modular programming more efficient because:
-	• Threads can perform distinct tasks simultaneously, each in its own logical section.
-	• They share the same memory, making data sharing between modules simple and fast.
-	• Synchronization tools like mutexes and condition variables help ensure data integrity across modules.
+- Threads can perform distinct tasks simultaneously, each in its own logical section.
+- They share the same memory, making data sharing between modules simple and fast.
+- Synchronization tools like mutexes and condition variables help ensure data integrity across modules.
 
 This modular design promotes separation of concerns—each thread can manage one functional part of the program while communicating only when necessary.
 
 ## Threads Library (pthreads)
 
 Many systems use the POSIX Threads (pthreads) library to manage multithreading. It offers:
-	• An object-oriented API, where threads and synchronization primitives are manipulated as opaque objects.
-	• A naming convention, where all identifiers start with pthread_, such as pthread_create, pthread_mutex_lock.
+- An object-oriented API, where threads and synchronization primitives are manipulated as opaque objects.
+- A naming convention, where all identifiers start with pthread_, such as pthread_create, pthread_mutex_lock.
 
 Example:
 
@@ -94,15 +94,15 @@ The pthreads implementation files handle all the underlying system calls and thr
 ## Race Condition?
 
 A race condition occurs when the outcome of a program depends on the non-deterministic timing or sequence of events. In multithreaded or multiprocess systems, this typically arises when two or more threads access shared resources concurrently without proper synchronization.
-	• The final result depends on the order of execution of threads.
-	• This behavior is unpredictable and often hard to detect and debug.
-	• Race conditions generally occur inside critical sections.
+- The final result depends on the order of execution of threads.
+- This behavior is unpredictable and often hard to detect and debug.
+- Race conditions generally occur inside critical sections.
 
 Example: Two threads withdrawing money from a bank account at the same time may both read the same balance and deduct the same amount, resulting in an incorrect final balance.
 
 Preventing Race Conditions
-	• Use atomic operations in the critical section.
-	• Implement thread synchronization mechanisms such as locks, mutexes, or semaphores.
+- Use atomic operations in the critical section.
+- Implement thread synchronization mechanisms such as locks, mutexes, or semaphores.
 
 ## Critical Section?
 
@@ -125,10 +125,10 @@ A critical section is a portion of code that accesses shared resources (like mem
 	} while(TRUE);
 
 Key Points:
-	• Entry Section: Requests permission to enter.
-	• Critical Section: Executes operations on shared resources.
-	• Exit Section: Releases locks or signals completion.
-	• Remainder Section: Executes the rest of the program.
+- Entry Section: Requests permission to enter.
+- Critical Section: Executes operations on shared resources.
+- Exit Section: Releases locks or signals completion.
+- Remainder Section: Executes the rest of the program.
 
 ### Requirements for a Solution to the Critical Section Problem
 1. Mutual Exclusion
@@ -144,16 +144,16 @@ Key Points:
 ### Synchronization Mechanisms for Critical Sections
 
 *i. Preemptive Kernels*
-	• The OS can interrupt a running process even in kernel mode.
-	• Enables better multitasking and responsiveness.
-	• Complex to implement due to potential race conditions in kernel data structures.
-	• Used in: Windows, Linux, macOS.
+- The OS can interrupt a running process even in kernel mode.
+- Enables better multitasking and responsiveness.
+- Complex to implement due to potential race conditions in kernel data structures.
+- Used in: Windows, Linux, macOS.
 
 *ii. Non-Preemptive Kernels*
-	• Once a process enters kernel mode, it runs until it blocks, exits, or voluntarily yields the CPU.
-	• Easier to implement and avoids kernel-level race conditions.
-	• Poor responsiveness.
-	• Used in: Some older or embedded systems.
+- Once a process enters kernel mode, it runs until it blocks, exits, or voluntarily yields the CPU.
+- Easier to implement and avoids kernel-level race conditions.
+- Poor responsiveness.
+- Used in: Some older or embedded systems.
 
 ### Issues Related to Critical Sections
 
