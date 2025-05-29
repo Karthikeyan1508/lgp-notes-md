@@ -40,13 +40,17 @@ A process provides the common address space and resources that all its threads s
 
 Here is the formatted solid table:
 
-Feature	Thread	Process
-Definition	Schedulable unit of execution	Execution environment for threads
-Memory Space	Shares address space with other threads in the same process	Has its own memory space
-Creation Overhead	Lower	Higher
-Resource Sharing	Shares resources like files, data, and code	Resources are independent across processes
-Scheduling	Managed individually by OS (kernel or user level)	Scheduled by OS
-Communication	Uses shared memory (efficient)	Requires inter-process communication (more complex)
+| **Feature**           | **Thread**                                                                                                     | **Process**                                                                                                                           |
+| --------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Definition**        | A **thread** is the smallest unit of CPU execution within a process.                                           | A **process** is an independent program in execution with its own resources.                                                          |
+| **Memory Space**      | Threads within the same process **share the same address space**, including code, data, and heap memory.       | Each process has its **own separate memory space**; memory is not shared.                                                             |
+| **Creation Overhead** | **Lightweight** – less overhead because threads share resources.                                               | **Heavyweight** – higher overhead as each process requires its own resources.                                                         |
+| **Resource Sharing**  | Threads **share files, global variables, and memory** with other threads in the same process.                  | Processes are **independent**; they do **not share memory or resources** directly.                                                    |
+| **Scheduling**        | Threads can be scheduled **individually**, either by the **OS kernel** or via **user-level thread libraries**. | Processes are scheduled by the **Operating System**, with more isolation.                                                             |
+| **Communication**     | Threads communicate via **shared memory**, making it **fast and efficient**.                                   | Processes require **Inter-Process Communication (IPC)** like pipes, message queues, or sockets, which is **more complex and slower**. |
+| **Isolation**         | Threads are **not isolated**; one thread crash can affect the entire process.                                  | Processes are **isolated**; a crash in one process does not directly affect others.                                                   |
+| **Concurrency**       | Ideal for tasks that require frequent interaction or shared state.                                             | Better for tasks that require strong isolation and independence.                                                                      |
+| **Context Switching** | Faster, since the memory and resources are shared.                                                             | Slower, due to the overhead of switching between separate memory spaces.                                                              |
 
 ### Initial Thread
 
@@ -223,7 +227,6 @@ A **mutex** ensures that **only one thread at a time** can enter a critical sect
 
 https://media.geeksforgeeks.org/wp-content/uploads/20241015130619461685/Mutex.png![image](https://github.com/user-attachments/assets/4bcb12d2-c5a6-49ac-bed8-0eca0850927d)
 
-
 ### **Purpose:**
 
 * Prevents multiple threads from modifying or reading a resource simultaneously.
@@ -269,7 +272,7 @@ A **monitor** is a synchronization construct that combines:
 * **Condition variables** to manage waiting and signaling behavior
 
 It allows **only one thread** to execute inside the monitor at a time and provides built-in mechanisms to manage threads that must **wait for certain conditions** to be true before proceeding.
-
+ 
 https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tutorialspoint.com%2Foperating_system%2Fos_monitors_in_process_synchronization.htm&psig=AOvVaw01_3-_r0eO2d3CDQFjmQtI&ust=1748578352276000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOC0oZLox40DFQAAAAAdAAAAABAE![image](https://github.com/user-attachments/assets/0b72ada2-c014-4fa3-adcd-d93e50466fdf)
 
 
