@@ -169,14 +169,14 @@ Key Points:
 ### Pseudo-code Representation
 
 Simple Implementation
-
+```
 do {
     acquireLock();       // Entry section
     // Critical section
     releaseLock();       // Exit section
     // Remainder section
 } while(true);
-
+```
 ### Real-World Examples of Critical Sections
 
 Application	Critical Section	Risk Without Synchronization
