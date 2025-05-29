@@ -157,6 +157,28 @@ Where, ϕ is the flux linkage of the coil and N is the number of turns in the co
 
 In case of a DC generator, the magnetic flux (ϕ) remains stationary and the coil rotates. The EMF induced where the coil is rotating and flux is stationary, is known as dynamically induced EMF.
 
+![image](https://github.com/user-attachments/assets/7d27d1e8-7cd1-4046-b158-ff9a5c3c66fd)
+In order to understand the working principle of a DC generator, we consider a single loop DC generator (i.e. N=1) as shown in above figure. Here, the coil is rotated by some prime mover (a source of mechanical energy), and there is a change in the magnetic flux linkage to the coil.  
+Let ϕ be the average magnetic flux produced by each magnetic pole of the machine, then the average induced EMF in the generator is given by,
+![image](https://github.com/user-attachments/assets/3364ea2a-df42-41da-9614-b200423b65d4)
+
+Where, P is the total number of poles in the generator and n is the speed of the coil in rotation per second. The expression in the Equation-(2) gives the average induced EMF in a single loop DC generator. 
+
+The following points explain the working principle of a DC generator: 
+- Position 1 – The induced EMF is zero because, the movement of coil sides is parallel to the magnetic flux. 
+- Position 2 – The coil sides are moving at an angle to the magnetic flux, and hence a small EMF is generated in the loop. 
+- Position 3 – The coil sides are moving at right angle to the magnetic flux, therefore the induced EMF is maximum. 
+- Position 4 – The coil sides are cutting the magnetic flux at an angle, thus a reduced EMF is induced in the coil sides. 
+- Position 5 – No flux linkage with the coil side and the coil sides are moving parallel to the magnetic flux. Therefore, no EMF is induced in the coil. 
+- Position 6 – The coil sides move under a pole of opposite polarity and hence the polarity of induced EMF is reversed. The maximum EMF will induce in this direction at position 7 and zero when it is at position 1. This cycle repeats with rotation of the coil.
+In this way, EMF is induced in a DC generator. Though, this induced EMF is alternating in nature, which is then converted in the unidirectional EMF by using a device called commutator.
+
+### EMF equation of DC generator
+
+The expression which gives the magnitude of EMF generated in a DC generator is called EMF equation of DC generator. We shall now drive the expression for the EMF induced in a DC generator. 
+Let,
+![image](https://github.com/user-attachments/assets/fa3539d5-2be8-426c-acc9-955299d8a423)
+![image](https://github.com/user-attachments/assets/413cfa73-ebd6-479a-9762-d5de0bbbe270)
 
 
 ## Losses in DC Machines
