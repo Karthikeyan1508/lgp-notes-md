@@ -110,19 +110,19 @@ A critical section is a portion of code that accesses shared resources (like mem
 
 ### Typical Structure of a Critical Section:
 
-do {
-    // Entry Section
-    // Acquire lock or check conditions
+	do {
+   	  // Entry Section
+    	  // Acquire lock or check conditions
 
-    // Critical Section
-    // Access or modify shared resources
+    	  // Critical Section
+    	  // Access or modify shared resources
 
-    // Exit Section
-    // Release lock or notify others
+ 	  // Exit Section
+  	  // Release lock or notify others
 
-    // Remainder Section
-    // Other unrelated code
-} while(TRUE);
+ 	  // Remainder Section
+ 	  // Other unrelated code
+	} while(TRUE);
 
 Key Points:
 	• Entry Section: Requests permission to enter.
@@ -131,15 +131,15 @@ Key Points:
 	• Remainder Section: Executes the rest of the program.
 
 ### Requirements for a Solution to the Critical Section Problem
-	*1. Mutual Exclusion*
-		• Only one process/thread can execute in the critical section at a time.
-		• Prevents simultaneous access to shared resources.
-	*2. Progress*
-		• If no process is in the critical section, one of the waiting processes must be allowed to enter.
-		• Ensures system does not remain idle unnecessarily.
-	*3. Bounded Waiting*
-	• Limits how many times other processes can enter their critical sections before a waiting process is granted access.
-	• Prevents starvation.
+1. Mutual Exclusion
+- Only one process/thread can execute in the critical section at a time.
+- Prevents simultaneous access to shared resources.
+2. Progress
+- If no process is in the critical section, one of the waiting processes must be allowed to enter.
+- Ensures system does not remain idle unnecessarily.
+3. Bounded Waiting
+- Limits how many times other processes can enter their critical sections before a waiting process is granted access.
+- Prevents starvation.
 
 ### Synchronization Mechanisms for Critical Sections
 
