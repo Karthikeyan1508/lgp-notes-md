@@ -362,7 +362,7 @@ function useResource() {
 * Suitable for limiting **concurrent access** (e.g., max 5 users).
 * Lacks built-in condition handling (unlike monitors).
 
-## **Summary Comparison**
+## **Comparison**
 
 | Feature             | Mutex                                       | Monitor                                   | Semaphore                               |
 | ------------------- | ------------------------------------------- | ----------------------------------------- | --------------------------------------- |
