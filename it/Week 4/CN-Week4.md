@@ -570,3 +570,86 @@ Use the `put` command to upload files from your local system to the remote host.
 ### 5. Conclusion
 
 SFTP provides a secure and efficient method for transferring files and folders between local and remote systems, combining the functionality of FTP with the robust security of SSH.
+
+# Domain Name System (DNS)
+
+The Domain Name System (DNS) translates human-readable domain names (e.g., www.google.com) into machine-readable IP addresses (e.g., 142.250.190.14), enabling internet communication
+
+- It enables computers to locate and communicate with each other on the internet.
+- Functions as a hierarchical, distributed database.
+- Queries pass through multiple levels:
+      Root server
+      Top-Level Domain (TLD) server
+      Authoritative server (stores the specific IP address).
+- Ensures seamless website access using easy-to-remember names instead of numerical IP addresses.
+
+![image](https://github.com/user-attachments/assets/28e1160a-3428-4f1c-9e93-66e627e74dc7)
+
+## How Does DNS Work?
+- When we type a website like https://www.geeksforgeeks.org in our browser, our computer tries to find the IP address.
+- First, it checks the local cache (our browser, operating system, or router) to see if it already knows the IP address.
+- If the local cache doesn’t have the IP, the query is sent to a DNS resolver to find it.
+- DNS resolver may check host files (used for specific manual mappings), but usually, it moves on.
+- Resolver sends the query to a Root DNS server, which doesn't know the exact IP address but points to the TLD server (e.g., .org server for this example).
+- TLD server then directs the resolver to the authoritative nameserver for geeksforgeeks.org.
+- Authoritative nameserver knows the exact IP address for geeksforgeeks.org and sends it back to the resolver.
+- Resolver passes the IP address to our computer.
+- Our computer uses the IP address to connect to the real server where the website is hosted.
+
+The website loads in our browser.
+
+## Structure of DNS
+
+It is very difficult to find out the IP address associated with a website because there are millions of websites and with all those websites we should be able to generate the IP address immediately, there should not be a lot of delays for that to happen organization of the database is very important.
+
+![image](https://github.com/user-attachments/assets/399dd0c3-b23d-4c92-8099-13beadc9de5e)
+
+- **DNS Record:** Domain name, IP address what is the validity? what is the time to live? and all the information related to that domain name. These records are stored in a tree-like structure.
+- **Namespace:** Set of possible names, flat or hierarchical. The naming system maintains a collection of bindings of names to values – given a name, a resolution mechanism returns the corresponding value.
+- **Name Server:** It is an implementation of the resolution mechanism.
+
+```
+DNS = Name service in Internet – A zone is an administrative unit, and a domain is a subtree.
+```
+## Types of Domain
+There are various kinds of domains:
+
+**Generic Domains:** .com(commercial), .edu(educational), .mil(military), .org(nonprofit organization), .net(similar to commercial) all these are generic domains.
+**Country Domain:** .in (India) .us .uk
+**Inverse Domain:** if we want to know what is the domain name of the website. IP to domain name mapping. So DNS can provide both the mapping for example to find the IP addresses of geeksforgeeks.org then we have to type
+
+```
+ nslookup www.geeksforgeeks.org 
+```
+
+![image](https://github.com/user-attachments/assets/ce4b30c4-3f12-41ce-8ed0-b6bcaad2559f)
+
+## Domain Name Server
+
+The client machine sends a request to the local name server, which, if the root does not find the address in its database, sends a request to the root name server, which in turn, will route the query to a top-level domain (TLD) or authoritative name server. The root name server can also contain some hostName to IP address mappings. The Top-level domain (TLD) server always knows who the authoritative name server is. So finally the IP address is returned to the local name server which in turn returns the IP address to the host.
+![image](https://github.com/user-attachments/assets/04479a35-fac3-4b0f-93cf-3c942343e0e5)
+
+## DNS Lookup
+DNS Lookup, also called DNS Resolution, is the process of translating a human-readable domain name (like www.example.com) into its corresponding IP address (like 192.0.2.1), which computers use to locate and communicate with each other on the internet. It allows users to access websites easily using names instead of remembering numeric IP addresses.
+
+- DNS Lookup starts when a user types a domain name into their browser.
+- The query goes through a series of servers: the DNS resolver, Root server, TLD server, and authoritative server.
+- Each server plays a role in finding the correct IP address for the domain.
+- Once the IP address is found, the browser connects to the website’s server and loads the page.
+
+## DNS Resolver
+DNS Resolver is simply called a DNS Client and has the functionality for initiating the process of DNS Lookup which is also called DNS Resolution. By using the DNS Resolver, applications can easily access different websites and services present on the Internet by using domain names that are very much friendly to the user and that also resolves the problem of remembering IP Address.
+
+### Types of DNS Queries
+There are basically three types of DNS Queries that occur in DNS Lookup. These are stated below.
+
+- **Recursive Query:** In this query, if the resolver is unable to find the record, in that case, DNS client wants the DNS Server will respond to the client in any way like with the requested source record or an error message.
+- **Iterative Query:** Iterative Query is the query in which DNS Client wants the best answer possible from the DNS Server.
+- **Non-Recursive Query:** Non-Recursive Query is the query that occurs when a DNS Resolver queries a DNS Server for some record that has access to it because of the record that exists in its cache.
+
+## **DNS Caching**
+DNS Caching can be simply termed as the process used by DNS Resolvers for storing the previously resolved information of DNS that contains domain names, and IP Addresses for some time. The main principle of DNS Caching is to speed up the process of future DNS lookup and also help in reducing the overall time of DNS Resolution.
+
+**Speeds Up Access:** It stores previous website lookups, so your device can quickly load frequently visited sites without asking the network for the IP address each time.
+**Reduces Internet Traffic:** This storage cuts down on the number of requests sent across the internet, helping reduce overall network congestion.
+**Enhances User Experience:** With faster loading times for websites and less waiting, browsing the internet becomes a smoother, more enjoyable experience.
