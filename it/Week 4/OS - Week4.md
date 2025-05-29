@@ -221,6 +221,9 @@ When multiple threads or processes try to access shared resources simultaneously
 
 A **mutex** ensures that **only one thread at a time** can enter a critical section, which is a block of code that accesses a shared resource. It is the simplest and most direct synchronization tool.
 
+https://media.geeksforgeeks.org/wp-content/uploads/20241015130619461685/Mutex.png![image](https://github.com/user-attachments/assets/4bcb12d2-c5a6-49ac-bed8-0eca0850927d)
+
+
 ### **Purpose:**
 
 * Prevents multiple threads from modifying or reading a resource simultaneously.
@@ -266,6 +269,9 @@ A **monitor** is a synchronization construct that combines:
 * **Condition variables** to manage waiting and signaling behavior
 
 It allows **only one thread** to execute inside the monitor at a time and provides built-in mechanisms to manage threads that must **wait for certain conditions** to be true before proceeding.
+
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tutorialspoint.com%2Foperating_system%2Fos_monitors_in_process_synchronization.htm&psig=AOvVaw01_3-_r0eO2d3CDQFjmQtI&ust=1748578352276000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOC0oZLox40DFQAAAAAdAAAAABAE![image](https://github.com/user-attachments/assets/0b72ada2-c014-4fa3-adcd-d93e50466fdf)
+
 
 ### **Purpose:**
 
@@ -313,6 +319,8 @@ monitor SharedResource {
 ### **Definition:**
 
 A **semaphore** is a more generalized synchronization mechanism that uses an **internal counter** to control how many threads can access a resource simultaneously.
+
+https://media.geeksforgeeks.org/wp-content/uploads/20241015130721027935/Semaphore.png
 
 ### **Types of Semaphore:**
 
