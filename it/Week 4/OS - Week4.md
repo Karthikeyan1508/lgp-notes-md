@@ -1,6 +1,8 @@
-# Understanding Threads and Processes in Multithreaded Programming
+# Concurrency, Virtualization, Multithreading, Synchronization, and Deadlocks
 
 In modern computing, both threads and processes are fundamental concepts in the execution of programs. While traditionally the term process encapsulated everything—address space, execution state, and resources—modern operating systems distinguish between processes and threads, especially in multithreaded environments.
+
+## Concurrency and Parallelism
 
 ## What is a Thread?
 
