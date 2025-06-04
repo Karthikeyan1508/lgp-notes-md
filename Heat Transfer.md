@@ -214,4 +214,141 @@ Run out tolerances control the relationship of a feature relative to a **datum a
    - The dial indicator remains in contact during continuous 360° rotation.
    - For angled surfaces, it controls angular variation (wobble) and flatness (concavity or convexity).
 
+![image](https://github.com/user-attachments/assets/b9ee295a-7388-4388-92ba-21f7a14669c5)
+![image](https://github.com/user-attachments/assets/cf4ed84d-516e-45e9-9af2-e89fca084b84)
 
+## Orientation Tolerances
+
+There are **three (3)** separate orientation tolerances, but two of these are specific cases of the general tolerance called **angularity**.
+
+- The two specific tolerances are:
+  - **Perpendicularity (⊥):** 90° to a datum
+  - **Parallelism (∥):** 180° to a datum
+
+These tolerances control the orientation of features relative to a **datum plane or axis**.
+
+### Angularity (∠)
+
+- Controls a surface (non-feature of size), a center plane, or an axis of a feature of size at a specified angle.
+- The tolerance zone can be:
+  - Two parallel planes at the specified basic angle from a datum plane or axis within which the surface, center plane, or axis must lie.
+  - Or a cylindrical zone within which the axis of the considered feature must lie.
+
+### Material Condition Modifiers
+
+- If angularity tolerance is specified for a feature of size, the material condition modifiers **m** (MMC) or **l** (LMC) may be specified.
+- If neither modifier is specified, **Regardless of Feature Size (RFS)** applies.
+
+## Straightness
+
+- The symbol for straightness is **⎯**.
+- There are **two kinds of straightness controls** which differ significantly:
+  1. **Line elements of surfaces:** The Feature Control Frame (FCF) is attached to the surface.
+  2. **Axis or median plane of features of size:** The FCF is attached to the size tolerance.
+
+- The axis or median plane control **relaxes the form control** provided by Rule #1 because a perfect form boundary at MMC can be violated if the **m** (MMC) symbol is specified.
+
+- **Figures:**
+  - Fig. 5-24 shows control of **line straightness**.
+  - Fig. 5-25 and Fig. 5-26 show control of **axis** and **median plane straightness** respectively.
+
+- The **surface straightness tolerance** applies only to **line elements in the view** where the FCF is attached.
+![image](https://github.com/user-attachments/assets/7ab629c1-8a14-4f6d-a2fd-f4525edcaa7c)
+![image](https://github.com/user-attachments/assets/e22b381c-14cf-4ed8-ad91-17a43fd615cc)
+
+## Flatness  
+- Controls the distance between the high and low points of a surface.  
+- The tolerance zone is defined by two parallel planes with no specific orientation.  
+- **All elements of the entire surface must lie between these planes.**  
+- Symbol: ⏤  
+- Difference from straightness: flatness controls the **entire surface** (all views), while straightness controls only **line elements** in the view where the control applies.  
+
+
+---
+
+## Circularity (Roundness)  
+- Controls each circular element of a cylinder independently.  
+- Circular elements in a plane perpendicular to the axis must lie between two concentric circles whose radii differ by the specified tolerance.  
+- Symbol: ○  
+
+
+---
+
+## Cylindricity  
+- Controls the **entire surface** of a cylinder.  
+- Tolerance zone: two concentric cylinders parallel to the axis of the actual mating envelope.  
+- Radii of the concentric cylinders differ by the specified tolerance in the Feature Control Frame (FCF).  
+- It is a **composite tolerance** controlling circularity, straightness, and taper.  
+![image](https://github.com/user-attachments/assets/1f61edd6-3a47-4509-861a-88f3b2b99cf0)
+![image](https://github.com/user-attachments/assets/30ec9b0e-5525-40eb-823f-9753fa59ad5b)
+![image](https://github.com/user-attachments/assets/e168581f-2003-477a-ac53-84cc461c6f60)
+![image](https://github.com/user-attachments/assets/547a57d4-6da9-402b-bc30-eba29c6b768a)
+
+## Conversion of Position Tolerance Zone to/from Coordinate Tolerance Zone
+
+Figure 5-34 is a chart for converting position tolerance zones to coordinate tolerance zones, and for converting coordinate tolerance zones to position tolerance zones.
+
+When looking at the conversion chart in Fig. 5-34:
+
+- Coordinate tolerance zones are listed across the top of the grid, increasing from left to right.
+- On the right side of the grid, coordinate tolerance zones increase from bottom to top.
+- Position tolerances are listed on the left side of the grid and increase from bottom to top.
+- The position tolerances follow an arced line across the grid.
+
+The diameter of a position tolerance is given on the drawings, but the diameter of a coordinate tolerance is given by the length of the diagonal line.
+
+A diagonal line is drawn from the lower-left corner of the grid at a 45° angle to the upper-right corner of the chart. The diameter is calculated using the Pythagorean theorem:
+
+\[
+A^2 + B^2 = C^2
+\]
+
+In Figure 5-33:
+
+- **A** is the total length of the horizontal line at the bottom connected to the circle, squared.
+- **B** is the total length of the vertical line at the left or right edge connected to the circle, squared.
+- The square root of the sum of these two sides equals the diameter **C**.
+
+### Example Conversion
+
+Suppose you want to convert a 0.010 diameter position tolerance to a coordinate tolerance:
+
+1. Locate the 0.01 position tolerance on the left side of the chart.
+2. Follow the corresponding arced line until it crosses the diagonal line.
+3. From the intersection point, follow the horizontal line across to the right side of the chart.
+4. The number on the right side corresponds to the appropriate **bilateral coordinate tolerance**.
+
+In this example, the bilateral tolerance is approximately **± 0.0035**.
+
+### Quick Verification
+
+To verify this conversion quickly:
+
+- Multiply the coordinate tolerance by **0.7** to get the total coordinate tolerance.
+- Divide that total coordinate tolerance by **2** to obtain the bilateral coordinate tolerance.
+
+This matches the value obtained from the chart.
+![image](https://github.com/user-attachments/assets/30018eeb-87d2-433f-af72-e7009c0f6476)
+
+The number obtained from the conversion chart and the number obtained by using the multiplier should be approximately the same.
+
+Suppose it was desired to convert a coordinate tolerance such as **0.007** to a position tolerance.
+
+- To use the conversion chart in Fig. 5-34, the coordinate tolerance must be in **bilateral coordinates**, so:
+
+  \[
+  0.007 \div 2 = \pm 0.0035
+  \]
+
+- Next, locate the number **0.0035** on the left side of the conversion chart.
+- Follow the corresponding horizontal line across to the **left** until it intersects the diagonal line.
+- At this intersection, follow the intersecting arced line all the way across and to the **left**.
+- The number corresponding to that arced line on the left of the chart gives the associated **position tolerance**.
+
+If done correctly, the position tolerance identified on the chart should be **0.010**.
+
+This can be double-checked by using the multipliers on page 5-31.
+
+---
+
+To convert between position tolerancing and coordinate tolerance, either the **conversion table** identified in Fig. 5-34 or the **multiplication factor** 
