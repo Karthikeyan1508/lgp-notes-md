@@ -29,6 +29,11 @@ using the superposition theorem.
 
 ![image](https://github.com/user-attachments/assets/311996bc-c756-47f5-8d75-9085f16f6683)
 
+![image](https://github.com/user-attachments/assets/5d701fb1-d6c3-435d-bc20-f1fa381f2c1f)
+
+![image](https://github.com/user-attachments/assets/bb9e11fb-e50f-4319-9f9f-f0952d4edbcc)
+
+
 Problem 5:
 
 Find the current through the diode in the circuit shown in Fig. 2(i). Assume the diode to be ideal.
@@ -43,9 +48,24 @@ Find the current through the diode in the circuit shown in Fig. 2(i). Assume the
 Problem 6:
 Calculate the current through 48 Ω resistor in the circuit. Assume the diodes to be of silicon and forward resistance of each diode is 1 Ω.
 
-
 ![image](https://github.com/user-attachments/assets/0668c03d-b70e-4ad9-8248-99034bb0aec7)
 
+![image](https://github.com/user-attachments/assets/c1d9f855-012f-463c-a900-b022eb397da8)
+
+Problem 7:
+
+Determine the current I in the circuit shown in Fig. 4 (i). Assume the diodes to be of silicon and forward resistance of diodes to be zero.
+
+![image](https://github.com/user-attachments/assets/c81aade2-5c59-4638-b062-ee66cc1126e0)
+![image](https://github.com/user-attachments/assets/3b0d5907-441d-4dfb-80ea-f319f77adc66)
+
+Problem 8:
+
+ Find the voltage VA in the circuit shown in Fig. 5 (i). Use simplified model.
+
+![image](https://github.com/user-attachments/assets/82ccd7c8-c9de-4f63-9622-3e5cdacac803)
+
+![image](https://github.com/user-attachments/assets/cafc915d-e5e8-438c-af22-dbf9de7e8186)
 
 
 
@@ -67,11 +87,10 @@ Calculate the current through 48 Ω resistor in the circuit. Assume the diodes t
 
 
 
-![image](https://github.com/user-attachments/assets/5d701fb1-d6c3-435d-bc20-f1fa381f2c1f)
 
 
 
-![image](https://github.com/user-attachments/assets/bb9e11fb-e50f-4319-9f9f-f0952d4edbcc)
+
 
 
 
