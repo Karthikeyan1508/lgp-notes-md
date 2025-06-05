@@ -1,5 +1,86 @@
+# Competitive Programming Notes
 
+Competitive programming involves solving algorithmic problems under constraints, with a focus on time and space efficiency. This plan covers the most frequent patterns seen in interviews and contests.
+
+# Arrays & Strings
+
+Arrays are the foundation of most problems. Key techniques include prefix sums, sliding windows, and two-pointer methods.
+
+Strings require manipulation and understanding of memory and traversal, often used in problems like anagrams, palindromes, and pattern matching.
+
+# Linked Lists
+
+Linked Lists are crucial for understanding pointers and memory management.
+
+Problems often focus on reversing, detecting cycles (Floyd’s Algorithm), and merging sorted lists.
+
+# Trees
+
+Tree traversal (in-order, pre-order, post-order) is foundational.
+
+Recursive thinking is key. Concepts like DFS/BFS, height calculation, and subtree comparison are core.
+
+# Binary Search
+
+A divide-and-conquer strategy that reduces time complexity from O(n) to O(log n).
+
+Variants include lower/upper bound, rotated arrays, and binary search on answers.
+
+# Sliding Window
+
+Useful for subarray problems where we track a range in linear time.
+
+Often paired with hash maps for frequency/counting purposes.
+
+# Two Pointers
+
+Used when comparing or moving through two indexes in a single pass.
+
+Excellent for problems involving sorting, merging, or partitioning.
+
+# Stack
+
+Used for Last-In-First-Out operations.
+
+Important in parsing expressions, backtracking, and maintaining monotonic sequences.
+
+# Heap / Priority Queue
+
+Great for keeping track of min/max values dynamically.
+
+Essential for scheduling, median-finding, and merging tasks.
+
+# Graphs (BFS/DFS)
+
+Graph traversal is critical. BFS is ideal for shortest paths, while DFS is useful for exploring components.
+
+Topological sort, connected components, and cycle detection are key concepts.
+
+# Dynamic Programming
+
+Breaks a problem into subproblems and caches results to avoid recomputation.
+
+Recognizing overlapping subproblems and optimal substructure is key.
+
+# Trie / String Matching
+
+Trie helps in dictionary-like problems and prefix searching.
+
+Efficient for solving auto-complete and word search variations.
+
+# Greedy
+
+Makes local optimal choices at each step with the hope of a global optimum.
+
+Works well in interval scheduling, coin problems, and path optimization.
+
+# Backtracking
+
+A brute-force approach with pruning.
+Often used in permutations, combinations, and constraint-satisfying problems.
 ---
+
+# Practise Problems
 
 ### **1. Array & String**
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
