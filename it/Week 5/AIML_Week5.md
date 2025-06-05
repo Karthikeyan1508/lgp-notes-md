@@ -55,3 +55,295 @@ The training process in diffusion models involves learning to reverse a noise-in
 ## Which Model Should You Choose?
 
 The choice between GANs and Diffusion Models depends on the specific needs of your application. GANs are ideal for scenarios requiring high-quality, realistic outputs and quick generation, making them suitable for real-time applications. However, they come with the challenge of training instability. On the other hand, Diffusion Models are better suited for tasks that demand high-resolution and detailed images, though they require more computational resources and are slower.
+
+# LLM Introduction
+
+Generative AI, a subset within the realm of artificial intelligence, constitutes a diverse array of techniques and models aimed at producing fresh content across mediums like text, images, audio, and videos. Among these, Large Language Models (LLMs) represent a distinct category focusing on generating textual content, thereby catalyzing significant advancements in Natural Language Processing (NLP). While LLMs are not a recent innovation and have long been integral to NLP, cutting-edge models like GPT-4 exhibit remarkable capabilities. They can execute tasks with minimal examples (few-shot learning) or even without any examples (zero-shot learning), enabling them to generalize across a broad spectrum of functions, ensuring both accuracy and efficacy.
+
+Language Models operate by predicting words and assigning probabilities to word sequences to determine the most likely succeeding word, a process known as generative modelling. Earlier Language Models include the bag-of-words model, n-gram model, and RNN models. In contrast, LLMs are rooted in the transformer architecture, a neural network framework introduced in the seminal paper “Attention is All You Need” by Vaswani et al. in 2017. Transformers utilize self-attention mechanisms to process sequences of variable length, forming the foundation of LLMs.
+
+The typical training process for LLMs involves encoding, utilizing a pre-trained transformer model, and decoding. Encoding encompasses tasks such as tokenization (converting text into numeric representations) and token embedding (mapping words with similar meanings closer in vector space). LLMs find applications in diverse areas such as content creation, summarization, question answering, machine translation, classification, named entity recognition, tone adjustment, and even code generation.
+
+Additionally, it is worth mentioning two important concepts in LLM integration: LLM agents and vector stores. The ChatGPT Plugin and transformer agents act as third-party applications, facilitating interactions among multiple AI agents through external interfaces. Secondly, as the volume of text data continues to grow, storing embedding vectors in dedicated vector indexes or libraries becomes crucial, eliminating the need for repetitive computations and expediting the retrieval process. Commonly employed technologies in this context include FAISS (vector library) and ChromaDB (vector database).
+
+![image](https://github.com/user-attachments/assets/b0906516-d431-4f9f-882a-c6ce68a8fb2d)
+
+## BERT (Bidirectional Encoder Representations from Transformers):
+
+**- Year:** 2018
+
+**- License:** Open-source
+
+**- Description:** BERT, introduced by Google researchers, marked a significant advancement in NLP. It was the first deeply bidirectional, contextually trained language representation model. BERT can understand the context of words in a sentence, both left and right, which was a departure from earlier methods that processed text in a unidirectional manner.
+
+## BART (Bidirectional and Auto-Regressive Transformers):
+
+**- Year:** 2019
+
+**- License:** Open-source
+
+**- Description:** BART, another creation by Meta AI, is a sequence-to-sequence model that can be used for text generation, summarization, and various other tasks. It combines both auto-regressive and denoising objectives during pre-training, allowing it to handle tasks that require an understanding of both input and output sequences.
+
+## GPT-3 (Generative Pre-trained Transformer 3):
+
+**- Year:** 2022
+
+**- License:** Proprietary
+
+**- Description:** GPT-3, developed by OpenAI, is one of the largest LLMs to date. It gained widespread attention due to its ability to generate coherent and contextually relevant text given a prompt. GPT-3 demonstrated remarkable capabilities in tasks such as translation, question-answering, and even creative writing.
+
+![image](https://github.com/user-attachments/assets/6e5363b1-3934-4806-aa94-dc3c2bf06b6d)
+
+## Hugging Face
+Hugging Face, a popular open-source platform provides a repository of pre-trained LLMs through its Transformers library. Some top applications using Hugging Face are demonstrated below.
+
+### Text Summarization
+
+Summarization can be extractive (selecting relevant text excerpts) or abstractive (generating novel text summaries). I use the t5-small model, a 60 million parameter encoder-decoder created by Google, specifically designed for abstractive summarization and other tasks like translation, Q&A, and text classification.
+
+```
+from datasets import load_dataset
+from transformers import pipeline
+from rich import print
+
+xsum_dataset = load_dataset("xsum", version="1.2.0")
+
+xsum_sample = xsum_dataset["train"]
+
+summarizer = pipeline(
+    task="summarization",
+    model="t5-small",
+    min_length=20,
+    max_length=60,
+    truncation=True,
+) 
+results = summarizer(xsum_sample["document"][0])
+print(results[0]["summary_text"])
+```
+
+While a pipeline is a quick way to set up an LLM for a given task, the slightly lower-level abstractions model and tokenizer permit a bit more control over options. The below example shows the same summarization output.
+
+```
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+import pandas as pd
+from datasets import load_dataset
+from rich import print
+
+
+xsum_dataset = load_dataset("xsum", version="1.2.0")
+
+xsum_sample = xsum_dataset["train"].select(range(10))
+
+# Load the pre-trained tokenizer and model.
+tokenizer = AutoTokenizer.from_pretrained("t5-small")
+model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
+
+
+# For summarization, T5-small expects a prefix "summarize: "
+# so we prepend that to each article as a prompt.
+
+articles = list(map(lambda article: "summarize: " 
+                                    + article, xsum_sample["document"]))
+
+# Tokenize the input
+inputs = tokenizer(
+    articles, max_length=1024,
+    return_tensors="pt", padding=True, truncation=True
+)
+# Generate summaries
+summary_ids = model.generate(
+    inputs.input_ids,
+    attention_mask=inputs.attention_mask,
+    num_beams=2,
+    min_length=0,
+    max_length=60,
+)
+# Decode the generated summaries
+decoded_summaries = tokenizer.batch_decode(summary_ids, skip_special_tokens=True)
+
+print(decoded_summaries[0])
+```
+
+![image](https://github.com/user-attachments/assets/ef3b46b6-98c9-4049-beeb-a06662b171ba)
+
+## Zero-shot classification
+
+Zero-shot classification, or zero-shot learning, involves categorizing text into predefined labels without explicit prior training for those categories. This model was trained using SentenceTransformers Cross-Encoder class, which is based on microsoft/deberta-v3-small.
+
+```
+from transformers import pipeline
+
+zero_shot_pipeline = pipeline(
+    task="zero-shot-classification",
+    model="cross-encoder/nli-deberta-v3-small",
+    use_fast=False,
+)
+
+text = "I am looking for a new smartphone. I want something with a great camera and long battery life."
+
+candidate_labels = ["Technology", "Fashion", "Food"]
+
+result = zero_shot_pipeline(text, candidate_labels)
+
+print("Text:", text)
+print("Predicted Label:", result['labels'][0])
+print("Confidence Score:", result['scores'][0])
+```
+
+![image](https://github.com/user-attachments/assets/3b0f3940-a3a5-4592-9e83-025e8493ec64)
+
+## Few-short classification
+
+In few-shot learning, the model receives instructions and query-response examples, generating responses for new queries after understanding the instructions. I use GPT-Neo 1.3B, based on GPT-3 architecture. This process involves using a special token (‘###’) to separate examples and prompt the model to conclude its output.
+
+```
+from transformers import pipeline
+import re
+
+few_shot_pipeline = pipeline(
+    task="text-generation",
+    model="EleutherAI/gpt-neo-1.3B",
+    max_new_tokens=10,
+)
+
+eos_token_id = few_shot_pipeline.tokenizer.encode("###")[0]
+
+# Define the prompt with task prefix "###"
+prompt = """
+For each restaurant review, describe its sentiment:
+[Review]: "The food at this restaurant was absolutely delicious, and the service was excellent."
+[Sentiment]: Positive
+###
+[Review]: "I had a terrible experience at this place. The food was cold, and the staff was rude."
+[Sentiment]: Negative
+###
+[Review]: "The ambiance and decor were charming, but the food quality was mediocre."
+[Sentiment]: Neutral"""
+
+# Define the new restaurant review
+new_review = "The atmosphere of this restaurant was pleasant, but the food was disappointing. I wouldn't recommend it."
+
+# Update the prompt with the new restaurant review
+updated_prompt = prompt + f"\n[Review]: \"{new_review}\"\n[Sentiment]:"
+
+# Generate text based on the updated prompt using few-shot learning and EOS token ID
+results = few_shot_pipeline(updated_prompt, eos_token_id=eos_token_id)
+
+# Extract the sentiment label from the results for the new review
+pattern = r"\[Sentiment\]:\s+(\w+)"
+matches = re.findall(pattern, results[0]["generated_text"])
+
+# Get the last match
+last_sentiment = matches[-1].lower() if matches else None
+
+print(last_sentiment)
+```
+
+![image](https://github.com/user-attachments/assets/731dfdbc-2af6-4e9e-b625-6109ba5dce70)
+
+## LangChain
+
+LangChain, introduced in late 2022, intertwines various language-processing tasks into a cohesive chain. LLM agents execute reasoning and action loops, with an LLM acting as a reasoning entity and a set of tools chosen to complete the task. LangChain utilizes LLP (Language Learning Platform) plugins like Hugging Face Transformers agents and ChatGPT plugins.
+
+Here is the prototype tool, which serves as an AI self-storytelling-and-moderating tool. It generates a new story using one LLM and employs another LLM to safeguard if the story is kid-friendly.
+
+```
+from langchain import PromptTemplate
+from langchain.llms import OpenAI
+from langchain.chains import LLMChain
+import openai
+import os
+
+os.environ["OPENAI_API_KEY"] = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+story_template = """
+Once upon a time, in a {setting}, there lived a {character}. One day, {character} discovered a {mysterious_object} that had {magical_properties}. Excited and curious, {character} decided to {action}. The outcome was {outcome}.
+
+The end.
+"""
+
+story_prompt_template = PromptTemplate(
+    input_variables=["setting", "character", "mysterious_object", "magical_properties", "action", "outcome"],
+    template=story_template,
+)
+
+# User-defined inputs
+setting = "enchanted forest"
+character = "brave adventurer"
+mysterious_object = "glowing crystal"
+magical_properties = "the power to grant wishes"
+action = "embark on a quest to uncover its origins"
+outcome = "a world filled with endless possibilities"
+
+story_prompt = story_prompt_template.format(
+    setting=setting,
+    character=character,
+    mysterious_object=mysterious_object,
+    magical_properties=magical_properties,
+    action=action,
+    outcome=outcome
+)
+
+# OpenAI GPT model
+story_llm = OpenAI(model="text-davinci-003")
+
+# Language Chain using GPT
+story_chain = LLMChain(
+    llm=story_llm,
+    prompt=story_prompt_template,
+    output_key="story",
+    verbose=False,
+)
+
+# Generate the story
+generated_story = story_chain.run({
+    "setting": setting,
+    "character": character,
+    "mysterious_object": mysterious_object,
+    "magical_properties": magical_properties,
+    "action": action,
+    "outcome": outcome
+})
+
+print("Generated Story:")
+print(generated_story)
+```
+
+![image](https://github.com/user-attachments/assets/dddf023c-f979-4d2b-b180-3b578f7d456f)
+
+```
+# Define a template for the classification prompt
+classification_template = "Is the following story kid-friendly? {story}"
+
+classification_prompt_template = PromptTemplate(
+    input_variables=["story"],
+    template=classification_template,
+)
+
+# OpenAI GPT model for text classification
+classification_llm = OpenAI(model="text-davinci-003")
+
+# Text Classification Chain
+classification_chain = LLMChain(
+    llm=classification_llm,
+    prompt=classification_prompt_template,
+    output_key="classification",
+    verbose=False,
+)
+
+
+# Classify if the story is kid-friendly
+classification_result = classification_chain.run({"story": generated_story})
+
+classification_result
+```
+
+![image](https://github.com/user-attachments/assets/1d4b0d84-605c-46f0-80a4-7d29158b7dea)
+
+## LLM Ops
+
+The development to production workflow of LLMs begins with the selection of a foundational model using transfer learning. This is followed by prompt engineering and evaluation of the results. If you have labelled data, you have the option to fine-tune the model. Alternatively, if you are satisfied with the model’s performance, you can proceed to deploy it in production. It is important to note that the mlflow.llm module offers specialized utilities designed for LLMs, facilitating experiment tracking and model deployment.
+
+When evaluating LLMs, specific performance metrics such as high accuracy (indicating correct prediction of the next word) and low perplexity (indicating high confidence in predictions) are crucial considerations. Standard metrics like Bilingual Evaluation Understudy (BLEU) and Recall-Oriented Understudy for Gisting Evaluation (ROUGE) can be employed to assess LLMs effectively.
+
+Additionally, incorporating human feedback, especially for open-ended LLM tasks, is crucial. Reinforcement learning from human feedback significantly enhances LLM training. Integrating this feedback loop within LLMOps pipelines simplifies evaluation and provides valuable data for future fine-tuning efforts.
