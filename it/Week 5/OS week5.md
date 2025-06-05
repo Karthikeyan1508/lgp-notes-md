@@ -266,6 +266,23 @@ The index sequential method builds upon the sequential access method by introduc
 
 ![image](https://github.com/user-attachments/assets/300076f7-9f1c-4640-a010-8343b0394022)
 
+## File Allocation Methods
+### Contiguous Allocation
+In contiguous allocation, each file occupies a set of contiguous blocks on the disk. This means that all the blocks of a file are stored one after the other in a continuous sequence. The operating system keeps track of the starting block and the length (number of blocks) of each file. This method provides excellent performance because of fast access—especially for sequential and direct access—since all blocks are physically close to each other.
+
+However, this method suffers from external fragmentation, where free space gets scattered over time, making it difficult to find large enough contiguous blocks for new files. Also, it requires knowing the file size in advance, which is not always possible.
+
+### Linked Allocation
+In linked allocation, each file is made up of scattered disk blocks, which are linked together using pointers. Each block contains the data along with a pointer to the next block in the file. The operating system only needs to know the location of the first block of the file (called the head pointer), and from there, it can follow the pointers to access the entire file.
+
+This method eliminates external fragmentation and doesn’t require knowing the file size in advance. However, it is not efficient for direct access, as it must follow pointers from the beginning to reach a specific block. It also incurs overhead due to the storage of pointers in each block and may be vulnerable to pointer corruption.
+
+### Indexed Allocation
+In indexed allocation, each file has its own index block that contains all the pointers to its data blocks. The index block acts like a table that lists the disk block numbers used by the file. When accessing a block, the system refers to the index block to locate the exact data block.
+
+This method supports both sequential and direct access efficiently and eliminates external fragmentation. It also avoids the pointer overhead of linked allocation. However, it may require extra space for the index blocks, especially for large files, and the performance may degrade if the index itself becomes large and needs to be stored across multiple blocks.
+
+
 # I/O System Management
 I/O (Input/Output) devices are hardware that enables a computer to interact with the outside world, allowing data to be entered or received. Device drivers are software programs that facilitate communication between the operating system and these I/O devices. 
 
