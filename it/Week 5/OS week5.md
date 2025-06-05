@@ -358,7 +358,7 @@ Caching is especially useful in scenarios where the same data is accessed multip
 | **Example**          | Website data, CPU instructions                         | Print jobs queued for printer                                   | Video buffering while streaming                                       |
 
 
-## Disk Scheduling in Operating Systems
+# Disk Scheduling
 
 Disk scheduling algorithms play a vital role in managing how data is read from and written to a computer’s hard disk. These algorithms determine the order of disk I/O (Input/Output) requests, directly affecting system performance, data retrieval speed, and overall efficiency.
 
@@ -417,4 +417,54 @@ No starvation; all requests are guaranteed to be served.
 *Disadvantages:*
 High average seek time.
 Inefficient for large or heavily loaded queues.
+
+SSTF services the disk I/O request that is closest to the current head position, minimizing the seek operations at each step. It provides better performance than FCFS by selecting the nearest track request at every stage.
+
+Advantages of SSTF:
+Better performance and lower total seek time than FCFS.
+Higher throughput in batch processing environments.
+Lower average response and waiting time.
+Disadvantages of SSTF:
+Starvation is possible for distant requests.
+Lack of predictability due to dynamic selection of nearest tracks.
+Direction switching may cause unnecessary delay.
+Algorithm Steps (Improved Format):
+
+Given:
+
+requestQueue[]: Array containing disk track requests.
+initialHead: Initial position of the disk head.
+totalSeekCount: Variable to accumulate total seek operations.
+visited[]: Boolean array to mark whether a track has been serviced.
+SSTF Algorithm:
+Initialize totalSeekCount = 0, currentHead = initialHead, and mark all requests as unvisited.
+Repeat until all requests are serviced:
+a. For each unvisited track in requestQueue, compute distance = abs(track - currentHead)
+b. Find the unvisited track with minimum distance
+c. Add this distance to totalSeekCount
+d. Update currentHead to this track
+e. Mark this track as visited
+Return totalSeekCount and the seek sequence
+Example
+
+Input:
+requestQueue[] = {176, 79, 34, 60, 92, 11, 41, 114}
+initialHead = 50
+Processing:
+Start at 50. Choose the nearest unvisited track at every step.
+
+Step	Current Head	Nearest Track	Distance	Total Seek Count
+1	50	41	9	9
+2	41	34	7	16
+3	34	11	23	39
+4	11	60	49	88
+5	60	79	19	107
+6	79	92	13	120
+7	92	114	22	142
+8	114	176	62	204
+Seek Sequence:
+50 → 41 → 34 → 11 → 60 → 79 → 92 → 114 → 176
+
+Total Seek Operations:
+204
 
