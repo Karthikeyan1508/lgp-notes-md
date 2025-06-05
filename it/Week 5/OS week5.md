@@ -418,25 +418,28 @@ No starvation; all requests are guaranteed to be served.
 High average seek time.
 Inefficient for large or heavily loaded queues.
 
+## Shortest Seek Time First (SSTF)
+
 SSTF services the disk I/O request that is closest to the current head position, minimizing the seek operations at each step. It provides better performance than FCFS by selecting the nearest track request at every stage.
 
-Advantages of SSTF:
+### Advantages of SSTF:
 Better performance and lower total seek time than FCFS.
 Higher throughput in batch processing environments.
 Lower average response and waiting time.
-Disadvantages of SSTF:
+
+### Disadvantages of SSTF:
 Starvation is possible for distant requests.
 Lack of predictability due to dynamic selection of nearest tracks.
 Direction switching may cause unnecessary delay.
 Algorithm Steps (Improved Format):
 
 Given:
-
 requestQueue[]: Array containing disk track requests.
 initialHead: Initial position of the disk head.
 totalSeekCount: Variable to accumulate total seek operations.
 visited[]: Boolean array to mark whether a track has been serviced.
-SSTF Algorithm:
+
+### Algorithm:
 Initialize totalSeekCount = 0, currentHead = initialHead, and mark all requests as unvisited.
 Repeat until all requests are serviced:
 a. For each unvisited track in requestQueue, compute distance = abs(track - currentHead)
@@ -445,11 +448,13 @@ c. Add this distance to totalSeekCount
 d. Update currentHead to this track
 e. Mark this track as visited
 Return totalSeekCount and the seek sequence
+
 Example
 
 Input:
 requestQueue[] = {176, 79, 34, 60, 92, 11, 41, 114}
 initialHead = 50
+
 Processing:
 Start at 50. Choose the nearest unvisited track at every step.
 
@@ -462,9 +467,9 @@ Step	Current Head	Nearest Track	Distance	Total Seek Count
 6	79	92	13	120
 7	92	114	22	142
 8	114	176	62	204
+
 Seek Sequence:
 50 → 41 → 34 → 11 → 60 → 79 → 92 → 114 → 176
 
 Total Seek Operations:
 204
-
