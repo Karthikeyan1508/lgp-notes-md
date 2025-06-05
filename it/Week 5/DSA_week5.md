@@ -1,83 +1,181 @@
 # Competitive Programming Notes
 
-Competitive programming involves solving algorithmic problems under constraints, with a focus on time and space efficiency. This plan covers the most frequent patterns seen in interviews and contests.
+Competitive programming involves solving algorithmic problems under constraints, with a focus on time and space efficiency. It emphasizes writing correct, optimal solutions within a limited time. This plan covers the most frequent patterns seen in interviews and contests, including algorithmic design, data structure mastery, and problem-solving strategies. These notes are written to help students grasp core ideas and sense how each concept contributes to efficient problem-solving.
+
+---
 
 # Arrays & Strings
 
-Arrays are the foundation of most problems. Key techniques include prefix sums, sliding windows, and two-pointer methods.
+Arrays are fundamental because they provide indexed access to a collection of elements. You'll encounter problems like finding subarrays with certain properties or manipulating elements in place.
 
-Strings require manipulation and understanding of memory and traversal, often used in problems like anagrams, palindromes, and pattern matching.
+* **Prefix Sum**: Build an array where each position holds the sum of all previous elements. Helps in constant-time subarray sum queries.
+* **Sliding Window**: Move a fixed-size or dynamic-size window through an array to track or optimize subarray properties (sum, count, etc.).
+* **Two Pointers**: Efficient for sorted arrays to perform linear-time comparisons.
+
+Strings, though similar to arrays, often deal with character frequency, pattern detection, and transformation:
+
+* **Character Frequency**: Helps in checking anagrams or counting specific letters.
+* **String Matching**: Brute force methods are slow; advanced techniques (KMP, Rabin-Karp) improve performance.
+* **Palindrome Checking**: Often involves comparing characters symmetrically or using dynamic programming.
+
+---
 
 # Linked Lists
 
-Linked Lists are crucial for understanding pointers and memory management.
+Linked Lists are dynamic structures where elements point to the next. Useful in situations requiring constant-time insertions/deletions.
 
-Problems often focus on reversing, detecting cycles (Floyd’s Algorithm), and merging sorted lists.
+* **Reversing a List**: Core pointer manipulation skill.
+* **Cycle Detection**: Detect loops using two pointers moving at different speeds.
+* **Middle of List**: Fast-slow pointer trick helps find the middle node efficiently.
+* **Merge Sorted Lists**: Requires careful pointer adjustments, especially in recursive formats.
+
+Linked lists also build intuition for handling nulls, pointers, and edge cases.
+
+---
 
 # Trees
 
-Tree traversal (in-order, pre-order, post-order) is foundational.
+Trees represent hierarchical structures. Binary trees are the most tested form.
 
-Recursive thinking is key. Concepts like DFS/BFS, height calculation, and subtree comparison are core.
+* **Traversals**: Pre-order (process before children), In-order (for BSTs: sorted output), Post-order (process children before node).
+* **Level Order (BFS)**: Uses queues to explore nodes level by level.
+* **BST Properties**: Left subtree < Node < Right subtree; useful in search and sorting.
+* **Path-Based Problems**: Like max sum from root to leaf, or diameter between nodes.
+
+Recursive and stack-based approaches often apply here.
+
+---
 
 # Binary Search
 
-A divide-and-conquer strategy that reduces time complexity from O(n) to O(log n).
+An essential divide-and-conquer technique, applied to sorted data or monotonic functions.
 
-Variants include lower/upper bound, rotated arrays, and binary search on answers.
+* **Standard Search**: Finds an element in log(n) time.
+* **Rotated Arrays**: Binary search can adapt to rotated sorted inputs.
+* **Search on Answer**: Instead of a concrete array, you search the *range* of values.
+
+Understanding when to move the left/right pointers is crucial.
+
+---
 
 # Sliding Window
 
-Useful for subarray problems where we track a range in linear time.
+Used to optimize problems involving contiguous subarrays.
 
-Often paired with hash maps for frequency/counting purposes.
+* **Fixed Window**: For problems where size is fixed (e.g., max sum of size k).
+* **Dynamic Window**: Useful for problems like longest substring without repeating characters.
+* **Hash Maps**: Often used to track frequencies in a window.
+
+Requires careful start/end pointer management to expand and shrink windows.
+
+---
 
 # Two Pointers
 
-Used when comparing or moving through two indexes in a single pass.
+Two indices move independently or together to achieve the goal.
 
-Excellent for problems involving sorting, merging, or partitioning.
+* **In-Place Operations**: Like removing duplicates.
+* **Sorted Array Use**: Merging, searching pairs, or triplets.
+* **Partitioning**: Grouping values below and above a pivot.
+
+Commonly appears in combination with sorting or greedy strategies.
+
+---
 
 # Stack
 
-Used for Last-In-First-Out operations.
+Stacks hold data in LIFO order. They're useful when the most recent item is needed next.
 
-Important in parsing expressions, backtracking, and maintaining monotonic sequences.
+* **Monotonic Stack**: Maintains increasing or decreasing order for solving range maximum/minimum problems.
+* **Expression Evaluation**: Converts infix to postfix or handles parenthesis evaluation.
+* **Simulating Recursion**: Non-recursive DFS and backtracking.
+
+Also used in problems like stock span, histogram area, etc.
+
+---
 
 # Heap / Priority Queue
 
-Great for keeping track of min/max values dynamically.
+A special tree-based structure to efficiently get min or max elements.
 
-Essential for scheduling, median-finding, and merging tasks.
+* **Min Heap**: Used in Dijkstra’s algorithm and finding smallest values.
+* **Kth Largest/Smallest**: Maintain a heap of size k for efficiency.
+* **Merging Sorted Lists**: Heaps help in merging efficiently.
+
+Good for scenarios with dynamically updating streams.
+
+---
 
 # Graphs (BFS/DFS)
 
-Graph traversal is critical. BFS is ideal for shortest paths, while DFS is useful for exploring components.
+Graphs model relationships and connections. Traversals help explore or analyze such structures.
 
-Topological sort, connected components, and cycle detection are key concepts.
+* **DFS**: Goes deep before backtracking. Useful in components and cycle detection.
+* **BFS**: Explores level by level. Best for shortest path in unweighted graphs.
+* **Topological Sort**: Orders tasks with dependencies (DAGs).
+* **Connected Components**: Group all reachable nodes.
+
+Know how to represent graphs using adjacency lists or matrices.
+
+---
 
 # Dynamic Programming
 
-Breaks a problem into subproblems and caches results to avoid recomputation.
+DP is used to solve problems with overlapping subproblems and optimal substructure.
 
-Recognizing overlapping subproblems and optimal substructure is key.
+* **Memoization**: Save results of recursive calls to avoid recomputation.
+* **Tabulation**: Iterative bottom-up approach.
+* **State Identification**: Define what each subproblem represents.
+
+Useful in problems like:
+
+* **Knapsack**: Max value under weight constraint.
+* **Subsequences**: LCS, LIS, etc.
+* **Partitioning**: Divide arrays under rules.
+
+Understanding transitions is critical to mastering DP.
+
+---
 
 # Trie / String Matching
 
-Trie helps in dictionary-like problems and prefix searching.
+Trie is a tree where nodes represent prefixes.
 
-Efficient for solving auto-complete and word search variations.
+* **Auto-complete**: Suggest words based on prefix.
+* **Validation**: Check if word exists in a set efficiently.
+* **Word Search**: In 2D grids, using Trie reduces time.
+
+String matching also includes:
+
+* **KMP**: Avoids redundant comparisons.
+* **Aho-Corasick**: For multiple pattern matching.
+
+Great for dictionary-based problems.
+
+---
 
 # Greedy
 
-Makes local optimal choices at each step with the hope of a global optimum.
+Greedy algorithms build up a solution piece by piece by choosing the best local option.
 
-Works well in interval scheduling, coin problems, and path optimization.
+* **Activity Selection**: Choose max non-overlapping intervals.
+* **Huffman Encoding**: Build optimal prefix codes.
+* **Fractional Knapsack**: Take the best density items first.
+
+Requires proving that local choices lead to global optimality.
+
+---
 
 # Backtracking
 
-A brute-force approach with pruning.
-Often used in permutations, combinations, and constraint-satisfying problems.
+Explores all possibilities by choosing an option and reverting if needed.
+
+* **Permutations/Combinations**: Try placing one element at a time.
+* **Sudoku Solver**: Try filling numbers with constraints.
+* **N-Queens**: Place queens without attacking each other.
+
+Key is to prune branches that are guaranteed to fail.
+
 ---
 
 # Practise Problems
