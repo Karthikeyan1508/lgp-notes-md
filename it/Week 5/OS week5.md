@@ -358,103 +358,63 @@ Caching is especially useful in scenarios where the same data is accessed multip
 | **Example**          | Website data, CPU instructions                         | Print jobs queued for printer                                   | Video buffering while streaming                                       |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Disk Scheduling in Operating Systems
+## Disk Scheduling in Operating Systems
 
 Disk scheduling algorithms play a vital role in managing how data is read from and written to a computer’s hard disk. These algorithms determine the order of disk I/O (Input/Output) requests, directly affecting system performance, data retrieval speed, and overall efficiency.
 
-What is Disk Scheduling?
+### What is Disk Scheduling?
 
 Disk Scheduling, also known as I/O Scheduling, is a technique used by the Operating System to decide the sequence in which I/O requests are serviced by the disk controller. Since only one request can be processed at a time, others must wait in a queue. Efficient scheduling ensures minimum wait time, reduced disk arm movement, and faster data access.
 
-Importance of Disk Scheduling
-	•	Multiple I/O requests may arrive simultaneously from different processes, and the disk can handle only one at a time.
-	•	Requests might be far apart on the disk, leading to large disk arm movements (high seek time).
-	•	Hard drives are relatively slow compared to other components, making optimization critical.
-	•	Proper disk scheduling improves:
-	•	Data retrieval speed
-	•	System responsiveness
-	•	Overall throughput
+*Importance of Disk Scheduling*
+- Multiple I/O requests may arrive simultaneously from different processes, and the disk can handle only one at a time.
+- Requests might be far apart on the disk, leading to large disk arm movements (high seek time).
+- Hard drives are relatively slow compared to other components, making optimization critical.
+- Proper disk scheduling improves:
+- Data retrieval speed
+- System responsiveness
+- Overall throughput
+
+## First Come First Serve (FCFS)
+
+FCFS is the simplest disk scheduling algorithm. It services disk I/O requests in the exact order in which they arrive. Although fair and free from starvation, FCFS often results in longer average seek times.
+
+### Algorithm Steps:
+Given:
+requestQueue[]: An array of track numbers requested, in order of arrival.
+initialHead: An integer representing the starting position of the disk head.
+totalSeekCount: A variable to store the cumulative number of seek operations.
+
+### Improved Algorithm:
+Initialize totalSeekCount = 0
+Set currentHead = initialHead
+For each track in requestQueue[]:
+a. Compute absolute distance:
+    distance = abs(track - currentHead)
+b. Add to total seek count:
+    totalSeekCount += distance
+c. Update head position:
+    currentHead = track
+Repeat until all requests in requestQueue are serviced.
+
+```
+Input:
+requestQueue[] = {82, 170, 43, 140, 24, 16, 190}
+initialHead = 50
+
+Seek Order:
+50 → 82 → 170 → 43 → 140 → 24 → 16 → 190
+
+Seek Operations:
+|50−82| + |82−170| + |170−43| + |43−140| + |140−24| + |24−16| + |16−190|
+
+= 32 + 88 + 127 + 97 + 116 + 8 + 174 = **642**
+```
+*Advantages:*
+Very simple and easy to implement.
+No starvation; all requests are guaranteed to be served.
+
+*Disadvantages:*
+High average seek time.
+Inefficient for large or heavily loaded queues.
+
