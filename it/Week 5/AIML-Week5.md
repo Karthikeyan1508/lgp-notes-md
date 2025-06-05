@@ -14,7 +14,8 @@ Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI) th
      ↓
 [Output: Classification / Translation / Sentiment etc.]
 
-### Input Text
+## Input Text
+
 Input Text refers to any human-generated natural language data that is given to a computer system to analyze or understand.
 
 This can include:
@@ -32,7 +33,8 @@ At this stage, the machine:
 2. Treats it as a sequence of characters or a blob of text.
 That’s why we move on to preprocessing next — to convert it into something the machine can work with.
 
-### Text Preprocessing
+## Text Preprocessing
+
 Text preprocessing in Machine Learning refers to the series of steps
 used to clean, transform, and standardize raw textual data so it can
 be effectively used by machine learning algorithms.
@@ -56,6 +58,7 @@ be effectively used by machine learning algorithms.
 ![image](https://github.com/user-attachments/assets/a4145b80-2059-44de-a5e0-e88c79139a21)
 
 **1. Lowercasing**
+
 → Converts all characters to lowercase to avoid treating “Machine”
 and “machine” as different words.
 → Lowercasing is the process of converting all characters in text to
@@ -64,6 +67,7 @@ lowercase.
 same words in different cases as different entities
 
 **2. Removing Punctuation and Special Characters**
+
 → Cleans up symbols that don’t add meaning.
 It is removed because:
 1. Reduce noise in text.
@@ -71,6 +75,7 @@ It is removed because:
 3. Helps machine learning models focus on meaningful patterns
 
 **3. Removing Stopwords**
+
 → Removes common words that don’t add much value (like “is”,
 “the”, “and”).
 → Stopwords are commonly used words in a language that carry
@@ -79,9 +84,11 @@ filtered out before processing natural language data.
 → Examples in English: “is”, “the”, “and”, “in”, “of”, “on”, “to”, “with”
 
 **4. Emojis**
+
 → Detects, replaces, or removes emojis from text.
 
 **5. Spelling Corrections**
+
 Automatically corrects misspelled words in a string.
 Spelling Correction refers to the process of identifying and
 correcting misspelled words in text. It’s essential in:
@@ -90,6 +97,7 @@ correcting misspelled words in text. It’s essential in:
 → Spell-checkers in writing tools
 
 **6. Removing the Accents**
+
 → Accents are special marks added to letters in many languages
 (especially French, Spanish, German, etc.) to change pronunciation
 or meaning.
@@ -98,6 +106,7 @@ or meaning.
 → Avoiding duplication (e.g., résumé and resume treated separately)
 
 **7. Removing Extra Whitespaces**
+
 Why Remove Extra Whitespaces?
 Extra spaces (like tabs, newlines, multiple spaces) can:
 → Mislead tokenizers, word counters, and vectorizers
@@ -105,6 +114,7 @@ Extra spaces (like tabs, newlines, multiple spaces) can:
 → Waste memory or cause inconsistent text formatting
 
 **8. Tokenization**
+
 Tokenization is the process of breaking down text into smaller
 units, called tokens. These tokens can be:
 → Words (word-level tokenization)
@@ -123,6 +133,7 @@ embeddings)
 
 
 **9. Stemming**
+
 Stemming is the process of converting words into their base form / root word by removing the suffixes.
 We have 3 types of stemmers
 a. Porter stemmer
@@ -145,6 +156,7 @@ TF-IDF)
 
 
 **10. Lemmatization**
+
 → Lemmatization is the process of reducing a word to its base or
 dictionary form, called a lemma, using linguistic knowledge (like
 grammar and vocabulary).
@@ -177,19 +189,23 @@ The encoder layers are responsible for processing the input sequence and produci
 The decoder layers take these hidden representations as input and produce an output sequence.
 
 **Self-Attention Mechanism**
+
 The key innovation of the transformer architecture is the use of self-attention mechanisms. Self-attention allows the model to focus on different parts of the input sequence at different times during processing.
 Self-attention works by computing a weighted sum of the input sequence, where the weights are determined by a set of learned parameters. These weights reflect the importance of each element of the input sequence to the current processing step.
 In the transformer architecture, self-attention is computed using three matrices: the query matrix, the key matrix, and the value matrix. These matrices are learned during training and are used to compute the weights for each element of the input sequence.
 
 **Multi-Head Attention**
+
 The transformer architecture also uses a technique called multi-head attention to improve the effectiveness of the self-attention mechanism.
 Multi-head attention involves computing multiple sets of queries, keys, and values in parallel, and then concatenating the results. This allows the model to attend to different parts of the input sequence in different ways, which can improve its ability to capture complex relationships within the sequence.
 
 **Positional Encoding**
+
 The transformer architecture also includes a technique called positional encoding, which allows the model to incorporate information about the position of each element within the input sequence.
 Positional encoding involves adding a set of learned vectors to the input sequence, where each vector corresponds to a specific position within the sequence. This allows the model to differentiate between elements that are in different positions within the sequence.
 
-**GPT**
+## GPT
+
 GPT (Generative Pre-trained Transformer) is a language model that was introduced by OpenAI in 2018. It uses the transformer architecture to generate text, and has achieved state-of-the-art results on several natural language generation tasks.
 
 -> Pre-training
@@ -213,7 +229,7 @@ for i, sample_output in enumerate(generated_text):
 
 This code uses the Hugging Face Transformers library to create a GPT-2 text generation pipeline. It then generates five samples of text starting with the prompt “Hello, how are” and prints the results.
 
-**BERT**
+## BERT
 BERT (Bidirectional Encoder Representations from Transformers) is a language model that was introduced by Google in 2018. It uses the transformer architecture to perform a variety of natural language processing tasks, such as question answering and sentiment analysis.
 
 -> Pre-training
