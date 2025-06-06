@@ -390,11 +390,11 @@ Initialize totalSeekCount = 0
 Set currentHead = initialHead
 For each track in requestQueue[]:
 a. Compute absolute distance:
-    distance = abs(track - currentHead)
+     distance = abs(track - currentHead)
 b. Add to total seek count:
-    totalSeekCount += distance
+     totalSeekCount += distance
 c. Update head position:
-    currentHead = track
+     currentHead = track
 Repeat until all requests in requestQueue are serviced.
 
 ```
