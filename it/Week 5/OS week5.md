@@ -815,6 +815,33 @@ Access control mechanisms regulate who can access or use resources in a system. 
 - Detailed but complex to manage at scale
 
 *Practical Access Matrix Example*
+![image](https://github.com/user-attachments/assets/56fb154c-dc2c-43da-8bb3-0f2f9ddc7447)
+
+*RBAC vs Other Access Control Models*
+
+RBAC vs ACL
+
+RBAC provides system-wide access control based on user roles, which is easier to manage and scale. ACL is more granular and suited for object-specific permissions but becomes complex with many users or systems.
+
+RBAC vs ABAC (Attribute-Based Access Control)
+
+ABAC uses policies and user attributes (like department, location, or time) for more dynamic access decisions. ABAC offers finer control but requires more processing and complexity. RBAC is better for standardized, job-based access, while ABAC is used for more nuanced, condition-based access control.
+
+*Implementing Role-Based Access Control*
+
+Understand Business Needs
+Conduct a needs analysis, identify key job functions, and assess security and regulatory requirements.
+
+Plan Scope of Implementation
+Define which systems/applications to prioritize—typically those that handle sensitive data.
+
+Define Roles
+Create roles that reflect real job functions. Avoid excessive granularity and role overlap.
+
+Implement Gradually
+Begin with a pilot group and coarse-grained roles. Refine over time based on feedback and monitoring.
+
+
 
 # Data Encryption and Backup Strategies
 
