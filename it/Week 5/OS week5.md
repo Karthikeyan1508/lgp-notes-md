@@ -841,7 +841,104 @@ Create roles that reflect real job functions. Avoid excessive granularity and ro
 Implement Gradually
 Begin with a pilot group and coarse-grained roles. Refine over time based on feedback and monitoring.
 
+# File System Integrity and Recovery
 
+A file system is responsible for managing how data is stored and retrieved on a storage device. Ensuring its integrity means keeping the data structures and stored files consistent and correct, even in the event of system crashes, hardware failures, or power loss. File system recovery refers to the techniques used to restore a file system to a consistent state after such failures.
+
+## What is File System Integrity?
+
+File system integrity ensures that:
+
+- Files are not lost or corrupted.
+- Directory structures are consistent.
+- Metadata (e.g., file size, timestamps, block pointers) remains accurate.
+- All referenced data blocks actually exist and unreferenced blocks are not wasted.
+
+Integrity issues may occur due to:
+
+- Power failures  
+- Software bugs  
+- Hardware malfunctions  
+- Improper shutdowns  
+
+## Sources of Inconsistency
+
+Common scenarios where file system integrity might be compromised:
+
+- **Interrupted writes**: A system crash during file write can cause partial updates.
+- **Metadata mismatch**: File size in the directory entry doesn’t match actual allocated blocks.
+- **Lost blocks**: Blocks that are marked as used but aren’t referenced by any file.
+- **Duplicate block allocation**: Two files point to the same physical disk block.
+- **Orphaned files**: File data exists but has no entry in the directory.
+
+## File System Consistency Techniques
+
+### Synchronous Writes
+
+- Critical metadata updates are done in order and forced to disk before proceeding.
+- Ensures consistency but is slower due to frequent disk operations.
+
+### Write-Ahead Logging (Journaling)
+
+- All changes are first recorded in a log (journal) before being applied to the file system.
+- If a crash occurs, the system replays or rolls back the log to reach a consistent state.
+- Common in modern file systems like ext3, ext4, NTFS.
+
+### Copy-on-Write (COW)
+
+- Instead of overwriting data, changes are written to new blocks, and then metadata pointers are updated.
+- Prevents corruption from partial writes.
+- Used in file systems like ZFS and Btrfs.
+
+### Checksums and Hashing
+
+- Data blocks and metadata can include checksums to detect corruption.
+- Helps in identifying and correcting integrity issues.
+
+## File System Recovery
+
+Recovery refers to restoring consistency after a crash or error. Recovery techniques vary based on the integrity method used.
+
+### FSCK (File System Consistency Check)
+
+- A utility that scans file system structures and metadata for inconsistencies.
+- Performs actions like:
+  - Reconnecting orphaned files to a `lost+found` directory
+  - Releasing unreferenced blocks
+  - Correcting block counts and sizes
+
+**Examples:**
+
+- `fsck` for ext2/ext3/ext4 (Linux)
+- `chkdsk` for FAT/NTFS (Windows)
+
+### Journaling Recovery
+
+If the file system supports journaling:
+
+- On reboot, it reads the journal.
+- If a transaction was fully written, it replays it.
+- If it was incomplete, it rolls back the changes.
+
+This makes recovery fast and automatic.
+
+## Examples of File Systems with Recovery Support
+
+| File System | Integrity Feature         | Recovery Support                       |
+|-------------|---------------------------|----------------------------------------|
+| ext3/ext4   | Journaling                | Automatic recovery using journal       |
+| NTFS        | Journaling (metadata)     | Uses logs to recover after crash       |
+| ZFS         | Copy-on-write, Checksums  | Self-healing, rollback, snapshots      |
+| Btrfs       | COW, Checksums            | Crash-consistent and robust recovery   |
+
+## Best Practices to Maintain File System Integrity
+
+- Always shut down systems properly.
+- Use journaling or COW-enabled file systems.
+- Regularly run `fsck` or equivalent tools.
+- Maintain backups for critical data.
+- Use RAID or redundant storage for hardware fault tolerance.
+- Monitor SMART data for disk health.
 
 # Data Encryption and Backup Strategies
 
