@@ -1,3 +1,159 @@
+**Types of Lines:**
+
+1. ***Continuous Thick Line (Visible Object Line)***
+
+- Use: Represents visible edges and outlines of objects
+
+- Appearance: Solid, thick line
+
+- Example: External edges of a solid block
+
+ 2. ***Continuous Thin Line***
+Use:
+
+- Dimension lines
+
+- Extension lines
+
+- Leader lines
+
+- Hatching
+
+- Appearance: Solid, thin line
+
+- Example: Size indicators, hatching for section views
+
+3. ***Dashed Thin Line (Hidden Line)***
+   
+- Use: Represents hidden edges not visible in the current view
+
+- Appearance: Thin, short dashes
+
+ - Example: Hole or feature on the back side of an object
+
+4. ***Chain Thin Line (Center Line)***
+   
+- Use: Represents center axis of symmetrical objects (holes, cylinders)
+
+- Appearance: Alternating long and short dashes
+
+- Example: Axis of a shaft or bolt hole
+
+5. ***Chain Thick Line (Cutting Plane Line)***
+   
+- Use: Indicates cutting plane in section views
+
+- Appearance: Thick line with long dash–short dash pattern
+
+- Example: Section A–A or B–B
+
+6. ***Continuous Thin Freehand Line***
+   
+- Use: For short break lines
+
+- Appearance: Thin, wavy freehand line
+
+- Example: Break in a shaft or pipe to show detail
+
+7. ***Continuous Thin Zigzag Line***
+   
+- Use: Long break lines
+
+- Appearance: Thin zigzag line
+
+- Example: Break in a long component like a beam
+
+8. ***Chain Thin Line with Thick Ends***
+   
+- Use: Used to indicate special features like surfaces to be machined
+
+- Appearance: Thin line with thick ends or dashes
+
+ - Example: Specific surface treatments
+
+**Dimensions:**
+
+- Dimensioning is the process of annotating a drawing with measurements to define the size, location and features of an object.
+
+1. ***Types of Dimensions***
+   
+A. ***Linear Dimensions***
+
+- Measure lengths, widths, and heights (straight-line distances).
+
+Includes:
+
+- Horizontal dimensions
+
+- Vertical dimensions
+
+Aligned dimensions (along inclined surfaces)
+
+B. ***Angular Dimensions***
+
+- Measure angles between two lines or surfaces.
+
+- Shown using an arc with degree value (°).
+
+C. ***Radial Dimensions***
+
+- Used to dimension circles and arcs.
+
+Includes:
+
+- Radius (R)
+
+- Diameter (⌀)
+
+***Types of Planes:***
+
+ ***Principal Planes***
+
+ A. ***Horizontal Plane (HP)***
+ 
+- A plane that lies flat like the top of a table.
+
+- Used to represent the Top View (TV) of an object.
+
+B. ***Vertical Plane (VP)***
+
+- A standing plane like a wall.
+
+- Used to show the Front View (FV) of an object.
+
+C. ***Profile Plane (PP) or Side Plane***
+
+- Perpendicular to both HP and VP.
+
+- Used to show the Side View (SV) (usually the right side).
+
+B. ***Auxiliary Planes***
+  
+- Used when an object is inclined to the principal planes.
+
+- Helps in showing true shape and size.
+
+C. ***Inclined Planes***
+
+- Planes inclined to either HP or VP.
+
+- Do not show true shape in standard views.
+
+D. ***Oblique Planes***
+
+- Inclined to both HP and VP.
+
+- Complex projection; used in advanced drawings.
+
+***View Representation from Planes:***
+
+| Plane | View            | Placement        |
+| ----- | --------------- | ---------------- |
+| HP    | Top View (TV)   | Below XY         |
+| VP    | Front View (FV) | Above XY         |
+| PP    | Side View (SV)  | Right/Left of FV |
+  
+
 # Geometric Dimensioning and Tolerancing (GD&T)
 
 ## What is GD&T?
