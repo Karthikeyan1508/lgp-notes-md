@@ -357,4 +357,465 @@ Caching is especially useful in scenarios where the same data is accessed multip
 | **Persistence**      | Temporary (evicted when not needed)                    | Temporary until processed                                       | Temporary during transfer                                             |
 | **Example**          | Website data, CPU instructions                         | Print jobs queued for printer                                   | Video buffering while streaming                                       |
 
+# Disk Scheduling
+Disk scheduling algorithms play a vital role in managing how data is read from and written to a computer’s hard disk. These algorithms determine the order of disk I/O (Input/Output) requests, directly affecting system performance, data retrieval speed, and overall efficiency.
+
+### What is Disk Scheduling?
+Disk Scheduling, also known as I/O Scheduling, is a technique used by the Operating System to decide the sequence in which I/O requests are serviced by the disk controller. Since only one request can be processed at a time, others must wait in a queue. Efficient scheduling ensures minimum wait time, reduced disk arm movement, and faster data access.
+
+*Importance of Disk Scheduling*
+
+- Multiple I/O requests may arrive simultaneously from different processes, and the disk can handle only one at a time.
+- Requests might be far apart on the disk, leading to large disk arm movements (high seek time).
+- Hard drives are relatively slow compared to other components, making optimization critical.
+- Proper disk scheduling improves:
+- Data retrieval speed
+- System responsiveness
+- Overall throughput
+
+## First Come First Serve (FCFS)
+
+FCFS is the simplest disk scheduling algorithm. It services disk I/O requests in the exact order in which they arrive. Although fair and free from starvation, FCFS often results in longer average seek times.
+
+### Algorithm Steps:
+Given:
+requestQueue[]: An array of track numbers requested, in order of arrival.
+
+initialHead: An integer representing the starting position of the disk head.
+
+totalSeekCount: A variable to store the cumulative number of seek operations.
+
+### Improved Algorithm:
+Initialize totalSeekCount = 0
+
+Set currentHead = initialHead
+
+For each track in requestQueue[]:
+a. Compute absolute distance:
+     distance = abs(track - currentHead)
+b. Add to total seek count:
+     totalSeekCount += distance
+c. Update head position:
+     currentHead = track
+Repeat until all requests in requestQueue are serviced.
+
+
+Input:
+
+requestQueue[] = {82, 170, 43, 140, 24, 16, 190}
+initialHead = 50
+
+Seek Order:
+
+50 → 82 → 170 → 43 → 140 → 24 → 16 → 190
+
+Seek Operations:
+|50−82| + |82−170| + |170−43| + |43−140| + |140−24| + |24−16| + |16−190|
+
+= 32 + 88 + 127 + 97 + 116 + 8 + 174 = **642**
+
+Advantages:
+Very simple and easy to implement.
+No starvation; all requests are guaranteed to be served.
+
+Disadvantages:
+High average seek time.
+Inefficient for large or heavily loaded queues.
+
+## Shortest Seek Time First (SSTF)
+
+SSTF services the disk I/O request that is closest to the current head position, minimizing the seek operations at each step. It provides better performance than FCFS by selecting the nearest track request at every stage.
+
+### Advantages of SSTF:
+Better performance and lower total seek time than FCFS.
+
+Higher throughput in batch processing environments.
+
+Lower average response and waiting time.
+
+### Disadvantages of SSTF:
+Starvation is possible for distant requests.
+
+Lack of predictability due to dynamic selection of nearest tracks.
+
+Direction switching may cause unnecessary delay.
+
+Algorithm Steps (Improved Format):
+
+Given:
+requestQueue[]: Array containing disk track requests.
+
+initialHead: Initial position of the disk head.
+
+totalSeekCount: Variable to accumulate total seek operations.
+
+visited[]: Boolean array to mark whether a track has been serviced.
+
+### Algorithm:
+Initialize totalSeekCount = 0, currentHead = initialHead, and mark all requests as unvisited.
+Repeat until all requests are serviced:
+
+a. For each unvisited track in requestQueue, compute distance = abs(track - currentHead)
+
+b. Find the unvisited track with minimum distance
+
+c. Add this distance to totalSeekCount
+
+d. Update currentHead to this track
+
+e. Mark this track as visited
+
+Return totalSeekCount and the seek sequence
+
+Example
+
+Input:
+requestQueue[] = {176, 79, 34, 60, 92, 11, 41, 114}
+initialHead = 50
+
+Processing:
+Start at 50. Choose the nearest unvisited track at every step.
+
+![image](https://github.com/user-attachments/assets/b0aabc60-602a-4a37-b1ef-3a2783713c01)
+
+
+Seek Sequence:
+50 → 41 → 34 → 11 → 60 → 79 → 92 → 114 → 176
+
+Total Seek Operations:
+204
+
+## SCAN
+SCAN, also known as the Elevator Algorithm, is a disk scheduling algorithm used to determine the order in which disk I/O requests are serviced.
+
+Imagine a disk arm like an elevator: it moves in one direction (say towards track 0), servicing requests along the way. When it reaches the end, it reverses and services the remaining requests in the opposite direction.
+
+*Key Concept*
+
+-The disk arm moves in one direction and services all the requests it encounters until it reaches the end of the disk.
+-Then it reverses direction and continues servicing remaining requests.
+
+*Components*
+
+- Request Array: List of track numbers to be accessed.
+- Initial Head Position: Where the disk head starts.
+- Direction: Initial direction of the disk head movement (left or right).
+
+*How SCAN Works (Steps)*
+
+Step 1:
+Sort all the disk track requests in ascending order.
+
+Step 2:
+Split the requests into:
+
+Those to the left of the initial head position.
+Those to the right of the initial head position.
+Step 3:
+Move the disk head in the specified direction:
+
+If moving left, service all smaller track numbers.
+If moving right, service all larger track numbers.
+Step 4:
+When the head reaches the end of the disk (like track 0 or max track), it reverses direction.
+
+Step 5:
+Continue servicing requests in the new direction.
+
+Example
+
+Input:
+Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}
+Initial head = 50
+Direction = left
+Sorted:
+{11, 34, 41, 60, 79, 92, 114, 176}
+
+Left of 50:
+{11, 34, 41} → serviced in descending order: 41 → 34 → 11
+
+After 11, the head moves to 0 (end of disk).
+
+Then reverse:
+
+Right side:
+60 → 79 → 92 → 114 → 176
+
+Seek Sequence:
+41 → 34 → 11 → 0 → 60 → 79 → 92 → 114 → 176
+
+*Advantages of SCAN*
+
+- No starvation – All requests are eventually serviced.
+- More efficient than FCFS in most scenarios.
+- Good average response time for many types of workloads.
+
+*Disadvantages of SCAN*
+
+- Not completely fair – Requests just behind the head can be delayed for a long time.
+- The head always goes to the end of the disk, even if no request is there (wasted movement).
+- Slightly more complex to implement than FCFS.
+  
+*Analogy*
+
+Think of it like this:
+An elevator moves in one direction, stopping at every requested floor (track), then reverses at the bottom or top, picking up others on the way back.
+
+## C-SCAN
+C-SCAN (Circular SCAN) is a disk scheduling algorithm that is a modified version of the SCAN (Elevator) Algorithm. It solves a major limitation of SCAN: unfairness in servicing requests.
+
+Instead of moving the head back and forth like an elevator, C-SCAN moves the disk head in only one direction (usually left to right), servicing requests. When it reaches the end of the disk, it jumps directly to the beginning (cylinder 0) without servicing any request during the return.
+
+This is why it’s called the Circular Elevator Algorithm—it treats the disk like a circular list of cylinders.
+
+*How C-SCAN Works*
+
+Input:
+Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}
+Initial head position = 50
+Direction = right
+Disk size (assumed max cylinder) = 199
+Steps:
+Sort the request sequence:
+Sorted = {11, 34, 41, 60, 79, 92, 114, 176}
+Separate requests into:
+Right of 50: {60, 79, 92, 114, 176}
+Left of 50: {11, 34, 41}
+Move Right from 50:
+Service 60 → 79 → 92 → 114 → 176
+Go to end of disk:
+Move from 176 to 199 (last track), even if no request exists
+Jump to beginning (0):
+Head jumps from 199 → 0 (without servicing)
+Continue moving right:
+Service 11 → 34 → 41
+
+*Seek Sequence:*
+
+60 → 79 → 92 → 114 → 176 → 199 → 0 → 11 → 34 → 41
+
+*Seek Operations:*
+
+Calculate total distance (seek count):
+
+50 → 60 = 10
+60 → 79 = 19
+79 → 92 = 13
+92 → 114 = 22
+114 → 176 = 62
+176 → 199 = 23 (go to end of disk)
+199 → 0 = 199 (jump back to start)
+0 → 11 = 11
+11 → 34 = 23
+34 → 41 = 7
+Total Seek Count = 10 + 19 + 13 + 22 + 62 + 23 + 199 + 11 + 23 + 7 = 389
+
+*Advantages of C-SCAN*
+
+- Provides uniform response times for all requests.
+- Avoids starvation—all requests are eventually serviced.
+- Works well under heavy loads.
+-Ensures fairness by treating all tracks equally regardless of position.
+
+*Disadvantages of C-SCAN*
+
+- Slightly less efficient in terms of total head movement compared to SCAN.
+- It can result in longer jumps (like 199 → 0), especially if few requests are present.
+  
+*Analogy*
+
+Imagine a circular elevator that only picks people up on the way up. Once it reaches the top, it comes back down without stopping, and then starts picking people again.
+
+## Disk Management
+Key Components of Disk Management
+
+1. Disk Formatting
+
+Disk formatting prepares a storage device for use by the operating system. It includes two levels:
+
+Low-Level Formatting (Physical Format):
+
+This process divides the disk into sectors that the disk controller can read and write. Each sector typically consists of:
+- A header (with metadata)
+- The actual data (commonly 512 bytes)
+- An error correction code (ECC)
+- Low-level formatting is performed by the manufacturer and is rarely done by users.
+
+Logical Formatting (Creating a File System):
+
+- This step creates the OS’s file system structures (such as allocation tables and free space maps). It enables the OS to store and manage files on the disk.
+- To enhance efficiency, file systems often group multiple blocks into clusters. While disk I/O operates in terms of blocks, file I/O works in terms of clusters. - Typical sector sizes range from 256 to 1024 bytes. Larger sector sizes reduce the number of headers and trailers, allowing more space for user data.
+
+2. Partitioning
+
+Partitioning divides a physical disk into multiple logical units or partitions, each treated by the OS as a separate disk. These partitions are often structured around cylinder groups, allowing for better data organization, multi-boot setups, and improved fault isolation.
+
+3. Booting from Disk
+
+The boot process begins when the computer is powered on. A small program stored in the bootstrap ROM initiates the system:
+
+- The ROM contains a minimal bootstrap loader that locates the full bootstrap program from the boot block on disk.
+- The full bootstrap code then loads the OS kernel into memory and transfers control to it, starting the operating system.
+- A disk that contains the operating system is known as a boot disk or system disk. Because ROM is non-volatile and read-only, it is safe from malware but difficult to update. Therefore, only the minimal loader resides in ROM, while the full bootstrap program can be modified and resides on disk.
+
+4. Bad Block Recovery
+
+Disks are prone to physical defects, often referred to as bad blocks, even when new. These can occur due to mechanical failures or manufacturing imperfections. 
+
+They are typically managed using:
+
+Sector Sparing (Sector Remapping):
+The disk controller replaces defective sectors with spare ones.
+
+Soft Errors:
+Handled through ECC during read/write operations.
+
+Hard Errors:
+Require manual intervention and may result in data loss.
+
+Types of disk failures include:
+
+- Complete disk failure (requiring replacement and data restoration from backup)
+- Partial sector corruption
+- Factory-detected bad sectors
+- Controllers maintain a list of such bad blocks to avoid using them during normal operation.
+
+5. Raw Disk Access (Raw I/O)
+
+Some operating systems allow special programs to bypass the file system and directly access a disk partition as a raw, sequential array of logical blocks. This approach, known as raw I/O, is particularly useful for applications like databases that require high-performance or specialized data handling.
+
+### Additional Disk Management Techniques
+
+Disk Space Allocation:
+Determines how space is assigned to files. 
+
+Common methods include:
+- Contiguous Allocation
+  
+- Linked Allocation
+  
+- Indexed Allocation
+
+Disk Defragmentation:
+Over time, files become fragmented, spreading across different areas of the disk. Defragmentation rearranges data to store files in contiguous sectors, improving read/write performance.
+
+*Advantages of Disk Management*
+- Efficient organization and use of storage
+  
+- Improved data integrity and reliability
+  
+- Enhanced performance through techniques like clustering and defragmentation
+  
+- Supports advanced functionalities like multiple partitions and boot management
+
+*Disadvantages of Disk Management*
+
+- Increased system overhead
+- Higher complexity in managing multiple partitions and file systems
+- Risk of data loss during formatting, partitioning, or in case of improper management
+
+## Data Protection and Security
+
+Access Control: Permissions, User Roles
+
+*What is RBAC?*
+
+Role-Based Access Control (RBAC), also known as role-based security, is a widely-used access control mechanism that restricts system access based on users' roles within an organization. Instead of assigning permissions to each individual user, RBAC groups permissions into roles, and then assigns those roles to users based on their job responsibilities.
+
+This model simplifies access management, enhances security, and ensures that users only have access to the data and resources necessary for their role—helping organizations enforce the principle of least privilege.
+
+*How RBAC Works*
+
+*RBAC consists of three main components:*
+
+Users – Individuals who need access to system resources
+
+Roles – Groups of permissions that reflect specific job functions
+
+Permissions – Rules that define allowed operations (e.g., read, write, delete) on system resources
+
+A user is assigned one or more roles, and each role is granted specific permissions. This means that managing access becomes a matter of modifying roles rather than individual user privileges—significantly reducing administrative overhead and the chance of human error.
+
+Example:
+
+In an HR system, roles can be defined as:
+
+HR Manager – Can view and update all employee records
+
+Employee – Can view only their own details
+
+RBAC Model & Overlapping Roles
+RBAC is additive in nature, meaning that if a user is assigned multiple roles, their effective permissions are the union of all permissions from those roles.
+
+Example:
+
+A user assigned both the Organizer (create, edit, view events) and Registrant (view, register for events) roles in an event management system will have all combined privileges—able to create, edit, view, and register for events.
+
+
+*Benefits of RBAC*
+
+- Simplified permission management through predefined roles
+  
+- Easier auditing of user permissions and access
+  
+- Consistent and repeatable access assignments
+  
+- Scalable management as user base grows
+  
+- Enhanced security by reducing the risk of excessive permissions
+  
+- Regulatory compliance through better access control practices
+  
+- Supports third-party access via predefined roles
+  
+RBAC in Practice: 
+
+Truth Table Example
+
+![image](https://github.com/user-attachments/assets/1c95ee09-d9f5-4547-a64e-22590169c9a5)
+
+Here, the "Reader" role is a subset of the "Writer" role, demonstrating how different levels of access can be structured.
+
+### Types of Access Control (RBAC & Alternatives)
+
+Access control mechanisms regulate who can access or use resources in a system. RBAC is one of several models available:
+
+*RBAC (Role-Based Access Control)*
+
+- Assigns permissions based on roles
+  
+- Scalable and easy to audit
+  
+- Ideal for organizations with well-defined job functions
+
+*Discretionary Access Control (DAC)*
+
+- Resource owners decide who can access their resources
+  
+- Offers more flexibility but is less secure
+  
+- Suitable for less regulated environments
+  
+- Can be implemented via RBAC
+
+*Mandatory Access Control (MAC)*
+
+- Central authority defines access based on security levels
+  
+- Common in government/military contexts
+  
+- Provides higher security
+  
+- Can be enforced using RBAC with predefined classifications
+
+*Access Control List (ACL)*
+
+- Lists attached to each resource/object specifying user permissions
+  
+- Detailed but complex to manage at scale
+
+*Practical Access Matrix Example*
+
+
+
 
