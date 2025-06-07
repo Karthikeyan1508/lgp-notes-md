@@ -152,7 +152,55 @@ D. ***Oblique Planes***
 | HP    | Top View (TV)   | Below XY         |
 | VP    | Front View (FV) | Above XY         |
 | PP    | Side View (SV)  | Right/Left of FV |
+
+
+**INTRODUCTION TO PROJECTION** 
+
+- Projecting the image of an object to the plane of projection is known as projection. The
+object may be a point, line, plane, solid, machine component or a building. Consider the
+following illustration to project the image of an object on to a plane.
+
+- Vertical plane (VP) which is assumed to be placed vertically. The front view of the
+object is projected onto this plane.
+
+- Horizontal plane (HP) which assumed to be placed horizontally. The top view of the
+object is projected onto this plane.
+
+![image](https://github.com/user-attachments/assets/cd71c3cf-92b6-4bea-b94b-1eb46cbb215f)
+
+- When an object is assumed to be placed in first quadrant, the projection method followed is
+called as first angle projection. In this method, the object is placed between the observer and
+the plane of projection.
+
+**First Angle Method:**
+
+ 1.The object lies In between the observer and the plane of projection. The plane of
+projection Is always behind the object.
+
+2. The object is assumed to be placed in first quadrant.
+   
+3. The front view or the elevation Is always above the top view or the plan.
+ 
+4. The right hand end view/side view Is drawn to the left and left hand end view Is drawn to
+the right.
+
+5. The plane of projection may or may not be transparent
+
+**Third Angle Method:**
+
+1. Between the observer and the object ore transparent planes of projection. The plane of
+projection Is always In front of the object.
+
+2. The projections are drawn assuming that Uie object Is situated In third quadrant.
   
+3. The front view Is always below the top view.
+ 
+4. The right hand end view is drawn to the right and left hand end view Is drawn to the left.
+  
+5. The plane of projection Is always transparent.
+
+![image](https://github.com/user-attachments/assets/f821cf45-b138-4cff-b573-7d1b218b0a4d)
+
 
 # Geometric Dimensioning and Tolerancing (GD&T)
 
